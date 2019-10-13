@@ -1,0 +1,52 @@
+html {
+  display: block;
+}
+
+body {
+  padding-left: 15px;
+  min-width: 200px;
+  max-width: 758px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+blockquote {
+    border-left: .25em solid #93a0b8;
+    padding: 0 1em;
+}
+
+mark {
+    background-color: #f2d99d;
+    padding: 2px 6px;
+}
+
+mark strong {
+    color: #1e1e1f;
+}
+
+h2 {
+    font-weight: bold;
+}
+
+h3 {
+    font-weight: bold;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-info {
+    background-color: #193554;
+    color: #edeef5;
+    border-color: #193554;
+}
+
+.alert-danger {
+    background-color: #5e1e2a;
+    color: #f0d5d5;
+    border-color: #5e1e2a;
+}
