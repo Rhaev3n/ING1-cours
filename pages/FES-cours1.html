@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html data-markdown-preview-plus-context="html-export">
+  <head>
+    <meta charset="utf-8" />
+    <title>FES-cours1</title><script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX","output/HTML-CSS"],
+    extensions: ["[a11y]/accessibility-menu.js"],
+    'HTML-CSS': {
+      availableFonts: [],
+      webFont: 'TeX',
+      undefinedFamily: "serif",
+      mtextFontInherit: true,
+    },
+    TeX: {
+  "Macros": {},
+  "equationNumbers": {},
+  "extensions": [
+    "AMSmath.js",
+    "AMSsymbols.js",
+    "noErrors.js",
+    "noUndefined.js"
+  ]
+},
+    showMathMenu: true
+  });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js"></script>
+    <style>.emoji {
+  max-width: 1em !important;
+}
+del {
+  text-decoration: none;
+  position: relative;
+}
+del::after {
+  border-bottom: 1px solid black;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+ul.contains-task-list li.task-list-item {
+  position: relative;
+  list-style-type: none;
+}
+ul.contains-task-list li.task-list-item input.task-list-item-checkbox {
+  position: absolute;
+  transform: translateX(-100%);
+  width: 30px;
+}
+span.critic.comment {
+  position: relative;
+}
+span.critic.comment::before {
+  content: '\1f4ac';
+  position: initial;
+}
+span.critic.comment > span {
+  display: none;
+}
+span.critic.comment:hover > span {
+  display: initial;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  border: 1px solid;
+  border-radius: 5px;
+  max-height: 4em;
+  overflow: auto;
+}
+span.critic.comment:focus > span {
+  display: initial;
+  text-decoration: underline;
+  position: initial;
+  top: auto;
+  left: auto;
+  border: initial;
+  border-radius: initial;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: transparent;
+}
+
+body {
+  padding: 2em;
+  font-size: 1.2em;
+  color: #abb2bf;
+  background-color: #282c34;
+  overflow: auto;
+}
+body > :first-child,
+body > div.update-preview > :first-child {
+  margin-top: 0;
+}
+body > p,
+body > div.update-preview > p {
+  margin-top: 0;
+  margin-bottom: 1.5em;
+}
+body > ul,
+body > div.update-preview > ul,
+body > ol,
+body > div.update-preview > ol {
+  margin-bottom: 1.5em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  color: #ffffff;
+}
+h1 {
+  font-size: 2.4em;
+  font-weight: 300;
+}
+h2 {
+  font-size: 1.8em;
+  font-weight: 400;
+}
+h3 {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+h4 {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+h5 {
+  font-size: 1.1em;
+  font-weight: 600;
+}
+h6 {
+  font-size: 1em;
+  font-weight: 600;
+}
+strong {
+  color: #ffffff;
+}
+del {
+  color: #7c879c;
+}
+a,
+a code {
+  color: #528bff;
+}
+img {
+  max-width: 100%;
+}
+blockquote {
+  margin: 1.5em 0;
+  font-size: inherit;
+  color: #7c879c;
+  border-color: #4b5362;
+  border-width: 4px;
+}
+hr {
+  margin: 3em 0;
+  border-top: 2px dashed #4b5362;
+  background: none;
+}
+table {
+  margin: 1.5em 0;
+}
+th {
+  color: #ffffff;
+}
+th,
+td {
+  padding: 0.66em 1em;
+  border: 1px solid #4b5362;
+}
+code {
+  color: #ffffff;
+  background-color: #3a3f4b;
+}
+pre.editor-colors {
+  margin: 1.5em 0;
+  padding: 1em;
+  font-size: 0.92em;
+  border-radius: 3px;
+  background-color: #31363f;
+}
+kbd {
+  color: #ffffff;
+  border: 1px solid #4b5362;
+  border-bottom: 2px solid #3e4451;
+  background-color: #3a3f4b;
+}
+
+pre.editor-colors {
+  color: #839496;
+  background-color: #002b36;
+}
+pre.editor-colors .gutter {
+  color: #839496;
+  background-color: #073642;
+}
+pre.editor-colors .gutter .line-number.cursor-line {
+  background-color: #0a4d5e;
+}
+pre.editor-colors .invisible-character {
+  color: #0a4d5e;
+}
+pre.editor-colors .indent-guide {
+  color: #0a4d5e;
+}
+pre.editor-colors .cursor {
+  border-color: #fdf6e3;
+}
+pre.editor-colors .cursor-line {
+  background-color: rgba(0, 165, 207, 0.08);
+}
+pre.editor-colors .selection .region {
+  background-color: #073a47;
+}
+pre.editor-colors .fold-marker:after,
+pre.editor-colors .gutter .line-number.folded {
+  color: #d33682;
+}
+pre.editor-colors .bracket-matcher .region {
+  border-color: #d33682;
+}
+.syntax--comment {
+  color: #586e75;
+  font-style: italic;
+}
+.syntax--comment .syntax--markup.syntax--link {
+  color: #586e75;
+}
+.syntax--string {
+  color: #2aa198;
+}
+.syntax--string.syntax--regexp {
+  color: #dc322f;
+}
+.syntax--constant.syntax--numeric {
+  color: #d33682;
+}
+.syntax--constant.syntax--language {
+  color: #b58900;
+}
+.syntax--constant.syntax--character,
+.syntax--constant.syntax--other,
+.syntax--constant.syntax--support {
+  color: #cb4b16;
+}
+.syntax--variable {
+  color: #268bd2;
+}
+.syntax--keyword {
+  color: #859900;
+}
+.syntax--storage {
+  color: #859900;
+}
+.syntax--meta.syntax--class {
+  color: #268bd2;
+}
+.syntax--entity.syntax--name.syntax--class,
+.syntax--entity.syntax--name.syntax--function,
+.syntax--entity.syntax--name.syntax--section,
+.syntax--entity.syntax--name.syntax--type {
+  color: #268bd2;
+}
+.syntax--entity.syntax--other.syntax--attribute-name {
+  color: #657b83;
+}
+.syntax--support.syntax--function {
+  color: #268bd2;
+}
+.syntax--support.syntax--function.syntax--builtin {
+  color: #859900;
+}
+.syntax--support.syntax--type,
+.syntax--support.syntax--class {
+  color: #859900;
+}
+.syntax--tag.syntax--entity.syntax--name {
+  color: #268bd2;
+}
+.syntax--tag.syntax--punctuation.syntax--definition.syntax--html,
+.syntax--tag.syntax--punctuation.syntax--definition.syntax--begin,
+.syntax--tag.syntax--punctuation.syntax--definition.syntax--end {
+  color: #586e75;
+}
+.syntax--invalid.syntax--deprecated {
+  color: #b58900;
+  text-decoration: underline;
+}
+.syntax--invalid.syntax--illegal {
+  color: #dc322f;
+  text-decoration: underline;
+}
+.syntax--none {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--meta.syntax--preprocessor,
+.syntax--source.syntax--cpp .syntax--meta.syntax--preprocessor {
+  color: #dc322f;
+}
+.syntax--source.syntax--c .syntax--keyword.syntax--control.syntax--directive,
+.syntax--source.syntax--cpp .syntax--keyword.syntax--control.syntax--directive {
+  color: #cb4b16;
+}
+.syntax--source.syntax--c .syntax--punctuation.syntax--string,
+.syntax--source.syntax--cpp .syntax--punctuation.syntax--string {
+  color: #2aa198;
+}
+.syntax--source.syntax--c .syntax--constant,
+.syntax--source.syntax--cpp .syntax--constant {
+  color: #cb4b16;
+}
+.syntax--source.syntax--c .syntax--constant.syntax--numeric,
+.syntax--source.syntax--cpp .syntax--constant.syntax--numeric,
+.syntax--source.syntax--c .syntax--constant.syntax--language.syntax--c,
+.syntax--source.syntax--cpp .syntax--constant.syntax--language.syntax--c {
+  color: #2aa198;
+}
+.syntax--source.syntax--c .syntax--storage,
+.syntax--source.syntax--cpp .syntax--storage {
+  color: #b58900;
+}
+.syntax--source.syntax--c .syntax--entity,
+.syntax--source.syntax--cpp .syntax--entity {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--entity.syntax--name.syntax--function.syntax--preprocessor,
+.syntax--source.syntax--cpp .syntax--entity.syntax--name.syntax--function.syntax--preprocessor {
+  color: #dc322f;
+}
+.syntax--source.syntax--c .syntax--support.syntax--type,
+.syntax--source.syntax--cpp .syntax--support.syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--c .syntax--support.syntax--type.syntax--posix-reserved,
+.syntax--source.syntax--cpp .syntax--support.syntax--type.syntax--posix-reserved {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--variable.syntax--other.syntax--dot-access,
+.syntax--source.syntax--cpp .syntax--variable.syntax--other.syntax--dot-access {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--variable.syntax--parameter.syntax--preprocessor,
+.syntax--source.syntax--cpp .syntax--variable.syntax--parameter.syntax--preprocessor {
+  color: #dc322f;
+}
+.syntax--source.syntax--coffee .syntax--support.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--variable,
+.syntax--source.syntax--coffee .syntax--entity.syntax--name.syntax--function,
+.syntax--source.syntax--coffee .syntax--entity.syntax--name.syntax--class {
+  color: #268bd2;
+}
+.syntax--source.syntax--coffee .syntax--variable.syntax--parameter.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--variable.syntax--other.syntax--readwrite {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--storage.syntax--type.syntax--function {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--entity.syntax--name {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--meta.syntax--brace.syntax--round,
+.syntax--source.syntax--coffee .syntax--meta.syntax--brace.syntax--square {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--meta.syntax--delimiter {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--storage.syntax--type.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--punctuation.syntax--terminator {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--punctuation.syntax--section.syntax--embedded {
+  color: #dc322f;
+}
+.syntax--source.syntax--coffee .syntax--embedded.syntax--source {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--constant.syntax--numeric {
+  color: #d33682;
+}
+.syntax--source.syntax--coffee .syntax--constant.syntax--language.syntax--boolean {
+  color: #b58900;
+}
+.syntax--source.syntax--css .syntax--punctuation.syntax--separator,
+.syntax--source.syntax--css .syntax--punctuation.syntax--terminator {
+  color: #839496;
+}
+.syntax--source.syntax--css .syntax--punctuation.syntax--property-list.syntax--begin,
+.syntax--source.syntax--css .syntax--punctuation.syntax--property-list.syntax--end {
+  color: #dc322f;
+}
+.syntax--source.syntax--css .syntax--punctuation.syntax--section.syntax--function {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--entity.syntax--name {
+  color: #859900;
+}
+.syntax--source.syntax--css .syntax--attribute-name.syntax--class,
+.syntax--source.syntax--css .syntax--id {
+  color: #268bd2;
+}
+.syntax--source.syntax--css .syntax--pseudo-element,
+.syntax--source.syntax--css .syntax--pseudo-class {
+  color: #cb4b16;
+}
+.syntax--source.syntax--css .syntax--property-value {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--constant.syntax--numeric {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--constant.syntax--numeric .syntax--unit {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--rgb-value {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--support.syntax--constant {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--support.syntax--constant.syntax--media {
+  color: #dc322f;
+}
+.syntax--source.syntax--css .syntax--keyword.syntax--important {
+  color: #dc322f;
+}
+.syntax--source.syntax--less .syntax--keyword.syntax--unit,
+.syntax--source.syntax--scss .syntax--keyword.syntax--unit {
+  color: #2aa198;
+}
+.syntax--source.syntax--go .syntax--operator {
+  color: #839496;
+}
+.syntax--source.syntax--go .syntax--operator.syntax--assignment {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--keyword.syntax--operator {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--keyword.syntax--import {
+  color: #cb4b16;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--modifier.syntax--import {
+  color: #586e75;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--class .syntax--storage.syntax--modifier {
+  color: #b58900;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--class .syntax--meta.syntax--class.syntax--identifier .syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #268bd2;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--type.syntax--primitive.syntax--array {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--constant.syntax--numeric {
+  color: #d33682;
+}
+.syntax--source.syntax--java .syntax--constant.syntax--other {
+  color: #cb4b16;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--type {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--method-call {
+  color: #dc322f;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--method-call .syntax--meta.syntax--method {
+  color: #6c71c4;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--method-call .syntax--punctuation.syntax--definition.syntax--seperator.syntax--parameter {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--punctuation.syntax--definition.syntax--method-parameters {
+  color: #93a1a1;
+}
+.syntax--source.syntax--js .syntax--comma {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--support.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name.syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name.syntax--function {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name.syntax--tag {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--other.syntax--attribute-name {
+  color: #b58900;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--brace {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--keyword {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--new {
+  color: #859900;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--control {
+  color: #cb4b16;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--control.syntax--regexp {
+  color: #2aa198;
+}
+.syntax--source.syntax--js .syntax--variable {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--variable.syntax--dom {
+  color: #859900;
+}
+.syntax--source.syntax--js .syntax--delimiter + .syntax--dom {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--name {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--variable.syntax--language {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--variable.syntax--parameter {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--regexp {
+  color: #2aa198;
+}
+.syntax--source.syntax--js .syntax--support.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--support.syntax--constant {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--storage.syntax--modifier {
+  color: #b58900;
+}
+.syntax--source.syntax--js .syntax--punctuation.syntax--terminator.syntax--statement {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--delimiter.syntax--method.syntax--period {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--brace.syntax--square {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--brace.syntax--curly {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--string.syntax--quoted.syntax--template .syntax--embedded.syntax--source {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--string.syntax--quoted.syntax--template .syntax--embedded.syntax--source > .syntax--embedded.syntax--punctuation {
+  color: #dc322f;
+}
+.syntax--source.syntax--js.syntax--embedded .syntax--entity.syntax--name.syntax--tag {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--import .syntax--control {
+  color: #cb4b16;
+}
+.syntax--source.syntax--js.syntax--rails .syntax--instance {
+  color: #268bd2;
+}
+.syntax--source.syntax--js.syntax--rails .syntax--class {
+  color: #b58900;
+}
+.syntax--md .syntax--link .syntax--entity,
+.syntax--gfm .syntax--link .syntax--entity {
+  color: #6c71c4;
+}
+.syntax--md .syntax--list.syntax--ordered,
+.syntax--gfm .syntax--list.syntax--ordered {
+  color: #859900;
+}
+.syntax--md .syntax--list.syntax--unordered,
+.syntax--gfm .syntax--list.syntax--unordered {
+  color: #b58900;
+}
+.syntax--md .syntax--raw,
+.syntax--gfm .syntax--raw {
+  font-style: italic;
+}
+.syntax--md.syntax--support,
+.syntax--gfm.syntax--support {
+  color: #586e75;
+}
+.syntax--md.syntax--support.syntax--quote,
+.syntax--gfm.syntax--support.syntax--quote {
+  color: #6c71c4;
+}
+.syntax--markup.syntax--bold {
+  font-weight: bold;
+}
+.syntax--markup.syntax--italic {
+  font-style: italic;
+}
+.syntax--markup.syntax--heading {
+  color: #268bd2;
+}
+.syntax--markup.syntax--link {
+  color: #2aa198;
+}
+.syntax--markup.syntax--deleted {
+  color: #dc322f;
+}
+.syntax--markup.syntax--changed {
+  color: #b58900;
+}
+.syntax--markup.syntax--inserted {
+  color: #2aa198;
+}
+.syntax--source.syntax--php .syntax--storage.syntax--type.syntax--class {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--storage.syntax--type.syntax--function {
+  color: #cb4b16;
+}
+.syntax--source.syntax--php .syntax--storage.syntax--modifier {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--entity.syntax--name.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--entity.syntax--other {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--variable {
+  color: #268bd2;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--comment {
+  color: #586e75;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--array {
+  color: #dc322f;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--string {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--variable {
+  color: #859900;
+}
+.syntax--source.syntax--php .syntax--support.syntax--function.syntax--construct {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--support.syntax--function.syntax--array {
+  color: #859900;
+}
+.syntax--source.syntax--php .syntax--keyword.syntax--operator.syntax--class {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--keyword.syntax--operator.syntax--assignment {
+  color: #859900;
+}
+.syntax--source.syntax--php .syntax--keyword.syntax--other {
+  color: #dc322f;
+}
+.syntax--source.syntax--python .syntax--entity {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--entity.syntax--name {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--entity.syntax--other {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--function {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--function.syntax--magic {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--string {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator.syntax--quantifier {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator.syntax--logical {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--control.syntax--import {
+  color: #cb4b16;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--other {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--constant.syntax--language {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--constant.syntax--character {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--constant.syntax--other {
+  color: #dc322f;
+}
+.syntax--source.syntax--python .syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--variable {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--support.syntax--function.syntax--builtin {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--support.syntax--type.syntax--exception.syntax--python {
+  color: #b58900;
+}
+.syntax--source.syntax--python .syntax--support.syntax--type.syntax--python {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--string {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--class.syntax--todo {
+  color: #d33682;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--function {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--definition.syntax--parameters {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--section.syntax--function.syntax--begin {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--separator.syntax--parameters {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--meta.syntax--embedded .syntax--punctuation.syntax--section {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--definition {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--definition.syntax--string {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--definition.syntax--comment {
+  color: #586e75;
+}
+.syntax--source.syntax--ruby .syntax--entity.syntax--inherited-class {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--parameter {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--constant {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--constant.syntax--boolean {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--instance .syntax--punctuation.syntax--definition {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--class {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--class.syntax--control {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--module {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--require .syntax--keyword.syntax--other.syntax--special-method {
+  color: #cb4b16;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--other.syntax--special-method {
+  color: #cb4b16;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--other {
+  color: #859900;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--control {
+  color: #859900;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--operator {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--special-method {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--symbol {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--symbol .syntax--punctuation.syntax--definition {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--hashkey {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--hashkey .syntax--punctuation.syntax--definition {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--regexp {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--todo {
+  color: #d33682;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--ruby.syntax--global {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--ruby.syntax--global .syntax--punctuation {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--block {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--self {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--separator {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--numeric {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--section.syntax--regexp {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--punctuation .syntax--source.syntax--ruby {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--source.syntax--ruby {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--source.syntax--ruby .syntax--punctuation.syntax--array,
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--source.syntax--ruby .syntax--punctuation.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--support.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--support.syntax--function.syntax--kernel {
+  color: #859900;
+}
+.syntax--source.syntax--scala .syntax--variable {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--declaration {
+  color: #93a1a1;
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--comparison {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--class,
+.syntax--source.syntax--scala .syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--scala .syntax--val {
+  font-weight: normal;
+}
+.syntax--source.syntax--scala .syntax--variable {
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--variable.syntax--parameter {
+  color: #6c71c4;
+  font-weight: normal;
+}
+.syntax--source.syntax--scala .syntax--control.syntax--flow {
+  color: #93a1a1;
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--constant.syntax--language {
+  color: #93a1a1;
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--function.syntax--declaration {
+  color: #6c71c4;
+}
+.syntax--source.syntax--scala .syntax--modifier.syntax--other {
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--package {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--variable.syntax--import {
+  font-weight: normal;
+}
+.syntax--source.syntax--scala .syntax--type .syntax--bounds,
+.syntax--source.syntax--scala .syntax--type .syntax--class {
+  color: #6c71c4;
+}
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded).syntax--link.syntax--entity {
+  color: #268bd2;
+  text-decoration: underline;
+}
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded) .syntax--class,
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded) .syntax--parameter {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded) .syntax--description {
+  color: #586e75;
+}
+.syntax--source.syntax--scala .syntax--embedded {
+  color: #6c7c7c;
+  font-style: italic;
+}
+.syntax--source.syntax--scala .syntax--embedded .syntax--margin,
+.syntax--source.syntax--scala .syntax--embedded .syntax--delimiters {
+  font-style: normal;
+}
+.syntax--source.syntax--ts .syntax--import .syntax--control,
+.syntax--source.syntax--tsx .syntax--import .syntax--control {
+  color: #cb4b16;
+}
+.syntax--source.syntax--ts .syntax--entity.syntax--name.syntax--type,
+.syntax--source.syntax--tsx .syntax--entity.syntax--name.syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--ts .syntax--entity.syntax--inherited-class,
+.syntax--source.syntax--tsx .syntax--entity.syntax--inherited-class {
+  color: #b58900;
+}
+.syntax--source.syntax--ts .syntax--support.syntax--type,
+.syntax--source.syntax--tsx .syntax--support.syntax--type {
+  color: #b58900;
+}
+</style>
+
+<link rel="stylesheet" type="text/css" href="../style.css">
+
+  </head>
+  <body>
+    <h1>[FES] Formalismes, Ensembles et Structure (1)</h1>
+<blockquote>
+<p>Vocabulaire <img class="emoji" draggable="false" alt="❤️" src="/home/rhaeven/.atom/packages/markdown-preview-plus/node_modules/twemoji-assets/assets/svg/2764.svg"> relatif aux ensembles structures et aux relations</p>
+</blockquote>
+<h2>I. Ensembles</h2>
+<h3>1.1 Ensembles et elements</h3>
+<ul>
+<li>La notion d’ensemble est une notion premiere que nous ne cherchons pas a definir</li>
+</ul>
+<blockquote>
+<p>Collection d’objets</p>
+</blockquote>
+<ul>
+<li>Disons seulement qu’un <strong>ensemble</strong> est un objet auquel peut appartenir ou ne pas appartenir un autre objet. On note :</li>
+</ul>
+<span class="math display-math"><script type="math/tex; mode=display">\begin{cases}
+x \in E \\
+x \notin E
+\end{cases}</script></span>
+<hr>
+<p>Quand on definit un ensemble il faut faire attention aux contradictions</p>
+<blockquote>
+<p>cf Paradoxe de Russel</p>
+</blockquote>
+<p>Pour echapper a ces contradictions &gt; il faut respecter des regles precises pour definir des ensembles
+Certains ensembles definis de maniere <strong>axiomatique</strong> (par exemple <span class="math inline-math"><script type="math/tex">\mathbb{N}</script></span>)
+D’autres peuvent etre <strong>construits</strong> a partir de ceux la avec des operations convenables (par exemple <span class="math inline-math"><script type="math/tex">\mathbb{Z}</script></span>)</p>
+<h3>1.2 Sous-ensembles</h3>
+<p><mark><strong>Definition (Sous-ensemble)</strong></mark></p>
+
+<p>Soient E et F deux ensembles. On dit que F est inclus dans E si tout element de F est element de E.
+On note <span class="math inline-math"><script type="math/tex">F \subset E</script></span>. On dit aussi que F est un <strong>sous-ensemble</strong> ou une <strong>partie</strong> de E.</p>
+<blockquote>
+<p>Exemple : <span class="math inline-math"><script type="math/tex">\mathbb{N} \in \mathbb{Z}</script></span></p>
+</blockquote>
+<p>Deux ensembles sont <strong>egaux</strong> ssi ils ont exactement les memes elements (si chacun est inclus dans l’autre) :</p>
+<span class="math display-math"><script type="math/tex; mode=display">E = F \iff (E \subset F\ et\ F \subset E)
+</script></span>
+<p>Un <strong>sous ensemble</strong> de E peut etre defini comme ensemble des elements de E verifiant une certaine proposition</p>
+<blockquote>
+<p>Exemple : <span class="math inline-math"><script type="math/tex">\mathbb{R}_+ = {x \in \mathbb{R}, x \geq 0}</script></span>
+Exercice : <span class="math inline-math"><script type="math/tex">E = \{1, 2, 4, 6, 10\}\ et\ F = {x \in E, x \leq 4}</script></span></p>
+</blockquote>
+<p>En particulier, si cette proposition est impossible on obtient l’<strong>ensemble vide</strong> qui doit etre considere comme un sous-ensemble de nimporte quel ensemble. On le note <span class="math inline-math"><script type="math/tex">\varnothing</script></span>.</p>
+<p>Un ensemble qui possede un unique element est appele <strong>singleton</strong>. Il ne faut pas confondre l’element x et le singleton <span class="math inline-math"><script type="math/tex">{x}</script></span>. On peut ecrire : <span class="math inline-math"><script type="math/tex">2 \in N\ ou\ {2} \subset \mathbb{N}</script></span> mais pas l’inverse.</p>
+<h3>1.3 Produit cartesien</h3>
+<p>Soit E et F deux ensembles. On peut construire un nouvel ensemble appele <strong>produit cartesien</strong> de E et F, note <span class="math inline-math"><script type="math/tex">E \times F</script></span>, dont les elements sont les couples formes d’un element de E et d’un element de F :</p>
+<span class="math display-math"><script type="math/tex; mode=display">(x, y) \in E \times F \iff (x \in E\ et\ y \in F)
+</script></span>
+<p>Si <span class="math inline-math"><script type="math/tex">E = F</script></span> on note <span class="math inline-math"><script type="math/tex">E \times E = E^2,\ E \times E \times E = E^3</script></span> etc</p>
+<blockquote>
+<p>Exemple : <span class="math inline-math"><script type="math/tex">(1, \sqrt{2}) \in \mathbb{R}</script></span> L’ensemble <span class="math inline-math"><script type="math/tex">\mathbb{R}^2</script></span> peut etre identifie a un plan muni d’un repere cartesien</p>
+</blockquote>
+<h3>1.4 Quantificateurs</h3>
+<ul>
+<li>Soit <span class="math inline-math"><script type="math/tex">P(x)</script></span> une proposition dependant d’un element <span class="math inline-math"><script type="math/tex">x</script></span> d’un certain ensemble E
+La proposition <span class="math inline-math"><script type="math/tex">\forall x \in E, P(x)</script></span> signifie que tout element <span class="math inline-math"><script type="math/tex">x</script></span> de E verifie la proposition <span class="math inline-math"><script type="math/tex">P(x)</script></span>.</li>
+</ul>
+<span class="math display-math"><script type="math/tex; mode=display">\forall x \in E, P(x) \iff {x \in E, P(x)} = E
+</script></span>
+<ul>
+<li>La proposition <span class="math inline-math"><script type="math/tex">\exists x \in E</script></span>, <span class="math inline-math"><script type="math/tex">P(x)</script></span> signifie qu’il existe au moins un element <span class="math inline-math"><script type="math/tex">x</script></span> de E qui verifie la proposition <span class="math inline-math"><script type="math/tex">P(x)</script></span></li>
+</ul>
+<span class="math display-math"><script type="math/tex; mode=display">\exists x \in E, P(x) \iff {x \in E, P(x)} \neq \varnothing
+</script></span>
+<h3>1.5 Negation d’une proposition</h3>
+<p><mark><strong>Definition (Negation d’une proposition)</strong></mark></p>
+
+<p>Soit P une proposition qui est vraie (1) ou fausse (0).
+On note <span class="math inline-math"><script type="math/tex">\overline P</script></span> la <strong>negation</strong> de la proposition P, c-a-d la proposition qui est vraie si P est fausse, et faussi si P est vraie. Notons que</p>
+<span class="math display-math"><script type="math/tex; mode=display">\overline{P\ ou\ Q} \iff \overline P\ et\ \overline Q
+</script></span>
+<span class="math display-math"><script type="math/tex; mode=display">\overline{P\ et\ Q} \iff \overline P\ ou\ \overline Q
+</script></span>
+<p><div class="alert alert-info">
+“et” se note aussi <span class="math inline-math"><script type="math/tex">\land</script></span>
+“ou” se note aussi <span class="math inline-math"><script type="math/tex">\lor</script></span>
+</div></p>
+<p>D’autre part, comme l’implication <span class="math inline-math"><script type="math/tex">P \Rightarrow Q</script></span> possede la table de verite</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">P</th>
+<th style="text-align:center">Q</th>
+<th style="text-align:center"><span class="math inline-math"><script type="math/tex">P \Rightarrow Q</script></span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">V</td>
+<td style="text-align:center">V</td>
+<td style="text-align:center">V</td>
+</tr>
+<tr>
+<td style="text-align:center">V</td>
+<td style="text-align:center">F</td>
+<td style="text-align:center">F</td>
+</tr>
+<tr>
+<td style="text-align:center">F</td>
+<td style="text-align:center">V</td>
+<td style="text-align:center">V</td>
+</tr>
+<tr>
+<td style="text-align:center">F</td>
+<td style="text-align:center">F</td>
+<td style="text-align:center">V</td>
+</tr>
+</tbody>
+</table>
+<p>La proposition <span class="math inline-math"><script type="math/tex">P \Rightarrow Q</script></span> est logiquement equivalente a <span class="math inline-math"><script type="math/tex">\overline P</script></span> ou <span class="math inline-math"><script type="math/tex">Q</script></span> dans le cadre de la logique classique</p>
+<ul>
+<li>La <strong>negation</strong> de <span class="math inline-math"><script type="math/tex">P \Rightarrow Q</script></span> s’ecrit <span class="math inline-math"><script type="math/tex">\overline{P \Rightarrow Q} \iff (P\ et\ \overline Q)</script></span></li>
+<li>Notons d’ailleurs que <span class="math inline-math"><script type="math/tex">(P \Rightarrow Q) \iff (\overline Q \Rightarrow \overline P)</script></span>. C’est la <strong>contraposee</strong> de l’implication, parfois plus facile a demontrer que l’implication elle meme</li>
+<li>C’est le principe du <strong>raisonnement par l’absurde</strong> : suppose le contraire de ce que l’on veut demontrer, et on cherche une contradiction de l’une des hypotheses</li>
+</ul>
+<h3>1.6 Negation d’une proposition avec des quantificateurs</h3>
+<ul>
+<li>La proposition <span class="math inline-math"><script type="math/tex">\forall x \in E</script></span> P(x) signifie que tous les elements de E verifient la propriete <span class="math inline-math"><script type="math/tex">P(x)</script></span>, sa <strong>negation</strong> est qu’il existe au moins un qui ne la verifie pas</li>
+</ul>
+<span class="math display-math"><script type="math/tex; mode=display">\overline{\forall x \in E, P(x)} \iff  \exists x \in E, \overline{P(x)}
+</script></span>
+<ul>
+<li>La proposition <span class="math inline-math"><script type="math/tex">\exists x \in E</script></span> P(x) signifie que tous les elements de E verifient la propriete <span class="math inline-math"><script type="math/tex">P(x)</script></span>, sa <strong>negation</strong> est qu’aucun d’entre eux ne la verifie :</li>
+</ul>
+<span class="math display-math"><script type="math/tex; mode=display">\overline{\exists x \in E, P(x)} \iff  \forall x \in E, \overline{P(x)}
+</script></span>
+<blockquote>
+<p>ex : <span class="math inline-math"><script type="math/tex">\exists m \in R \exists M \in R \forall x \in R f(x) \geq m\ et\ f(x) \leq M</script></span>
+<span class="math inline-math"><script type="math/tex">\forall m \in R \forall M \in R \exists x \in R f(x) \geq m\ ou\ f(x) \leq M</script></span></p>
+</blockquote>
+<h2>2 Ensemble des parties d’un ensemble</h2>
+<h3>2.1 Ensemble <span class="math inline-math"><script type="math/tex">\mathcal{P}(E)</script></span></h3>
+<ul>
+<li>Tous les sous-ensembles E constituent un nouvel ensemble appele <strong>ensemble des parties de E</strong> et note <span class="math inline-math"><script type="math/tex">\mathcal{P}(E)</script></span></li>
+</ul>
+<span class="math display-math"><script type="math/tex; mode=display">A \in \mathcal{P}(E) \iff A \subset E
+</script></span>
+<blockquote>
+<p>Ex si <span class="math inline-math"><script type="math/tex">E = \{a, b, c\}</script></span> alors
+<span class="math inline-math"><script type="math/tex">\mathcal{P}(E) = \{\varnothing, \{a\}, \{b\}, \{c\}, \{a, b\}, \{a, c\}, \{b, c\}, E\}</script></span></p>
+</blockquote>
+<p><strong>Remarque</strong> : L’ensemble <span class="math inline-math"><script type="math/tex">\mathcal{P}(\varnothing)</script></span> n’est pas vide puisqu’il contient l’element <span class="math inline-math"><script type="math/tex">\varnothing</script></span>. C’est un singleton <span class="math inline-math"><script type="math/tex">\mathcal{P}(\varnothing) = {\varnothing}</script></span></p>
+<h3>2.2 Operations dans <span class="math inline-math"><script type="math/tex">\mathcal{P}(E)</script></span></h3>
+<p>Soit E un ensemble et A et B deux parties de E. On peut definir de nouvelles parties de E par les operations suivantes :</p>
+<ul>
+<li><mark><strong>Complementaire</strong></mark> : <span class="math inline-math"><script type="math/tex">C_EA</script></span> est l’ensemble des elements de E qui n’appartiennent pas a A (eq ensembliste de la negation)</li>
+</ul>
+<blockquote>
+<p>ie <span class="math inline-math"><script type="math/tex">\forall x \in E, x \in C_EA \iff x \notin E</script></span>
+ex <span class="math inline-math"><script type="math/tex">C_{\mathbb{R}}{0} = \mathbb{R}^*</script></span></p>
+</blockquote>
+<ul>
+<li><mark><strong>Intersection</strong></mark> : <span class="math inline-math"><script type="math/tex">A \cap B</script></span> est l’ensemble des elements appartenant a la fois a A et a B (eq ensembliste de la conjonction)</li>
+</ul>
+<blockquote>
+<p>ie <span class="math inline-math"><script type="math/tex">\forall x \in E, x \in A \cap B \iff x \in A\ et\ x \in B</script></span>
+ex <span class="math inline-math"><script type="math/tex">\mathbb{R}_+ \cap \mathbb{R}_- = {0}</script></span></p>
+</blockquote>
+<ul>
+<li><mark><strong>Reunion</strong></mark> : <span class="math inline-math"><script type="math/tex">A \cup B</script></span> est l’ensemble des elements a A ou a B (eq ensembliste de la disjonction)</li>
+</ul>
+<blockquote>
+<p>ie <span class="math inline-math"><script type="math/tex">\forall x \in E, x \in A \cup B \iff x \in A\ ou\ x \in B</script></span>
+ex <span class="math inline-math"><script type="math/tex">\mathbb{R}_+ \cup \mathbb{R}_- = \mathbb{R}</script></span></p>
+</blockquote>
+<ul>
+<li><mark><strong>Difference</strong></mark> : A \ B ensemble des elements de E appartenant a A mais pas a B (eq negation de l’implication ou encore "prive de ")</li>
+</ul>
+<blockquote>
+<p>ie <span class="math inline-math"><script type="math/tex">A \setminus B = A \cap C_EB</script></span>
+ex <span class="math inline-math"><script type="math/tex">\mathbb{R}_+ \setminus \mathbb{R}_- = \mathbb{R}_+^*</script></span></p>
+</blockquote>
+<ul>
+<li><mark><strong>Difference symetrique</strong></mark> <span class="math inline-math"><script type="math/tex">A \triangle B</script></span> ensemble des elements de E qui appartiennent soit a A soit a B mais pas aux deux a la fois  (eq de la disjonction exclusive)</li>
+</ul>
+<blockquote>
+<p>ie <span class="math inline-math"><script type="math/tex">A \triangle B = (A \cup B) \setminus (A \cap B)</script></span>
+ex <span class="math inline-math"><script type="math/tex">\mathbb{R}_+ \triangle \mathbb{R}_- = \mathbb{R}^*</script></span></p>
+</blockquote>
+<h3>2.3 Proprietes</h3>
+<p><mark><strong>Proprietes</strong></mark></p>
+<ul>
+<li><span class="math inline-math"><script type="math/tex">A \cap B = B \cap A</script></span></li>
+<li><span class="math inline-math"><script type="math/tex">A \cup B = B \cup A</script></span></li>
+<li><span class="math inline-math"><script type="math/tex">A \triangle B = B \triangle A</script></span></li>
+<li><span class="math inline-math"><script type="math/tex">A \cap (B \cap C) = (A \cap B) \cap C</script></span></li>
+<li><span class="math inline-math"><script type="math/tex">A \cup (B \cup C) = (A \cup B) \cup C</script></span></li>
+<li><span class="math inline-math"><script type="math/tex">A \triangle (B \triangle C) = (A \triangle B) \triangle C</script></span></li>
+<li><span class="math inline-math"><script type="math/tex">A \cap (B \cup C) = (A \cap B) \cup (A \cap C)</script></span></li>
+<li><span class="math inline-math"><script type="math/tex">A \cup (B \cap C) = (A U B) \cap (A \cup C)</script></span></li>
+<li><span class="math inline-math"><script type="math/tex">C_E(A \cap B) = C_EA \cup C_EB</script></span></li>
+<li><span class="math inline-math"><script type="math/tex">C_E(A \cup B) = C_EA \cap C_EB</script></span></li>
+<li><span class="math inline-math"><script type="math/tex">A \subset B \iff C_EB \subset C_EA</script></span></li>
+<li><span class="math inline-math"><script type="math/tex">A \cap B = \varnothing \iff A \subset C_EB \iff B \subset C_EA</script></span> (les parties A et B sont dites disjointes)</li>
+</ul>
+<hr>
+<h3>2.4 Exercices d’application</h3>
+<p><strong><ins>Enonce</ins></strong> :
+Soit A B et C trois parties d’un meme ensemble E. Demontrer que</p>
+<span class="math display-math"><script type="math/tex; mode=display">(A \cap B) \cup (C \cap C_EA) \subset (A \cap C_EC) \cup (C_EA \cap C_EB) \cup (B \cap C)
+</script></span>
+<blockquote>
+<p><span class="math inline-math"><script type="math/tex">(A \cap B) \cup (C \cap C_EA)</script></span> : Ce qui appartient a A et a B <span class="math inline-math"><script type="math/tex">\cup</script></span> ce qui n’appartient pas a A mais appartient a C
+<span class="math inline-math"><script type="math/tex">(A \cap C_EC) \cup (C_EA \cap C_EB) \cup (B \cap C)</script></span> : Ce qui appartient a A mais pas a C <span class="math inline-math"><script type="math/tex">\cup</script></span> ce qui n’appartient ni a A ni a B <span class="math inline-math"><script type="math/tex">\cup</script></span> ce qui appartient a A et a B</p>
+</blockquote>
+<p><strong><ins>Solution</ins></strong> :
+Soit <span class="math inline-math"><script type="math/tex">x</script></span> un element de <span class="math inline-math"><script type="math/tex">(A \cap B) \cup (C \cap C_EA)</script></span>, x appartient au moins a l’un des deux ensembles <span class="math inline-math"><script type="math/tex">A \cap B</script></span> ou <span class="math inline-math"><script type="math/tex">C \cap C_EA</script></span></p>
+<p>Si <span class="math inline-math"><script type="math/tex">x \in A \cap B</script></span></p>
+<ul>
+<li>Soit <span class="math inline-math"><script type="math/tex">x \in C</script></span>, alors <span class="math inline-math"><script type="math/tex">x \in B \cap C</script></span>;</li>
+<li>Soit <span class="math inline-math"><script type="math/tex">x \notin C</script></span>, alors <span class="math inline-math"><script type="math/tex">x \in A \cap C_EC</script></span>;</li>
+</ul>
+<p>Si <span class="math inline-math"><script type="math/tex">x \in (C \cap C_EA)</script></span></p>
+<ul>
+<li>Soit <span class="math inline-math"><script type="math/tex">x \in B</script></span>, alors <span class="math inline-math"><script type="math/tex">x \in B \cap C</script></span>;</li>
+<li>Soit <span class="math inline-math"><script type="math/tex">x \notin C</script></span>, alors <span class="math inline-math"><script type="math/tex">x \in C_EA \cap C_EB</script></span>;</li>
+</ul>
+<p>Dans tous les cas :
+<span class="math inline-math"><script type="math/tex">x \in (A \cap C_EC) \cup (C_EA \cap C_EB)</script></span></p>
+
+<hr>
+<h2>3. Application d’un ensemble dans un autre</h2>
+<h3>3.1 Definition</h3>
+<p><mark><strong>Definition (Applications)</strong></mark></p>
+
+<p>Soient E et F 2 ensembles. On appelle <strong>application de E dans F</strong> la donnee des ensembles E, F et d’une partie <span class="math inline-math"><script type="math/tex">\Gamma</script></span> de E x F telle que pour tout element <span class="math inline-math"><script type="math/tex">x</script></span> de E il existe un element <span class="math inline-math"><script type="math/tex">y</script></span> de F tel que <span class="math inline-math"><script type="math/tex">(x, y) \in \Gamma</script></span></p>
+<ul>
+<li>E est appele <strong>ensemble de depart</strong> de l’application</li>
+<li>F est appele <strong>ensemble d’arrive</strong> de l’application</li>
+<li><span class="math inline-math"><script type="math/tex">\Gamma</script></span> est <strong>graphe</strong> de l’application</li>
+<li><span class="math inline-math"><script type="math/tex">y</script></span> est appele <strong>image</strong> de <span class="math inline-math"><script type="math/tex">x</script></span> par l’application. Si on designe l’application par f on ecrit alors <span class="math inline-math"><script type="math/tex">y = f(x)</script></span></li>
+<li><span class="math inline-math"><script type="math/tex">x</script></span> est un <strong>antecedent</strong> de y par l’application (mais pas forcement le seul)</li>
+<li><strong>Notation</strong> : <span class="math inline-math"><script type="math/tex">\begin{cases}
+E \overset{f}\to F\\
+x \to f(x)
+\end{cases}</script></span></li>
+</ul>
+<h3>3.2 Composition des applications</h3>
+<p>Soit E, F et G trois ensembles, f une application de E dans F et g une application de F dans G
+on appelle application <strong>composee de f et g</strong> l’application de E dans G qui a un element <span class="math inline-math"><script type="math/tex">x</script></span> de E fait correspondre l’image par g de l’image par f de <span class="math inline-math"><script type="math/tex">x</script></span>.
+On note cette application <span class="math inline-math"><script type="math/tex">g \circ f</script></span></p>
+<span class="math display-math"><script type="math/tex; mode=display">\forall x \in E g \circ f(x) = g[f(x)]
+</script></span>
+<blockquote>
+<p>Exemples : <span class="math inline-math"><script type="math/tex">f \circ Id_E = f; Id_F \circ f = f</script></span></p>
+</blockquote>
+<p><mark><strong>Theoreme 1</strong></mark></p>
+
+<p>Si E, F, G, H sont quatre ensembles et f, g, h trois applications appartenant respectivement a <span class="math inline-math"><script type="math/tex">\mathcal{F}(E, F), \mathcal{F}(F, G), \mathcal{F}(G, H)</script></span></p>
+<span class="math display-math"><script type="math/tex; mode=display">h \circ (g \circ f) = (h \circ g) \circ f
+</script></span>
+<blockquote>
+<p><strong>Demonstration</strong>
+Les deux applications <span class="math inline-math"><script type="math/tex">h \circ (g \circ f)</script></span> et <span class="math inline-math"><script type="math/tex">(h \circ g) \circ f</script></span> ont le meme ensemble de depart : E et le meme ensemble d’arrivee H. Blablabla</p>
+</blockquote>
+<p><div class="alert alert-info">
+L’ensemble des applications de E dans F est note <span class="math inline-math"><script type="math/tex">\mathcal{F}(E, F)</script></span> ou encore <span class="math inline-math"><script type="math/tex">F^E</script></span>
+</div></p>
+<h3>3.3 Famille d’elements d’un ensemble</h3>
+<p><mark><strong>Definition (Famille)</strong></mark></p>
+<ul>
+<li>On appelle <strong>famille</strong> d’elements d’un ensemble E indexee par un ensemble I, une application de I dans E notee :</li>
+</ul>
+<span class="math display-math"><script type="math/tex; mode=display">\begin{cases}I \to E \\i \to x_i\end{cases}
+</script></span>
+<ul>
+<li>
+<p>Onc peut identifier le produit cartesien <span class="math inline-math"><script type="math/tex">E \times E</script></span> avec l’ensemble des familles d’elements de E indexees par l’ensemble <span class="math inline-math"><script type="math/tex">\{1, 2\}</script></span>, et plus generalement le produit cartesien <span class="math inline-math"><script type="math/tex">E^n</script></span> avec l’ensemble des familles d’elements de E indexees par <span class="math inline-math"><script type="math/tex">\{1, ..., n \}</script></span></p>
+</li>
+<li>
+<p>On peut generaliser aux familles de parties d’un ensemble E les notions d’intersection et de reunion :</p>
+</li>
+</ul>
+<span class="math display-math"><script type="math/tex; mode=display">\underset{i \in I}{\bigcap} A_i = \{x \in E, \forall i \in I, x\in A_i\}
+</script></span>
+
+<hr>
+<h2>Injectivite et surjectivite</h2>
+<h3>4.1 Equation</h3>
+<p>Soit f une application de E dans un ensemble F, On appelle equation une egalite de la forme <span class="math inline-math"><script type="math/tex">f(x) = y</script></span> (avec ici x solution de l’equation) ou <span class="math inline-math"><script type="math/tex">y</script></span> est un element fixe de F ; on appelle la <strong>solution</strong> de l’equation blabla</p>
+<p><mark><strong>Definition (Application injective)</strong></mark></p>
+<p>Soit f une application d’un ensemble E blabla
+A l’aide de quantificateurs, l’injectivite de f s’ecit :</p>
+<span class="math display-math"><script type="math/tex; mode=display">\forall(x, x') \in E^2 f(x) = f(x') \Rightarrow x = x'
+</script></span>
+<p><mark><strong>Theoreme 2</strong></mark></p>
+<ol>
+<li>La composee de deux injectives est une injection</li>
+<li>Si la composee <span class="math inline-math"><script type="math/tex">g \circ f</script></span> est injective, f est injective</li>
+</ol>
+<hr>
+<p><mark><strong>Definition (Application surjective)</strong></mark></p>
+<p>A l’aide de quantificateurs, la surjectivite de f s’ecit :</p>
+<span class="math display-math"><script type="math/tex; mode=display">\forall(y) \in F f\exists x \in E f(x) = y
+</script></span>
+<p><mark><strong>Theoreme 2</strong></mark></p>
+<ol>
+<li>La composee de deux surjectives est une surjection</li>
+<li>Si la composee <span class="math inline-math"><script type="math/tex">g \circ f</script></span> est injective, g est injective</li>
+</ol>
+<h3>4.4 Application bijective</h3>
+<ul>
+<li>Une application f est bijective si elle est injective et surjectivem c-a-d si pour tout <span class="math inline-math"><script type="math/tex">y \in F</script></span>, l’eq blabla</li>
+</ul>
+<h2>5 Image directe ou reciproque d’une partie</h2>
+<h3>5.1 Image d’une partie de l’ensemble de depart</h3>
+<p><mark><strong>Definition (image directe)</strong></mark></p>
+<ul>
+<li>Soit f une application de E dans F et A une partie de E</li>
+<li>On appelle <strong>image de A par f</strong> l’ensemble des images des elements de A</li>
+<li>Par abus de notation on le note f(A) mais ce n’est pas l’image d’un element de E</li>
+</ul>
+<p>Pvar definition :</p>
+<span class="math display-math"><script type="math/tex; mode=display">\forall y \in F y \in f(A) \iff x \in A y = f(x)
+</script></span>
+<p><mark><strong>Definition (image reciproque)</strong></mark></p>
+<ul>
+<li>On appelle <strong>reciproque de B par f</strong> l’ensemble des antecedents des elements de B, autrement dit l’ensemble des elements de E dont l’image appartient a B</li>
+<li>Se note <span class="math inline-math"><script type="math/tex">f^{-1}(B)</script></span> mais <span class="math inline-math"><script type="math/tex">f^{-1}</script></span> ne designe pas une application</li>
+</ul>
+<p>Par definition :</p>
+<span class="math display-math"><script type="math/tex; mode=display">\forall x \in E x \in f^{-1}(B) \iff f(x) \in B
+</script></span>
+<h2>6. Relation d’ordre</h2>
+<h3>6.1 Relation binaire</h3>
+<p>On appelle <strong>relation binaire</strong> definie sur un ensemble E la donnee de e et d’une partie quelconque <span class="math inline-math"><script type="math/tex">\Gamma</script></span> de <span class="math inline-math"><script type="math/tex">E \times E</script></span>. On note <span class="math inline-math"><script type="math/tex">x\mathcal{R}y</script></span> pour <span class="math inline-math"><script type="math/tex">(x, y) \in \Gamma</script></span></p>
+<blockquote>
+<p><em>Exemples</em> : Dans <span class="math inline-math"><script type="math/tex">\mathbb{Z} : |x| = |y|, x \neq y</script></span> divise y, etc</p>
+</blockquote>
+<p>Une relation binaire <span class="math inline-math"><script type="math/tex">\mathcal{R}</script></span> definie sur E est une <strong>relation d’ordre</strong> si elle est :</p>
+<ul>
+<li><strong>Reflective</strong> (<span class="math inline-math"><script type="math/tex">\forall x \in E, x\mathcal{R}x</script></span>)</li>
+<li><strong>Antisymetrique</strong> (<span class="math inline-math"><script type="math/tex">\forall(x, y) \in E^2 (x\mathcal{R}y \Rightarrow y\mathcal{R}x)</script></span>)</li>
+<li><strong>Transitive</strong> (<span class="math inline-math"><script type="math/tex">\forall(x, y, z) \in E^3 (x\mathcal{R}y\ et\ y\mathcal{R}z) \Rightarrow x = y</script></span>)</li>
+</ul>
+
+  </body>
+</html>
