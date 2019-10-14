@@ -10,6 +10,16 @@ body {
   margin-right: auto;
 }
 
+pre {
+    text-align: center;
+    background-color: inherit;
+    border-radius: 0;
+    white-space: inherit;
+    padding: 16px;
+    font-size: 85%;
+    line-height: 1.45;
+}
+
 blockquote {
     border-left: .25em solid #93a0b8;
     padding: 0 1em;
