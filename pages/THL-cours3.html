@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+<html data-markdown-preview-plus-context="html-export">
+  <head>
+    <meta charset="utf-8" />
+    <title>THL-cours3</title><script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX","output/HTML-CSS"],
+    extensions: ["[a11y]/accessibility-menu.js"],
+    'HTML-CSS': {
+      availableFonts: [],
+      webFont: 'TeX',
+      undefinedFamily: "serif",
+      mtextFontInherit: true,
+    },
+    TeX: {
+  "Macros": {},
+  "equationNumbers": {},
+  "extensions": [
+    "AMSmath.js",
+    "AMSsymbols.js",
+    "noErrors.js",
+    "noUndefined.js"
+  ]
+},
+    showMathMenu: true
+  });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js"></script>
+    <style>.emoji {
+  max-width: 1em !important;
+}
+del {
+  text-decoration: none;
+  position: relative;
+}
+del::after {
+  border-bottom: 1px solid black;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+ul.contains-task-list li.task-list-item {
+  position: relative;
+  list-style-type: none;
+}
+ul.contains-task-list li.task-list-item input.task-list-item-checkbox {
+  position: absolute;
+  transform: translateX(-100%);
+  width: 30px;
+}
+span.critic.comment {
+  position: relative;
+}
+span.critic.comment::before {
+  content: '\1f4ac';
+  position: initial;
+}
+span.critic.comment > span {
+  display: none;
+}
+span.critic.comment:hover > span {
+  display: initial;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  border: 1px solid;
+  border-radius: 5px;
+  max-height: 4em;
+  overflow: auto;
+}
+span.critic.comment:focus > span {
+  display: initial;
+  text-decoration: underline;
+  position: initial;
+  top: auto;
+  left: auto;
+  border: initial;
+  border-radius: initial;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: transparent;
+}
+
+body {
+  padding: 2em;
+  font-size: 1.2em;
+  color: #abb2bf;
+  background-color: #282c34;
+  overflow: auto;
+}
+body > :first-child,
+body > div.update-preview > :first-child {
+  margin-top: 0;
+}
+body > p,
+body > div.update-preview > p {
+  margin-top: 0;
+  margin-bottom: 1.5em;
+}
+body > ul,
+body > div.update-preview > ul,
+body > ol,
+body > div.update-preview > ol {
+  margin-bottom: 1.5em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  color: #ffffff;
+}
+h1 {
+  font-size: 2.4em;
+  font-weight: 300;
+}
+h2 {
+  font-size: 1.8em;
+  font-weight: 400;
+}
+h3 {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+h4 {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+h5 {
+  font-size: 1.1em;
+  font-weight: 600;
+}
+h6 {
+  font-size: 1em;
+  font-weight: 600;
+}
+strong {
+  color: #ffffff;
+}
+del {
+  color: #7c879c;
+}
+a,
+a code {
+  color: #528bff;
+}
+img {
+  max-width: 100%;
+}
+blockquote {
+  margin: 1.5em 0;
+  font-size: inherit;
+  color: #7c879c;
+  border-color: #4b5362;
+  border-width: 4px;
+}
+hr {
+  margin: 3em 0;
+  border-top: 2px dashed #4b5362;
+  background: none;
+}
+table {
+  margin: 1.5em 0;
+}
+th {
+  color: #ffffff;
+}
+th,
+td {
+  padding: 0.66em 1em;
+  border: 1px solid #4b5362;
+}
+code {
+  color: #ffffff;
+  background-color: #3a3f4b;
+}
+pre.editor-colors {
+  margin: 1.5em 0;
+  padding: 1em;
+  font-size: 0.92em;
+  border-radius: 3px;
+  background-color: #31363f;
+}
+kbd {
+  color: #ffffff;
+  border: 1px solid #4b5362;
+  border-bottom: 2px solid #3e4451;
+  background-color: #3a3f4b;
+}
+
+pre.editor-colors {
+  color: #839496;
+  background-color: #002b36;
+}
+pre.editor-colors .gutter {
+  color: #839496;
+  background-color: #073642;
+}
+pre.editor-colors .gutter .line-number.cursor-line {
+  background-color: #0a4d5e;
+}
+pre.editor-colors .invisible-character {
+  color: #0a4d5e;
+}
+pre.editor-colors .indent-guide {
+  color: #0a4d5e;
+}
+pre.editor-colors .cursor {
+  border-color: #fdf6e3;
+}
+pre.editor-colors .cursor-line {
+  background-color: rgba(0, 165, 207, 0.08);
+}
+pre.editor-colors .selection .region {
+  background-color: #073a47;
+}
+pre.editor-colors .fold-marker:after,
+pre.editor-colors .gutter .line-number.folded {
+  color: #d33682;
+}
+pre.editor-colors .bracket-matcher .region {
+  border-color: #d33682;
+}
+.syntax--comment {
+  color: #586e75;
+  font-style: italic;
+}
+.syntax--comment .syntax--markup.syntax--link {
+  color: #586e75;
+}
+.syntax--string {
+  color: #2aa198;
+}
+.syntax--string.syntax--regexp {
+  color: #dc322f;
+}
+.syntax--constant.syntax--numeric {
+  color: #d33682;
+}
+.syntax--constant.syntax--language {
+  color: #b58900;
+}
+.syntax--constant.syntax--character,
+.syntax--constant.syntax--other,
+.syntax--constant.syntax--support {
+  color: #cb4b16;
+}
+.syntax--variable {
+  color: #268bd2;
+}
+.syntax--keyword {
+  color: #859900;
+}
+.syntax--storage {
+  color: #859900;
+}
+.syntax--meta.syntax--class {
+  color: #268bd2;
+}
+.syntax--entity.syntax--name.syntax--class,
+.syntax--entity.syntax--name.syntax--function,
+.syntax--entity.syntax--name.syntax--section,
+.syntax--entity.syntax--name.syntax--type {
+  color: #268bd2;
+}
+.syntax--entity.syntax--other.syntax--attribute-name {
+  color: #657b83;
+}
+.syntax--support.syntax--function {
+  color: #268bd2;
+}
+.syntax--support.syntax--function.syntax--builtin {
+  color: #859900;
+}
+.syntax--support.syntax--type,
+.syntax--support.syntax--class {
+  color: #859900;
+}
+.syntax--tag.syntax--entity.syntax--name {
+  color: #268bd2;
+}
+.syntax--tag.syntax--punctuation.syntax--definition.syntax--html,
+.syntax--tag.syntax--punctuation.syntax--definition.syntax--begin,
+.syntax--tag.syntax--punctuation.syntax--definition.syntax--end {
+  color: #586e75;
+}
+.syntax--invalid.syntax--deprecated {
+  color: #b58900;
+  text-decoration: underline;
+}
+.syntax--invalid.syntax--illegal {
+  color: #dc322f;
+  text-decoration: underline;
+}
+.syntax--none {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--meta.syntax--preprocessor,
+.syntax--source.syntax--cpp .syntax--meta.syntax--preprocessor {
+  color: #dc322f;
+}
+.syntax--source.syntax--c .syntax--keyword.syntax--control.syntax--directive,
+.syntax--source.syntax--cpp .syntax--keyword.syntax--control.syntax--directive {
+  color: #cb4b16;
+}
+.syntax--source.syntax--c .syntax--punctuation.syntax--string,
+.syntax--source.syntax--cpp .syntax--punctuation.syntax--string {
+  color: #2aa198;
+}
+.syntax--source.syntax--c .syntax--constant,
+.syntax--source.syntax--cpp .syntax--constant {
+  color: #cb4b16;
+}
+.syntax--source.syntax--c .syntax--constant.syntax--numeric,
+.syntax--source.syntax--cpp .syntax--constant.syntax--numeric,
+.syntax--source.syntax--c .syntax--constant.syntax--language.syntax--c,
+.syntax--source.syntax--cpp .syntax--constant.syntax--language.syntax--c {
+  color: #2aa198;
+}
+.syntax--source.syntax--c .syntax--storage,
+.syntax--source.syntax--cpp .syntax--storage {
+  color: #b58900;
+}
+.syntax--source.syntax--c .syntax--entity,
+.syntax--source.syntax--cpp .syntax--entity {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--entity.syntax--name.syntax--function.syntax--preprocessor,
+.syntax--source.syntax--cpp .syntax--entity.syntax--name.syntax--function.syntax--preprocessor {
+  color: #dc322f;
+}
+.syntax--source.syntax--c .syntax--support.syntax--type,
+.syntax--source.syntax--cpp .syntax--support.syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--c .syntax--support.syntax--type.syntax--posix-reserved,
+.syntax--source.syntax--cpp .syntax--support.syntax--type.syntax--posix-reserved {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--variable.syntax--other.syntax--dot-access,
+.syntax--source.syntax--cpp .syntax--variable.syntax--other.syntax--dot-access {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--variable.syntax--parameter.syntax--preprocessor,
+.syntax--source.syntax--cpp .syntax--variable.syntax--parameter.syntax--preprocessor {
+  color: #dc322f;
+}
+.syntax--source.syntax--coffee .syntax--support.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--variable,
+.syntax--source.syntax--coffee .syntax--entity.syntax--name.syntax--function,
+.syntax--source.syntax--coffee .syntax--entity.syntax--name.syntax--class {
+  color: #268bd2;
+}
+.syntax--source.syntax--coffee .syntax--variable.syntax--parameter.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--variable.syntax--other.syntax--readwrite {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--storage.syntax--type.syntax--function {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--entity.syntax--name {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--meta.syntax--brace.syntax--round,
+.syntax--source.syntax--coffee .syntax--meta.syntax--brace.syntax--square {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--meta.syntax--delimiter {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--storage.syntax--type.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--punctuation.syntax--terminator {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--punctuation.syntax--section.syntax--embedded {
+  color: #dc322f;
+}
+.syntax--source.syntax--coffee .syntax--embedded.syntax--source {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--constant.syntax--numeric {
+  color: #d33682;
+}
+.syntax--source.syntax--coffee .syntax--constant.syntax--language.syntax--boolean {
+  color: #b58900;
+}
+.syntax--source.syntax--css .syntax--punctuation.syntax--separator,
+.syntax--source.syntax--css .syntax--punctuation.syntax--terminator {
+  color: #839496;
+}
+.syntax--source.syntax--css .syntax--punctuation.syntax--property-list.syntax--begin,
+.syntax--source.syntax--css .syntax--punctuation.syntax--property-list.syntax--end {
+  color: #dc322f;
+}
+.syntax--source.syntax--css .syntax--punctuation.syntax--section.syntax--function {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--entity.syntax--name {
+  color: #859900;
+}
+.syntax--source.syntax--css .syntax--attribute-name.syntax--class,
+.syntax--source.syntax--css .syntax--id {
+  color: #268bd2;
+}
+.syntax--source.syntax--css .syntax--pseudo-element,
+.syntax--source.syntax--css .syntax--pseudo-class {
+  color: #cb4b16;
+}
+.syntax--source.syntax--css .syntax--property-value {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--constant.syntax--numeric {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--constant.syntax--numeric .syntax--unit {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--rgb-value {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--support.syntax--constant {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--support.syntax--constant.syntax--media {
+  color: #dc322f;
+}
+.syntax--source.syntax--css .syntax--keyword.syntax--important {
+  color: #dc322f;
+}
+.syntax--source.syntax--less .syntax--keyword.syntax--unit,
+.syntax--source.syntax--scss .syntax--keyword.syntax--unit {
+  color: #2aa198;
+}
+.syntax--source.syntax--go .syntax--operator {
+  color: #839496;
+}
+.syntax--source.syntax--go .syntax--operator.syntax--assignment {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--keyword.syntax--operator {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--keyword.syntax--import {
+  color: #cb4b16;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--modifier.syntax--import {
+  color: #586e75;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--class .syntax--storage.syntax--modifier {
+  color: #b58900;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--class .syntax--meta.syntax--class.syntax--identifier .syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #268bd2;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--type.syntax--primitive.syntax--array {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--constant.syntax--numeric {
+  color: #d33682;
+}
+.syntax--source.syntax--java .syntax--constant.syntax--other {
+  color: #cb4b16;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--type {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--method-call {
+  color: #dc322f;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--method-call .syntax--meta.syntax--method {
+  color: #6c71c4;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--method-call .syntax--punctuation.syntax--definition.syntax--seperator.syntax--parameter {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--punctuation.syntax--definition.syntax--method-parameters {
+  color: #93a1a1;
+}
+.syntax--source.syntax--js .syntax--comma {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--support.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name.syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name.syntax--function {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name.syntax--tag {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--other.syntax--attribute-name {
+  color: #b58900;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--brace {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--keyword {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--new {
+  color: #859900;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--control {
+  color: #cb4b16;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--control.syntax--regexp {
+  color: #2aa198;
+}
+.syntax--source.syntax--js .syntax--variable {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--variable.syntax--dom {
+  color: #859900;
+}
+.syntax--source.syntax--js .syntax--delimiter + .syntax--dom {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--name {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--variable.syntax--language {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--variable.syntax--parameter {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--regexp {
+  color: #2aa198;
+}
+.syntax--source.syntax--js .syntax--support.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--support.syntax--constant {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--storage.syntax--modifier {
+  color: #b58900;
+}
+.syntax--source.syntax--js .syntax--punctuation.syntax--terminator.syntax--statement {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--delimiter.syntax--method.syntax--period {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--brace.syntax--square {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--brace.syntax--curly {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--string.syntax--quoted.syntax--template .syntax--embedded.syntax--source {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--string.syntax--quoted.syntax--template .syntax--embedded.syntax--source > .syntax--embedded.syntax--punctuation {
+  color: #dc322f;
+}
+.syntax--source.syntax--js.syntax--embedded .syntax--entity.syntax--name.syntax--tag {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--import .syntax--control {
+  color: #cb4b16;
+}
+.syntax--source.syntax--js.syntax--rails .syntax--instance {
+  color: #268bd2;
+}
+.syntax--source.syntax--js.syntax--rails .syntax--class {
+  color: #b58900;
+}
+.syntax--md .syntax--link .syntax--entity,
+.syntax--gfm .syntax--link .syntax--entity {
+  color: #6c71c4;
+}
+.syntax--md .syntax--list.syntax--ordered,
+.syntax--gfm .syntax--list.syntax--ordered {
+  color: #859900;
+}
+.syntax--md .syntax--list.syntax--unordered,
+.syntax--gfm .syntax--list.syntax--unordered {
+  color: #b58900;
+}
+.syntax--md .syntax--raw,
+.syntax--gfm .syntax--raw {
+  font-style: italic;
+}
+.syntax--md.syntax--support,
+.syntax--gfm.syntax--support {
+  color: #586e75;
+}
+.syntax--md.syntax--support.syntax--quote,
+.syntax--gfm.syntax--support.syntax--quote {
+  color: #6c71c4;
+}
+.syntax--markup.syntax--bold {
+  font-weight: bold;
+}
+.syntax--markup.syntax--italic {
+  font-style: italic;
+}
+.syntax--markup.syntax--heading {
+  color: #268bd2;
+}
+.syntax--markup.syntax--link {
+  color: #2aa198;
+}
+.syntax--markup.syntax--deleted {
+  color: #dc322f;
+}
+.syntax--markup.syntax--changed {
+  color: #b58900;
+}
+.syntax--markup.syntax--inserted {
+  color: #2aa198;
+}
+.syntax--source.syntax--php .syntax--storage.syntax--type.syntax--class {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--storage.syntax--type.syntax--function {
+  color: #cb4b16;
+}
+.syntax--source.syntax--php .syntax--storage.syntax--modifier {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--entity.syntax--name.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--entity.syntax--other {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--variable {
+  color: #268bd2;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--comment {
+  color: #586e75;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--array {
+  color: #dc322f;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--string {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--variable {
+  color: #859900;
+}
+.syntax--source.syntax--php .syntax--support.syntax--function.syntax--construct {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--support.syntax--function.syntax--array {
+  color: #859900;
+}
+.syntax--source.syntax--php .syntax--keyword.syntax--operator.syntax--class {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--keyword.syntax--operator.syntax--assignment {
+  color: #859900;
+}
+.syntax--source.syntax--php .syntax--keyword.syntax--other {
+  color: #dc322f;
+}
+.syntax--source.syntax--python .syntax--entity {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--entity.syntax--name {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--entity.syntax--other {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--function {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--function.syntax--magic {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--string {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator.syntax--quantifier {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator.syntax--logical {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--control.syntax--import {
+  color: #cb4b16;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--other {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--constant.syntax--language {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--constant.syntax--character {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--constant.syntax--other {
+  color: #dc322f;
+}
+.syntax--source.syntax--python .syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--variable {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--support.syntax--function.syntax--builtin {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--support.syntax--type.syntax--exception.syntax--python {
+  color: #b58900;
+}
+.syntax--source.syntax--python .syntax--support.syntax--type.syntax--python {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--string {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--class.syntax--todo {
+  color: #d33682;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--function {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--definition.syntax--parameters {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--section.syntax--function.syntax--begin {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--separator.syntax--parameters {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--meta.syntax--embedded .syntax--punctuation.syntax--section {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--definition {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--definition.syntax--string {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--definition.syntax--comment {
+  color: #586e75;
+}
+.syntax--source.syntax--ruby .syntax--entity.syntax--inherited-class {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--parameter {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--constant {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--constant.syntax--boolean {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--instance .syntax--punctuation.syntax--definition {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--class {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--class.syntax--control {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--module {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--require .syntax--keyword.syntax--other.syntax--special-method {
+  color: #cb4b16;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--other.syntax--special-method {
+  color: #cb4b16;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--other {
+  color: #859900;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--control {
+  color: #859900;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--operator {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--special-method {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--symbol {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--symbol .syntax--punctuation.syntax--definition {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--hashkey {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--hashkey .syntax--punctuation.syntax--definition {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--regexp {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--todo {
+  color: #d33682;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--ruby.syntax--global {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--ruby.syntax--global .syntax--punctuation {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--block {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--self {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--separator {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--numeric {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--section.syntax--regexp {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--punctuation .syntax--source.syntax--ruby {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--source.syntax--ruby {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--source.syntax--ruby .syntax--punctuation.syntax--array,
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--source.syntax--ruby .syntax--punctuation.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--support.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--support.syntax--function.syntax--kernel {
+  color: #859900;
+}
+.syntax--source.syntax--scala .syntax--variable {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--declaration {
+  color: #93a1a1;
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--comparison {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--class,
+.syntax--source.syntax--scala .syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--scala .syntax--val {
+  font-weight: normal;
+}
+.syntax--source.syntax--scala .syntax--variable {
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--variable.syntax--parameter {
+  color: #6c71c4;
+  font-weight: normal;
+}
+.syntax--source.syntax--scala .syntax--control.syntax--flow {
+  color: #93a1a1;
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--constant.syntax--language {
+  color: #93a1a1;
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--function.syntax--declaration {
+  color: #6c71c4;
+}
+.syntax--source.syntax--scala .syntax--modifier.syntax--other {
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--package {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--variable.syntax--import {
+  font-weight: normal;
+}
+.syntax--source.syntax--scala .syntax--type .syntax--bounds,
+.syntax--source.syntax--scala .syntax--type .syntax--class {
+  color: #6c71c4;
+}
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded).syntax--link.syntax--entity {
+  color: #268bd2;
+  text-decoration: underline;
+}
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded) .syntax--class,
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded) .syntax--parameter {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded) .syntax--description {
+  color: #586e75;
+}
+.syntax--source.syntax--scala .syntax--embedded {
+  color: #6c7c7c;
+  font-style: italic;
+}
+.syntax--source.syntax--scala .syntax--embedded .syntax--margin,
+.syntax--source.syntax--scala .syntax--embedded .syntax--delimiters {
+  font-style: normal;
+}
+.syntax--source.syntax--ts .syntax--import .syntax--control,
+.syntax--source.syntax--tsx .syntax--import .syntax--control {
+  color: #cb4b16;
+}
+.syntax--source.syntax--ts .syntax--entity.syntax--name.syntax--type,
+.syntax--source.syntax--tsx .syntax--entity.syntax--name.syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--ts .syntax--entity.syntax--inherited-class,
+.syntax--source.syntax--tsx .syntax--entity.syntax--inherited-class {
+  color: #b58900;
+}
+.syntax--source.syntax--ts .syntax--support.syntax--type,
+.syntax--source.syntax--tsx .syntax--support.syntax--type {
+  color: #b58900;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="../style.css">
+
+  </head>
+  <body>
+    <h1>[THL] Theorie des langages (3)</h1>
+<p><a href="https://www.lrde.epita.fr/~akim/thl/lecture-notes/">// notes de cours</a></p>
+<p><strong>Automate a etats finis</strong> : Possede un nombre fini d’etats</p>
+<span class="math display-math"><script type="math/tex; mode=display">(a+b)^*a(a+b)
+</script></span>
+<pre class="graphviz"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: hierarchy Pages: 1 -->
+<svg width="292pt" height="79pt" viewBox="0.00 0.00 292.13 78.80" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 74.8)">
+<title>hierarchy</title>
+<polygon fill="#282c34" stroke="transparent" points="-4,4 -4,-74.8 288.1292,-74.8 288.1292,4 -4,4"></polygon>
+<!-- qi -->
+<g id="node1" class="node">
+<title>qi</title>
+<ellipse fill="#ffffff" stroke="#ffffff" cx="1.8" cy="-18" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- 0 -->
+<g id="node3" class="node">
+<title>0</title>
+<ellipse fill="none" stroke="#ffffff" cx="58.6" cy="-18" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="58.6" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">0</text>
+</g>
+<!-- qi&#45;&gt;0 -->
+<g id="edge1" class="edge">
+<title>qi-&gt;0</title>
+<path fill="none" stroke="#ffffff" d="M3.6898,-18C8.0522,-18 19.3107,-18 30.5058,-18"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="30.5696,-21.5001 40.5696,-18 30.5696,-14.5001 30.5696,-21.5001"></polygon>
+</g>
+<!-- qj -->
+<g id="node2" class="node">
+<title>qj</title>
+<ellipse fill="#ffffff" stroke="#ffffff" cx="282.3292" cy="-18" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- 0&#45;&gt;0 -->
+<g id="edge2" class="edge">
+<title>0-&gt;0</title>
+<path fill="none" stroke="#ffffff" d="M52.2208,-35.0373C50.9189,-44.8579 53.0453,-54 58.6,-54 62.0717,-54 64.2042,-50.4289 64.9975,-45.3529"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="68.4971,-45.031 64.9792,-35.0373 61.4971,-45.0435 68.4971,-45.031"></polygon>
+<text text-anchor="middle" x="58.6" y="-58.2" font-family="Times,serif" font-size="14.00" fill="#ffffff">a,b</text>
+</g>
+<!-- 1 -->
+<g id="node4" class="node">
+<title>1</title>
+<ellipse fill="none" stroke="#ffffff" cx="136.8146" cy="-18" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="136.8146" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">1</text>
+</g>
+<!-- 0&#45;&gt;1 -->
+<g id="edge3" class="edge">
+<title>0-&gt;1</title>
+<path fill="none" stroke="#ffffff" d="M76.7406,-18C86.2174,-18 98.0264,-18 108.6602,-18"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="108.7724,-21.5001 118.7724,-18 108.7723,-14.5001 108.7724,-21.5001"></polygon>
+<text text-anchor="middle" x="97.7073" y="-22.2" font-family="Times,serif" font-size="14.00" fill="#ffffff">a</text>
+</g>
+<!-- 2 -->
+<g id="node5" class="node">
+<title>2</title>
+<ellipse fill="none" stroke="#ffffff" cx="225.5292" cy="-18" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="225.5292" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">2</text>
+</g>
+<!-- 1&#45;&gt;2 -->
+<g id="edge4" class="edge">
+<title>1-&gt;2</title>
+<path fill="none" stroke="#ffffff" d="M155.1963,-18C167.2904,-18 183.3622,-18 197.0892,-18"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="197.4746,-21.5001 207.4746,-18 197.4745,-14.5001 197.4746,-21.5001"></polygon>
+<text text-anchor="middle" x="181.1719" y="-22.2" font-family="Times,serif" font-size="14.00" fill="#ffffff">a,b</text>
+</g>
+<!-- 2&#45;&gt;qj -->
+<g id="edge5" class="edge">
+<title>2-&gt;qj</title>
+<path fill="none" stroke="#ffffff" d="M243.8137,-18C252.5153,-18 262.6741,-18 270.3732,-18"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="270.5256,-21.5001 280.5256,-18 270.5255,-14.5001 270.5256,-21.5001"></polygon>
+</g>
+</g>
+</svg>
+</pre>
+<p>Peut se transcrire en l’automate infini suivant</p>
+<pre class="graphviz"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: hierarchy Pages: 1 -->
+<svg width="275pt" height="386pt" viewBox="0.00 0.00 275.39 386.47" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 382.4746)">
+<title>hierarchy</title>
+<polygon fill="#282c34" stroke="transparent" points="-4,4 -4,-382.4746 271.3869,-382.4746 271.3869,4 -4,4"></polygon>
+<!-- qi -->
+<g id="node1" class="node">
+<title>qi</title>
+<ellipse fill="#ffffff" stroke="#ffffff" cx="135.1077" cy="-376.6746" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- 0 -->
+<g id="node2" class="node">
+<title>0</title>
+<ellipse fill="none" stroke="#ffffff" cx="135.1077" cy="-319.8746" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="135.1077" y="-315.6746" font-family="Times,serif" font-size="14.00" fill="#ffffff">0</text>
+</g>
+<!-- qi&#45;&gt;0 -->
+<g id="edge1" class="edge">
+<title>qi-&gt;0</title>
+<path fill="none" stroke="#ffffff" d="M135.1077,-374.7848C135.1077,-370.4224 135.1077,-359.1639 135.1077,-347.9688"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="138.6078,-347.905 135.1077,-337.905 131.6078,-347.905 138.6078,-347.905"></polygon>
+</g>
+<!-- 0  -->
+<g id="node3" class="node">
+<title>0 </title>
+<ellipse fill="none" stroke="#ffffff" cx="102.1077" cy="-228.3812" rx="18.0611" ry="18.0611"></ellipse>
+<text text-anchor="middle" x="102.1077" y="-224.1812" font-family="Times,serif" font-size="14.00" fill="#ffffff">0 </text>
+</g>
+<!-- 0&#45;&gt;0  -->
+<g id="edge2" class="edge">
+<title>0-&gt;0 </title>
+<path fill="none" stroke="#ffffff" d="M128.9006,-302.6654C124.0915,-289.332 117.3401,-270.6135 111.8178,-255.3027"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="115.0844,-254.0436 108.3991,-245.8243 108.4996,-256.4186 115.0844,-254.0436"></polygon>
+<text text-anchor="middle" x="125.6077" y="-271.2746" font-family="Times,serif" font-size="14.00" fill="#ffffff">b</text>
+</g>
+<!-- 01 -->
+<g id="node8" class="node">
+<title>01</title>
+<ellipse fill="none" stroke="#ffffff" cx="169.1077" cy="-228.3812" rx="20.8887" ry="20.8887"></ellipse>
+<text text-anchor="middle" x="169.1077" y="-224.1812" font-family="Times,serif" font-size="14.00" fill="#ffffff">01</text>
+</g>
+<!-- 0&#45;&gt;01 -->
+<g id="edge7" class="edge">
+<title>0-&gt;01</title>
+<path fill="none" stroke="#ffffff" d="M141.5028,-302.6654C146.1917,-290.0478 152.6726,-272.6077 158.1765,-257.7967"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="161.5942,-258.6473 161.7969,-248.0544 155.0326,-256.2089 161.5942,-258.6473"></polygon>
+<text text-anchor="middle" x="158.215" y="-271.2746" font-family="Times,serif" font-size="14.00" fill="#ffffff">a</text>
+</g>
+<!-- 0 &#160; -->
+<g id="node4" class="node">
+<title>0 &nbsp;</title>
+<ellipse fill="none" stroke="#ffffff" cx="40.1077" cy="-129.3658" rx="20.8887" ry="20.8887"></ellipse>
+<text text-anchor="middle" x="40.1077" y="-125.1658" font-family="Times,serif" font-size="14.00" fill="#ffffff">0 &nbsp;</text>
+</g>
+<!-- 0 &#45;&gt;0 &#160; -->
+<g id="edge3" class="edge">
+<title>0 -&gt;0 &nbsp;</title>
+<path fill="none" stroke="#ffffff" d="M92.1463,-212.4726C82.6436,-197.2966 68.1471,-174.1453 56.8657,-156.1288"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="59.5765,-153.8628 51.3029,-147.2447 53.6436,-157.5778 59.5765,-153.8628"></polygon>
+<text text-anchor="middle" x="80.6077" y="-177.0877" font-family="Times,serif" font-size="14.00" fill="#ffffff">b</text>
+</g>
+<!-- 01  -->
+<g id="node5" class="node">
+<title>01 </title>
+<ellipse fill="none" stroke="#ffffff" cx="102.1077" cy="-129.3658" rx="23.2159" ry="23.2159"></ellipse>
+<text text-anchor="middle" x="102.1077" y="-125.1658" font-family="Times,serif" font-size="14.00" fill="#ffffff">01 </text>
+</g>
+<!-- 0 &#45;&gt;01  -->
+<g id="edge4" class="edge">
+<title>0 -&gt;01 </title>
+<path fill="none" stroke="#ffffff" d="M102.1077,-209.7571C102.1077,-196.6484 102.1077,-178.7299 102.1077,-163.1362"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="105.6078,-162.7996 102.1077,-152.7997 98.6078,-162.7997 105.6078,-162.7996"></polygon>
+<text text-anchor="middle" x="105.215" y="-177.0877" font-family="Times,serif" font-size="14.00" fill="#ffffff">a</text>
+</g>
+<!-- 0 &#160;&#160; -->
+<g id="node6" class="node">
+<title>0 &nbsp;&nbsp;</title>
+<ellipse fill="none" stroke="#ffffff" cx="23.1077" cy="-25.5219" rx="23.2159" ry="23.2159"></ellipse>
+<text text-anchor="middle" x="23.1077" y="-21.3219" font-family="Times,serif" font-size="14.00" fill="#ffffff">0 &nbsp;&nbsp;</text>
+</g>
+<!-- 0 &#160;&#45;&gt;0 &#160;&#160; -->
+<g id="edge5" class="edge">
+<title>0 &nbsp;-&gt;0 &nbsp;&nbsp;</title>
+<path fill="none" stroke="#ffffff" d="M36.749,-108.8496C34.4154,-94.5944 31.2535,-75.2802 28.5614,-58.8358"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="31.9433,-57.8291 26.8736,-48.526 25.0352,-58.9601 31.9433,-57.8291"></polygon>
+<text text-anchor="middle" x="36.6077" y="-73.2439" font-family="Times,serif" font-size="14.00" fill="#ffffff">b</text>
+</g>
+<!--  01  -->
+<g id="node7" class="node">
+<title> 01 </title>
+<ellipse fill="none" stroke="#ffffff" cx="90.1077" cy="-25.5219" rx="25.5439" ry="25.5439"></ellipse>
+<text text-anchor="middle" x="90.1077" y="-21.3219" font-family="Times,serif" font-size="14.00" fill="#ffffff"> 01 </text>
+</g>
+<!-- 0 &#160;&#45;&gt; 01  -->
+<g id="edge6" class="edge">
+<title>0 &nbsp;-&gt; 01 </title>
+<path fill="none" stroke="#ffffff" d="M49.2785,-110.3192C56.3195,-95.6957 66.2064,-75.1619 74.4874,-57.9633"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="77.7097,-59.3387 78.8945,-48.8103 71.4027,-56.3019 77.7097,-59.3387"></polygon>
+<text text-anchor="middle" x="71.215" y="-73.2439" font-family="Times,serif" font-size="14.00" fill="#ffffff">a</text>
+</g>
+<!-- 012 -->
+<g id="node9" class="node">
+<title>012</title>
+<ellipse fill="none" stroke="#ffffff" cx="169.1077" cy="-129.3658" rx="25.5439" ry="25.5439"></ellipse>
+<text text-anchor="middle" x="169.1077" y="-125.1658" font-family="Times,serif" font-size="14.00" fill="#ffffff">012</text>
+</g>
+<!-- 01&#45;&gt;012 -->
+<g id="edge8" class="edge">
+<title>01-&gt;012</title>
+<path fill="none" stroke="#ffffff" d="M169.1077,-207.3825C169.1077,-195.1686 169.1077,-179.4429 169.1077,-165.3137"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="172.6078,-164.9049 169.1077,-154.9049 165.6078,-164.9049 172.6078,-164.9049"></polygon>
+<text text-anchor="middle" x="172.215" y="-177.0877" font-family="Times,serif" font-size="14.00" fill="#ffffff">a</text>
+</g>
+<!-- 02 -->
+<g id="node10" class="node">
+<title>02</title>
+<ellipse fill="none" stroke="#ffffff" cx="233.1077" cy="-129.3658" rx="20.8887" ry="20.8887"></ellipse>
+<text text-anchor="middle" x="233.1077" y="-125.1658" font-family="Times,serif" font-size="14.00" fill="#ffffff">02</text>
+</g>
+<!-- 01&#45;&gt;02 -->
+<g id="edge9" class="edge">
+<title>01-&gt;02</title>
+<path fill="none" stroke="#ffffff" d="M180.5496,-210.6792C190.4697,-195.3317 204.9607,-172.9124 216.2156,-155.4998"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="219.2758,-157.2128 221.7648,-146.9145 213.397,-153.4129 219.2758,-157.2128"></polygon>
+<text text-anchor="middle" x="208.6077" y="-177.0877" font-family="Times,serif" font-size="14.00" fill="#ffffff">b</text>
+</g>
+<!--  01 -->
+<g id="node11" class="node">
+<title> 01</title>
+<ellipse fill="none" stroke="#ffffff" cx="190.1077" cy="-25.5219" rx="23.2159" ry="23.2159"></ellipse>
+<text text-anchor="middle" x="190.1077" y="-21.3219" font-family="Times,serif" font-size="14.00" fill="#ffffff"> 01</text>
+</g>
+<!-- 02&#45;&gt; 01 -->
+<g id="edge10" class="edge">
+<title>02-&gt; 01</title>
+<path fill="none" stroke="#ffffff" d="M225.0197,-109.8335C218.8373,-94.9032 210.1914,-74.0236 203.0505,-56.7785"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="206.1096,-55.0174 199.05,-47.1173 199.6421,-57.6955 206.1096,-55.0174"></polygon>
+<text text-anchor="middle" x="218.215" y="-73.2439" font-family="Times,serif" font-size="14.00" fill="#ffffff">a</text>
+</g>
+<!--  0 -->
+<g id="node12" class="node">
+<title> 0</title>
+<ellipse fill="none" stroke="#ffffff" cx="249.1077" cy="-25.5219" rx="18.0611" ry="18.0611"></ellipse>
+<text text-anchor="middle" x="249.1077" y="-21.3219" font-family="Times,serif" font-size="14.00" fill="#ffffff"> 0</text>
+</g>
+<!-- 02&#45;&gt; 0 -->
+<g id="edge11" class="edge">
+<title>02-&gt; 0</title>
+<path fill="none" stroke="#ffffff" d="M236.2688,-108.8496C238.6822,-93.186 242.0367,-71.4142 244.7116,-54.0533"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="248.2111,-54.3241 246.2748,-43.9077 241.2928,-53.2581 248.2111,-54.3241"></polygon>
+<text text-anchor="middle" x="244.6077" y="-73.2439" font-family="Times,serif" font-size="14.00" fill="#ffffff">b</text>
+</g>
+</g>
+</svg>
+</pre>
+<p>Automate deterministe a etats finis (DFA) :</p>
+<pre class="graphviz"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: hierarchy Pages: 1 -->
+<svg width="391pt" height="261pt" viewBox="0.00 0.00 391.46 260.96" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256.9577)">
+<title>hierarchy</title>
+<polygon fill="#282c34" stroke="transparent" points="-4,4 -4,-256.9577 387.4643,-256.9577 387.4643,4 -4,4"></polygon>
+<!-- qi -->
+<g id="node1" class="node">
+<title>qi</title>
+<ellipse fill="#ffffff" stroke="#ffffff" cx="1.8" cy="-153.9321" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- 0 -->
+<g id="node4" class="node">
+<title>0</title>
+<ellipse fill="none" stroke="#ffffff" cx="151.2" cy="-153.9321" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="151.2" y="-149.7321" font-family="Times,serif" font-size="14.00" fill="#ffffff">0</text>
+</g>
+<!-- qi&#45;&gt;0 -->
+<g id="edge1" class="edge">
+<title>qi-&gt;0</title>
+<path fill="none" stroke="#ffffff" d="M3.912,-153.9321C16.62,-153.9321 83.677,-153.9321 122.7891,-153.9321"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="123.0114,-157.4322 133.0113,-153.9321 123.0113,-150.4322 123.0114,-157.4322"></polygon>
+</g>
+<!-- qj -->
+<g id="node2" class="node">
+<title>qj</title>
+<ellipse fill="#ffffff" stroke="#ffffff" cx="381.6643" cy="-153.9321" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- qk -->
+<g id="node3" class="node">
+<title>qk</title>
+<ellipse fill="#ffffff" stroke="#ffffff" cx="229.5321" cy="-1.8" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- 0&#45;&gt;0 -->
+<g id="edge2" class="edge">
+<title>0-&gt;0</title>
+<path fill="none" stroke="#ffffff" d="M168.2373,-160.3114C178.0579,-161.6132 187.2,-159.4868 187.2,-153.9321 187.2,-150.4605 183.6289,-148.328 178.5529,-147.5346"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="178.231,-144.0351 168.2373,-147.5529 178.2435,-151.0351 178.231,-144.0351"></polygon>
+<text text-anchor="middle" x="190.7" y="-149.7321" font-family="Times,serif" font-size="14.00" fill="#ffffff">b</text>
+</g>
+<!-- 01 -->
+<g id="node5" class="node">
+<title>01</title>
+<ellipse fill="none" stroke="#ffffff" cx="229.5321" cy="-232.2643" rx="20.8887" ry="20.8887"></ellipse>
+<text text-anchor="middle" x="229.5321" y="-228.0643" font-family="Times,serif" font-size="14.00" fill="#ffffff">01</text>
+</g>
+<!-- 0&#45;&gt;01 -->
+<g id="edge3" class="edge">
+<title>0-&gt;01</title>
+<path fill="none" stroke="#ffffff" d="M164.135,-166.8671C175.8676,-178.5997 193.4124,-196.1445 207.3765,-210.1087"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="205.1604,-212.8423 214.7064,-217.4385 210.1102,-207.8925 205.1604,-212.8423"></polygon>
+<text text-anchor="middle" x="182.6484" y="-192.6879" font-family="Times,serif" font-size="14.00" fill="#ffffff">a</text>
+</g>
+<!-- 012 -->
+<g id="node6" class="node">
+<title>012</title>
+<ellipse fill="none" stroke="#ffffff" cx="307.8643" cy="-153.9321" rx="25.5439" ry="25.5439"></ellipse>
+<text text-anchor="middle" x="307.8643" y="-149.7321" font-family="Times,serif" font-size="14.00" fill="#ffffff">012</text>
+</g>
+<!-- 01&#45;&gt;012 -->
+<g id="edge9" class="edge">
+<title>01-&gt;012</title>
+<path fill="none" stroke="#ffffff" d="M244.2658,-217.5306C255.0095,-206.7869 269.8371,-191.9593 282.4727,-179.3237"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="285.0154,-181.7308 289.6116,-172.1848 280.0657,-176.781 285.0154,-181.7308"></polygon>
+<text text-anchor="middle" x="260.262" y="-202.6272" font-family="Times,serif" font-size="14.00" fill="#ffffff">a</text>
+</g>
+<!-- 02 -->
+<g id="node7" class="node">
+<title>02</title>
+<ellipse fill="none" stroke="#ffffff" cx="229.5321" cy="-75.6" rx="20.8887" ry="20.8887"></ellipse>
+<text text-anchor="middle" x="229.5321" y="-71.4" font-family="Times,serif" font-size="14.00" fill="#ffffff">02</text>
+</g>
+<!-- 01&#45;&gt;02 -->
+<g id="edge7" class="edge">
+<title>01-&gt;02</title>
+<path fill="none" stroke="#ffffff" d="M234.2345,-212.1039C236.6654,-185.3429 236.9319,-137.8299 235.0339,-106.5192"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="238.4976,-105.8963 234.2723,-96.1805 231.5165,-106.4106 238.4976,-105.8963"></polygon>
+<text text-anchor="middle" x="231.1342" y="-163.5115" font-family="Times,serif" font-size="14.00" fill="#ffffff">b</text>
+</g>
+<!-- 012&#45;&gt;qj -->
+<g id="edge10" class="edge">
+<title>012-&gt;qj</title>
+<path fill="none" stroke="#ffffff" d="M333.676,-153.9321C345.8808,-153.9321 359.8697,-153.9321 369.5824,-153.9321"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="369.8309,-157.4322 379.8308,-153.9321 369.8308,-150.4322 369.8309,-157.4322"></polygon>
+</g>
+<!-- 012&#45;&gt;012 -->
+<g id="edge4" class="edge">
+<title>012-&gt;012</title>
+<path fill="none" stroke="#ffffff" d="M332.9098,-160.6409C342.9549,-161.02 351.3862,-158.7837 351.3862,-153.9321 351.3862,-150.8999 348.0927,-148.8893 343.1702,-147.9003"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="343.1185,-144.3893 332.9098,-147.2233 342.6577,-151.3742 343.1185,-144.3893"></polygon>
+<text text-anchor="middle" x="354.4935" y="-149.7321" font-family="Times,serif" font-size="14.00" fill="#ffffff">a</text>
+</g>
+<!-- 012&#45;&gt;02 -->
+<g id="edge5" class="edge">
+<title>012-&gt;02</title>
+<path fill="none" stroke="#ffffff" d="M289.6964,-135.7643C278.3185,-124.3863 263.5838,-109.6516 251.5442,-97.612"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="253.9962,-95.1143 244.4502,-90.5181 249.0464,-100.064 253.9962,-95.1143"></polygon>
+<text text-anchor="middle" x="267.1203" y="-120.8882" font-family="Times,serif" font-size="14.00" fill="#ffffff">b</text>
+</g>
+<!-- 02&#45;&gt;qk -->
+<g id="edge11" class="edge">
+<title>02-&gt;qk</title>
+<path fill="none" stroke="#ffffff" d="M229.5321,-54.6493C229.5321,-41.5614 229.5321,-25.1587 229.5321,-14.1273"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="233.032,-13.9193 229.5321,-3.9192 226.032,-13.9192 233.032,-13.9193"></polygon>
+</g>
+<!-- 02&#45;&gt;0 -->
+<g id="edge8" class="edge">
+<title>02-&gt;0</title>
+<path fill="none" stroke="#ffffff" d="M214.7985,-90.3337C202.4586,-102.6735 184.7313,-120.4008 171.1256,-134.0065"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="168.6476,-131.5348 164.0514,-141.0808 173.5973,-136.4846 168.6476,-131.5348"></polygon>
+<text text-anchor="middle" x="189.4621" y="-116.3701" font-family="Times,serif" font-size="14.00" fill="#ffffff">b</text>
+</g>
+<!-- 02&#45;&gt;01 -->
+<g id="edge6" class="edge">
+<title>02-&gt;01</title>
+<path fill="none" stroke="#ffffff" d="M224.8298,-95.7604C222.3989,-122.5214 222.1324,-170.0344 224.0304,-201.3451"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="220.5667,-201.968 224.792,-211.6838 227.5478,-201.4537 220.5667,-201.968"></polygon>
+<text text-anchor="middle" x="221.3228" y="-152.7528" font-family="Times,serif" font-size="14.00" fill="#ffffff">a</text>
+</g>
+</g>
+</svg>
+</pre>
+<span class="math display-math"><script type="math/tex; mode=display">(\sum, Q, \underset{i \in Q}i, \underset{F \subset Q}F, S)
+</script></span>
+<blockquote>
+<p>On a plus qu’une seule entree
+Plus qu’un seul choix possible par etat <span class="math inline-math"><script type="math/tex">Q \times \sum \to Q</script></span></p>
+</blockquote>
+<p>-&gt; Programme de complexite lineaire</p>
+<p>Table de transition DFA :</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">T</th>
+<th style="text-align:center">a</th>
+<th style="text-align:center">b</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Ou 0:0 01:1 012:2 12:3</p>
+</blockquote>
+<pre class="graphviz"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: hierarchy Pages: 1 -->
+<svg width="292pt" height="79pt" viewBox="0.00 0.00 292.13 78.80" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 74.8)">
+<title>hierarchy</title>
+<polygon fill="#282c34" stroke="transparent" points="-4,4 -4,-74.8 288.1292,-74.8 288.1292,4 -4,4"></polygon>
+<!-- qi -->
+<g id="node1" class="node">
+<title>qi</title>
+<ellipse fill="#ffffff" stroke="#ffffff" cx="1.8" cy="-18" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- 0 -->
+<g id="node3" class="node">
+<title>0</title>
+<ellipse fill="none" stroke="#ffffff" cx="58.6" cy="-18" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="58.6" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">0</text>
+</g>
+<!-- qi&#45;&gt;0 -->
+<g id="edge1" class="edge">
+<title>qi-&gt;0</title>
+<path fill="none" stroke="#ffffff" d="M3.6898,-18C8.0522,-18 19.3107,-18 30.5058,-18"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="30.5696,-21.5001 40.5696,-18 30.5696,-14.5001 30.5696,-21.5001"></polygon>
+</g>
+<!-- qj -->
+<g id="node2" class="node">
+<title>qj</title>
+<ellipse fill="#ffffff" stroke="#ffffff" cx="282.3292" cy="-18" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- 0&#45;&gt;0 -->
+<g id="edge2" class="edge">
+<title>0-&gt;0</title>
+<path fill="none" stroke="#ffffff" d="M52.2208,-35.0373C50.9189,-44.8579 53.0453,-54 58.6,-54 62.0717,-54 64.2042,-50.4289 64.9975,-45.3529"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="68.4971,-45.031 64.9792,-35.0373 61.4971,-45.0435 68.4971,-45.031"></polygon>
+<text text-anchor="middle" x="58.6" y="-58.2" font-family="Times,serif" font-size="14.00" fill="#ffffff">a,b</text>
+</g>
+<!-- 1 -->
+<g id="node4" class="node">
+<title>1</title>
+<ellipse fill="none" stroke="#ffffff" cx="136.8146" cy="-18" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="136.8146" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">1</text>
+</g>
+<!-- 0&#45;&gt;1 -->
+<g id="edge3" class="edge">
+<title>0-&gt;1</title>
+<path fill="none" stroke="#ffffff" d="M76.7406,-18C86.2174,-18 98.0264,-18 108.6602,-18"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="108.7724,-21.5001 118.7724,-18 108.7723,-14.5001 108.7724,-21.5001"></polygon>
+<text text-anchor="middle" x="97.7073" y="-22.2" font-family="Times,serif" font-size="14.00" fill="#ffffff">a</text>
+</g>
+<!-- 2 -->
+<g id="node5" class="node">
+<title>2</title>
+<ellipse fill="none" stroke="#ffffff" cx="225.5292" cy="-18" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="225.5292" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">2</text>
+</g>
+<!-- 1&#45;&gt;2 -->
+<g id="edge4" class="edge">
+<title>1-&gt;2</title>
+<path fill="none" stroke="#ffffff" d="M155.1963,-18C167.2904,-18 183.3622,-18 197.0892,-18"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="197.4746,-21.5001 207.4746,-18 197.4745,-14.5001 197.4746,-21.5001"></polygon>
+<text text-anchor="middle" x="181.1719" y="-22.2" font-family="Times,serif" font-size="14.00" fill="#ffffff">a,b</text>
+</g>
+<!-- 2&#45;&gt;qj -->
+<g id="edge5" class="edge">
+<title>2-&gt;qj</title>
+<path fill="none" stroke="#ffffff" d="M243.8137,-18C252.5153,-18 262.6741,-18 270.3732,-18"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="270.5256,-21.5001 280.5256,-18 270.5255,-14.5001 270.5256,-21.5001"></polygon>
+</g>
+</g>
+</svg>
+</pre>
+<p>Table de transition depuis NFA:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">T</th>
+<th style="text-align:center">a</th>
+<th style="text-align:center">b</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">01</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">01</td>
+<td style="text-align:center">012</td>
+<td style="text-align:center">02</td>
+</tr>
+<tr>
+<td style="text-align:center">012</td>
+<td style="text-align:center">012</td>
+<td style="text-align:center">02</td>
+</tr>
+<tr>
+<td style="text-align:center">02</td>
+<td style="text-align:center">01</td>
+<td style="text-align:center">0</td>
+</tr>
+</tbody>
+</table>
+<p>L.Rat -&gt; Expr Rat -&gt; <span class="math inline-math"><script type="math/tex">\varepsilon</script></span>NFA -&gt; NFA -&gt; DFA</p>
+<blockquote>
+<p>Algorithme de Boyer-Moore</p>
+</blockquote>
+<hr>
+<p>2 derniers symboles vus par noeud</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">T</th>
+<th style="text-align:center">a</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">bb</td>
+</tr>
+<tr>
+<td style="text-align:center">01</td>
+<td style="text-align:center">ba</td>
+</tr>
+<tr>
+<td style="text-align:center">012</td>
+<td style="text-align:center">aa</td>
+</tr>
+<tr>
+<td style="text-align:center">02</td>
+<td style="text-align:center">ab</td>
+</tr>
+</tbody>
+</table>
+<h2>Memoire de l’automate</h2>
+<p><span class="math inline-math"><script type="math/tex">\forall n \in N</script></span><br>
+<span class="math inline-math"><script type="math/tex">\sum = \{a, b\}</script></span><br>
+<span class="math inline-math"><script type="math/tex">L = a^nb^n</script></span></p>
+<p>Les automates (Expr Rat -&gt; <span class="math inline-math"><script type="math/tex">\varepsilon</script></span>NFA -&gt; NFA -&gt; DFA) ne marchent que sur des langages rationnels.</p>
+<p><mark><strong>Lemme de pompage</strong></mark><br>
+Condition necessaire de rationalite</p>
+<blockquote>
+<p>Le complementaire preserve la rationnalite</p>
+</blockquote>
+
+  </body>
+</html>
