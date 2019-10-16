@@ -11,10 +11,8 @@ body {
 }
 
 pre {
-    text-align: center;
     background-color: inherit;
     border-radius: 0;
-    white-space: inherit;
     padding: 16px;
     font-size: 85%;
     line-height: 1.45;
