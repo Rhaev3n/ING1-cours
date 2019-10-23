@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html data-markdown-preview-plus-context="html-export">
+  <head>
+    <meta charset="utf-8" />
+    <title>IG-cours2</title><script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX","output/HTML-CSS"],
+    extensions: ["[a11y]/accessibility-menu.js"],
+    'HTML-CSS': {
+      availableFonts: [],
+      webFont: 'TeX',
+      undefinedFamily: "serif",
+      mtextFontInherit: true,
+    },
+    TeX: {
+  "Macros": {},
+  "equationNumbers": {},
+  "extensions": [
+    "AMSmath.js",
+    "AMSsymbols.js",
+    "noErrors.js",
+    "noUndefined.js"
+  ]
+},
+    showMathMenu: true
+  });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js"></script>
+    <style>.emoji {
+  max-width: 1em !important;
+}
+del {
+  text-decoration: none;
+  position: relative;
+}
+del::after {
+  border-bottom: 1px solid black;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+ul.contains-task-list li.task-list-item {
+  position: relative;
+  list-style-type: none;
+}
+ul.contains-task-list li.task-list-item input.task-list-item-checkbox {
+  position: absolute;
+  transform: translateX(-100%);
+  width: 30px;
+}
+span.critic.comment {
+  position: relative;
+}
+span.critic.comment::before {
+  content: '\1f4ac';
+  position: initial;
+}
+span.critic.comment > span {
+  display: none;
+}
+span.critic.comment:hover > span {
+  display: initial;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  border: 1px solid;
+  border-radius: 5px;
+  max-height: 4em;
+  overflow: auto;
+}
+span.critic.comment:focus > span {
+  display: initial;
+  text-decoration: underline;
+  position: initial;
+  top: auto;
+  left: auto;
+  border: initial;
+  border-radius: initial;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: transparent;
+}
+
+body {
+  padding: 2em;
+  font-size: 1.2em;
+  color: #abb2bf;
+  background-color: #282c34;
+  overflow: auto;
+}
+body > :first-child,
+body > div.update-preview > :first-child {
+  margin-top: 0;
+}
+body > p,
+body > div.update-preview > p {
+  margin-top: 0;
+  margin-bottom: 1.5em;
+}
+body > ul,
+body > div.update-preview > ul,
+body > ol,
+body > div.update-preview > ol {
+  margin-bottom: 1.5em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  color: #ffffff;
+}
+h1 {
+  font-size: 2.4em;
+  font-weight: 300;
+}
+h2 {
+  font-size: 1.8em;
+  font-weight: 400;
+}
+h3 {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+h4 {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+h5 {
+  font-size: 1.1em;
+  font-weight: 600;
+}
+h6 {
+  font-size: 1em;
+  font-weight: 600;
+}
+strong {
+  color: #ffffff;
+}
+del {
+  color: #7c879c;
+}
+a,
+a code {
+  color: #528bff;
+}
+img {
+  max-width: 100%;
+}
+blockquote {
+  margin: 1.5em 0;
+  font-size: inherit;
+  color: #7c879c;
+  border-color: #4b5362;
+  border-width: 4px;
+}
+hr {
+  margin: 3em 0;
+  border-top: 2px dashed #4b5362;
+  background: none;
+}
+table {
+  margin: 1.5em 0;
+}
+th {
+  color: #ffffff;
+}
+th,
+td {
+  padding: 0.66em 1em;
+  border: 1px solid #4b5362;
+}
+code {
+  color: #ffffff;
+  background-color: #3a3f4b;
+}
+pre.editor-colors {
+  margin: 1.5em 0;
+  padding: 1em;
+  font-size: 0.92em;
+  border-radius: 3px;
+  background-color: #31363f;
+}
+kbd {
+  color: #ffffff;
+  border: 1px solid #4b5362;
+  border-bottom: 2px solid #3e4451;
+  background-color: #3a3f4b;
+}
+
+pre.editor-colors {
+  color: #839496;
+  background-color: #002b36;
+}
+pre.editor-colors .gutter {
+  color: #839496;
+  background-color: #073642;
+}
+pre.editor-colors .gutter .line-number.cursor-line {
+  background-color: #0a4d5e;
+}
+pre.editor-colors .invisible-character {
+  color: #0a4d5e;
+}
+pre.editor-colors .indent-guide {
+  color: #0a4d5e;
+}
+pre.editor-colors .cursor {
+  border-color: #fdf6e3;
+}
+pre.editor-colors .cursor-line {
+  background-color: rgba(0, 165, 207, 0.08);
+}
+pre.editor-colors .selection .region {
+  background-color: #073a47;
+}
+pre.editor-colors .fold-marker:after,
+pre.editor-colors .gutter .line-number.folded {
+  color: #d33682;
+}
+pre.editor-colors .bracket-matcher .region {
+  border-color: #d33682;
+}
+.syntax--comment {
+  color: #586e75;
+  font-style: italic;
+}
+.syntax--comment .syntax--markup.syntax--link {
+  color: #586e75;
+}
+.syntax--string {
+  color: #2aa198;
+}
+.syntax--string.syntax--regexp {
+  color: #dc322f;
+}
+.syntax--constant.syntax--numeric {
+  color: #d33682;
+}
+.syntax--constant.syntax--language {
+  color: #b58900;
+}
+.syntax--constant.syntax--character,
+.syntax--constant.syntax--other,
+.syntax--constant.syntax--support {
+  color: #cb4b16;
+}
+.syntax--variable {
+  color: #268bd2;
+}
+.syntax--keyword {
+  color: #859900;
+}
+.syntax--storage {
+  color: #859900;
+}
+.syntax--meta.syntax--class {
+  color: #268bd2;
+}
+.syntax--entity.syntax--name.syntax--class,
+.syntax--entity.syntax--name.syntax--function,
+.syntax--entity.syntax--name.syntax--section,
+.syntax--entity.syntax--name.syntax--type {
+  color: #268bd2;
+}
+.syntax--entity.syntax--other.syntax--attribute-name {
+  color: #657b83;
+}
+.syntax--support.syntax--function {
+  color: #268bd2;
+}
+.syntax--support.syntax--function.syntax--builtin {
+  color: #859900;
+}
+.syntax--support.syntax--type,
+.syntax--support.syntax--class {
+  color: #859900;
+}
+.syntax--tag.syntax--entity.syntax--name {
+  color: #268bd2;
+}
+.syntax--tag.syntax--punctuation.syntax--definition.syntax--html,
+.syntax--tag.syntax--punctuation.syntax--definition.syntax--begin,
+.syntax--tag.syntax--punctuation.syntax--definition.syntax--end {
+  color: #586e75;
+}
+.syntax--invalid.syntax--deprecated {
+  color: #b58900;
+  text-decoration: underline;
+}
+.syntax--invalid.syntax--illegal {
+  color: #dc322f;
+  text-decoration: underline;
+}
+.syntax--none {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--meta.syntax--preprocessor,
+.syntax--source.syntax--cpp .syntax--meta.syntax--preprocessor {
+  color: #dc322f;
+}
+.syntax--source.syntax--c .syntax--keyword.syntax--control.syntax--directive,
+.syntax--source.syntax--cpp .syntax--keyword.syntax--control.syntax--directive {
+  color: #cb4b16;
+}
+.syntax--source.syntax--c .syntax--punctuation.syntax--string,
+.syntax--source.syntax--cpp .syntax--punctuation.syntax--string {
+  color: #2aa198;
+}
+.syntax--source.syntax--c .syntax--constant,
+.syntax--source.syntax--cpp .syntax--constant {
+  color: #cb4b16;
+}
+.syntax--source.syntax--c .syntax--constant.syntax--numeric,
+.syntax--source.syntax--cpp .syntax--constant.syntax--numeric,
+.syntax--source.syntax--c .syntax--constant.syntax--language.syntax--c,
+.syntax--source.syntax--cpp .syntax--constant.syntax--language.syntax--c {
+  color: #2aa198;
+}
+.syntax--source.syntax--c .syntax--storage,
+.syntax--source.syntax--cpp .syntax--storage {
+  color: #b58900;
+}
+.syntax--source.syntax--c .syntax--entity,
+.syntax--source.syntax--cpp .syntax--entity {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--entity.syntax--name.syntax--function.syntax--preprocessor,
+.syntax--source.syntax--cpp .syntax--entity.syntax--name.syntax--function.syntax--preprocessor {
+  color: #dc322f;
+}
+.syntax--source.syntax--c .syntax--support.syntax--type,
+.syntax--source.syntax--cpp .syntax--support.syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--c .syntax--support.syntax--type.syntax--posix-reserved,
+.syntax--source.syntax--cpp .syntax--support.syntax--type.syntax--posix-reserved {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--variable.syntax--other.syntax--dot-access,
+.syntax--source.syntax--cpp .syntax--variable.syntax--other.syntax--dot-access {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--variable.syntax--parameter.syntax--preprocessor,
+.syntax--source.syntax--cpp .syntax--variable.syntax--parameter.syntax--preprocessor {
+  color: #dc322f;
+}
+.syntax--source.syntax--coffee .syntax--support.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--variable,
+.syntax--source.syntax--coffee .syntax--entity.syntax--name.syntax--function,
+.syntax--source.syntax--coffee .syntax--entity.syntax--name.syntax--class {
+  color: #268bd2;
+}
+.syntax--source.syntax--coffee .syntax--variable.syntax--parameter.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--variable.syntax--other.syntax--readwrite {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--storage.syntax--type.syntax--function {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--entity.syntax--name {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--meta.syntax--brace.syntax--round,
+.syntax--source.syntax--coffee .syntax--meta.syntax--brace.syntax--square {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--meta.syntax--delimiter {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--storage.syntax--type.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--punctuation.syntax--terminator {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--punctuation.syntax--section.syntax--embedded {
+  color: #dc322f;
+}
+.syntax--source.syntax--coffee .syntax--embedded.syntax--source {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--constant.syntax--numeric {
+  color: #d33682;
+}
+.syntax--source.syntax--coffee .syntax--constant.syntax--language.syntax--boolean {
+  color: #b58900;
+}
+.syntax--source.syntax--css .syntax--punctuation.syntax--separator,
+.syntax--source.syntax--css .syntax--punctuation.syntax--terminator {
+  color: #839496;
+}
+.syntax--source.syntax--css .syntax--punctuation.syntax--property-list.syntax--begin,
+.syntax--source.syntax--css .syntax--punctuation.syntax--property-list.syntax--end {
+  color: #dc322f;
+}
+.syntax--source.syntax--css .syntax--punctuation.syntax--section.syntax--function {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--entity.syntax--name {
+  color: #859900;
+}
+.syntax--source.syntax--css .syntax--attribute-name.syntax--class,
+.syntax--source.syntax--css .syntax--id {
+  color: #268bd2;
+}
+.syntax--source.syntax--css .syntax--pseudo-element,
+.syntax--source.syntax--css .syntax--pseudo-class {
+  color: #cb4b16;
+}
+.syntax--source.syntax--css .syntax--property-value {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--constant.syntax--numeric {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--constant.syntax--numeric .syntax--unit {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--rgb-value {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--support.syntax--constant {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--support.syntax--constant.syntax--media {
+  color: #dc322f;
+}
+.syntax--source.syntax--css .syntax--keyword.syntax--important {
+  color: #dc322f;
+}
+.syntax--source.syntax--less .syntax--keyword.syntax--unit,
+.syntax--source.syntax--scss .syntax--keyword.syntax--unit {
+  color: #2aa198;
+}
+.syntax--source.syntax--go .syntax--operator {
+  color: #839496;
+}
+.syntax--source.syntax--go .syntax--operator.syntax--assignment {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--keyword.syntax--operator {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--keyword.syntax--import {
+  color: #cb4b16;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--modifier.syntax--import {
+  color: #586e75;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--class .syntax--storage.syntax--modifier {
+  color: #b58900;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--class .syntax--meta.syntax--class.syntax--identifier .syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #268bd2;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--type.syntax--primitive.syntax--array {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--constant.syntax--numeric {
+  color: #d33682;
+}
+.syntax--source.syntax--java .syntax--constant.syntax--other {
+  color: #cb4b16;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--type {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--method-call {
+  color: #dc322f;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--method-call .syntax--meta.syntax--method {
+  color: #6c71c4;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--method-call .syntax--punctuation.syntax--definition.syntax--seperator.syntax--parameter {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--punctuation.syntax--definition.syntax--method-parameters {
+  color: #93a1a1;
+}
+.syntax--source.syntax--js .syntax--comma {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--support.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name.syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name.syntax--function {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name.syntax--tag {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--other.syntax--attribute-name {
+  color: #b58900;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--brace {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--keyword {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--new {
+  color: #859900;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--control {
+  color: #cb4b16;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--control.syntax--regexp {
+  color: #2aa198;
+}
+.syntax--source.syntax--js .syntax--variable {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--variable.syntax--dom {
+  color: #859900;
+}
+.syntax--source.syntax--js .syntax--delimiter + .syntax--dom {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--name {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--variable.syntax--language {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--variable.syntax--parameter {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--regexp {
+  color: #2aa198;
+}
+.syntax--source.syntax--js .syntax--support.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--support.syntax--constant {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--storage.syntax--modifier {
+  color: #b58900;
+}
+.syntax--source.syntax--js .syntax--punctuation.syntax--terminator.syntax--statement {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--delimiter.syntax--method.syntax--period {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--brace.syntax--square {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--brace.syntax--curly {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--string.syntax--quoted.syntax--template .syntax--embedded.syntax--source {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--string.syntax--quoted.syntax--template .syntax--embedded.syntax--source > .syntax--embedded.syntax--punctuation {
+  color: #dc322f;
+}
+.syntax--source.syntax--js.syntax--embedded .syntax--entity.syntax--name.syntax--tag {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--import .syntax--control {
+  color: #cb4b16;
+}
+.syntax--source.syntax--js.syntax--rails .syntax--instance {
+  color: #268bd2;
+}
+.syntax--source.syntax--js.syntax--rails .syntax--class {
+  color: #b58900;
+}
+.syntax--md .syntax--link .syntax--entity,
+.syntax--gfm .syntax--link .syntax--entity {
+  color: #6c71c4;
+}
+.syntax--md .syntax--list.syntax--ordered,
+.syntax--gfm .syntax--list.syntax--ordered {
+  color: #859900;
+}
+.syntax--md .syntax--list.syntax--unordered,
+.syntax--gfm .syntax--list.syntax--unordered {
+  color: #b58900;
+}
+.syntax--md .syntax--raw,
+.syntax--gfm .syntax--raw {
+  font-style: italic;
+}
+.syntax--md.syntax--support,
+.syntax--gfm.syntax--support {
+  color: #586e75;
+}
+.syntax--md.syntax--support.syntax--quote,
+.syntax--gfm.syntax--support.syntax--quote {
+  color: #6c71c4;
+}
+.syntax--markup.syntax--bold {
+  font-weight: bold;
+}
+.syntax--markup.syntax--italic {
+  font-style: italic;
+}
+.syntax--markup.syntax--heading {
+  color: #268bd2;
+}
+.syntax--markup.syntax--link {
+  color: #2aa198;
+}
+.syntax--markup.syntax--deleted {
+  color: #dc322f;
+}
+.syntax--markup.syntax--changed {
+  color: #b58900;
+}
+.syntax--markup.syntax--inserted {
+  color: #2aa198;
+}
+.syntax--source.syntax--php .syntax--storage.syntax--type.syntax--class {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--storage.syntax--type.syntax--function {
+  color: #cb4b16;
+}
+.syntax--source.syntax--php .syntax--storage.syntax--modifier {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--entity.syntax--name.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--entity.syntax--other {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--variable {
+  color: #268bd2;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--comment {
+  color: #586e75;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--array {
+  color: #dc322f;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--string {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--variable {
+  color: #859900;
+}
+.syntax--source.syntax--php .syntax--support.syntax--function.syntax--construct {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--support.syntax--function.syntax--array {
+  color: #859900;
+}
+.syntax--source.syntax--php .syntax--keyword.syntax--operator.syntax--class {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--keyword.syntax--operator.syntax--assignment {
+  color: #859900;
+}
+.syntax--source.syntax--php .syntax--keyword.syntax--other {
+  color: #dc322f;
+}
+.syntax--source.syntax--python .syntax--entity {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--entity.syntax--name {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--entity.syntax--other {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--function {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--function.syntax--magic {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--string {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator.syntax--quantifier {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator.syntax--logical {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--control.syntax--import {
+  color: #cb4b16;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--other {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--constant.syntax--language {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--constant.syntax--character {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--constant.syntax--other {
+  color: #dc322f;
+}
+.syntax--source.syntax--python .syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--variable {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--support.syntax--function.syntax--builtin {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--support.syntax--type.syntax--exception.syntax--python {
+  color: #b58900;
+}
+.syntax--source.syntax--python .syntax--support.syntax--type.syntax--python {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--string {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--class.syntax--todo {
+  color: #d33682;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--function {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--definition.syntax--parameters {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--section.syntax--function.syntax--begin {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--separator.syntax--parameters {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--meta.syntax--embedded .syntax--punctuation.syntax--section {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--definition {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--definition.syntax--string {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--definition.syntax--comment {
+  color: #586e75;
+}
+.syntax--source.syntax--ruby .syntax--entity.syntax--inherited-class {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--parameter {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--constant {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--constant.syntax--boolean {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--instance .syntax--punctuation.syntax--definition {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--class {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--class.syntax--control {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--module {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--require .syntax--keyword.syntax--other.syntax--special-method {
+  color: #cb4b16;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--other.syntax--special-method {
+  color: #cb4b16;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--other {
+  color: #859900;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--control {
+  color: #859900;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--operator {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--special-method {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--symbol {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--symbol .syntax--punctuation.syntax--definition {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--hashkey {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--hashkey .syntax--punctuation.syntax--definition {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--regexp {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--todo {
+  color: #d33682;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--ruby.syntax--global {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--ruby.syntax--global .syntax--punctuation {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--block {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--self {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--separator {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--numeric {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--section.syntax--regexp {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--punctuation .syntax--source.syntax--ruby {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--source.syntax--ruby {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--source.syntax--ruby .syntax--punctuation.syntax--array,
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--source.syntax--ruby .syntax--punctuation.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--support.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--support.syntax--function.syntax--kernel {
+  color: #859900;
+}
+.syntax--source.syntax--scala .syntax--variable {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--declaration {
+  color: #93a1a1;
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--comparison {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--class,
+.syntax--source.syntax--scala .syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--scala .syntax--val {
+  font-weight: normal;
+}
+.syntax--source.syntax--scala .syntax--variable {
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--variable.syntax--parameter {
+  color: #6c71c4;
+  font-weight: normal;
+}
+.syntax--source.syntax--scala .syntax--control.syntax--flow {
+  color: #93a1a1;
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--constant.syntax--language {
+  color: #93a1a1;
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--function.syntax--declaration {
+  color: #6c71c4;
+}
+.syntax--source.syntax--scala .syntax--modifier.syntax--other {
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--package {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--variable.syntax--import {
+  font-weight: normal;
+}
+.syntax--source.syntax--scala .syntax--type .syntax--bounds,
+.syntax--source.syntax--scala .syntax--type .syntax--class {
+  color: #6c71c4;
+}
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded).syntax--link.syntax--entity {
+  color: #268bd2;
+  text-decoration: underline;
+}
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded) .syntax--class,
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded) .syntax--parameter {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded) .syntax--description {
+  color: #586e75;
+}
+.syntax--source.syntax--scala .syntax--embedded {
+  color: #6c7c7c;
+  font-style: italic;
+}
+.syntax--source.syntax--scala .syntax--embedded .syntax--margin,
+.syntax--source.syntax--scala .syntax--embedded .syntax--delimiters {
+  font-style: normal;
+}
+.syntax--source.syntax--ts .syntax--import .syntax--control,
+.syntax--source.syntax--tsx .syntax--import .syntax--control {
+  color: #cb4b16;
+}
+.syntax--source.syntax--ts .syntax--entity.syntax--name.syntax--type,
+.syntax--source.syntax--tsx .syntax--entity.syntax--name.syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--ts .syntax--entity.syntax--inherited-class,
+.syntax--source.syntax--tsx .syntax--entity.syntax--inherited-class {
+  color: #b58900;
+}
+.syntax--source.syntax--ts .syntax--support.syntax--type,
+.syntax--source.syntax--tsx .syntax--support.syntax--type {
+  color: #b58900;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="../style.css">
+  </head>
+  <body>
+    <h1>Integrales Generalisees (2)</h1>
+<p><strong>Rappel</strong><br>
+Notre question de depart etait de donner du sens a l’integrale d’une fonction sur un intervalle infini ou pour une integrande mal defini au bord de l’intervall d;integration. Par exemple, pour definir <span class="math inline-math"><script type="math/tex">\int_{0}^{+\infty}e^{-x}dx</script></span> lorsque l’intervalle en choisissant <span class="math inline-math"><script type="math/tex">A \in R</script></span> :</p>
+<span class="math display-math"><script type="math/tex; mode=display">\int_{0}^{A}e^{-x}dx = [-e^{-x}]_{0}^{A} = 1 - e^{-A}
+</script></span>
+<p>Cette expression en A calcule l’aire algebrique comprise entre le graphe de <span class="math inline-math"><script type="math/tex">e^{-x}</script></span> et l’axe des abscisses sur [0, A]. Elle admet une limite quand <span class="math inline-math"><script type="math/tex">A \to +\infty</script></span>, c’est cette limite qu’on definit comme <span class="math inline-math"><script type="math/tex">\int_{0}^{+\infty}e^{-x}dx</script></span><br>
+On a ici :</p>
+<span class="math display-math"><script type="math/tex; mode=display">\int^{+\infty}_{0}e^{-x}dx = 1
+</script></span>
+<p>On dit que <span class="math inline-math"><script type="math/tex">\int^{+\infty}_{0}e^{-x}dx</script></span> est CV de valeur 1.</p>
+<h2>Lorsqu’on ne connait pas de primitives</h2>
+<p><mark><strong>Fait</strong></mark></p>
+<p>On ne connait pas de primitive de fonction <span class="math inline-math"><script type="math/tex">x \to e^{-x^2}</script></span> exprimable a l’aide des fonctions usuelles</p>
+<p>La demarche adoptee jusqu’a present ne permet donc pas d’etudier <span class="math inline-math"><script type="math/tex">\int_R e^{-x^2}dx</script></span>. C’est un soucis, cette integrale est d’une utilisation constante en probabilites. On doit donc trouver d’autres moyens de decider de la convergence des integrales generalisees.</p>
+<p><mark><strong>Convention</strong></mark></p>
+<p>On se contente dans la suite d’enoncer le cas des integrales <em>improrpes a droite</em>. Les cas des integrales improrpes a gauche ou bilateraales est a votre charge.</p>
+<p>Voici la proposition au centre de cette section :</p>
+<p><mark><strong>Proposition</strong></mark></p>
+<p>Soient f  et g deux fonctions <strong>positives</strong> sur un intervalle [a,b[ <span class="math inline-math"><script type="math/tex">(b \in R \cup \{+\infty\})</script></span> ou elles sont definies et continues. On suppose que <span class="math inline-math"><script type="math/tex">\forall x \in [a,b[</script></span>,</p>
+<span class="math display-math"><script type="math/tex; mode=display">g(x) \geq f(x) \geq 0
+</script></span>
+<ul>
+<li>Si <span class="math inline-math"><script type="math/tex">\int_a^bg(x)dx</script></span> CV, alors <span class="math inline-math"><script type="math/tex">\int_a^bf(x)dx</script></span> CV aussi</li>
+<li>Si <span class="math inline-math"><script type="math/tex">\int_a^bf(x)dx</script></span> DV, alors <span class="math inline-math"><script type="math/tex">\int_a^bg(x)dx</script></span> DV aussi</li>
+</ul>
+<hr>
+<p>[graphiquement]</p>
+<ul>
+<li>Si [aire sous g] &lt; <span class="math inline-math"><script type="math/tex">+\infty</script></span> alors [aire sous f] &lt; <span class="math inline-math"><script type="math/tex">+\infty</script></span></li>
+<li>Si [aire sous f] = <span class="math inline-math"><script type="math/tex">+\infty</script></span> alors [aire sous g] = <span class="math inline-math"><script type="math/tex">+\infty</script></span></li>
+</ul>
+<p><ins>Esquisse de preuve</ins> :<br>
+Les fonctions <span class="math inline-math"><script type="math/tex">x \to \int_a^xf(t)dt</script></span> et <span class="math inline-math"><script type="math/tex">x \to \int_a^xg(t)dt</script></span>
+Sont croissantes et continues. La croissance vient du fait que f, g <span class="math inline-math"><script type="math/tex">\geq</script></span> 0.</p>
+<p>On a donc 2 cas possibles pour chacune (dans le cas de f) :</p>
+<ol>
+<li><span class="math inline-math"><script type="math/tex">x \to \int_a^xf(t)dt</script></span> est bornee</li>
+<li><span class="math inline-math"><script type="math/tex">x \to \int_a^xf(t)dt</script></span> n’est pas bornee</li>
+</ol>
+<p>Dans le cas (1), en revenant au cas des suites (critere sequentiel de continuite), on peut montrer que <span class="math inline-math"><script type="math/tex">\underset{x \to b}{lim}\int_a^xf(t)dt</script></span> existe.<br>
+Dans le cas (2) a cause de la monotonie de f, f non bornee <span class="math inline-math"><script type="math/tex">\Rightarrow f \underset{b}\to +\infty</script></span></p>
+<p><ins>Exemple</ins> :</p>
+<ol>
+<li><span class="math inline-math"><script type="math/tex">\int_{1}^{+\infty}\frac{dx}{x^2}</script></span>
+<span class="math inline-math"><script type="math/tex">\int_{1}^{A}\frac{dx}{x^2} = [-\frac{1}{x}]^A_1 = -\frac{1}{A} + 1 \underset{A \to +\infty}\to 1</script></span>
+Donc <span class="math inline-math"><script type="math/tex">\int_{1}^{+\infty}\frac{dx}{x^2}</script></span> converge et <span class="math inline-math"><script type="math/tex">\int_{1}^{+\infty}\frac{dx}{x^2} = 1</script></span></li>
+</ol>
+<p><span class="math inline-math"><script type="math/tex">\forall \alpha \geq 2</script></span> on a sur <span class="math inline-math"><script type="math/tex">[1,+\infty[</script></span>, <span class="math inline-math"><script type="math/tex">0 \leq \frac{1}{x^{\alpha}} \leq \frac{1}{x^2}</script></span>
+Donc <span class="math inline-math"><script type="math/tex">\int_1^{+\infty} \frac{dx}{x^{\alpha}}</script></span> est CV</p>
+<hr>
+<ol start="2">
+<li><span class="math inline-math"><script type="math/tex">\exists k \in R_+</script></span> tel que <span class="math inline-math"><script type="math/tex">\forall x \in [k, +\infty[</script></span>, <span class="math inline-math"><script type="math/tex">e^{-x^2} \leq \frac{1}{x^2}</script></span></li>
+</ol>
+<p><div class="alert alert-info"><br>
+Justification :<br>
+<span class="math inline-math"><script type="math/tex">x^2e^{-x^2} \to 0</script></span> en particulier a partir d’un certain <span class="math inline-math"><script type="math/tex">k \in R_+, \forall x \geq k, x^2e^{-x^2} \leq 1</script></span><br>
+</div><br>
+Donc <span class="math inline-math"><script type="math/tex">\int_k^{+\infty} e^{-x^2}dx</script></span> Cv car <span class="math inline-math"><script type="math/tex">\int_k^{+\infty}\frac{dx}{x^2}</script></span> CV.</p>
+<p>On peut en deduire de plus que <span class="math inline-math"><script type="math/tex">\int^{+\infty}_0e^{-x^2}</script></span> CV car
+Pour <span class="math inline-math"><script type="math/tex">A >> 0</script></span><br>
+<span class="math inline-math"><script type="math/tex">\int_{0}^{A}e^{-x^2}dx = \int_{A}^{k}e^{-x^2}dx + \int_{k}^{A}e^{-x^2}dx</script></span></p>
+<blockquote>
+<p>Ou <span class="math inline-math"><script type="math/tex">\int_{A}^{k}e^{-x^2}dx</script></span> est une integrale bien definie et <span class="math inline-math"><script type="math/tex">\int_{k}^{A}e^{-x^2}dx</script></span> une integrale deja etudeie</p>
+</blockquote>
+<p>Que dire de <span class="math inline-math"><script type="math/tex">\int_{-\infty}^0 e^{-x^2}dx</script></span> ?</p>
+<ul>
+<li>Si <span class="math inline-math"><script type="math/tex">A \in R_-, \int_{A}^0 e^{-x^2}dx</script></span> ets egale a <span class="math inline-math"><script type="math/tex">\int_{0}^{-A} e^{-x^2}dx</script></span>, car <span class="math inline-math"><script type="math/tex">x \to e^{-x^2}</script></span> est paire.</li>
+</ul>
+<p><div class="alert alert-danger"><br>
+<strong>Remarque</strong> :</p>
+<ol>
+<li>Le fait d’etre positif est essentiel dans la proposition precedente</li>
+<li>On peut relaxer cette hypothese tant que f et g dont de meme signes constant<br>
+</div></li>
+</ol>
+<p>Le resultat precendent a 2 consequences suivantes :</p>
+<p><mark><strong>Proposition</strong></mark></p>
+<p>Soient f et g deux fonctions continues sur [a,b[ et de signes <span class="math inline-math"><script type="math/tex">\geq 0</script></span>. Sur ce meme intervalle :</p>
+<ol>
+<li>Si <span class="math inline-math"><script type="math/tex">f \underset{b}\sim g</script></span> alors <span class="math inline-math"><script type="math/tex">\int_{a}^{b}f(t)dt</script></span> et <span class="math inline-math"><script type="math/tex">\int_{a}^{b}g(t)dt</script></span> sont de meme natures.</li>
+<li>Si <span class="math inline-math"><script type="math/tex">f = \mathcal{O}_a(g)</script></span>
+<ul>
+<li>Si <span class="math inline-math"><script type="math/tex">\int_{a}^{b}g(t)dt</script></span> CV alors <span class="math inline-math"><script type="math/tex">\int_{a}^{b}f(t)dt</script></span> CV</li>
+<li>Si <span class="math inline-math"><script type="math/tex">\int_{a}^{b}f(t)dt</script></span> DV alors <span class="math inline-math"><script type="math/tex">\int_{a}^{b}g(t)dt</script></span> DV</li>
+</ul>
+</li>
+</ol>
+<p><div class="alert alert-danger"><br>
+<strong>Remarque :</strong><br>
+La proposition suivante repose sur le fait que :</p>
+<ol>
+<li><span class="math inline-math"><script type="math/tex">f = \mathcal{O}_a(g)</script></span> signifie que <span class="math inline-math"><script type="math/tex">\exists k \in R_+</script></span> tel que <span class="math inline-math"><script type="math/tex">f \leq kg</script></span> (au voisinage de b)</li>
+<li><span class="math inline-math"><script type="math/tex">f \underset{b}\sim g</script></span>, <span class="math inline-math"><script type="math/tex">\exists k, K \in R_+</script></span> tel que <span class="math inline-math"><script type="math/tex">kg \leq f \leq Kg</script></span> (au voisinage de b)<br>
+</div></li>
+</ol>
+<h2>Kit de survie</h2>
+<p>Soient f et g deux fonctions definies au voisinage d’un point a (sur un intervalle ouvert centre en a). On suppose que g n’est pas nulle sur un voisinage de a (a exclu).<br>
+<div class="alert alert-info"><br>
+Comparer f et g en a, c’est etudier le rapport f/g au voisinage de a.<br>
+</div></p>
+<p><div class="alert alert-danger"></p>
+<ol>
+<li><span class="math inline-math"><script type="math/tex">\sim_a</script></span> : <span class="math inline-math"><script type="math/tex">\frac{f}{g} \underset{a}\to 1</script></span></li>
+<li><span class="math inline-math"><script type="math/tex">f = \mathcal{o}_a(g)</script></span> : <span class="math inline-math"><script type="math/tex">\frac{f}{g} \underset{a}\to 0</script></span></li>
+<li><span class="math inline-math"><script type="math/tex">f = \mathcal{O}_a(g)</script></span> : <span class="math inline-math"><script type="math/tex">\frac{f}{g}</script></span> est majore en a<br>
+</div></li>
+</ol>
+<p><div class="alert alert-danger"><br>
+<span class="math inline-math"><script type="math/tex">f \sim_a g \Rightarrow \mathcal{O}_a(g)</script></span><br>
+<span class="math inline-math"><script type="math/tex">f = \mathcal{o}_a(g) \Rightarrow f = \mathcal{O}_a(g)</script></span><br>
+</div></p>
+<p><mark><strong>Definition propre</strong></mark></p>
+<p>Il existe une fonction <span class="math inline-math"><script type="math/tex">\varepsilon</script></span> au voisinage de a telle que <span class="math inline-math"><script type="math/tex">f = \varepsilon g</script></span></p>
+<ol>
+<li><span class="math inline-math"><script type="math/tex">f \sim_a g</script></span> : <span class="math inline-math"><script type="math/tex">\underset{t \to a}{lim}\ \varepsilon(t) = 1</script></span></li>
+<li><span class="math inline-math"><script type="math/tex">f = \mathcal{o}_a(g)</script></span> : <span class="math inline-math"><script type="math/tex">\underset{t \to a}{lim}\ \varepsilon(t) = 0</script></span></li>
+<li><span class="math inline-math"><script type="math/tex">f = \mathcal{O}_a(g)</script></span> : <span class="math inline-math"><script type="math/tex">\varepsilon</script></span> est majore au voisinage de a.</li>
+</ol>
+<h2>Exercices</h2>
+<ol>
+<li><span class="math inline-math"><script type="math/tex">\int_0^1\frac{dt}{t^{\alpha}}</script></span> pour <span class="math inline-math"><script type="math/tex">\alpha \in R</script></span></li>
+</ol>
+<ul>
+<li>(a) Si <span class="math inline-math"><script type="math/tex">\alpha \leq 0</script></span> est continue et definie sur [0,1] (pas de soucis en 0)</li>
+</ul>
+<p>On se limite donc au cas <span class="math inline-math"><script type="math/tex">\alpha > 0</script></span><br>
+On cherche une primitive de <span class="math inline-math"><script type="math/tex">t^{-\alpha}</script></span> :</p>
+<ul>
+<li>Si <span class="math inline-math"><script type="math/tex">\alpha = 1</script></span>,  <span class="math inline-math"><script type="math/tex">\int_{}^{x}t^{-\alpha}dt\ ln(t)</script></span></li>
+<li>Si <span class="math inline-math"><script type="math/tex">\alpha \neq 1</script></span>: <span class="math inline-math"><script type="math/tex">\int^x t^{-\alpha}dt = \frac{1}{(1 - \alpha)t^{\alpha -1}}</script></span></li>
+</ul>
+<p><span class="math inline-math"><script type="math/tex">\int_{0}^{1}\frac{dt}{t^{\alpha}}</script></span> est une integrale impropre en 0.</p>
+<ul>
+<li>Si <span class="math inline-math"><script type="math/tex">\alpha = 1</script></span> : <span class="math inline-math"><script type="math/tex">\int_{A}^{1} \frac{dt}{t} = [ln(t)]^{1}_{A} = -ln(A)</script></span> qui n’a pas de limite reelle en 0.</li>
+<li>Si <span class="math inline-math"><script type="math/tex">\alpha \neq 1</script></span>, <span class="math inline-math"><script type="math/tex">\int_{A}^{1}\frac{dt}{t^{\alpha}} = [\frac{1}{(1-\alpha)^{\alpha - 1}}]^{1}_{A} = \frac{1}{1 - \alpha} - \frac{1}{(1 - \alpha)A^{\alpha - 1}}</script></span>
+<ul>
+<li>Si <span class="math inline-math"><script type="math/tex">\alpha > 1</script></span> : <span class="math inline-math"><script type="math/tex">\frac{1}{A^{\alpha - 1}}</script></span> n’a pas de limite</li>
+<li>Si <span class="math inline-math"><script type="math/tex">\alpha \in ]0,1]</script></span> : <span class="math inline-math"><script type="math/tex">\frac{1}{A^{\alpha - 1}} \underset{A \to 0}{\to} 0</script></span></li>
+</ul>
+</li>
+<li>(b) Si <span class="math inline-math"><script type="math/tex">\alpha  \geq 1</script></span>, on DV</li>
+<li>(c ) Si <span class="math inline-math"><script type="math/tex">\alpha \in ]0,1[</script></span> on CV</li>
+</ul>
+<hr>
+<p><div class="alert alert-info"><br>
+<strong>En conclusion</strong><br>
+<span class="math inline-math"><script type="math/tex">\begin{align}\int_{0}^{1}\frac{dt}{t^{\alpha}}\ CV \iff \alpha < 1\end{align}</script></span><br>
+En effectuant le meme type d’etudes on a   <span class="math inline-math"><script type="math/tex">\begin{align}\int_{1}^{+\infty}\frac{dt}{t^{\alpha}}\ CV\ ssi\ \ \alpha > 1\end{align}</script></span><br>
+</div></p>
+<p><div class="alert alert-info"><br>
+<strong>Aide</strong><br>
+Comment trouver des equivalents d’une fonction de f en a dont on a un DL a l’ordre n en a.</p>
+<p><span class="math inline-math"><script type="math/tex">\begin{align}f(a + x) &= f(a) + f'(a)x + \frac{f''(a)}{2}x^2 + \mathcal{o}_o(x^2) \\ &=(f(a) + f'(a)x + \frac{f''(a)}{2}x^2)X\end{align}</script></span>
+</div></p>
+<ol start="2">
+<li><span class="math inline-math"><script type="math/tex">\begin{align}\int_0^{+\infty} \frac{t^4}{(t^5+1)\sqrt{t}}dt\end{align}</script></span></li>
+</ol>
+<p>On a eventuellement les deux points du bord qui posent probleme :</p>
+<ul>
+<li>
+<p><ins>En 0</ins> :<br>
+<span class="math inline-math"><script type="math/tex">\frac{t^4}{(t^5 + 1)\sqrt{t}} \underset{0}\sim \frac{t^4}{\sqrt{t}} = t^{7/2}</script></span> <span class="math inline-math"><script type="math/tex">\to</script></span> L’integrande est continue et definie en 0</p>
+</li>
+<li>
+<p><ins>En <span class="math inline-math"><script type="math/tex">+\infty</script></span></ins> :<br>
+<span class="math inline-math"><script type="math/tex">\frac{t^4}{(t^5 + 1)\sqrt{t}} = \frac{t^4}{t^5\sqrt{t}(1 + \frac{1}{t^5})} = \underset{+\infty}\sim \frac{t^4}{t^5\sqrt{t}} = \frac{1}{t\sqrt{t}} = \frac{1}{t^{3/2}}</script></span></p>
+</li>
+</ul>
+<p>Comme <span class="math inline-math"><script type="math/tex">\frac{1}{t^{3/2}} \geq 0</script></span> sur <span class="math inline-math"><script type="math/tex">[1,+\infty[</script></span> de meme que <span class="math inline-math"><script type="math/tex">\frac{t^4}{(t^5 + 1)\sqrt{t}}</script></span> et <span class="math inline-math"><script type="math/tex">\frac{1}{t^{3/2}} \underset{+\infty}{\sim} \frac{t^4}{(t^5 + 1)\sqrt{}t}</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">\int_0^{+\infty} \frac{t^4}{(t^5+1)\sqrt{t}}dt</script></span> est de meme nature que <span class="math inline-math"><script type="math/tex">\int_{1}^{+\infty}\frac{dt}{t^{3/2}}</script></span>. C’est une integrale de Riemann CV.</p>
+<p><div class="alert alert-info"><br>
+<span class="math inline-math"><script type="math/tex">\begin{align}\int_0^{+\infty} \frac{t^4}{(t^5+1)\sqrt{t}}dt = \int_0^{1} \frac{t^4}{(t^5+1)\sqrt{t}}dt + \int_1^{+\infty} \frac{t^4}{(t^5+1)\sqrt{t}}dt\end{align}</script></span><br>
+Donc <span class="math inline-math"><script type="math/tex">\begin{align}\int_0^{+\infty} \frac{t^4}{(t^5+1)\sqrt{t}}dt\end{align}</script></span> CV (somme de 2 integrales convergentes)<br>
+</div></p>
+<blockquote>
+<p>Ou <span class="math inline-math"><script type="math/tex">\int_0^{1} \frac{t^4}{(t^5+1)\sqrt{t}}dt</script></span> est definie et <span class="math inline-math"><script type="math/tex">\int_1^{+\infty} \frac{t^4}{(t^5+1)\sqrt{t}}dt</script></span> CV d’apres ce qui precede.</p>
+</blockquote>
+<hr>
+<ol start="3">
+<li><span class="math inline-math"><script type="math/tex">\begin{align}\int_0^{+\infty}t^{\alpha}e^{-t}dt\end{align}</script></span> avec <span class="math inline-math"><script type="math/tex">\alpha \in R</script></span></li>
+</ol>
+<hr>
+<ol start="4">
+<li><span class="math inline-math"><script type="math/tex">\begin{align}\int^{\pi}_{0}ln(sin(t))dt\end{align}</script></span></li>
+</ol>
+<hr>
+<ol start="5">
+<li><span class="math inline-math"><script type="math/tex">\begin{align}\int_0^1cos^2(\frac{1}{t})dt\end{align}</script></span></li>
+</ol>
+<hr>
+<ol start="6">
+<li><span class="math inline-math"><script type="math/tex">\begin{align}\int_{0}^{+\infty}(1 - cos(\frac{1}{t}))dt\end{align}</script></span></li>
+</ol>
+<hr>
+<ol start="7">
+<li><span class="math inline-math"><script type="math/tex">\begin{align}\int^{\pi / 2}_{0}\frac{sin(t)}{t}dt\end{align}</script></span></li>
+</ol>
+<hr>
+<ol start="8">
+<li><span class="math inline-math"><script type="math/tex">\begin{align}\int_0^{\pi}\frac{cos(t)}{t^2}dt\end{align}</script></span></li>
+</ol>
+
+  </body>
+</html>
