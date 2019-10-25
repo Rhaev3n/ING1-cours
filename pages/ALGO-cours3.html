@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html data-markdown-preview-plus-context="html-export">
+  <head>
+    <meta charset="utf-8" />
+    <title>ALGO-cours3</title><script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX","output/HTML-CSS"],
+    extensions: ["[a11y]/accessibility-menu.js"],
+    'HTML-CSS': {
+      availableFonts: [],
+      webFont: 'TeX',
+      undefinedFamily: "serif",
+      mtextFontInherit: true,
+    },
+    TeX: {
+  "Macros": {},
+  "equationNumbers": {},
+  "extensions": [
+    "AMSmath.js",
+    "AMSsymbols.js",
+    "noErrors.js",
+    "noUndefined.js"
+  ]
+},
+    showMathMenu: true
+  });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js"></script>
+    <style>.emoji {
+  max-width: 1em !important;
+}
+del {
+  text-decoration: none;
+  position: relative;
+}
+del::after {
+  border-bottom: 1px solid black;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+ul.contains-task-list li.task-list-item {
+  position: relative;
+  list-style-type: none;
+}
+ul.contains-task-list li.task-list-item input.task-list-item-checkbox {
+  position: absolute;
+  transform: translateX(-100%);
+  width: 30px;
+}
+span.critic.comment {
+  position: relative;
+}
+span.critic.comment::before {
+  content: '\1f4ac';
+  position: initial;
+}
+span.critic.comment > span {
+  display: none;
+}
+span.critic.comment:hover > span {
+  display: initial;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  border: 1px solid;
+  border-radius: 5px;
+  max-height: 4em;
+  overflow: auto;
+}
+span.critic.comment:focus > span {
+  display: initial;
+  text-decoration: underline;
+  position: initial;
+  top: auto;
+  left: auto;
+  border: initial;
+  border-radius: initial;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: transparent;
+}
+
+body {
+  padding: 2em;
+  font-size: 1.2em;
+  color: #abb2bf;
+  background-color: #282c34;
+  overflow: auto;
+}
+body > :first-child,
+body > div.update-preview > :first-child {
+  margin-top: 0;
+}
+body > p,
+body > div.update-preview > p {
+  margin-top: 0;
+  margin-bottom: 1.5em;
+}
+body > ul,
+body > div.update-preview > ul,
+body > ol,
+body > div.update-preview > ol {
+  margin-bottom: 1.5em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  color: #ffffff;
+}
+h1 {
+  font-size: 2.4em;
+  font-weight: 300;
+}
+h2 {
+  font-size: 1.8em;
+  font-weight: 400;
+}
+h3 {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+h4 {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+h5 {
+  font-size: 1.1em;
+  font-weight: 600;
+}
+h6 {
+  font-size: 1em;
+  font-weight: 600;
+}
+strong {
+  color: #ffffff;
+}
+del {
+  color: #7c879c;
+}
+a,
+a code {
+  color: #528bff;
+}
+img {
+  max-width: 100%;
+}
+blockquote {
+  margin: 1.5em 0;
+  font-size: inherit;
+  color: #7c879c;
+  border-color: #4b5362;
+  border-width: 4px;
+}
+hr {
+  margin: 3em 0;
+  border-top: 2px dashed #4b5362;
+  background: none;
+}
+table {
+  margin: 1.5em 0;
+}
+th {
+  color: #ffffff;
+}
+th,
+td {
+  padding: 0.66em 1em;
+  border: 1px solid #4b5362;
+}
+code {
+  color: #ffffff;
+  background-color: #3a3f4b;
+}
+pre.editor-colors {
+  margin: 1.5em 0;
+  padding: 1em;
+  font-size: 0.92em;
+  border-radius: 3px;
+  background-color: #31363f;
+}
+kbd {
+  color: #ffffff;
+  border: 1px solid #4b5362;
+  border-bottom: 2px solid #3e4451;
+  background-color: #3a3f4b;
+}
+
+pre.editor-colors {
+  color: #839496;
+  background-color: #002b36;
+}
+pre.editor-colors .gutter {
+  color: #839496;
+  background-color: #073642;
+}
+pre.editor-colors .gutter .line-number.cursor-line {
+  background-color: #0a4d5e;
+}
+pre.editor-colors .invisible-character {
+  color: #0a4d5e;
+}
+pre.editor-colors .indent-guide {
+  color: #0a4d5e;
+}
+pre.editor-colors .cursor {
+  border-color: #fdf6e3;
+}
+pre.editor-colors .cursor-line {
+  background-color: rgba(0, 165, 207, 0.08);
+}
+pre.editor-colors .selection .region {
+  background-color: #073a47;
+}
+pre.editor-colors .fold-marker:after,
+pre.editor-colors .gutter .line-number.folded {
+  color: #d33682;
+}
+pre.editor-colors .bracket-matcher .region {
+  border-color: #d33682;
+}
+.syntax--comment {
+  color: #586e75;
+  font-style: italic;
+}
+.syntax--comment .syntax--markup.syntax--link {
+  color: #586e75;
+}
+.syntax--string {
+  color: #2aa198;
+}
+.syntax--string.syntax--regexp {
+  color: #dc322f;
+}
+.syntax--constant.syntax--numeric {
+  color: #d33682;
+}
+.syntax--constant.syntax--language {
+  color: #b58900;
+}
+.syntax--constant.syntax--character,
+.syntax--constant.syntax--other,
+.syntax--constant.syntax--support {
+  color: #cb4b16;
+}
+.syntax--variable {
+  color: #268bd2;
+}
+.syntax--keyword {
+  color: #859900;
+}
+.syntax--storage {
+  color: #859900;
+}
+.syntax--meta.syntax--class {
+  color: #268bd2;
+}
+.syntax--entity.syntax--name.syntax--class,
+.syntax--entity.syntax--name.syntax--function,
+.syntax--entity.syntax--name.syntax--section,
+.syntax--entity.syntax--name.syntax--type {
+  color: #268bd2;
+}
+.syntax--entity.syntax--other.syntax--attribute-name {
+  color: #657b83;
+}
+.syntax--support.syntax--function {
+  color: #268bd2;
+}
+.syntax--support.syntax--function.syntax--builtin {
+  color: #859900;
+}
+.syntax--support.syntax--type,
+.syntax--support.syntax--class {
+  color: #859900;
+}
+.syntax--tag.syntax--entity.syntax--name {
+  color: #268bd2;
+}
+.syntax--tag.syntax--punctuation.syntax--definition.syntax--html,
+.syntax--tag.syntax--punctuation.syntax--definition.syntax--begin,
+.syntax--tag.syntax--punctuation.syntax--definition.syntax--end {
+  color: #586e75;
+}
+.syntax--invalid.syntax--deprecated {
+  color: #b58900;
+  text-decoration: underline;
+}
+.syntax--invalid.syntax--illegal {
+  color: #dc322f;
+  text-decoration: underline;
+}
+.syntax--none {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--meta.syntax--preprocessor,
+.syntax--source.syntax--cpp .syntax--meta.syntax--preprocessor {
+  color: #dc322f;
+}
+.syntax--source.syntax--c .syntax--keyword.syntax--control.syntax--directive,
+.syntax--source.syntax--cpp .syntax--keyword.syntax--control.syntax--directive {
+  color: #cb4b16;
+}
+.syntax--source.syntax--c .syntax--punctuation.syntax--string,
+.syntax--source.syntax--cpp .syntax--punctuation.syntax--string {
+  color: #2aa198;
+}
+.syntax--source.syntax--c .syntax--constant,
+.syntax--source.syntax--cpp .syntax--constant {
+  color: #cb4b16;
+}
+.syntax--source.syntax--c .syntax--constant.syntax--numeric,
+.syntax--source.syntax--cpp .syntax--constant.syntax--numeric,
+.syntax--source.syntax--c .syntax--constant.syntax--language.syntax--c,
+.syntax--source.syntax--cpp .syntax--constant.syntax--language.syntax--c {
+  color: #2aa198;
+}
+.syntax--source.syntax--c .syntax--storage,
+.syntax--source.syntax--cpp .syntax--storage {
+  color: #b58900;
+}
+.syntax--source.syntax--c .syntax--entity,
+.syntax--source.syntax--cpp .syntax--entity {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--entity.syntax--name.syntax--function.syntax--preprocessor,
+.syntax--source.syntax--cpp .syntax--entity.syntax--name.syntax--function.syntax--preprocessor {
+  color: #dc322f;
+}
+.syntax--source.syntax--c .syntax--support.syntax--type,
+.syntax--source.syntax--cpp .syntax--support.syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--c .syntax--support.syntax--type.syntax--posix-reserved,
+.syntax--source.syntax--cpp .syntax--support.syntax--type.syntax--posix-reserved {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--variable.syntax--other.syntax--dot-access,
+.syntax--source.syntax--cpp .syntax--variable.syntax--other.syntax--dot-access {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--variable.syntax--parameter.syntax--preprocessor,
+.syntax--source.syntax--cpp .syntax--variable.syntax--parameter.syntax--preprocessor {
+  color: #dc322f;
+}
+.syntax--source.syntax--coffee .syntax--support.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--variable,
+.syntax--source.syntax--coffee .syntax--entity.syntax--name.syntax--function,
+.syntax--source.syntax--coffee .syntax--entity.syntax--name.syntax--class {
+  color: #268bd2;
+}
+.syntax--source.syntax--coffee .syntax--variable.syntax--parameter.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--variable.syntax--other.syntax--readwrite {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--storage.syntax--type.syntax--function {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--entity.syntax--name {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--meta.syntax--brace.syntax--round,
+.syntax--source.syntax--coffee .syntax--meta.syntax--brace.syntax--square {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--meta.syntax--delimiter {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--storage.syntax--type.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--punctuation.syntax--terminator {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--punctuation.syntax--section.syntax--embedded {
+  color: #dc322f;
+}
+.syntax--source.syntax--coffee .syntax--embedded.syntax--source {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--constant.syntax--numeric {
+  color: #d33682;
+}
+.syntax--source.syntax--coffee .syntax--constant.syntax--language.syntax--boolean {
+  color: #b58900;
+}
+.syntax--source.syntax--css .syntax--punctuation.syntax--separator,
+.syntax--source.syntax--css .syntax--punctuation.syntax--terminator {
+  color: #839496;
+}
+.syntax--source.syntax--css .syntax--punctuation.syntax--property-list.syntax--begin,
+.syntax--source.syntax--css .syntax--punctuation.syntax--property-list.syntax--end {
+  color: #dc322f;
+}
+.syntax--source.syntax--css .syntax--punctuation.syntax--section.syntax--function {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--entity.syntax--name {
+  color: #859900;
+}
+.syntax--source.syntax--css .syntax--attribute-name.syntax--class,
+.syntax--source.syntax--css .syntax--id {
+  color: #268bd2;
+}
+.syntax--source.syntax--css .syntax--pseudo-element,
+.syntax--source.syntax--css .syntax--pseudo-class {
+  color: #cb4b16;
+}
+.syntax--source.syntax--css .syntax--property-value {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--constant.syntax--numeric {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--constant.syntax--numeric .syntax--unit {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--rgb-value {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--support.syntax--constant {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--support.syntax--constant.syntax--media {
+  color: #dc322f;
+}
+.syntax--source.syntax--css .syntax--keyword.syntax--important {
+  color: #dc322f;
+}
+.syntax--source.syntax--less .syntax--keyword.syntax--unit,
+.syntax--source.syntax--scss .syntax--keyword.syntax--unit {
+  color: #2aa198;
+}
+.syntax--source.syntax--go .syntax--operator {
+  color: #839496;
+}
+.syntax--source.syntax--go .syntax--operator.syntax--assignment {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--keyword.syntax--operator {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--keyword.syntax--import {
+  color: #cb4b16;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--modifier.syntax--import {
+  color: #586e75;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--class .syntax--storage.syntax--modifier {
+  color: #b58900;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--class .syntax--meta.syntax--class.syntax--identifier .syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #268bd2;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--type.syntax--primitive.syntax--array {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--constant.syntax--numeric {
+  color: #d33682;
+}
+.syntax--source.syntax--java .syntax--constant.syntax--other {
+  color: #cb4b16;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--type {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--method-call {
+  color: #dc322f;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--method-call .syntax--meta.syntax--method {
+  color: #6c71c4;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--method-call .syntax--punctuation.syntax--definition.syntax--seperator.syntax--parameter {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--punctuation.syntax--definition.syntax--method-parameters {
+  color: #93a1a1;
+}
+.syntax--source.syntax--js .syntax--comma {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--support.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name.syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name.syntax--function {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name.syntax--tag {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--other.syntax--attribute-name {
+  color: #b58900;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--brace {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--keyword {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--new {
+  color: #859900;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--control {
+  color: #cb4b16;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--control.syntax--regexp {
+  color: #2aa198;
+}
+.syntax--source.syntax--js .syntax--variable {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--variable.syntax--dom {
+  color: #859900;
+}
+.syntax--source.syntax--js .syntax--delimiter + .syntax--dom {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--name {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--variable.syntax--language {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--variable.syntax--parameter {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--regexp {
+  color: #2aa198;
+}
+.syntax--source.syntax--js .syntax--support.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--support.syntax--constant {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--storage.syntax--modifier {
+  color: #b58900;
+}
+.syntax--source.syntax--js .syntax--punctuation.syntax--terminator.syntax--statement {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--delimiter.syntax--method.syntax--period {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--brace.syntax--square {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--brace.syntax--curly {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--string.syntax--quoted.syntax--template .syntax--embedded.syntax--source {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--string.syntax--quoted.syntax--template .syntax--embedded.syntax--source > .syntax--embedded.syntax--punctuation {
+  color: #dc322f;
+}
+.syntax--source.syntax--js.syntax--embedded .syntax--entity.syntax--name.syntax--tag {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--import .syntax--control {
+  color: #cb4b16;
+}
+.syntax--source.syntax--js.syntax--rails .syntax--instance {
+  color: #268bd2;
+}
+.syntax--source.syntax--js.syntax--rails .syntax--class {
+  color: #b58900;
+}
+.syntax--md .syntax--link .syntax--entity,
+.syntax--gfm .syntax--link .syntax--entity {
+  color: #6c71c4;
+}
+.syntax--md .syntax--list.syntax--ordered,
+.syntax--gfm .syntax--list.syntax--ordered {
+  color: #859900;
+}
+.syntax--md .syntax--list.syntax--unordered,
+.syntax--gfm .syntax--list.syntax--unordered {
+  color: #b58900;
+}
+.syntax--md .syntax--raw,
+.syntax--gfm .syntax--raw {
+  font-style: italic;
+}
+.syntax--md.syntax--support,
+.syntax--gfm.syntax--support {
+  color: #586e75;
+}
+.syntax--md.syntax--support.syntax--quote,
+.syntax--gfm.syntax--support.syntax--quote {
+  color: #6c71c4;
+}
+.syntax--markup.syntax--bold {
+  font-weight: bold;
+}
+.syntax--markup.syntax--italic {
+  font-style: italic;
+}
+.syntax--markup.syntax--heading {
+  color: #268bd2;
+}
+.syntax--markup.syntax--link {
+  color: #2aa198;
+}
+.syntax--markup.syntax--deleted {
+  color: #dc322f;
+}
+.syntax--markup.syntax--changed {
+  color: #b58900;
+}
+.syntax--markup.syntax--inserted {
+  color: #2aa198;
+}
+.syntax--source.syntax--php .syntax--storage.syntax--type.syntax--class {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--storage.syntax--type.syntax--function {
+  color: #cb4b16;
+}
+.syntax--source.syntax--php .syntax--storage.syntax--modifier {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--entity.syntax--name.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--entity.syntax--other {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--variable {
+  color: #268bd2;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--comment {
+  color: #586e75;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--array {
+  color: #dc322f;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--string {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--variable {
+  color: #859900;
+}
+.syntax--source.syntax--php .syntax--support.syntax--function.syntax--construct {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--support.syntax--function.syntax--array {
+  color: #859900;
+}
+.syntax--source.syntax--php .syntax--keyword.syntax--operator.syntax--class {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--keyword.syntax--operator.syntax--assignment {
+  color: #859900;
+}
+.syntax--source.syntax--php .syntax--keyword.syntax--other {
+  color: #dc322f;
+}
+.syntax--source.syntax--python .syntax--entity {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--entity.syntax--name {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--entity.syntax--other {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--function {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--function.syntax--magic {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--string {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator.syntax--quantifier {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator.syntax--logical {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--control.syntax--import {
+  color: #cb4b16;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--other {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--constant.syntax--language {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--constant.syntax--character {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--constant.syntax--other {
+  color: #dc322f;
+}
+.syntax--source.syntax--python .syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--variable {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--support.syntax--function.syntax--builtin {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--support.syntax--type.syntax--exception.syntax--python {
+  color: #b58900;
+}
+.syntax--source.syntax--python .syntax--support.syntax--type.syntax--python {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--string {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--class.syntax--todo {
+  color: #d33682;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--function {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--definition.syntax--parameters {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--section.syntax--function.syntax--begin {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--separator.syntax--parameters {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--meta.syntax--embedded .syntax--punctuation.syntax--section {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--definition {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--definition.syntax--string {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--definition.syntax--comment {
+  color: #586e75;
+}
+.syntax--source.syntax--ruby .syntax--entity.syntax--inherited-class {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--parameter {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--constant {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--constant.syntax--boolean {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--instance .syntax--punctuation.syntax--definition {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--class {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--class.syntax--control {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--module {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--require .syntax--keyword.syntax--other.syntax--special-method {
+  color: #cb4b16;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--other.syntax--special-method {
+  color: #cb4b16;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--other {
+  color: #859900;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--control {
+  color: #859900;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--operator {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--special-method {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--symbol {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--symbol .syntax--punctuation.syntax--definition {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--hashkey {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--hashkey .syntax--punctuation.syntax--definition {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--regexp {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--todo {
+  color: #d33682;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--ruby.syntax--global {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--ruby.syntax--global .syntax--punctuation {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--block {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--self {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--separator {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--numeric {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--section.syntax--regexp {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--punctuation .syntax--source.syntax--ruby {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--source.syntax--ruby {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--source.syntax--ruby .syntax--punctuation.syntax--array,
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--source.syntax--ruby .syntax--punctuation.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--support.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--support.syntax--function.syntax--kernel {
+  color: #859900;
+}
+.syntax--source.syntax--scala .syntax--variable {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--declaration {
+  color: #93a1a1;
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--comparison {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--class,
+.syntax--source.syntax--scala .syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--scala .syntax--val {
+  font-weight: normal;
+}
+.syntax--source.syntax--scala .syntax--variable {
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--variable.syntax--parameter {
+  color: #6c71c4;
+  font-weight: normal;
+}
+.syntax--source.syntax--scala .syntax--control.syntax--flow {
+  color: #93a1a1;
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--constant.syntax--language {
+  color: #93a1a1;
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--function.syntax--declaration {
+  color: #6c71c4;
+}
+.syntax--source.syntax--scala .syntax--modifier.syntax--other {
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--package {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--variable.syntax--import {
+  font-weight: normal;
+}
+.syntax--source.syntax--scala .syntax--type .syntax--bounds,
+.syntax--source.syntax--scala .syntax--type .syntax--class {
+  color: #6c71c4;
+}
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded).syntax--link.syntax--entity {
+  color: #268bd2;
+  text-decoration: underline;
+}
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded) .syntax--class,
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded) .syntax--parameter {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded) .syntax--description {
+  color: #586e75;
+}
+.syntax--source.syntax--scala .syntax--embedded {
+  color: #6c7c7c;
+  font-style: italic;
+}
+.syntax--source.syntax--scala .syntax--embedded .syntax--margin,
+.syntax--source.syntax--scala .syntax--embedded .syntax--delimiters {
+  font-style: normal;
+}
+.syntax--source.syntax--ts .syntax--import .syntax--control,
+.syntax--source.syntax--tsx .syntax--import .syntax--control {
+  color: #cb4b16;
+}
+.syntax--source.syntax--ts .syntax--entity.syntax--name.syntax--type,
+.syntax--source.syntax--tsx .syntax--entity.syntax--name.syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--ts .syntax--entity.syntax--inherited-class,
+.syntax--source.syntax--tsx .syntax--entity.syntax--inherited-class {
+  color: #b58900;
+}
+.syntax--source.syntax--ts .syntax--support.syntax--type,
+.syntax--source.syntax--tsx .syntax--support.syntax--type {
+  color: #b58900;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="../style.css">
+
+  </head>
+  <body>
+    <h1>[ALGO] Complexite des algorithmes (3)</h1>
+<p><a href="https://www.lrde.epita.fr/~adl/ens/algo/algo.pdf">// cours pdf</a></p>
+<h2>Complexites</h2>
+<ul>
+<li><span class="math inline-math"><script type="math/tex">\Omega, \Theta, O</script></span> -&gt; parle de la forme d’une fonction de n quand <span class="math inline-math"><script type="math/tex">n \to +\infty</script></span></li>
+</ul>
+<blockquote>
+<p><span class="math inline-math"><script type="math/tex">\Theta(n^2)</script></span> = une fonction quadratique<br>
+<span class="math inline-math"><script type="math/tex">\Theta(n)</script></span> = une fonction lineaire</p>
+</blockquote>
+<ul>
+<li><span class="math inline-math"><script type="math/tex">\Theta(n^2) + \Theta(n) = \Theta(n^2)</script></span></li>
+<li><span class="math inline-math"><script type="math/tex">\Theta(n^2) * \Theta(n) = \Theta(n^3)</script></span></li>
+</ul>
+<p><ins>Exemple</ins>
+<span class="math inline-math"><script type="math/tex">(3n+7) \times (4n^2+7n-3) = \Theta(n) \times \Theta(n^2) = \Theta(n^3)</script></span></p>
+<blockquote>
+<p><span class="math inline-math"><script type="math/tex">T(n) = an^2+bn+c</script></span></p>
+</blockquote>
+<p><span class="math inline-math"><script type="math/tex">O(n)</script></span> :</p>
+<ul>
+<li>Une fonction qui au pire est lineaire</li>
+<li><strong>Est dominee par une fonction lineaire</strong></li>
+</ul>
+<blockquote>
+<p><span class="math inline-math"><script type="math/tex">3n+2 = O(n)</script></span><br>
+<span class="math inline-math"><script type="math/tex">3n+2 = O(n^2)</script></span><br>
+<span class="math inline-math"><script type="math/tex">4 = O(n)</script></span></p>
+</blockquote>
+<ul>
+<li><span class="math inline-math"><script type="math/tex">O(n) + O(n) = O(n)</script></span></li>
+<li><span class="math inline-math"><script type="math/tex">O(n) + O(n^2) = O(n^2)</script></span></li>
+<li><span class="math inline-math"><script type="math/tex">O(n) \times O(n^2) = O(n^3)</script></span></li>
+</ul>
+<hr>
+<blockquote>
+<p><span class="math inline-math"><script type="math/tex">\Theta(n + n^2) = \Theta(n^2)</script></span></p>
+</blockquote>
+<ul>
+<li><span class="math inline-math"><script type="math/tex">\Theta(f(n)+g(n)) = \Theta(max(f(n), g(n))</script></span></li>
+<li><span class="math inline-math"><script type="math/tex">O(f(n)+g(n)) = O(max(f(n), g(n))</script></span></li>
+</ul>
+<hr>
+<p><span class="math inline-math"><script type="math/tex">\Omega(n)</script></span> : <strong>Une fonction qui domine une fonction lineaire</strong></p>
+<p><ins>Exemple</ins> : <span class="math inline-math"><script type="math/tex">n^2 = \Omega(n)</script></span></p>
+<ul>
+<li><span class="math inline-math"><script type="math/tex">\Omega(n) \times \Omega(n^2) = \Omega(n^3)</script></span></li>
+</ul>
+<h2>Combinaisons</h2>
+<p><span class="math inline-math"><script type="math/tex">O(n) \times \Theta(n^2) = O(n^3)</script></span></p>
+<blockquote>
+<p>Ex: <span class="math inline-math"><script type="math/tex">2n * (4n^2+2n) = 8n^3 + 4n^2</script></span><br>
+<span class="math inline-math"><script type="math/tex">\sqrt{n} * n = n^{2,5}</script></span></p>
+</blockquote>
+<ul>
+<li><span class="math inline-math"><script type="math/tex">\Theta(n) - \Theta(n) = O(n)</script></span></li>
+</ul>
+<blockquote>
+<p><span class="math inline-math"><script type="math/tex">2n - n = n</script></span><br>
+<span class="math inline-math"><script type="math/tex">2n - (2n-1) = 1</script></span><br>
+<span class="math inline-math"><script type="math/tex">2n - 2n = 0</script></span><br>
+<span class="math inline-math"><script type="math/tex">n - 2n = -n</script></span></p>
+</blockquote>
+<h2>Definitions</h2>
+<p><mark><strong>Definition <span class="math inline-math"><script type="math/tex">\Theta(g(n))</script></span></strong></mark></p>
+<p><span class="math inline-math"><script type="math/tex">\Theta(g(n)) = \begin{cases}f(n) | \exists c_1 > 0,\ \exists c_2 > 0,\ \exists n_0 \in  N, \\ \forall n \geq n_0,\ c_1g(n) \leq f(n) \leq c_2g(n)\end{cases}</script></span></p>
+<p><ins>Exemple</ins> :<br>
+Montrer que <span class="math inline-math"><script type="math/tex">3n^2+n \in \Theta(n^2)</script></span><br>
+<span class="math inline-math"><script type="math/tex">c_1n^2 \leq 3n^2+n \leq c_2n^2</script></span>,  avec <span class="math inline-math"><script type="math/tex">c_1 = 3</script></span> et <span class="math inline-math"><script type="math/tex">c_2 = 4</script></span></p>
+<hr>
+<p><mark><strong>Definition <span class="math inline-math"><script type="math/tex">O(g(n))</script></span></strong></mark></p>
+<p><span class="math inline-math"><script type="math/tex">O(g(n)) = \begin{cases} f(n)\ |\ \exists c_2 > 0,\ \exists n_0 \in N, \\ \forall n > n_0,\ |f(n)| \leq c_2g(n)\end{cases}</script></span></p>
+<p><ins>Exemple</ins> :
+Montrer que <span class="math inline-math"><script type="math/tex">3n = O(n^2)</script></span><br>
+Car <span class="math inline-math"><script type="math/tex">\forall n, 3n \leq c_2n^2</script></span> avec <span class="math inline-math"><script type="math/tex">n_0 = 0</script></span> et <span class="math inline-math"><script type="math/tex">c_2 = 3</script></span></p>
+<p>Montrer que <span class="math inline-math"><script type="math/tex">3n = O(n)</script></span><br>
+Car <span class="math inline-math"><script type="math/tex">\forall n, 3n \leq c_2n</script></span> avec <span class="math inline-math"><script type="math/tex">n_0 = 0</script></span> et <span class="math inline-math"><script type="math/tex">c_2 = 3</script></span></p>
+<p>Montrer que <span class="math inline-math"><script type="math/tex">10cos(n) = O(1)</script></span><br>
+Car <span class="math inline-math"><script type="math/tex">|10cos(n)| \leq c_2 \times 1</script></span> avec <span class="math inline-math"><script type="math/tex">n_0 = 0</script></span> et <span class="math inline-math"><script type="math/tex">c_2 = 10</script></span></p>
+<hr>
+<p><mark><strong>Definition <span class="math inline-math"><script type="math/tex">\Omega(g(n))</script></span></strong></mark></p>
+<p><span class="math inline-math"><script type="math/tex">\Omega(g(n)) = \begin{cases} f(n) | \exists c_1 > 0,\ \exists n_0 \in N \\ \forall n \geq 0,\ c_1g(n) \leq f(n)\end{cases}</script></span></p>
+<p><ins>Exemple</ins> :<br>
+Montrer que <span class="math inline-math"><script type="math/tex">\frac{n}{10} \in \Omega(\sqrt{n})</script></span><br>
+<span class="math inline-math"><script type="math/tex">c_1\sqrt{n} \leq \frac{n}{10}</script></span> avec <span class="math inline-math"><script type="math/tex">c_1 = \frac{1}{10}</script></span>
+<span class="math inline-math"><script type="math/tex">\forall n \geq 1,\ \frac{\sqrt{n}}{10} > \frac{n}{10}</script></span></p>
+<h3>Notations</h3>
+<p>On note <span class="math inline-math"><script type="math/tex">f(n) = \Theta(g(n))</script></span> au lieu de <span class="math inline-math"><script type="math/tex">f(n) \ in \Theta(g(n))</script></span> par abus de notation.</p>
+<p>De meme, <span class="math inline-math"><script type="math/tex">\Theta(n) + \Theta(n^2) = \Theta(n^2)</script></span> signifie <span class="math inline-math"><script type="math/tex">\forall f_1(n) \in \Theta(n), \forall f_2(n) \in \Theta(n^2), \exists g(n) \in \Theta(n^2)</script></span> tel que <span class="math inline-math"><script type="math/tex">f_1(n) + f2(n) = g(n)</script></span></p>
+<p><div class="alert alert-info"><br>
+Ces equations se lisent de gauche a droite</p>
+<p>On a <span class="math inline-math"><script type="math/tex">\Theta(n) = O(n)</script></span> mais pas <span class="math inline-math"><script type="math/tex">O(n) = \Theta(n)</script></span></p>
+<blockquote>
+<p><span class="math inline-math"><script type="math/tex">\Theta(n) \subseteq O(n)</script></span><br>
+</div></p>
+</blockquote>
+<h2>Algorithmes de tri</h2>
+<h3>SelectionSort</h3>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">SelectionSort(A, n) :<span class="trailing-whitespace"> </span></span></span></span>
+<span class=""><span class="syntax--text syntax--plain"><span class="leading-whitespace">    </span><span class="syntax--meta syntax--paragraph syntax--text">for i &lt;- 0 to n - 2</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">        </span><span class="syntax--meta syntax--paragraph syntax--text">posmin &lt;- i</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">        </span>for j &lt;- i + 1 to n - 1</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">            </span><span class="syntax--meta syntax--paragraph syntax--text">if A[j] &lt; A[posmin]</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">                </span><span class="syntax--meta syntax--paragraph syntax--text">posmin &lt;- j</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">        </span><span class="syntax--meta syntax--paragraph syntax--text">A[posmin] &lt;-&gt; A[i]</span></span></span></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Ligne de code</th>
+<th style="text-align:center">Ordre de grandeur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">for i &lt;- 0 to n - 2</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(n)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">posmin &lt;- i</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(n)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">for j &lt;- i + 1 to n - 1</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(n^2)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">if A[j] &lt; A[posmin]</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(n^2)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">posmin &lt;- j</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">O(n^2)</script></span> (borne sup)</td>
+</tr>
+<tr>
+<td style="text-align:center">A[posmin] &lt;-&gt; A[i]</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(n)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Total</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(n^2)</script></span></td>
+</tr>
+</tbody>
+</table>
+<h3>InsertionSort</h3>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">InsertionSort(A, n):</span></span></span>
+<span class=""><span class="syntax--text syntax--plain"><span class="leading-whitespace">    </span><span class="syntax--meta syntax--paragraph syntax--text">for i &lt;- 1 to n - 1</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">        </span><span class="syntax--meta syntax--paragraph syntax--text">key &lt;- A[i]</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">        </span>j &lt;- i - 1</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">        </span>while j &gt;= 0 and A[j] &gt; key<span class="trailing-whitespace"> </span></span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">            </span><span class="syntax--meta syntax--paragraph syntax--text">A[j+1] &lt;- A[j]</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">            </span>j &lt;- j - 1</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">        </span><span class="syntax--meta syntax--paragraph syntax--text">A[j + 1] &lt;- key</span></span></span></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Ligne de code</th>
+<th style="text-align:center">Ordre de grandeur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">for i &lt;- 1 to n - 1</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(n)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">key &lt;- A[i]</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(n)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">j &lt;- i - 1</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(n)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">best | worst | any</td>
+</tr>
+<tr>
+<td style="text-align:center">while j &gt;= 0 and A[j] &gt; key</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(n)\|\Theta(n^2) \| \Theta(n^2)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">A[j+1] &lt;- A[j]</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">0 \| \Theta(n^2) \| \Theta(n^2)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">j &lt;- j - 1</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">0 \| \Theta(n^2) \| \Theta(n^2)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">A[j + 1] &lt;- key</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(n)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Total</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(n) \| \Theta(n^2) \| \Theta(n^2)</script></span></td>
+</tr>
+</tbody>
+</table>
+<p>En general on peut dire <span class="math inline-math"><script type="math/tex">T(n) = O(n^2)</script></span><br>
+<div class="alert alert-danger"><br>
+Cette notation ne garantit pas qu’un cas est quadratique !!<br>
+</div></p>
+<h3>MergeSort</h3>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">MergeSort(A, b, e):</span></span></span>
+<span class=""><span class="syntax--text syntax--plain"><span class="leading-whitespace">    </span><span class="syntax--meta syntax--paragraph syntax--text">if e - b &gt; 1:</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">        </span><span class="syntax--meta syntax--paragraph syntax--text">m &lt;- b + (e - b) / 2</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">        </span>MergeSort(A, b, m)</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">        </span>MergeSort(A, m, e)</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">        </span>Merge(A, b, m, e)</span></span></span></pre>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">Merge(A, b, m, e):</span></span></span>
+<span class=""><span class="syntax--text syntax--plain"><span class="leading-whitespace">    </span><span class="syntax--meta syntax--paragraph syntax--text">i &lt;- b; j &lt;- m</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">    </span>for k &lt;- b to e - 1</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">        </span><span class="syntax--meta syntax--paragraph syntax--text">if j &gt;= e or (i &gt; m and A[i] &lt;= A[j])</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">            </span><span class="syntax--meta syntax--paragraph syntax--text">B[k] &lt;- B[i]; &lt;ins&gt;i</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">        </span><span class="syntax--meta syntax--paragraph syntax--text">else</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">            </span><span class="syntax--meta syntax--paragraph syntax--text">B[k] &lt;- B[j]; &lt;ins&gt;j</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">    </span><span class="syntax--meta syntax--paragraph syntax--text">A[b...e-1] &lt;- B[b...e-1]</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="trailing-whitespace">            </span></span></span></pre>
+<blockquote>
+<p>Ou b = begin et e = end<br>
+On travaille sur la zone du tableau entre [b,e[</p>
+</blockquote>
+<p>On pose n = e-b</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Merge</th>
+<th style="text-align:center">Ordre de grandeur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">i &lt;- b; j &lt;- m</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(1)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">for k &lt;- b to e - 1</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(n)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">if j &gt;= e or (i &gt; m and A[i] &lt;= A[j])</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(1)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">B[k] &lt;- B[i]; <ins>i</ins></td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(n)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">B[k] &lt;- B[j]; <ins>j</ins></td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(n)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">A[b…e-1] &lt;- B[b…e-1]</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(n)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Total</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(n)</script></span></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">MergeSort</th>
+<th style="text-align:center">Ordre de grandeur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">if e - b &gt; 1</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(1) \| \Theta(1)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">m &lt;- b + (e - b) / 2</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">0 \| \Theta(1)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">MergeSort(A, b, m)</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">0 \| T_{MS}(\lfloor n/2\rfloor)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">MergeSort(A, m, e)</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">0 \| T_{MS}(\lceil n/2\rceil)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">Merge(A, b, m, e)</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">0 \| \Theta(n)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Total</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(n)</script></span></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><span class="math inline-math"><script type="math/tex">T_{MS}(n) = \begin{cases}\Theta(1) si n \leq 1 \\ T_{MS}(\lfloor n / 2\rfloor) + T_{MS}(\lceil n / 2\rceil) + \Theta(n)\ sinon\end{cases}</script></span></p>
+</blockquote>
+<p>Pour simplifier, supposons <span class="math inline-math"><script type="math/tex">n = 2^k</script></span><br>
+Alors <span class="math inline-math"><script type="math/tex">T_{MS}(n) = 2T_{MS}(n/2) + \Theta(n)</script></span> pour n &gt; 1</p>
+<h3>Arbre des appels recursifs (avec tableau de taille n)</h3>
+<pre class="graphviz"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: hierarchy Pages: 1 -->
+<svg width="341pt" height="332pt" viewBox="0.00 0.00 341.42 332.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 328)">
+<title>hierarchy</title>
+<polygon fill="#282c34" stroke="transparent" points="-4,4 -4,-328 337.4159,-328 337.4159,4 -4,4"></polygon>
+<!-- cn -->
+<g id="node1" class="node">
+<title>cn</title>
+<ellipse fill="none" stroke="#abb2bf" cx="180.9236" cy="-306" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="180.9236" y="-301.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">cn</text>
+</g>
+<!-- cn/2 -->
+<g id="node2" class="node">
+<title>cn/2</title>
+<ellipse fill="none" stroke="#abb2bf" cx="141.9236" cy="-234" rx="27.8286" ry="18"></ellipse>
+<text text-anchor="middle" x="141.9236" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">cn/2</text>
+</g>
+<!-- cn&#45;&gt;cn/2 -->
+<g id="edge1" class="edge">
+<title>cn-&gt;cn/2</title>
+<path fill="none" stroke="#abb2bf" d="M171.6812,-288.937C167.086,-280.4537 161.4286,-270.0092 156.2848,-260.513"></path>
+<polygon fill="#ffffff" stroke="#abb2bf" points="159.211,-258.5666 151.3706,-251.4407 153.056,-261.9006 159.211,-258.5666"></polygon>
+</g>
+<!-- cn/2  -->
+<g id="node3" class="node">
+<title>cn/2 </title>
+<ellipse fill="none" stroke="#abb2bf" cx="219.9236" cy="-234" rx="30.1563" ry="18"></ellipse>
+<text text-anchor="middle" x="219.9236" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">cn/2 </text>
+</g>
+<!-- cn&#45;&gt;cn/2  -->
+<g id="edge2" class="edge">
+<title>cn-&gt;cn/2 </title>
+<path fill="none" stroke="#abb2bf" d="M190.1661,-288.937C194.7612,-280.4537 200.4186,-270.0092 205.5624,-260.513"></path>
+<polygon fill="#ffffff" stroke="#abb2bf" points="208.7912,-261.9006 210.4766,-251.4407 202.6362,-258.5666 208.7912,-261.9006"></polygon>
+</g>
+<!-- cn/4 -->
+<g id="node4" class="node">
+<title>cn/4</title>
+<ellipse fill="none" stroke="#abb2bf" cx="65.9236" cy="-162" rx="27.8286" ry="18"></ellipse>
+<text text-anchor="middle" x="65.9236" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">cn/4</text>
+</g>
+<!-- cn/2&#45;&gt;cn/4 -->
+<g id="edge3" class="edge">
+<title>cn/2-&gt;cn/4</title>
+<path fill="none" stroke="#abb2bf" d="M126.1764,-219.0816C115.4766,-208.945 101.1426,-195.3654 89.1399,-183.9944"></path>
+<polygon fill="#ffffff" stroke="#abb2bf" points="91.3174,-181.236 81.6507,-176.8993 86.5031,-186.3177 91.3174,-181.236"></polygon>
+</g>
+<!-- cn/4  -->
+<g id="node5" class="node">
+<title>cn/4 </title>
+<ellipse fill="none" stroke="#abb2bf" cx="141.9236" cy="-162" rx="30.1563" ry="18"></ellipse>
+<text text-anchor="middle" x="141.9236" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">cn/4 </text>
+</g>
+<!-- cn/2&#45;&gt;cn/4  -->
+<g id="edge4" class="edge">
+<title>cn/2-&gt;cn/4 </title>
+<path fill="none" stroke="#abb2bf" d="M141.9236,-215.8314C141.9236,-208.131 141.9236,-198.9743 141.9236,-190.4166"></path>
+<polygon fill="#ffffff" stroke="#abb2bf" points="145.4237,-190.4132 141.9236,-180.4133 138.4237,-190.4133 145.4237,-190.4132"></polygon>
+</g>
+<!--  cn/4 -->
+<g id="node6" class="node">
+<title> cn/4</title>
+<ellipse fill="none" stroke="#abb2bf" cx="219.9236" cy="-162" rx="30.1563" ry="18"></ellipse>
+<text text-anchor="middle" x="219.9236" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#ffffff"> cn/4</text>
+</g>
+<!-- cn/2 &#45;&gt; cn/4 -->
+<g id="edge5" class="edge">
+<title>cn/2 -&gt; cn/4</title>
+<path fill="none" stroke="#abb2bf" d="M219.9236,-215.8314C219.9236,-208.131 219.9236,-198.9743 219.9236,-190.4166"></path>
+<polygon fill="#ffffff" stroke="#abb2bf" points="223.4237,-190.4132 219.9236,-180.4133 216.4237,-190.4133 223.4237,-190.4132"></polygon>
+</g>
+<!--  cn/4  -->
+<g id="node7" class="node">
+<title> cn/4 </title>
+<ellipse fill="none" stroke="#abb2bf" cx="300.9236" cy="-162" rx="32.4846" ry="18"></ellipse>
+<text text-anchor="middle" x="300.9236" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#ffffff"> cn/4 </text>
+</g>
+<!-- cn/2 &#45;&gt; cn/4  -->
+<g id="edge6" class="edge">
+<title>cn/2 -&gt; cn/4 </title>
+<path fill="none" stroke="#abb2bf" d="M237.1016,-218.7307C248.4081,-208.6805 263.3932,-195.3603 276.0018,-184.1527"></path>
+<polygon fill="#ffffff" stroke="#abb2bf" points="278.3423,-186.7552 283.4911,-177.4956 273.6917,-181.5233 278.3423,-186.7552"></polygon>
+</g>
+<!-- ... -->
+<g id="node8" class="node">
+<title>...</title>
+<ellipse fill="none" stroke="#abb2bf" cx="65.9236" cy="-90" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="65.9236" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">...</text>
+</g>
+<!-- cn/4&#45;&gt;... -->
+<g id="edge7" class="edge">
+<title>cn/4-&gt;...</title>
+<path fill="none" stroke="#abb2bf" d="M65.9236,-143.8314C65.9236,-136.131 65.9236,-126.9743 65.9236,-118.4166"></path>
+<polygon fill="#ffffff" stroke="#abb2bf" points="69.4237,-118.4132 65.9236,-108.4133 62.4237,-118.4133 69.4237,-118.4132"></polygon>
+</g>
+<!-- Θ(1) -->
+<g id="node9" class="node">
+<title>Θ(1)</title>
+<ellipse fill="none" stroke="#abb2bf" cx="27.9236" cy="-18" rx="27.8474" ry="18"></ellipse>
+<text text-anchor="middle" x="27.9236" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">Θ(1)</text>
+</g>
+<!-- ...&#45;&gt;Θ(1) -->
+<g id="edge8" class="edge">
+<title>...-&gt;Θ(1)</title>
+<path fill="none" stroke="#abb2bf" d="M56.9181,-72.937C52.4408,-64.4537 46.9284,-54.0092 41.9166,-44.513"></path>
+<polygon fill="#ffffff" stroke="#abb2bf" points="44.8914,-42.6509 37.1284,-35.4407 38.7007,-45.9182 44.8914,-42.6509"></polygon>
+</g>
+<!--  Θ(1) -->
+<g id="node10" class="node">
+<title> Θ(1)</title>
+<ellipse fill="none" stroke="#abb2bf" cx="103.9236" cy="-18" rx="30.1765" ry="18"></ellipse>
+<text text-anchor="middle" x="103.9236" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#ffffff"> Θ(1)</text>
+</g>
+<!-- ...&#45;&gt; Θ(1) -->
+<g id="edge9" class="edge">
+<title>...-&gt; Θ(1)</title>
+<path fill="none" stroke="#abb2bf" d="M74.9291,-72.937C79.4064,-64.4537 84.9188,-54.0092 89.9306,-44.513"></path>
+<polygon fill="#ffffff" stroke="#abb2bf" points="93.1465,-45.9182 94.7188,-35.4407 86.9558,-42.6509 93.1465,-45.9182"></polygon>
+</g>
+</g>
+</svg>
+</pre>
+<blockquote>
+<p>On a n feuilles</p>
+</blockquote>
+<p>Chaque ligne a un cout de <span class="math inline-math"><script type="math/tex">cn (= \Theta(n))</script></span> et la derniere <span class="math inline-math"><script type="math/tex">n \times \Theta(1) (= \Theta(n))</script></span></p>
+<blockquote>
+<p>Hauteur de l’arbre : <span class="math inline-math"><script type="math/tex">log_2n + 1 (\frac{n}{2^n} = 1)</script></span></p>
+</blockquote>
+<p>Donc <span class="math inline-math"><script type="math/tex">T_{MS} = \Theta(n) \times (1 + log_2n) = \Theta(n) \times \Theta(log_2n) = \Theta(nlog_2n) = \Theta(nlogn)</script></span></p>
+<blockquote>
+<p><span class="math inline-math"><script type="math/tex">log_3n = \Theta(log_2n)</script></span> ? Yes<br>
+<span class="math inline-math"><script type="math/tex">log_3n = \frac{log_2n}{log_3n}</script></span></p>
+</blockquote>
+
+  </body>
+</html>
