@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html data-markdown-preview-plus-context="html-export">
+  <head>
+    <meta charset="utf-8" />
+    <title>ALGO-cours5</title><script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX","output/HTML-CSS"],
+    extensions: ["[a11y]/accessibility-menu.js"],
+    'HTML-CSS': {
+      availableFonts: [],
+      webFont: 'TeX',
+      undefinedFamily: "serif",
+      mtextFontInherit: true,
+    },
+    TeX: {
+  "Macros": {},
+  "equationNumbers": {},
+  "extensions": [
+    "AMSmath.js",
+    "AMSsymbols.js",
+    "noErrors.js",
+    "noUndefined.js"
+  ]
+},
+    showMathMenu: true
+  });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js"></script>
+    <style>.emoji {
+  max-width: 1em !important;
+}
+del {
+  text-decoration: none;
+  position: relative;
+}
+del::after {
+  border-bottom: 1px solid black;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+ul.contains-task-list li.task-list-item {
+  position: relative;
+  list-style-type: none;
+}
+ul.contains-task-list li.task-list-item input.task-list-item-checkbox {
+  position: absolute;
+  transform: translateX(-100%);
+  width: 30px;
+}
+span.critic.comment {
+  position: relative;
+}
+span.critic.comment::before {
+  content: '\1f4ac';
+  position: initial;
+}
+span.critic.comment > span {
+  display: none;
+}
+span.critic.comment:hover > span {
+  display: initial;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  border: 1px solid;
+  border-radius: 5px;
+  max-height: 4em;
+  overflow: auto;
+}
+span.critic.comment:focus > span {
+  display: initial;
+  text-decoration: underline;
+  position: initial;
+  top: auto;
+  left: auto;
+  border: initial;
+  border-radius: initial;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: transparent;
+}
+
+body {
+  padding: 2em;
+  font-size: 1.2em;
+  color: #abb2bf;
+  background-color: #282c34;
+  overflow: auto;
+}
+body > :first-child,
+body > div.update-preview > :first-child {
+  margin-top: 0;
+}
+body > p,
+body > div.update-preview > p {
+  margin-top: 0;
+  margin-bottom: 1.5em;
+}
+body > ul,
+body > div.update-preview > ul,
+body > ol,
+body > div.update-preview > ol {
+  margin-bottom: 1.5em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  color: #ffffff;
+}
+h1 {
+  font-size: 2.4em;
+  font-weight: 300;
+}
+h2 {
+  font-size: 1.8em;
+  font-weight: 400;
+}
+h3 {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+h4 {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+h5 {
+  font-size: 1.1em;
+  font-weight: 600;
+}
+h6 {
+  font-size: 1em;
+  font-weight: 600;
+}
+strong {
+  color: #ffffff;
+}
+del {
+  color: #7c879c;
+}
+a,
+a code {
+  color: #528bff;
+}
+img {
+  max-width: 100%;
+}
+blockquote {
+  margin: 1.5em 0;
+  font-size: inherit;
+  color: #7c879c;
+  border-color: #4b5362;
+  border-width: 4px;
+}
+hr {
+  margin: 3em 0;
+  border-top: 2px dashed #4b5362;
+  background: none;
+}
+table {
+  margin: 1.5em 0;
+}
+th {
+  color: #ffffff;
+}
+th,
+td {
+  padding: 0.66em 1em;
+  border: 1px solid #4b5362;
+}
+code {
+  color: #ffffff;
+  background-color: #3a3f4b;
+}
+pre.editor-colors {
+  margin: 1.5em 0;
+  padding: 1em;
+  font-size: 0.92em;
+  border-radius: 3px;
+  background-color: #31363f;
+}
+kbd {
+  color: #ffffff;
+  border: 1px solid #4b5362;
+  border-bottom: 2px solid #3e4451;
+  background-color: #3a3f4b;
+}
+
+pre.editor-colors {
+  color: #839496;
+  background-color: #002b36;
+}
+pre.editor-colors .gutter {
+  color: #839496;
+  background-color: #073642;
+}
+pre.editor-colors .gutter .line-number.cursor-line {
+  background-color: #0a4d5e;
+}
+pre.editor-colors .invisible-character {
+  color: #0a4d5e;
+}
+pre.editor-colors .indent-guide {
+  color: #0a4d5e;
+}
+pre.editor-colors .cursor {
+  border-color: #fdf6e3;
+}
+pre.editor-colors .cursor-line {
+  background-color: rgba(0, 165, 207, 0.08);
+}
+pre.editor-colors .selection .region {
+  background-color: #073a47;
+}
+pre.editor-colors .fold-marker:after,
+pre.editor-colors .gutter .line-number.folded {
+  color: #d33682;
+}
+pre.editor-colors .bracket-matcher .region {
+  border-color: #d33682;
+}
+.syntax--comment {
+  color: #586e75;
+  font-style: italic;
+}
+.syntax--comment .syntax--markup.syntax--link {
+  color: #586e75;
+}
+.syntax--string {
+  color: #2aa198;
+}
+.syntax--string.syntax--regexp {
+  color: #dc322f;
+}
+.syntax--constant.syntax--numeric {
+  color: #d33682;
+}
+.syntax--constant.syntax--language {
+  color: #b58900;
+}
+.syntax--constant.syntax--character,
+.syntax--constant.syntax--other,
+.syntax--constant.syntax--support {
+  color: #cb4b16;
+}
+.syntax--variable {
+  color: #268bd2;
+}
+.syntax--keyword {
+  color: #859900;
+}
+.syntax--storage {
+  color: #859900;
+}
+.syntax--meta.syntax--class {
+  color: #268bd2;
+}
+.syntax--entity.syntax--name.syntax--class,
+.syntax--entity.syntax--name.syntax--function,
+.syntax--entity.syntax--name.syntax--section,
+.syntax--entity.syntax--name.syntax--type {
+  color: #268bd2;
+}
+.syntax--entity.syntax--other.syntax--attribute-name {
+  color: #657b83;
+}
+.syntax--support.syntax--function {
+  color: #268bd2;
+}
+.syntax--support.syntax--function.syntax--builtin {
+  color: #859900;
+}
+.syntax--support.syntax--type,
+.syntax--support.syntax--class {
+  color: #859900;
+}
+.syntax--tag.syntax--entity.syntax--name {
+  color: #268bd2;
+}
+.syntax--tag.syntax--punctuation.syntax--definition.syntax--html,
+.syntax--tag.syntax--punctuation.syntax--definition.syntax--begin,
+.syntax--tag.syntax--punctuation.syntax--definition.syntax--end {
+  color: #586e75;
+}
+.syntax--invalid.syntax--deprecated {
+  color: #b58900;
+  text-decoration: underline;
+}
+.syntax--invalid.syntax--illegal {
+  color: #dc322f;
+  text-decoration: underline;
+}
+.syntax--none {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--meta.syntax--preprocessor,
+.syntax--source.syntax--cpp .syntax--meta.syntax--preprocessor {
+  color: #dc322f;
+}
+.syntax--source.syntax--c .syntax--keyword.syntax--control.syntax--directive,
+.syntax--source.syntax--cpp .syntax--keyword.syntax--control.syntax--directive {
+  color: #cb4b16;
+}
+.syntax--source.syntax--c .syntax--punctuation.syntax--string,
+.syntax--source.syntax--cpp .syntax--punctuation.syntax--string {
+  color: #2aa198;
+}
+.syntax--source.syntax--c .syntax--constant,
+.syntax--source.syntax--cpp .syntax--constant {
+  color: #cb4b16;
+}
+.syntax--source.syntax--c .syntax--constant.syntax--numeric,
+.syntax--source.syntax--cpp .syntax--constant.syntax--numeric,
+.syntax--source.syntax--c .syntax--constant.syntax--language.syntax--c,
+.syntax--source.syntax--cpp .syntax--constant.syntax--language.syntax--c {
+  color: #2aa198;
+}
+.syntax--source.syntax--c .syntax--storage,
+.syntax--source.syntax--cpp .syntax--storage {
+  color: #b58900;
+}
+.syntax--source.syntax--c .syntax--entity,
+.syntax--source.syntax--cpp .syntax--entity {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--entity.syntax--name.syntax--function.syntax--preprocessor,
+.syntax--source.syntax--cpp .syntax--entity.syntax--name.syntax--function.syntax--preprocessor {
+  color: #dc322f;
+}
+.syntax--source.syntax--c .syntax--support.syntax--type,
+.syntax--source.syntax--cpp .syntax--support.syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--c .syntax--support.syntax--type.syntax--posix-reserved,
+.syntax--source.syntax--cpp .syntax--support.syntax--type.syntax--posix-reserved {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--variable.syntax--other.syntax--dot-access,
+.syntax--source.syntax--cpp .syntax--variable.syntax--other.syntax--dot-access {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--variable.syntax--parameter.syntax--preprocessor,
+.syntax--source.syntax--cpp .syntax--variable.syntax--parameter.syntax--preprocessor {
+  color: #dc322f;
+}
+.syntax--source.syntax--coffee .syntax--support.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--variable,
+.syntax--source.syntax--coffee .syntax--entity.syntax--name.syntax--function,
+.syntax--source.syntax--coffee .syntax--entity.syntax--name.syntax--class {
+  color: #268bd2;
+}
+.syntax--source.syntax--coffee .syntax--variable.syntax--parameter.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--variable.syntax--other.syntax--readwrite {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--storage.syntax--type.syntax--function {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--entity.syntax--name {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--meta.syntax--brace.syntax--round,
+.syntax--source.syntax--coffee .syntax--meta.syntax--brace.syntax--square {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--meta.syntax--delimiter {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--storage.syntax--type.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--punctuation.syntax--terminator {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--punctuation.syntax--section.syntax--embedded {
+  color: #dc322f;
+}
+.syntax--source.syntax--coffee .syntax--embedded.syntax--source {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--constant.syntax--numeric {
+  color: #d33682;
+}
+.syntax--source.syntax--coffee .syntax--constant.syntax--language.syntax--boolean {
+  color: #b58900;
+}
+.syntax--source.syntax--css .syntax--punctuation.syntax--separator,
+.syntax--source.syntax--css .syntax--punctuation.syntax--terminator {
+  color: #839496;
+}
+.syntax--source.syntax--css .syntax--punctuation.syntax--property-list.syntax--begin,
+.syntax--source.syntax--css .syntax--punctuation.syntax--property-list.syntax--end {
+  color: #dc322f;
+}
+.syntax--source.syntax--css .syntax--punctuation.syntax--section.syntax--function {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--entity.syntax--name {
+  color: #859900;
+}
+.syntax--source.syntax--css .syntax--attribute-name.syntax--class,
+.syntax--source.syntax--css .syntax--id {
+  color: #268bd2;
+}
+.syntax--source.syntax--css .syntax--pseudo-element,
+.syntax--source.syntax--css .syntax--pseudo-class {
+  color: #cb4b16;
+}
+.syntax--source.syntax--css .syntax--property-value {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--constant.syntax--numeric {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--constant.syntax--numeric .syntax--unit {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--rgb-value {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--support.syntax--constant {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--support.syntax--constant.syntax--media {
+  color: #dc322f;
+}
+.syntax--source.syntax--css .syntax--keyword.syntax--important {
+  color: #dc322f;
+}
+.syntax--source.syntax--less .syntax--keyword.syntax--unit,
+.syntax--source.syntax--scss .syntax--keyword.syntax--unit {
+  color: #2aa198;
+}
+.syntax--source.syntax--go .syntax--operator {
+  color: #839496;
+}
+.syntax--source.syntax--go .syntax--operator.syntax--assignment {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--keyword.syntax--operator {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--keyword.syntax--import {
+  color: #cb4b16;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--modifier.syntax--import {
+  color: #586e75;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--class .syntax--storage.syntax--modifier {
+  color: #b58900;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--class .syntax--meta.syntax--class.syntax--identifier .syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #268bd2;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--type.syntax--primitive.syntax--array {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--constant.syntax--numeric {
+  color: #d33682;
+}
+.syntax--source.syntax--java .syntax--constant.syntax--other {
+  color: #cb4b16;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--type {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--method-call {
+  color: #dc322f;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--method-call .syntax--meta.syntax--method {
+  color: #6c71c4;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--method-call .syntax--punctuation.syntax--definition.syntax--seperator.syntax--parameter {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--punctuation.syntax--definition.syntax--method-parameters {
+  color: #93a1a1;
+}
+.syntax--source.syntax--js .syntax--comma {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--support.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name.syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name.syntax--function {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name.syntax--tag {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--other.syntax--attribute-name {
+  color: #b58900;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--brace {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--keyword {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--new {
+  color: #859900;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--control {
+  color: #cb4b16;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--control.syntax--regexp {
+  color: #2aa198;
+}
+.syntax--source.syntax--js .syntax--variable {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--variable.syntax--dom {
+  color: #859900;
+}
+.syntax--source.syntax--js .syntax--delimiter + .syntax--dom {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--name {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--variable.syntax--language {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--variable.syntax--parameter {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--regexp {
+  color: #2aa198;
+}
+.syntax--source.syntax--js .syntax--support.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--support.syntax--constant {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--storage.syntax--modifier {
+  color: #b58900;
+}
+.syntax--source.syntax--js .syntax--punctuation.syntax--terminator.syntax--statement {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--delimiter.syntax--method.syntax--period {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--brace.syntax--square {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--brace.syntax--curly {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--string.syntax--quoted.syntax--template .syntax--embedded.syntax--source {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--string.syntax--quoted.syntax--template .syntax--embedded.syntax--source > .syntax--embedded.syntax--punctuation {
+  color: #dc322f;
+}
+.syntax--source.syntax--js.syntax--embedded .syntax--entity.syntax--name.syntax--tag {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--import .syntax--control {
+  color: #cb4b16;
+}
+.syntax--source.syntax--js.syntax--rails .syntax--instance {
+  color: #268bd2;
+}
+.syntax--source.syntax--js.syntax--rails .syntax--class {
+  color: #b58900;
+}
+.syntax--md .syntax--link .syntax--entity,
+.syntax--gfm .syntax--link .syntax--entity {
+  color: #6c71c4;
+}
+.syntax--md .syntax--list.syntax--ordered,
+.syntax--gfm .syntax--list.syntax--ordered {
+  color: #859900;
+}
+.syntax--md .syntax--list.syntax--unordered,
+.syntax--gfm .syntax--list.syntax--unordered {
+  color: #b58900;
+}
+.syntax--md .syntax--raw,
+.syntax--gfm .syntax--raw {
+  font-style: italic;
+}
+.syntax--md.syntax--support,
+.syntax--gfm.syntax--support {
+  color: #586e75;
+}
+.syntax--md.syntax--support.syntax--quote,
+.syntax--gfm.syntax--support.syntax--quote {
+  color: #6c71c4;
+}
+.syntax--markup.syntax--bold {
+  font-weight: bold;
+}
+.syntax--markup.syntax--italic {
+  font-style: italic;
+}
+.syntax--markup.syntax--heading {
+  color: #268bd2;
+}
+.syntax--markup.syntax--link {
+  color: #2aa198;
+}
+.syntax--markup.syntax--deleted {
+  color: #dc322f;
+}
+.syntax--markup.syntax--changed {
+  color: #b58900;
+}
+.syntax--markup.syntax--inserted {
+  color: #2aa198;
+}
+.syntax--source.syntax--php .syntax--storage.syntax--type.syntax--class {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--storage.syntax--type.syntax--function {
+  color: #cb4b16;
+}
+.syntax--source.syntax--php .syntax--storage.syntax--modifier {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--entity.syntax--name.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--entity.syntax--other {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--variable {
+  color: #268bd2;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--comment {
+  color: #586e75;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--array {
+  color: #dc322f;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--string {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--variable {
+  color: #859900;
+}
+.syntax--source.syntax--php .syntax--support.syntax--function.syntax--construct {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--support.syntax--function.syntax--array {
+  color: #859900;
+}
+.syntax--source.syntax--php .syntax--keyword.syntax--operator.syntax--class {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--keyword.syntax--operator.syntax--assignment {
+  color: #859900;
+}
+.syntax--source.syntax--php .syntax--keyword.syntax--other {
+  color: #dc322f;
+}
+.syntax--source.syntax--python .syntax--entity {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--entity.syntax--name {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--entity.syntax--other {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--function {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--function.syntax--magic {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--string {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator.syntax--quantifier {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator.syntax--logical {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--control.syntax--import {
+  color: #cb4b16;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--other {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--constant.syntax--language {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--constant.syntax--character {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--constant.syntax--other {
+  color: #dc322f;
+}
+.syntax--source.syntax--python .syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--variable {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--support.syntax--function.syntax--builtin {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--support.syntax--type.syntax--exception.syntax--python {
+  color: #b58900;
+}
+.syntax--source.syntax--python .syntax--support.syntax--type.syntax--python {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--string {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--class.syntax--todo {
+  color: #d33682;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--function {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--definition.syntax--parameters {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--section.syntax--function.syntax--begin {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--separator.syntax--parameters {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--meta.syntax--embedded .syntax--punctuation.syntax--section {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--definition {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--definition.syntax--string {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--definition.syntax--comment {
+  color: #586e75;
+}
+.syntax--source.syntax--ruby .syntax--entity.syntax--inherited-class {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--parameter {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--constant {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--constant.syntax--boolean {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--instance .syntax--punctuation.syntax--definition {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--class {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--class.syntax--control {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--module {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--require .syntax--keyword.syntax--other.syntax--special-method {
+  color: #cb4b16;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--other.syntax--special-method {
+  color: #cb4b16;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--other {
+  color: #859900;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--control {
+  color: #859900;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--operator {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--special-method {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--symbol {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--symbol .syntax--punctuation.syntax--definition {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--hashkey {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--hashkey .syntax--punctuation.syntax--definition {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--regexp {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--todo {
+  color: #d33682;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--ruby.syntax--global {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--ruby.syntax--global .syntax--punctuation {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--block {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--self {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--separator {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--numeric {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--section.syntax--regexp {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--punctuation .syntax--source.syntax--ruby {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--source.syntax--ruby {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--source.syntax--ruby .syntax--punctuation.syntax--array,
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--source.syntax--ruby .syntax--punctuation.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--support.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--support.syntax--function.syntax--kernel {
+  color: #859900;
+}
+.syntax--source.syntax--scala .syntax--variable {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--declaration {
+  color: #93a1a1;
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--comparison {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--class,
+.syntax--source.syntax--scala .syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--scala .syntax--val {
+  font-weight: normal;
+}
+.syntax--source.syntax--scala .syntax--variable {
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--variable.syntax--parameter {
+  color: #6c71c4;
+  font-weight: normal;
+}
+.syntax--source.syntax--scala .syntax--control.syntax--flow {
+  color: #93a1a1;
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--constant.syntax--language {
+  color: #93a1a1;
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--function.syntax--declaration {
+  color: #6c71c4;
+}
+.syntax--source.syntax--scala .syntax--modifier.syntax--other {
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--package {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--variable.syntax--import {
+  font-weight: normal;
+}
+.syntax--source.syntax--scala .syntax--type .syntax--bounds,
+.syntax--source.syntax--scala .syntax--type .syntax--class {
+  color: #6c71c4;
+}
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded).syntax--link.syntax--entity {
+  color: #268bd2;
+  text-decoration: underline;
+}
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded) .syntax--class,
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded) .syntax--parameter {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded) .syntax--description {
+  color: #586e75;
+}
+.syntax--source.syntax--scala .syntax--embedded {
+  color: #6c7c7c;
+  font-style: italic;
+}
+.syntax--source.syntax--scala .syntax--embedded .syntax--margin,
+.syntax--source.syntax--scala .syntax--embedded .syntax--delimiters {
+  font-style: normal;
+}
+.syntax--source.syntax--ts .syntax--import .syntax--control,
+.syntax--source.syntax--tsx .syntax--import .syntax--control {
+  color: #cb4b16;
+}
+.syntax--source.syntax--ts .syntax--entity.syntax--name.syntax--type,
+.syntax--source.syntax--tsx .syntax--entity.syntax--name.syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--ts .syntax--entity.syntax--inherited-class,
+.syntax--source.syntax--tsx .syntax--entity.syntax--inherited-class {
+  color: #b58900;
+}
+.syntax--source.syntax--ts .syntax--support.syntax--type,
+.syntax--source.syntax--tsx .syntax--support.syntax--type {
+  color: #b58900;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="../style.css">
+
+  </head>
+  <body>
+    <h1>[ALGO] Complexite des algorithmes (5)</h1>
+<h2>Complexite de Heapify</h2>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">Heapify(A, i, n):</span></span></span>
+<span class=""><span class="syntax--text syntax--plain"><span class="leading-whitespace">    </span><span class="syntax--meta syntax--paragraph syntax--text">l &lt;- LeftChild(i)</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">    </span>r &lt;- RightChild(i)</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">    </span>if l &lt; n and A[l] &gt; A[i]</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">        </span><span class="syntax--meta syntax--paragraph syntax--text">largest &lt;- l</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">    </span><span class="syntax--meta syntax--paragraph syntax--text">else</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">        </span><span class="syntax--meta syntax--paragraph syntax--text">largest &lt;- i</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">    </span><span class="syntax--meta syntax--paragraph syntax--text">if r &lt; n and A[r] &gt; A[largest]</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">        </span><span class="syntax--meta syntax--paragraph syntax--text">largest &lt;- r</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">    </span><span class="syntax--meta syntax--paragraph syntax--text">if largest != i</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">        </span><span class="syntax--meta syntax--paragraph syntax--text">A[i] &lt;-&gt; A[largest]</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">        </span>Heapify(A, largest, n)</span></span></span></pre>
+<p>Mesurer la taille du sous-probleme considere</p>
+<ul>
+<li>On pose s la taille du sous-arbre de racine i.</li>
+<li>On pose h la hauteur du sous-arbre</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Ligne de code</th>
+<th style="text-align:center">Cout</th>
+<th style="text-align:center"><span class="math inline-math"><script type="math/tex">T_H(h)</script></span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">l &lt;- LeftChild(i)</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(1)</script></span></td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(1)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">r &lt;- RightChild(i)</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(1)</script></span></td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(1)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">if l &lt; n and A[l] &gt; A[i]</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(1)</script></span></td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(1)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">largest &lt;- l</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(1)</script></span></td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(1)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">largest &lt;- i</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(1)</script></span></td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(1)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">if r &lt; n and A[r] &gt; A[largest]</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(1)</script></span></td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(1)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">largest &lt;- r</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">O(1)</script></span></td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(1)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">if largest != i</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(1)</script></span></td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(1)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">A[i] &lt;-&gt; A[largest]</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">O(1)</script></span></td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(1)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">Heapify(A, largest, n)</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\leq Th((2/3)s)</script></span></td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\leq T_h(h-1)</script></span></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Au pire, <span class="math inline-math"><script type="math/tex">s = 3x + 2 \iff s/3 \geq (s  - 2) / 3 = x \iff 2x+1 = \frac{2s - 4 + 3}{3} = \frac{2s-1}{3}</script></span></p>
+</blockquote>
+<ul>
+<li><span class="math inline-math"><script type="math/tex">T_H(s) \leq \Theta(1) + T_H((2/3)s)</script></span></li>
+</ul>
+<p>Le theoreme general fonctionne pour <span class="math inline-math"><script type="math/tex">u(s) = u((2/3)s) + \Theta(1)</script></span> avec a=1 b=(3/2) et <span class="math inline-math"><script type="math/tex">log_{3/2}1 = 0</script></span>
+<span class="math inline-math"><script type="math/tex">\Theta(1) = \Theta(n^0) \Rightarrow u(s) = \Theta(log s)</script></span>
+<span class="math inline-math"><script type="math/tex">T_H(s) \leq U(s)</script></span>
+<span class="math inline-math"><script type="math/tex">T_H(s) = O(log s)</script></span></p>
+<ul>
+<li><span class="math inline-math"><script type="math/tex">T_H(h) \leq T_H(h-1) + \Theta(1)</script></span></li>
+</ul>
+<p><span class="math inline-math"><script type="math/tex">T_H(h) \leq T_H(h-1) + \Theta(1)</script></span>
+<span class="math inline-math"><script type="math/tex">T_H(h) \leq T_H(h-2) + \Theta(1) + \Theta(1)</script></span>
+<span class="math inline-math"><script type="math/tex">T_H(h) \leq T_H(h-3) + \Theta(1) + \Theta(1) + \Theta(1)</script></span>
+…
+<span class="math inline-math"><script type="math/tex">T_H(h) \leq T_H(0) + \Theta(1) + \Theta(1) + ... + \Theta(1)</script></span>
+<span class="math inline-math"><script type="math/tex">T_H(h) \leq (h-1)\Theta(1) = \Theta(h)</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">T_H(h) = O(h)</script></span></p>
+<h2>Complexite de BuildHeap</h2>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">BuildHeap(A, n):</span></span></span>
+<span class=""><span class="syntax--text syntax--plain"><span class="leading-whitespace">    </span><span class="syntax--meta syntax--paragraph syntax--text">for i &lt;- n/2 down to 0</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">        </span><span class="syntax--meta syntax--paragraph syntax--text">Heapify(A, i, n)</span></span></span></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Ligne de code</th>
+<th style="text-align:center">Cout</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">for i &lt;- n/2 down to 0</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(n)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">Heapify(A, i, n)</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">O(nlogn)</script></span></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><span class="math inline-math"><script type="math/tex">O(nlogn)</script></span> avec <span class="math inline-math"><script type="math/tex">nlogn</script></span> a la louche</p>
+</blockquote>
+<p><strong>S(h, n)</strong> est le nombre de sous-arbres de hauteur h dans un arbre de n noeuds.</p>
+<p>Donc <em>Heapify(A, i, n)</em> a un cout de <span class="math inline-math"><script type="math/tex">\begin{align}\sum_{h=1}^{\lfloor log_2n\rfloor}O(h) \times S(h, n) \leq \sum_{h=1}^{\lfloor log_2n\rfloor}O(h) \times \frac{n}{2^h} = nO(\sum_{h=1}^{\lfloor log_2n\rfloor}h(\frac{1}{2})^h)\end{align}</script></span></p>
+<h2>Complexite de HeapSort</h2>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">HeapSort(A, n)</span></span></span>
+<span class=""><span class="syntax--text syntax--plain"><span class="leading-whitespace">    </span><span class="syntax--meta syntax--paragraph syntax--text">BuildHeap(A, n)</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">    </span>for i &lt;- n - 1 down to 1</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">        </span><span class="syntax--meta syntax--paragraph syntax--text">A[i] &lt;-&gt; A[0]</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">        </span>Heapify(A, 0, i)</span></span></span></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Ligne de code</th>
+<th style="text-align:center">Cout</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">BuildHeap(A, n)</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(n)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">for i &lt;- 0 down to 1</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(n)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">A[i] &lt;-&gt; A[0]</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(n)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">Heapify(A, 0, i)</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\sum_{i=1}^{n-1}O(log i) = O(nlogn)</script></span></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math inline-math"><script type="math/tex">\sum_{i=1}^{n-1}O(log i) = O(\sum_{}^{}log_2i) = O(log_2 \prod_{i=1}^{n-1} i) = O(log_2(n-1)!) = O((n-1)log(n-1)) = O(nlogn)</script></span></p>
+<hr>
+<p><mark><strong>Formule de Stirling</strong></mark></p>
+<p><span class="math inline-math"><script type="math/tex">\begin{align}n! = \sqrt{2\pi n}(\frac{n}{e})^n(1 + O(\frac{1}{n}))\end{align}</script></span>
+<span class="math inline-math"><script type="math/tex">\begin{align}log_2(n!) = (1/2)log_2(2\pi n) + nlog_2n - nlog_2e + log_2(1 + O(\frac{1}{2})) = \Theta(nlogn)\end{align}</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">\begin{align}\sum_{i=1}^{n-1}log_2i = sum_{i=2}^{n-1}log_2i\end{align}</script></span>
+<span class="math inline-math"><script type="math/tex">\begin{align}\int_{1}^{n-1}log_2idi \leq \sum_{i=2}^{n-1}log_2i \leq \int_{2}^{n}log_2idi\end{align}</script></span>
+<span class="math inline-math"><script type="math/tex">\begin{align}[ilog_2\frac{i}{e}]_{1}^{n-1} \leq \_\_\_ \leq [ilog_2\frac{i}{e}]_{2}^{n-1}\end{align}</script></span>
+<span class="math inline-math"><script type="math/tex">\begin{align}\Theta(nlogn) = \Theta((n-1)log(n-1)) \leq \_\_\_ \leq  \Theta(nlogn)\end{align}</script></span></p>
+<p>Donc <span class="math inline-math"><script type="math/tex">T_{HS} = O(nlogn)</script></span></p>
+<hr>
+<h2>QuickSort</h2>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">QuickSort(A,b,e)</span></span></span>
+<span class=""><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">//trie A[b...e-1]</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">    </span><span class="syntax--meta syntax--paragraph syntax--text">if e - b &gt; 1:</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">        </span><span class="syntax--meta syntax--paragraph syntax--text">m = Partition(A,b,e)</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">        </span>QuickSort(A,b,m)</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">        </span>QuickSort(A,m,e)</span></span></span></pre>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">Partition(A,b,e):</span></span></span>
+<span class=""><span class="syntax--text syntax--plain"><span class="leading-whitespace">    </span><span class="syntax--meta syntax--paragraph syntax--text">i &lt;- b - 1; j &lt;- e; p = A[b]</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">    </span>for ever:</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">        </span><span class="syntax--meta syntax--paragraph syntax--text">do ++i until A[i] &gt;= p</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">        </span>do --j until A[j] &lt;= p</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">        </span>if i &gt; j</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">            </span><span class="syntax--meta syntax--paragraph syntax--text">A[i] &lt;-&gt; A[j]</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">        </span><span class="syntax--meta syntax--paragraph syntax--text">else</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">            </span><span class="syntax--meta syntax--paragraph syntax--text">return i + (b == i)</span></span></span></pre>
+<h3>Partition - fonctionnement</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">(2) 4 8 6 1 7 5 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1 4 8 6 2 7 5 3</td>
+</tr>
+<tr>
+<td style="text-align:center">(4) 8 6 2 7 5 {3}</td>
+</tr>
+<tr>
+<td style="text-align:center">3 [8] 6 {2} 7 5 4</td>
+</tr>
+<tr>
+<td style="text-align:center">3 2 [6] {8} 7 5 4</td>
+</tr>
+<tr>
+<td style="text-align:center">etc</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>(x) : pivot
+[i] et {j}</p>
+</blockquote>
+<h3>Cout Partition</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Ligne de code</th>
+<th style="text-align:center">Cout (<span class="math inline-math"><script type="math/tex">T_p(n</script></span>))</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">i &lt;- b - 1; j &lt;- e; p = A[b]</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(1)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">for ever:</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">O(n)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">do --j until A[j] &lt;= p</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(n)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">if i &gt; j</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">O(n)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">A[i] &lt;-&gt; A[j]</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">O(n)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">return i + (b == i)</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(1)</script></span></td>
+</tr>
+</tbody>
+</table>
+<h3>Cout QuickSort</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Ligne</th>
+<th style="text-align:center">Cout (<span class="math inline-math"><script type="math/tex">T_Q(n)</script></span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">n \leq 1</script></span> | n &gt; 1</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">Theta(1)</script></span> | <span class="math inline-math"><script type="math/tex">Theta(1)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">0 | <span class="math inline-math"><script type="math/tex">Theta(n)(?)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">0 | <span class="math inline-math"><script type="math/tex">T_Q(1)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">0 | <span class="math inline-math"><script type="math/tex">T_Q(n-1)</script></span></td>
+</tr>
+</tbody>
+</table>
+<p><ins>Tableau trie</ins> :<br>
+<span class="math inline-math"><script type="math/tex">T_Q(n) = \Theta(n) + T_Q(1) + T_Q(n-1)</script></span>
+<span class="math inline-math"><script type="math/tex">T_Q(n) = T_Q(n-1) + \Theta(n)</script></span>
+<span class="math inline-math"><script type="math/tex">= T_Q(n - 2) + \Theta(n-1) + \Theta(n)</script></span>
+<span class="math inline-math"><script type="math/tex">= T_Q(n - 3) + \Theta(n-2) + \Theta(n-1) + \Theta(n)</script></span>
+<span class="math inline-math"><script type="math/tex">= \sum_{i=0}^{n - 1}n - i = \Theta(n^2)</script></span></p>
+<p><ins>Cas favorable</ins> :<br>
+On suppose toutes les partitions de la forme |50%|50%|</p>
+<p><span class="math inline-math"><script type="math/tex">T_Q(n) = \Theta(n) + 2T(n/2)</script></span>
+<span class="math inline-math"><script type="math/tex">\Rightarrow T_Q(n) = \Theta(nlogn)</script></span></p>
+<p><ins>Autre cas</ins> :<br>
+On supprime toutes les partitions de la forme |10%|90%|</p>
+<p><span class="math inline-math"><script type="math/tex">T_Q(n) = \Theta(n) + T_Q(n/10) + T_Q(9n/10)</script></span></p>
+<pre class="graphviz"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: hierarchy Pages: 1 -->
+<svg width="404pt" height="404pt" viewBox="0.00 0.00 404.30 404.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 400)">
+<title>hierarchy</title>
+<polygon fill="#282c34" stroke="transparent" points="-4,4 -4,-400 400.2985,-400 400.2985,4 -4,4"></polygon>
+<!-- cn -->
+<g id="node1" class="node">
+<title>cn</title>
+<ellipse fill="none" stroke="#ffffff" cx="186.3208" cy="-378" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="186.3208" y="-373.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">cn</text>
+</g>
+<!-- cn/10 -->
+<g id="node2" class="node">
+<title>cn/10</title>
+<ellipse fill="none" stroke="#ffffff" cx="134.3208" cy="-306" rx="32.4846" ry="18"></ellipse>
+<text text-anchor="middle" x="134.3208" y="-301.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">cn/10</text>
+</g>
+<!-- cn&#45;&gt;cn/10 -->
+<g id="edge1" class="edge">
+<title>cn-&gt;cn/10</title>
+<path fill="none" stroke="#ffffff" d="M174.5212,-361.6621C167.9663,-352.5861 159.6744,-341.1049 152.3262,-330.9306"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="155.1269,-328.8305 146.4345,-322.7729 149.4521,-332.929 155.1269,-328.8305"></polygon>
+</g>
+<!-- 9cn/10 -->
+<g id="node3" class="node">
+<title>9cn/10</title>
+<ellipse fill="none" stroke="#ffffff" cx="239.3208" cy="-306" rx="37.1424" ry="18"></ellipse>
+<text text-anchor="middle" x="239.3208" y="-301.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">9cn/10</text>
+</g>
+<!-- cn&#45;&gt;9cn/10 -->
+<g id="edge2" class="edge">
+<title>cn-&gt;9cn/10</title>
+<path fill="none" stroke="#ffffff" d="M198.3473,-361.6621C204.9805,-352.6509 213.359,-341.2688 220.8085,-331.1488"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="223.6793,-333.1528 226.7888,-323.0245 218.0419,-329.003 223.6793,-333.1528"></polygon>
+</g>
+<!-- cn/100 -->
+<g id="node4" class="node">
+<title>cn/100</title>
+<ellipse fill="none" stroke="#ffffff" cx="37.3208" cy="-234" rx="37.1424" ry="18"></ellipse>
+<text text-anchor="middle" x="37.3208" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">cn/100</text>
+</g>
+<!-- cn/10&#45;&gt;cn/100 -->
+<g id="edge3" class="edge">
+<title>cn/10-&gt;cn/100</title>
+<path fill="none" stroke="#ffffff" d="M114.6914,-291.4297C100.7721,-281.0979 81.8647,-267.0635 66.2253,-255.4549"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="68.0412,-252.444 57.9254,-249.2941 63.869,-258.0648 68.0412,-252.444"></polygon>
+</g>
+<!-- 9cn/100 -->
+<g id="node5" class="node">
+<title>9cn/100</title>
+<ellipse fill="none" stroke="#ffffff" cx="134.3208" cy="-234" rx="42.299" ry="18"></ellipse>
+<text text-anchor="middle" x="134.3208" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">9cn/100</text>
+</g>
+<!-- cn/10&#45;&gt;9cn/100 -->
+<g id="edge4" class="edge">
+<title>cn/10-&gt;9cn/100</title>
+<path fill="none" stroke="#ffffff" d="M134.3208,-287.8314C134.3208,-280.131 134.3208,-270.9743 134.3208,-262.4166"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="137.8209,-262.4132 134.3208,-252.4133 130.8209,-262.4133 137.8209,-262.4132"></polygon>
+</g>
+<!-- 9cn/100  -->
+<g id="node6" class="node">
+<title>9cn/100 </title>
+<ellipse fill="none" stroke="#ffffff" cx="239.3208" cy="-234" rx="44.6271" ry="18"></ellipse>
+<text text-anchor="middle" x="239.3208" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">9cn/100 </text>
+</g>
+<!-- 9cn/10&#45;&gt;9cn/100  -->
+<g id="edge5" class="edge">
+<title>9cn/10-&gt;9cn/100 </title>
+<path fill="none" stroke="#ffffff" d="M239.3208,-287.8314C239.3208,-280.131 239.3208,-270.9743 239.3208,-262.4166"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="242.8209,-262.4132 239.3208,-252.4133 235.8209,-262.4133 242.8209,-262.4132"></polygon>
+</g>
+<!-- 81cn/100 -->
+<g id="node7" class="node">
+<title>81cn/100</title>
+<ellipse fill="none" stroke="#ffffff" cx="349.3208" cy="-234" rx="46.9555" ry="18"></ellipse>
+<text text-anchor="middle" x="349.3208" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">81cn/100</text>
+</g>
+<!-- 9cn/10&#45;&gt;81cn/100 -->
+<g id="edge6" class="edge">
+<title>9cn/10-&gt;81cn/100</title>
+<path fill="none" stroke="#ffffff" d="M261.5809,-291.4297C277.5501,-280.9772 299.3088,-266.7351 317.1625,-255.049"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="319.1207,-257.9505 325.5709,-249.5454 315.2871,-252.0935 319.1207,-257.9505"></polygon>
+</g>
+<!-- ... -->
+<g id="node8" class="node">
+<title>...</title>
+<ellipse fill="none" stroke="#ffffff" cx="37.3208" cy="-162" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="37.3208" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">...</text>
+</g>
+<!-- cn/100&#45;&gt;... -->
+<g id="edge7" class="edge">
+<title>cn/100-&gt;...</title>
+<path fill="none" stroke="#ffffff" d="M37.3208,-215.8314C37.3208,-208.131 37.3208,-198.9743 37.3208,-190.4166"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="40.8209,-190.4132 37.3208,-180.4133 33.8209,-190.4133 40.8209,-190.4132"></polygon>
+</g>
+<!-- ...  -->
+<g id="node10" class="node">
+<title>... </title>
+<ellipse fill="none" stroke="#ffffff" cx="349.3208" cy="-162" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="349.3208" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">... </text>
+</g>
+<!-- 81cn/100&#45;&gt;...  -->
+<g id="edge9" class="edge">
+<title>81cn/100-&gt;... </title>
+<path fill="none" stroke="#ffffff" d="M349.3208,-215.8314C349.3208,-208.131 349.3208,-198.9743 349.3208,-190.4166"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="352.8209,-190.4132 349.3208,-180.4133 345.8209,-190.4133 352.8209,-190.4132"></polygon>
+</g>
+<!-- Θ(1) -->
+<g id="node9" class="node">
+<title>Θ(1)</title>
+<ellipse fill="none" stroke="#ffffff" cx="37.3208" cy="-90" rx="27.8474" ry="18"></ellipse>
+<text text-anchor="middle" x="37.3208" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">Θ(1)</text>
+</g>
+<!-- ...&#45;&gt;Θ(1) -->
+<g id="edge8" class="edge">
+<title>...-&gt;Θ(1)</title>
+<path fill="none" stroke="#ffffff" d="M37.3208,-143.8314C37.3208,-136.131 37.3208,-126.9743 37.3208,-118.4166"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="40.8209,-118.4132 37.3208,-108.4133 33.8209,-118.4133 40.8209,-118.4132"></polygon>
+</g>
+<!--  ... -->
+<g id="node11" class="node">
+<title> ...</title>
+<ellipse fill="none" stroke="#ffffff" cx="349.3208" cy="-90" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="349.3208" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#ffffff"> ...</text>
+</g>
+<!-- ... &#45;&gt; ... -->
+<g id="edge10" class="edge">
+<title>... -&gt; ...</title>
+<path fill="none" stroke="#ffffff" d="M349.3208,-143.8314C349.3208,-136.131 349.3208,-126.9743 349.3208,-118.4166"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="352.8209,-118.4132 349.3208,-108.4133 345.8209,-118.4133 352.8209,-118.4132"></polygon>
+</g>
+<!-- Θ(1)  -->
+<g id="node12" class="node">
+<title>Θ(1) </title>
+<ellipse fill="none" stroke="#ffffff" cx="349.3208" cy="-18" rx="30.1765" ry="18"></ellipse>
+<text text-anchor="middle" x="349.3208" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">Θ(1) </text>
+</g>
+<!--  ...&#45;&gt;Θ(1)  -->
+<g id="edge11" class="edge">
+<title> ...-&gt;Θ(1) </title>
+<path fill="none" stroke="#ffffff" d="M349.3208,-71.8314C349.3208,-64.131 349.3208,-54.9743 349.3208,-46.4166"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="352.8209,-46.4132 349.3208,-36.4133 345.8209,-46.4133 352.8209,-46.4132"></polygon>
+</g>
+</g>
+</svg>
+</pre><blockquote>
+<p><span class="math inline-math"><script type="math/tex">h_{gauche} = log_{10}n</script></span>
+<span class="math inline-math"><script type="math/tex">h_{droite} = log_{10/9}n</script></span></p>
+</blockquote>
+<p><span class="math inline-math"><script type="math/tex">\Theta(nlogn) \leq T_Q(n) \leq \Theta(nlogn)</script></span>
+Donc <span class="math inline-math"><script type="math/tex">T_Q(n) = \Theta(nlogn)</script></span></p>
+<p><ins>Autre cas</ins> :<br>
+|20|n-20|</p>
+<p><span class="math inline-math"><script type="math/tex">T_Q(n) = \Theta(n) + T_Q(20) + T_Q(n - 20)</script></span>
+<span class="math inline-math"><script type="math/tex">T_Q(n) = \Theta(n) + T_Q(n - 20)</script></span>
+<span class="math inline-math"><script type="math/tex">T_Q(n) = \Theta(n^2)</script></span></p>
+
+  </body>
+</html>
