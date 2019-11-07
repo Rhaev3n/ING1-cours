@@ -1,0 +1,1914 @@
+<!DOCTYPE html>
+<html data-markdown-preview-plus-context="html-export">
+  <head>
+    <meta charset="utf-8" />
+    <title>SCL</title>
+    <style>.emoji {
+  max-width: 1em !important;
+}
+del {
+  text-decoration: none;
+  position: relative;
+}
+del::after {
+  border-bottom: 1px solid black;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+ul.contains-task-list li.task-list-item {
+  position: relative;
+  list-style-type: none;
+}
+ul.contains-task-list li.task-list-item input.task-list-item-checkbox {
+  position: absolute;
+  transform: translateX(-100%);
+  width: 30px;
+}
+span.critic.comment {
+  position: relative;
+}
+span.critic.comment::before {
+  content: '\1f4ac';
+  position: initial;
+}
+span.critic.comment > span {
+  display: none;
+}
+span.critic.comment:hover > span {
+  display: initial;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  border: 1px solid;
+  border-radius: 5px;
+  max-height: 4em;
+  overflow: auto;
+}
+span.critic.comment:focus > span {
+  display: initial;
+  text-decoration: underline;
+  position: initial;
+  top: auto;
+  left: auto;
+  border: initial;
+  border-radius: initial;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: transparent;
+}
+
+body {
+  padding: 2em;
+  font-size: 1.2em;
+  color: #abb2bf;
+  background-color: #282c34;
+  overflow: auto;
+}
+body > :first-child,
+body > div.update-preview > :first-child {
+  margin-top: 0;
+}
+body > p,
+body > div.update-preview > p {
+  margin-top: 0;
+  margin-bottom: 1.5em;
+}
+body > ul,
+body > div.update-preview > ul,
+body > ol,
+body > div.update-preview > ol {
+  margin-bottom: 1.5em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  color: #ffffff;
+}
+h1 {
+  font-size: 2.4em;
+  font-weight: 300;
+}
+h2 {
+  font-size: 1.8em;
+  font-weight: 400;
+}
+h3 {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+h4 {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+h5 {
+  font-size: 1.1em;
+  font-weight: 600;
+}
+h6 {
+  font-size: 1em;
+  font-weight: 600;
+}
+strong {
+  color: #ffffff;
+}
+del {
+  color: #7c879c;
+}
+a,
+a code {
+  color: #528bff;
+}
+img {
+  max-width: 100%;
+}
+blockquote {
+  margin: 1.5em 0;
+  font-size: inherit;
+  color: #7c879c;
+  border-color: #4b5362;
+  border-width: 4px;
+}
+hr {
+  margin: 3em 0;
+  border-top: 2px dashed #4b5362;
+  background: none;
+}
+table {
+  margin: 1.5em 0;
+}
+th {
+  color: #ffffff;
+}
+th,
+td {
+  padding: 0.66em 1em;
+  border: 1px solid #4b5362;
+}
+code {
+  color: #ffffff;
+  background-color: #3a3f4b;
+}
+pre.editor-colors {
+  margin: 1.5em 0;
+  padding: 1em;
+  font-size: 0.92em;
+  border-radius: 3px;
+  background-color: #31363f;
+}
+kbd {
+  color: #ffffff;
+  border: 1px solid #4b5362;
+  border-bottom: 2px solid #3e4451;
+  background-color: #3a3f4b;
+}
+
+pre.editor-colors {
+  color: #839496;
+  background-color: #002b36;
+}
+pre.editor-colors .gutter {
+  color: #839496;
+  background-color: #073642;
+}
+pre.editor-colors .gutter .line-number.cursor-line {
+  background-color: #0a4d5e;
+}
+pre.editor-colors .invisible-character {
+  color: #0a4d5e;
+}
+pre.editor-colors .indent-guide {
+  color: #0a4d5e;
+}
+pre.editor-colors .cursor {
+  border-color: #fdf6e3;
+}
+pre.editor-colors .cursor-line {
+  background-color: rgba(0, 165, 207, 0.08);
+}
+pre.editor-colors .selection .region {
+  background-color: #073a47;
+}
+pre.editor-colors .fold-marker:after,
+pre.editor-colors .gutter .line-number.folded {
+  color: #d33682;
+}
+pre.editor-colors .bracket-matcher .region {
+  border-color: #d33682;
+}
+.syntax--comment {
+  color: #586e75;
+  font-style: italic;
+}
+.syntax--comment .syntax--markup.syntax--link {
+  color: #586e75;
+}
+.syntax--string {
+  color: #2aa198;
+}
+.syntax--string.syntax--regexp {
+  color: #dc322f;
+}
+.syntax--constant.syntax--numeric {
+  color: #d33682;
+}
+.syntax--constant.syntax--language {
+  color: #b58900;
+}
+.syntax--constant.syntax--character,
+.syntax--constant.syntax--other,
+.syntax--constant.syntax--support {
+  color: #cb4b16;
+}
+.syntax--variable {
+  color: #268bd2;
+}
+.syntax--keyword {
+  color: #859900;
+}
+.syntax--storage {
+  color: #859900;
+}
+.syntax--meta.syntax--class {
+  color: #268bd2;
+}
+.syntax--entity.syntax--name.syntax--class,
+.syntax--entity.syntax--name.syntax--function,
+.syntax--entity.syntax--name.syntax--section,
+.syntax--entity.syntax--name.syntax--type {
+  color: #268bd2;
+}
+.syntax--entity.syntax--other.syntax--attribute-name {
+  color: #657b83;
+}
+.syntax--support.syntax--function {
+  color: #268bd2;
+}
+.syntax--support.syntax--function.syntax--builtin {
+  color: #859900;
+}
+.syntax--support.syntax--type,
+.syntax--support.syntax--class {
+  color: #859900;
+}
+.syntax--tag.syntax--entity.syntax--name {
+  color: #268bd2;
+}
+.syntax--tag.syntax--punctuation.syntax--definition.syntax--html,
+.syntax--tag.syntax--punctuation.syntax--definition.syntax--begin,
+.syntax--tag.syntax--punctuation.syntax--definition.syntax--end {
+  color: #586e75;
+}
+.syntax--invalid.syntax--deprecated {
+  color: #b58900;
+  text-decoration: underline;
+}
+.syntax--invalid.syntax--illegal {
+  color: #dc322f;
+  text-decoration: underline;
+}
+.syntax--none {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--meta.syntax--preprocessor,
+.syntax--source.syntax--cpp .syntax--meta.syntax--preprocessor {
+  color: #dc322f;
+}
+.syntax--source.syntax--c .syntax--keyword.syntax--control.syntax--directive,
+.syntax--source.syntax--cpp .syntax--keyword.syntax--control.syntax--directive {
+  color: #cb4b16;
+}
+.syntax--source.syntax--c .syntax--punctuation.syntax--string,
+.syntax--source.syntax--cpp .syntax--punctuation.syntax--string {
+  color: #2aa198;
+}
+.syntax--source.syntax--c .syntax--constant,
+.syntax--source.syntax--cpp .syntax--constant {
+  color: #cb4b16;
+}
+.syntax--source.syntax--c .syntax--constant.syntax--numeric,
+.syntax--source.syntax--cpp .syntax--constant.syntax--numeric,
+.syntax--source.syntax--c .syntax--constant.syntax--language.syntax--c,
+.syntax--source.syntax--cpp .syntax--constant.syntax--language.syntax--c {
+  color: #2aa198;
+}
+.syntax--source.syntax--c .syntax--storage,
+.syntax--source.syntax--cpp .syntax--storage {
+  color: #b58900;
+}
+.syntax--source.syntax--c .syntax--entity,
+.syntax--source.syntax--cpp .syntax--entity {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--entity.syntax--name.syntax--function.syntax--preprocessor,
+.syntax--source.syntax--cpp .syntax--entity.syntax--name.syntax--function.syntax--preprocessor {
+  color: #dc322f;
+}
+.syntax--source.syntax--c .syntax--support.syntax--type,
+.syntax--source.syntax--cpp .syntax--support.syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--c .syntax--support.syntax--type.syntax--posix-reserved,
+.syntax--source.syntax--cpp .syntax--support.syntax--type.syntax--posix-reserved {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--variable.syntax--other.syntax--dot-access,
+.syntax--source.syntax--cpp .syntax--variable.syntax--other.syntax--dot-access {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--variable.syntax--parameter.syntax--preprocessor,
+.syntax--source.syntax--cpp .syntax--variable.syntax--parameter.syntax--preprocessor {
+  color: #dc322f;
+}
+.syntax--source.syntax--coffee .syntax--support.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--variable,
+.syntax--source.syntax--coffee .syntax--entity.syntax--name.syntax--function,
+.syntax--source.syntax--coffee .syntax--entity.syntax--name.syntax--class {
+  color: #268bd2;
+}
+.syntax--source.syntax--coffee .syntax--variable.syntax--parameter.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--variable.syntax--other.syntax--readwrite {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--storage.syntax--type.syntax--function {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--entity.syntax--name {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--meta.syntax--brace.syntax--round,
+.syntax--source.syntax--coffee .syntax--meta.syntax--brace.syntax--square {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--meta.syntax--delimiter {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--storage.syntax--type.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--punctuation.syntax--terminator {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--punctuation.syntax--section.syntax--embedded {
+  color: #dc322f;
+}
+.syntax--source.syntax--coffee .syntax--embedded.syntax--source {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--constant.syntax--numeric {
+  color: #d33682;
+}
+.syntax--source.syntax--coffee .syntax--constant.syntax--language.syntax--boolean {
+  color: #b58900;
+}
+.syntax--source.syntax--css .syntax--punctuation.syntax--separator,
+.syntax--source.syntax--css .syntax--punctuation.syntax--terminator {
+  color: #839496;
+}
+.syntax--source.syntax--css .syntax--punctuation.syntax--property-list.syntax--begin,
+.syntax--source.syntax--css .syntax--punctuation.syntax--property-list.syntax--end {
+  color: #dc322f;
+}
+.syntax--source.syntax--css .syntax--punctuation.syntax--section.syntax--function {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--entity.syntax--name {
+  color: #859900;
+}
+.syntax--source.syntax--css .syntax--attribute-name.syntax--class,
+.syntax--source.syntax--css .syntax--id {
+  color: #268bd2;
+}
+.syntax--source.syntax--css .syntax--pseudo-element,
+.syntax--source.syntax--css .syntax--pseudo-class {
+  color: #cb4b16;
+}
+.syntax--source.syntax--css .syntax--property-value {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--constant.syntax--numeric {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--constant.syntax--numeric .syntax--unit {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--rgb-value {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--support.syntax--constant {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--support.syntax--constant.syntax--media {
+  color: #dc322f;
+}
+.syntax--source.syntax--css .syntax--keyword.syntax--important {
+  color: #dc322f;
+}
+.syntax--source.syntax--less .syntax--keyword.syntax--unit,
+.syntax--source.syntax--scss .syntax--keyword.syntax--unit {
+  color: #2aa198;
+}
+.syntax--source.syntax--go .syntax--operator {
+  color: #839496;
+}
+.syntax--source.syntax--go .syntax--operator.syntax--assignment {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--keyword.syntax--operator {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--keyword.syntax--import {
+  color: #cb4b16;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--modifier.syntax--import {
+  color: #586e75;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--class .syntax--storage.syntax--modifier {
+  color: #b58900;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--class .syntax--meta.syntax--class.syntax--identifier .syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #268bd2;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--type.syntax--primitive.syntax--array {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--constant.syntax--numeric {
+  color: #d33682;
+}
+.syntax--source.syntax--java .syntax--constant.syntax--other {
+  color: #cb4b16;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--type {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--method-call {
+  color: #dc322f;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--method-call .syntax--meta.syntax--method {
+  color: #6c71c4;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--method-call .syntax--punctuation.syntax--definition.syntax--seperator.syntax--parameter {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--punctuation.syntax--definition.syntax--method-parameters {
+  color: #93a1a1;
+}
+.syntax--source.syntax--js .syntax--comma {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--support.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name.syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name.syntax--function {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name.syntax--tag {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--other.syntax--attribute-name {
+  color: #b58900;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--brace {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--keyword {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--new {
+  color: #859900;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--control {
+  color: #cb4b16;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--control.syntax--regexp {
+  color: #2aa198;
+}
+.syntax--source.syntax--js .syntax--variable {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--variable.syntax--dom {
+  color: #859900;
+}
+.syntax--source.syntax--js .syntax--delimiter + .syntax--dom {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--name {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--variable.syntax--language {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--variable.syntax--parameter {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--regexp {
+  color: #2aa198;
+}
+.syntax--source.syntax--js .syntax--support.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--support.syntax--constant {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--storage.syntax--modifier {
+  color: #b58900;
+}
+.syntax--source.syntax--js .syntax--punctuation.syntax--terminator.syntax--statement {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--delimiter.syntax--method.syntax--period {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--brace.syntax--square {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--brace.syntax--curly {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--string.syntax--quoted.syntax--template .syntax--embedded.syntax--source {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--string.syntax--quoted.syntax--template .syntax--embedded.syntax--source > .syntax--embedded.syntax--punctuation {
+  color: #dc322f;
+}
+.syntax--source.syntax--js.syntax--embedded .syntax--entity.syntax--name.syntax--tag {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--import .syntax--control {
+  color: #cb4b16;
+}
+.syntax--source.syntax--js.syntax--rails .syntax--instance {
+  color: #268bd2;
+}
+.syntax--source.syntax--js.syntax--rails .syntax--class {
+  color: #b58900;
+}
+.syntax--md .syntax--link .syntax--entity,
+.syntax--gfm .syntax--link .syntax--entity {
+  color: #6c71c4;
+}
+.syntax--md .syntax--list.syntax--ordered,
+.syntax--gfm .syntax--list.syntax--ordered {
+  color: #859900;
+}
+.syntax--md .syntax--list.syntax--unordered,
+.syntax--gfm .syntax--list.syntax--unordered {
+  color: #b58900;
+}
+.syntax--md .syntax--raw,
+.syntax--gfm .syntax--raw {
+  font-style: italic;
+}
+.syntax--md.syntax--support,
+.syntax--gfm.syntax--support {
+  color: #586e75;
+}
+.syntax--md.syntax--support.syntax--quote,
+.syntax--gfm.syntax--support.syntax--quote {
+  color: #6c71c4;
+}
+.syntax--markup.syntax--bold {
+  font-weight: bold;
+}
+.syntax--markup.syntax--italic {
+  font-style: italic;
+}
+.syntax--markup.syntax--heading {
+  color: #268bd2;
+}
+.syntax--markup.syntax--link {
+  color: #2aa198;
+}
+.syntax--markup.syntax--deleted {
+  color: #dc322f;
+}
+.syntax--markup.syntax--changed {
+  color: #b58900;
+}
+.syntax--markup.syntax--inserted {
+  color: #2aa198;
+}
+.syntax--source.syntax--php .syntax--storage.syntax--type.syntax--class {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--storage.syntax--type.syntax--function {
+  color: #cb4b16;
+}
+.syntax--source.syntax--php .syntax--storage.syntax--modifier {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--entity.syntax--name.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--entity.syntax--other {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--variable {
+  color: #268bd2;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--comment {
+  color: #586e75;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--array {
+  color: #dc322f;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--string {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--variable {
+  color: #859900;
+}
+.syntax--source.syntax--php .syntax--support.syntax--function.syntax--construct {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--support.syntax--function.syntax--array {
+  color: #859900;
+}
+.syntax--source.syntax--php .syntax--keyword.syntax--operator.syntax--class {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--keyword.syntax--operator.syntax--assignment {
+  color: #859900;
+}
+.syntax--source.syntax--php .syntax--keyword.syntax--other {
+  color: #dc322f;
+}
+.syntax--source.syntax--python .syntax--entity {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--entity.syntax--name {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--entity.syntax--other {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--function {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--function.syntax--magic {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--string {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator.syntax--quantifier {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator.syntax--logical {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--control.syntax--import {
+  color: #cb4b16;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--other {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--constant.syntax--language {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--constant.syntax--character {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--constant.syntax--other {
+  color: #dc322f;
+}
+.syntax--source.syntax--python .syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--variable {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--support.syntax--function.syntax--builtin {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--support.syntax--type.syntax--exception.syntax--python {
+  color: #b58900;
+}
+.syntax--source.syntax--python .syntax--support.syntax--type.syntax--python {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--string {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--class.syntax--todo {
+  color: #d33682;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--function {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--definition.syntax--parameters {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--section.syntax--function.syntax--begin {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--separator.syntax--parameters {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--meta.syntax--embedded .syntax--punctuation.syntax--section {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--definition {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--definition.syntax--string {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--definition.syntax--comment {
+  color: #586e75;
+}
+.syntax--source.syntax--ruby .syntax--entity.syntax--inherited-class {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--parameter {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--constant {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--constant.syntax--boolean {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--instance .syntax--punctuation.syntax--definition {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--class {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--class.syntax--control {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--module {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--require .syntax--keyword.syntax--other.syntax--special-method {
+  color: #cb4b16;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--other.syntax--special-method {
+  color: #cb4b16;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--other {
+  color: #859900;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--control {
+  color: #859900;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--operator {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--special-method {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--symbol {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--symbol .syntax--punctuation.syntax--definition {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--hashkey {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--hashkey .syntax--punctuation.syntax--definition {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--regexp {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--todo {
+  color: #d33682;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--ruby.syntax--global {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--ruby.syntax--global .syntax--punctuation {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--block {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--self {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--separator {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--numeric {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--section.syntax--regexp {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--punctuation .syntax--source.syntax--ruby {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--source.syntax--ruby {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--source.syntax--ruby .syntax--punctuation.syntax--array,
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--source.syntax--ruby .syntax--punctuation.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--support.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--support.syntax--function.syntax--kernel {
+  color: #859900;
+}
+.syntax--source.syntax--scala .syntax--variable {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--declaration {
+  color: #93a1a1;
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--comparison {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--class,
+.syntax--source.syntax--scala .syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--scala .syntax--val {
+  font-weight: normal;
+}
+.syntax--source.syntax--scala .syntax--variable {
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--variable.syntax--parameter {
+  color: #6c71c4;
+  font-weight: normal;
+}
+.syntax--source.syntax--scala .syntax--control.syntax--flow {
+  color: #93a1a1;
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--constant.syntax--language {
+  color: #93a1a1;
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--function.syntax--declaration {
+  color: #6c71c4;
+}
+.syntax--source.syntax--scala .syntax--modifier.syntax--other {
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--package {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--variable.syntax--import {
+  font-weight: normal;
+}
+.syntax--source.syntax--scala .syntax--type .syntax--bounds,
+.syntax--source.syntax--scala .syntax--type .syntax--class {
+  color: #6c71c4;
+}
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded).syntax--link.syntax--entity {
+  color: #268bd2;
+  text-decoration: underline;
+}
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded) .syntax--class,
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded) .syntax--parameter {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded) .syntax--description {
+  color: #586e75;
+}
+.syntax--source.syntax--scala .syntax--embedded {
+  color: #6c7c7c;
+  font-style: italic;
+}
+.syntax--source.syntax--scala .syntax--embedded .syntax--margin,
+.syntax--source.syntax--scala .syntax--embedded .syntax--delimiters {
+  font-style: normal;
+}
+.syntax--source.syntax--ts .syntax--import .syntax--control,
+.syntax--source.syntax--tsx .syntax--import .syntax--control {
+  color: #cb4b16;
+}
+.syntax--source.syntax--ts .syntax--entity.syntax--name.syntax--type,
+.syntax--source.syntax--tsx .syntax--entity.syntax--name.syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--ts .syntax--entity.syntax--inherited-class,
+.syntax--source.syntax--tsx .syntax--entity.syntax--inherited-class {
+  color: #b58900;
+}
+.syntax--source.syntax--ts .syntax--support.syntax--type,
+.syntax--source.syntax--tsx .syntax--support.syntax--type {
+  color: #b58900;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="../style.css">
+
+  </head>
+  <body>
+    <h1>SCL</h1>
+<p><a href="https://pubs.opengroup.org/onlinepubs/009695399/utilities/xcu_chap02.html">// doc</a></p>
+<h1>1 Introduction</h1>
+<h2>General shell operations</h2>
+<ol>
+<li>The shell reads its input from a file (-c option, system() or popen())</li>
+<li>Breaks input into tokens</li>
+<li>Parses input into simple commands and compound commands</li>
+<li>Performs word expensions</li>
+<li>Performs redirection</li>
+<li>Executes functions, scripts, builtins or executable files, indexing its positionnal parameters from 1 to n and the name of the script as index 0</li>
+<li>Waits for the command to complete and collect <strong>exit status</strong></li>
+</ol>
+<h1>2 Quoting</h1>
+<p>Quoting is used to :</p>
+<ul>
+<li>Remove the special meaning of certain words</li>
+<li>Keep literal meaning of special characters or reserved words</li>
+<li>Prevent parameter expansion</li>
+</ul>
+<p>These need to be quoted to keep their literal meaning :
+<div class="alert alert-danger">
+|  &amp;  ;  &lt;  &gt;  (  )  $  `  \  "  ’  <space>  <tab>  <newline>
+</div></newline></tab></space></p>
+<p>And these ones to, under special circumstances
+<div class="alert alert-danger">
+*   ?   [   #   ˜   =   %
+</div></p>
+<h2>Backslash : Escape character</h2>
+<p>A Backslash preserved the literal value of the following character</p>
+<p>Exception for <newline> which is interpreted as a line continuation -&gt; It cannot serve as token separation.</newline></p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">$ echo toto\</span></span></span>
+<span class=""><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">&gt; titi</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">tototiti</span></span></span></pre>
+<h2>Single-Quotes</h2>
+<p>Single-quotes preserve the literal value of all characters contained inside them.</p>
+<h2>Double-quotes</h2>
+<ul>
+<li>A double quote has to be preceded by a \ to be included within a double-quoted string.</li>
+<li>@ has special meaning between double-quotes</li>
+<li>Double-quotes preserve the value ot all characters inside them, except for $ ` and \</li>
+</ul>
+<h3>$</h3>
+<p>Keeps it meaning of parameter expansion, command substitution and arithmetic expansion.</p>
+<p>Characters between $( and ) are not affected by the double-quotes and only define the command that replaces the $(…) (Token recognition rules are applied to find mathing ‘)’)</p>
+<p>Within the characters between ${ and } can be an even number of unescaped double-quotes or single-quotes. A backslash can escape a ‘{’ or a ‘}’</p>
+<h3>`</h3>
+<p>Retains its special meaning. These cases have undefinied results :</p>
+<ul>
+<li>Single-quote or double-quote strings that begin but does not end within the <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">...</code> sequence.</li>
+<li>A <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">...</code> sequence that begins but does not end within a double-quoted string</li>
+</ul>
+<h3>\</h3>
+<p>Retains its special meaning only when followed by these characters :</p>
+<ul>
+<li>$ ` " \ <newline></newline></li>
+</ul>
+<h1>3 Token Recognition</h1>
+<p>Lines are parsed using two modes : ordinary token recognition and processing of here-documents</p>
+<p>When an <strong>io_here</strong> is recognized, subsequent lines are parsed according to rules of Here Document.</p>
+<p>Else :</p>
+<ul>
+<li>The shell breaks the input into tokens by applying the first applicable rule below</li>
+<li>The tokens starts from the current position in input until an other token is delimited using the rules below</li>
+<li>Characters in the tokens are exactly those of the input, including quotes.</li>
+</ul>
+<h2>Token Recognition rules</h2>
+<ol>
+<li>
+<p>If the end-of-output is reached, the current token is delimited. If there is no current token, the end-of-input indicator is returned as a token.</p>
+</li>
+<li>
+<p>If previous character was used as part of an operator and current character is <em>not quoted</em> and can be used within current recognized characters to form an operator, if is used as part of that operator token.</p>
+</li>
+<li>
+<p>If previous character was used as part of an operator and current character cannot be used within the current recognized character to form an operator, the operator token containing the previous character is delimited.</p>
+</li>
+<li>
+<p>If current character is a ', " or \ and is not quoted, it affects quoting for the following characters up to the end of quoted text.</p>
+<ul>
+<li>During Token Recognition no subsitution is performed -&gt; the token contains exactly the characters in the input (<strong>except</strong> for <newline> joining).</newline></li>
+<li>Token is not delimited by the end of the quoted field</li>
+</ul>
+</li>
+<li>
+<p>If character is a $ or a ` and is not quoted, identify the start of parameter expansion, command subsitution or arithmetic expansion.</p>
+<ul>
+<li>If quoting or expansions are nested within the subsitution, recursively process them.</li>
+<li>Characters found are including unmodified in the token, including any nested operators and quotes.</li>
+<li>Token is not delimitied by the end of subsitution</li>
+</ul>
+</li>
+<li>
+<p>If current charater is not quoted and can be the beginning of a new operator, current token is delimited and current character is used as the beginning of a new operator token</p>
+</li>
+<li>
+<p>If current character is an unquoted , current token is delimited</p>
+</li>
+<li>
+<p>If current character is an unquoted , the token containing previous character is the delimied and current character is discarded</p>
+</li>
+<li>
+<p>If previous character is part of a word, current character is appended to that word</p>
+</li>
+<li>
+<p>If current character is a ‘#’, all following characters (exluding ) are discarded as comment</p>
+</li>
+<li>
+<p>The current character is used as the start of a word</p>
+</li>
+</ol>
+<h2>Alias subsitution</h2>
+<p>After a token is delimited, but before applying the Shell Grammar, a word that is identified as a command name has to be validated as a valid alias name.</p>
+<ul>
+<li>Valid alias names have to be previously defined by using “alias” and not then undefined using “unalias”</li>
+<li>Some alias are predefined by some implementations</li>
+<li>If replacing value end in  shell checks next command for alias subsitution. Process continues until a word is not a value alias or an alias value does not end in </li>
+</ul>
+<p><div class="alert alert-info">
+<strong>Avoid recursive aliasing</strong>
+If shell not currently processing an alias of the same name, replace the word by the value of the alias, else do not replace it
+</div></p>
+<h1>4 Reserved Words</h1>
+<p><div class="alert alert-danger">
+! { } case do done elif else esac fi for if in then until while
+</div></p>
+<p>Reserved words are recognized only when not quoted and when they are used as :</p>
+<ul>
+<li>First word of a command</li>
+<li>First word following one of the reserved words <strong>othen than</strong> case, for or in</li>
+<li>Third word in a case command (only <strong>in</strong> is valid)</li>
+<li>Third word in a for command (only <strong>in</strong> and <strong>do</strong> are valid)</li>
+</ul>
+<p>These are recognized as reserved words on specific implementations</p>
+<p><div class="alert alert-danger">
+[[ ]] function select
+</div></p>
+<p>Words that are the concatenation of a name and a ‘:’ are reserved.</p>
+<h1>5 Parameters and Variables</h1>
+<p><strong>Parameter</strong> : A name, a number or one special character
+<strong>Variable</strong> : A parameter denoted by a name</p>
+<ul>
+<li>Parameter set is it has an assigned value.</li>
+<li>Unset parameter with <strong>unset</strong> built-in command</li>
+</ul>
+<h2>Positional Parameters</h2>
+<ul>
+<li>A decimal value other than 0</li>
+<li>Has to be enclosed in {} if has more than 1 digit</li>
+<li>Are assigned when shell is invoked, temporarily replaces when a shell function is called and can be reassigned with <strong>set</strong></li>
+</ul>
+<h2>Special Parameters</h2>
+<p>The special parameters and the values to which they extend.</p>
+<h3>@</h3>
+<ul>
+<li>Expands the positional parameters starting from 1.</li>
+<li>When expansion between double-quotes and when there is field splitting, each positional parameter expand as a separate field, and the first parameter is still joined with the original word and the last argument with the last part of the word.</li>
+<li>With no arguments, @ expands to zero fields</li>
+</ul>
+<h3>*</h3>
+<ul>
+<li>Expands the positional parameters starting from 1.</li>
+<li>If expansion is within double-quotes, expands within a single field with values of the parameters separated by  or the value of IFS if set</li>
+</ul>
+<blockquote>
+<p>NULL is a valid value : parameters will be concatenated</p>
+</blockquote>
+<h3>#</h3>
+<ul>
+<li>Expands to decimal number of positional parameters (excluding the command name (arg 0))</li>
+</ul>
+<h3>?</h3>
+<ul>
+<li>Expands to exit status of the most recent pipeline</li>
+</ul>
+<h3>-</h3>
+<ul>
+<li>Expends to current option flag specified on invocation, by set built-in or by the shell</li>
+</ul>
+<h3>$</h3>
+<ul>
+<li>Expands to process ID of invoked shell</li>
+<li>In a subshell, expands to the D of most recent background command executed from this shell</li>
+<li>For a pipeline, thid is the PID of last command in the pipeline</li>
+</ul>
+<h3>0</h3>
+<ul>
+<li>Expands to the name of the shell or shell script</li>
+</ul>
+<h2>Shell Variables</h2>
+<ul>
+<li>Initialized from the environment : have to be marked for export</li>
+<li>Can be initialized</li>
+</ul>
+<p><mark><strong>Environment variables</strong></mark></p>
+<p><strong>ENV</strong></p>
+<ul>
+<li>Parameter expansion only when a shell is invoked</li>
+<li>Its value is a pathname og a file thta contain shell commands to execute in the current environment</li>
+<li>Have to be an absolute pathname</li>
+<li>Ignored if user’s \ group’s real and effective ID are different</li>
+</ul>
+<p><strong>HOME</strong></p>
+<ul>
+<li>Pathname of user’s home directory</li>
+</ul>
+<p><strong>IFS</strong></p>
+<ul>
+<li>List of chararacters used for fiels splitting and lines splitting (read).</li>
+<li>If not set, its value is <space>, <tab> and <newline></newline></tab></space></li>
+</ul>
+<p><strong>LANG</strong></p>
+<ul>
+<li>Locale category for locale languages etc set in absence of LC_* variables</li>
+<li>Can be used to determine programs default languages for error messages and instructions</li>
+</ul>
+<p><strong>LC_ALL</strong></p>
+<ul>
+<li>Set entire locale generically</li>
+<li>Overrides LANG and LC_* variables</li>
+</ul>
+<p><strong>LC_COLLATE</strong></p>
+<ul>
+<li>Collation order for sotring and regex</li>
+</ul>
+<p><strong>LC_CTYPE</strong></p>
+<ul>
+<li>Set a locale for <em>ctype</em> and <em>multibyte</em> functions</li>
+<li>Recognition of upper and lower case, alpha and non-alpha characters</li>
+</ul>
+<p><strong>LC_MESSAGES</strong></p>
+<ul>
+<li>Langague in which to write messages</li>
+</ul>
+<p><strong>LINENO</strong></p>
+<ul>
+<li>Current line number within a script before executing each command</li>
+<li>Starts by 1</li>
+</ul>
+<p><strong>NLSPATH</strong></p>
+<ul>
+<li>Location of message catalogs for LC_MESSAGES</li>
+</ul>
+<p><strong>PATH</strong></p>
+<ul>
+<li>Path prefix for searching executable files</li>
+</ul>
+<p><strong>PPID</strong></p>
+<ul>
+<li>Process ID of process thatv invoked the shell</li>
+<li>In a subshell, this value is the same as the parents’</li>
+</ul>
+<p><strong>PS1</strong></p>
+<ul>
+<li>Expanded in interactive shells (and written to stderr)</li>
+<li>Default value "$ "</li>
+</ul>
+<p><strong>PS2</strong></p>
+<ul>
+<li>Each time user enters  in an interactive shell, expanded and written to stderr</li>
+<li>Default value "&gt; "</li>
+</ul>
+<p><strong>PS4</strong></p>
+<ul>
+<li>When execution trace, expanded before each line and written to stderr</li>
+<li>Default value "+ "</li>
+</ul>
+<p><strong>PWD</strong></p>
+<ul>
+<li>Absolute pathname of current working directory</li>
+</ul>
+<h1>6 Word expansion</h1>
+<ul>
+<li>Tilde expansions, parameter expansions, command substitutions, arithmetic expansions, and quote removals (within a single word) expand to <strong>one field</strong></li>
+<li>Field splitting and pathname expansion can expand to <strong>multiple field</strong></li>
+<li>Exception : “$@” expands to multiple fields</li>
+</ul>
+<p><mark><strong>Order of word expansion</strong></mark></p>
+<ol>
+<li>Tilde expansions, parameter expansions, command substitutions, arithmetic expansions (beginning to end)</li>
+<li>Field splitting on the fields generated by 1.
+<ul>
+<li>Unless IFS = NULL</li>
+</ul>
+</li>
+<li>Pathname expansion
+<ul>
+<li>Unless set -f</li>
+</ul>
+</li>
+<li>Quote removal (always performes last)</li>
+</ol>
+<p>If complete expansion is an empty string field, remove this field from the list, <strong>unless</strong> expanded within quotes</p>
+<h2>Tilde expansion</h2>
+<p><strong>Tilde prefix</strong> :  consists of the characters from an unquoted ~ up to the first ‘/’</p>
+<ul>
+<li>If no characters in the tilde prefix are quoted, the word following the ~ are a login name
+<ul>
+<li>NULL login name : The tidle prefix is replaced by the value of $HOME
+<ul>
+<li>$HOME is NULL : Home directory of user invoking the shell</li>
+</ul>
+</li>
+<li>Otherwise, replaced by home directory of the user</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>~/foo
+$HOME/foo</p>
+</blockquote>
+<blockquote>
+<p>~login_x/foo
+The subdirectory foo of the home directory of the user login_x</p>
+</blockquote>
+<h2>Parameter expansion</h2>
+<p><div class="alert alert-info">
+${expression}
+</div></p>
+<blockquote>
+<p>expression : All characters until marhcing ‘}’, that does not include escaped or quoted ‘}’</p>
+</blockquote>
+<p>In parameter values (’${parameter}’), braces are optionnal except for :</p>
+<ul>
+<li>Positionnal parameters of more than 1 digit</li>
+<li>???</li>
+</ul>
+<p>When no braces enclose parameter, expansion uses the longest name, whether it exists or not</p>
+<h3>Parameter expansion within double quotes</h3>
+<ul>
+<li>Pathname expansion not performed</li>
+<li>Field splitting not performes <strong>except</strong> for ‘@’</li>
+</ul>
+<h2>Special formats</h2>
+<p><strong>${parameter:-word}</strong></p>
+<ul>
+<li><mark>Use default values</mark></li>
+<li>If <em>parameter</em> unset or null, substitute with word’s expansion, else parameter is substituted</li>
+</ul>
+<blockquote>
+<p>If foo is set
+foo=baz; ${ foo-bar} xyz}
+bazxyz}</p>
+</blockquote>
+<blockquote>
+<p>If foo is unset
+${ foo-bar} xyz}
+barxyz}</p>
+</blockquote>
+<p><strong>${parameter:=word}</strong></p>
+<ul>
+<li><mark>Assign default value</mark></li>
+<li>If <em>parameter</em> unset or null, expansion of word assigned to parameter. Value of parameter substituted</li>
+<li>Only <strong>variables</strong> can be assigned that way</li>
+</ul>
+<blockquote>
+<p>unset X
+echo ${X:=abc}
+abc</p>
+</blockquote>
+<p><strong>${parameter:?word}</strong></p>
+<ul>
+<li><mark>Indicate error if null or unset</mark></li>
+<li>If <em>parameter</em> unset or null, expansion of word written on stderr, and shell exits with error value.</li>
+<li>Otherwise value of parameter substituted</li>
+</ul>
+<blockquote>
+<p>unset posix
+echo ${posix:?}
+sh: posix: parameter null or not set</p>
+</blockquote>
+<p><strong>${parameter:+word}</strong></p>
+<ul>
+<li><mark>Use alternative value</mark></li>
+<li>If <em>parameter</em> unset or null, null is substituted, else expansion of word is substituted</li>
+</ul>
+<p><div class="alert alert-info">
+With a colon : test if the parameter is unset or NULL
+Without colon : test if parameter is only unset
+</div></p>
+<p><strong>${#parameter}</strong></p>
+<ul>
+<li>String Length</li>
+<li>Length of the value of parameter is substituted</li>
+</ul>
+<h2>Pattern matching on parameters</h2>
+<blockquote>
+<p>Where word is expanded to produce a pattern</p>
+</blockquote>
+<p><strong>${parameter%word}</strong></p>
+<ul>
+<li>Remove Smallest Suffix Pattern</li>
+<li>Smallest portion of the suffix matched by <em>word</em> is deleted</li>
+</ul>
+<blockquote>
+<p>x=file.c
+echo ${x%.c}.o
+file.o</p>
+</blockquote>
+<p><strong>${parameter%%word}</strong></p>
+<ul>
+<li>Remove Largest Suffix Pattern</li>
+<li>Largest portion of the suffix matched by <em>word</em> is deleted</li>
+</ul>
+<blockquote>
+<p>x=posix/src/std
+echo ${x%%/*}
+posix</p>
+</blockquote>
+<p><strong>${parameter#word}</strong></p>
+<ul>
+<li>Remove Smallest Prefix Pattern</li>
+<li>Smallest portion of the prefix matched by <em>word</em> is deleted</li>
+</ul>
+<blockquote>
+<p>x=$HOME/src/cmd
+echo ${x#$HOME}
+/src/cmd</p>
+</blockquote>
+<p><strong>${parameter##word}</strong></p>
+<ul>
+<li>Remove Largest Prefix Pattern</li>
+<li>Largest portion of the prefix matched by <em>word</em> is deleted</li>
+</ul>
+<hr>
+<h2>Command substitution</h2>
+<p><div class="alert alert-danger">
+<strong>Command substitution</strong> : The output of a command is substituted in place of the command itself</p>
+<p>Format : <strong>$(command)</strong> or <strong>`command`</strong>
+</div></p>
+<ul>
+<li>Command is executed in a subshell and the command substitution is expanded to its output</li>
+<li>Result of command substitution are not expanded with tilde expansion, parameter expansion, command substitution, or arithmetic expansion</li>
+<li>If command substitution inside double quotes, application of field splitting and pathname expansion</li>
+</ul>
+<blockquote>
+<p>Within backquoted command substitution, \ keeps its literal meaning <strong>except</strong> before a , a backquote or a $</p>
+</blockquote>
+<ul>
+<li>Command substitution can be nested
+<ul>
+<li>Within backquotes, `command`</li>
+<li>Else, $( (command) ) with the $( and ( separated in two different tokens to differ from arithmetic expansion</li>
+</ul>
+</li>
+</ul>
+<h2>Arithmetic expansion</h2>
+<p><div class="alert alert-danger">
+<strong>Arithmetic expansion</strong> : Mechanism to evaluate an arithmetic expression and substitute its value</p>
+<p>Format : <strong>$((expression))</strong>
+</div></p>
+<ul>
+<li>All tokens in the expression are expanded for parameter expansion, command substitution, and quote removal.</li>
+<li>In the evaluation of expression :
+<ul>
+<li>Signed long integer arithmetic</li>
+<li>Constants are only decimal-constant, octal-constant, or hexadecimal-constant</li>
+<li>No sizeof(), ++ or –</li>
+<li>No selection, iteration and jump</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Changes to a variable in an arithmetic expression also takes affect after the expression as in “${x=value}”</p>
+</blockquote>
+<p><div class="alert alert-info">
+If shell variable x contains an integer constant, <strong>“$((x))” == "$(($x))"</strong>
+</div></p>
+<h2>Field Splitting</h2>
+<p><div class="alert alert-danger">
+Occurs after parameter expansion, command substitution and arithmetic expression
+</div></p>
+<p>Shell uses each character of the IFS as a delimiter and split the result of parameter expansion and command substitution into fields</p>
+<ol>
+<li>IFS is NULL : No field splitting</li>
+<li>IFS is unset or ,  or , sequence of these characters are ignored at the beginning and end of input and delimit fields within the input</li>
+</ol>
+<blockquote>
+<p>foobar
+Delimits two fields : foo and bar</p>
+</blockquote>
+<ol start="3">
+<li>
+<p>Otherwise,
+a. IFS white space ignored at beginning and end of input
+b. Ocurrence of an IFS character that is not IFS white space along with an IFS white space delimits a field
+c. IFS white spaces delimit a field</p>
+<blockquote>
+<p><strong>IFS white space</strong> : any sequence of white space characters in the IFS value (,  etc)</p>
+</blockquote>
+</li>
+</ol>
+<h2>Pathname expansion</h2>
+<p><div class="alert alert-info">
+Occurs after field splitting, if set -f if not in effect
+</div></p>
+<p>Fields in command line are expanded using algorithm in Pattern Matching Notation (13)</p>
+<h2>Quote removal</h2>
+<p>Quote characters , ‘’ and “” are removed unless they are themselves quoted</p>
+<hr>
+<h1>7 Redirection</h1>
+<p><div class="alert alert-info">
+Redirection format <strong>[n]redir-op word</strong></p>
+<p>With n the optionnal file descriptor
+</div></p>
+<blockquote>
+<p>n should not be quoted
+echo \2&gt;a : writed “2” into file a
+echo 2&gt;a : writes 2&gt;a to stdout</p>
+</blockquote>
+<p>0: stdin
+1: stdin
+2: stderr</p>
+<ul>
+<li>&lt;&lt; and &lt;&lt;- : quote removal on word that follows</li>
+<li>others : tilde expansion, parameter expansion, command substitution, arithmetic expansion and quote removal</li>
+</ul>
+<h2>Redirecting Input</h2>
+<p><div class="alert alert-info">
+<strong>[n]&lt;word</strong>
+</div></p>
+<p>The file which is the expansion of word is opened for reading on the n file descriptor if there is a number, or stdin</p>
+<h2>Redirecting Output</h2>
+<p><div class="alert alert-info">
+<strong>[n]&gt;word
+[n]&gt;|word</strong>
+</div></p>
+<p>The file which is the expansion of word is created and opened for output on n file descriptor, or stdout is no number</p>
+<blockquote>
+<p>File truncated if it already exists</p>
+</blockquote>
+<h2>Appending redirected Output</h2>
+<p><div class="alert alert-info">
+<strong>[n]&gt;&gt;word</strong>
+</div></p>
+<p>File word opened for output with as if it was called with an O_APPEND flag</p>
+<h2>Here-Documents</h2>
+<p>&lt;&lt; and &lt;&lt;- allow redirection of lines in “here-documents” to the input of a command</p>
+<p><div class="alert alert-info">
+<strong>[n]&lt;&lt;word
+here-document
+delimiter</strong>
+</div></p>
+<blockquote>
+<p>n represents a file descriptor or stdin if no number specified</p>
+</blockquote>
+<ul>
+<li>Characters of word quoted : no expansion of content of here-document</li>
+<li>No quoted character in word : parameter expansion, command substitution and arithmetic expansion</li>
+</ul>
+<p>&lt;&lt;- : &lt;tab&gt;s stripped from input lines</p>
+<blockquote>
+<p>cat &lt;&lt;eof1; cat &lt;&lt;eof2
+heredoc&gt; Hi,
+heredoc&gt; eof1
+heredoc&gt; Helene.
+heredoc&gt; eof2</p>
+</blockquote>
+<blockquote>
+<p>result:
+Hi,
+Helene.</p>
+</blockquote>
+<h2>Duplication of Input File Descriptor</h2>
+<p><div class="alert alert-info">
+<strong>[n]&lt;&amp;word</strong>
+</div></p>
+<ul>
+<li>If word is one or more digits, the file descriptor n (or stdin) becomes a copy of the file descriptor ‘word’</li>
+<li>If word is not a file descriptor open for input, redirection error</li>
+<li>If word is ‘-’, file descriptor n (or stdin) is closed</li>
+</ul>
+<h2>Duplication of Output File Descriptor</h2>
+<p><div class="alert alert-info">
+<strong>[n]&gt;&amp;word</strong>
+</div></p>
+<p>Same as above, but with stdout as default file descriptor when n is not specified</p>
+<h2>Open fd for Reading or Writing</h2>
+<p><div class="alert alert-info">
+<strong>[n]&lt;&gt;word</strong>
+</div></p>
+<p>File ‘word’ opened for reading and writing on fd n (or stdin if n not specified)</p>
+<blockquote>
+<p>File created if it does not exists</p>
+</blockquote>
+<h1>8 Exit Status and Errors</h1>
+<h2>Consequences of Shell Errors</h2>
+<p>Errors encountered with builtin commands write an error message to stderr and</p>
+<ul>
+<li>In an interactive shell, does not exit</li>
+<li>In a non-interactive shell:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Error</th>
+<th style="text-align:center">Builtins</th>
+<th style="text-align:center">Other</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Shell language syntax error</td>
+<td style="text-align:center">Shall exit</td>
+<td style="text-align:center">Shall exit</td>
+</tr>
+<tr>
+<td style="text-align:center">Utility syntax error (option or operand error)</td>
+<td style="text-align:center">Shall exit</td>
+<td style="text-align:center">Shall not exit</td>
+</tr>
+<tr>
+<td style="text-align:center">Redirection error</td>
+<td style="text-align:center">Shall exit</td>
+<td style="text-align:center">Shall not exit</td>
+</tr>
+<tr>
+<td style="text-align:center">Variable assignment error</td>
+<td style="text-align:center">Shall exit</td>
+<td style="text-align:center">Shall not exit</td>
+</tr>
+<tr>
+<td style="text-align:center">Expansion error</td>
+<td style="text-align:center">Shall exit</td>
+<td style="text-align:center">Shall exit</td>
+</tr>
+<tr>
+<td style="text-align:center">Command not found</td>
+<td style="text-align:center">N/A</td>
+<td style="text-align:center">May Exit</td>
+</tr>
+<tr>
+<td style="text-align:center">Dot script not found</td>
+<td style="text-align:center">Shall exit</td>
+<td style="text-align:center">N/A</td>
+</tr>
+</tbody>
+</table>
+<p>Shall exit or May exit errors in a subshell cause the subshell to exit with non-zero status, but does not exit script containing subshell</p>
+<h2>Exit status for Commands</h2>
+<ul>
+<li>127 : Command not found</li>
+<li>126 : Command name found, but is not executable</li>
+<li>&gt;128 : Received a signal</li>
+<li>&gt;0 : Error during expansion / redirection</li>
+</ul>
+<h1>9 Shell Commands</h1>
+<p>Commands are :</p>
+<ul>
+<li>Simple commands</li>
+<li>Pipelines</li>
+<li>List coumpound-lists</li>
+<li>Coumpound commands</li>
+<li>Function definitions</li>
+</ul>
+<p>Exit status of a command = exit status of last simple command executed by the command</p>
+<h2>Simple commands</h2>
+<p>Sequence of (optional) variable assignments and redirections, followed by (optional) words and redirections.
+Terminated by control operator (’;’ or &lt;newline&gt;)</p>
+<p>Before the simple command is executed, the following are performed :</p>
+<ol>
+<li>Variables assignments and redirections are saved for steps 3 and 4</li>
+<li>The other words are expanded. First field is considered as command name and the others are the arguments</li>
+<li>Perform redirections</li>
+<li>Variable assignments expanded before assignment
+<ul>
+<li>Error if trying to assign to read-only variable</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>Steps 3 and 4 are reversed for builin lists</p>
+</blockquote>
+<p>No command name :</p>
+<ul>
+<li>Variables are still exported for current environment</li>
+<li>Redirections performed in subshell environment (exits immediately on error)</li>
+<li>If it contained a command substitution, command completes with exit status of last command substitution</li>
+</ul>
+<h2>Command error and Execution</h2>
+<p>Operations when a simple command results in a command name and a (optionnal) list of arguments</p>
+<ol>
+<li>No slashes in command name
+i. Search successful (path may be saved)
+a. Command name is a builtin : builtin is called
+b. Command name is a function known to shell : it is called (as if with execve())
+ii. Unsuccessful, exit 127</li>
+<li>At least one slash in name
+a. Executed in another environment</li>
+</ol>
+<blockquote>
+<p>execve fails with ENOEXEC, shells invoked with command name as first argument</p>
+</blockquote>
+<h2>Pipelines</h2>
+<p><div class="alert alert-info">
+<strong>[!] command1 [ | command2 …]</strong>
+</div></p>
+<p>stdout of first command becomes stdin of second command</p>
+<blockquote>
+<p>If there is a ‘!’, exit status is the logical NOT of exit status of last command</p>
+</blockquote>
+<h2>Lists</h2>
+<p><strong>AND-OR</strong> list : sequence of one or more pipelines separated by &amp;&amp; or ||</p>
+<p><strong>list</strong> : sequence of one or more AND-OR lists separated by ‘;’ or ‘&amp;’</p>
+<p><div class="alert alert-danger">
+&amp;&amp; and || have equal precedence (left associativity)
+</div></p>
+<p><strong>coumpound list</strong> : sequence of lists separated by &lt;newline&gt;s, and optionnaly preceded and followed by &lt;newline&gt;s</p>
+<h2>Asynchronous lists</h2>
+<p><div class="alert alert-info">
+<strong>command1 &amp; [command2 &amp; … ]</strong>
+</div></p>
+<ul>
+<li>Command terminated by ‘&amp;’ is executed asynchronousely in a subshell</li>
+<li>Its stdout is <strong>/dev/null</strong> (in a non interactive shell)</li>
+</ul>
+<blockquote>
+<p>Asynchronous : shell does not wait for the command to finish before executing next command.</p>
+</blockquote>
+<p>PID of the last command in the asynchronous list is known until</p>
+<ol>
+<li>A command of the lists terminates</li>
+<li>Another asynchronous list is expanded in the current execution environment</li>
+</ol>
+<p>Exit status : 0</p>
+<h2>Sequential lists</h2>
+<p><div class="alert alert-info">
+<strong>command1 [; command2] …</strong>
+</div></p>
+<ul>
+<li>Executed sequentially</li>
+<li>Commands expanded and execyuted in the order specified</li>
+<li>Exit status is the one of the last command in the list</li>
+</ul>
+<h2>AND lists</h2>
+<p><div class="alert alert-info">
+<strong>command1 [ &amp;&amp; command2] …</strong>
+</div></p>
+<p>command1 is first executed. If its exit status is zero, command2 is executed, etc until a command has a non-zero exit or there are no more commands in the list</p>
+<ul>
+<li>Exit status is the one of the last command in the list</li>
+</ul>
+<h2>OR lists</h2>
+<p><div class="alert alert-info">
+<strong>command1 [ || command2] …</strong>
+</div></p>
+<p>command1 executed. If its exit status is non-zero, command2 is executed etc until a command returns a zero exit status</p>
+<h2>Coumpound commands</h2>
+<p>Coumpound commands can be followed by redirections &gt; each one apply to all commands within coumpound command</p>
+<h2>Grouping commands</h2>
+<p><div class="alert alert-info">
+<strong>(compound list)</strong>
+</div></p>
+<ul>
+<li>Executed coumpound list in a subshell environment</li>
+<li>Builtins and variables do not remain after it finishes</li>
+</ul>
+<p><div class="alert alert-info">
+<strong>{ compound-list;}</strong>
+</div></p>
+<ul>
+<li>Executes compound-list in current process environment</li>
+</ul>
+<blockquote>
+<p>; is a delimiter to the } reserved word</p>
+</blockquote>
+<p>Exit status of grouping commands are the ones of the compound-list</p>
+<h2>For loop</h2>
+<p><div class="alert alert-info"></p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">for name [ in [word ... ]]do</span></span></span>
+<span class=""><span class="syntax--text syntax--plain"><span class="leading-whitespace">    </span><span class="syntax--meta syntax--paragraph syntax--text">compound-list</span></span></span>
+<span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">done</span></span></span></pre>
+<p></div></p>
+<ul>
+<li>First, the list of 'word’s is expanded to generate a list</li>
+<li>Variable name is set to each item</li>
+<li>Compound-list executes each time</li>
+</ul>
+<blockquote>
+<p>Omitting ‘in word…’ is equivalent to ‘in “$@”’</p>
+</blockquote>
+<p>Exit status of the for loop if the one of the last command it executes.</p>
+<h2>Case condition</h2>
+<p><div class="alert alert-info"></p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">case word in</span></span></span>
+<span class=""><span class="syntax--text syntax--plain"><span class="leading-whitespace">    </span><span class="syntax--meta syntax--paragraph syntax--text">[(]pattern1) compound-list;;</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">    </span>[[(]pattern[ | pattern] ... ) compound-list;;] ...</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">    </span>[[(]pattern[ | pattern] ... ) compound-list]</span></span></span>
+<span></span>
+<span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">esac</span></span></span></pre>
+<p></div></p>
+<blockquote>
+<p>;; is optional for the last one</p>
+</blockquote>
+<p>Executes compound-list corresponding to the first of several patterns matched by ‘word’</p>
+<p>Exit status if zero if no patterns matched, or the one of the last command executed</p>
+<h2>If condition</h2>
+<p><div class="alert alert-info"></p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">if compound-listthen</span></span></span>
+<span class=""><span class="syntax--text syntax--plain"><span class="leading-whitespace">    </span><span class="syntax--meta syntax--paragraph syntax--text">compound-list[elif compound-listthen</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">    </span>compound-list] ...</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">[else</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">    </span><span class="syntax--meta syntax--paragraph syntax--text">compound-list]</span></span></span>
+<span></span>
+<span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">fi</span></span></span></pre>
+<p></div></p>
+<ul>
+<li>Executes a compound list and if its exit status is 0, executes another compound list</li>
+<li>Otherwise, each elif case are executed the same way</li>
+<li>Otherwise, the else case is executed</li>
+</ul>
+<p>Its exit status is the one of the last then or else compound list executed, or 0</p>
+<h2>While loop</h2>
+<p><div class="alert alert-info"></p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">while compound-list-1do</span></span></span>
+<span class=""><span class="syntax--text syntax--plain"><span class="leading-whitespace">    </span><span class="syntax--meta syntax--paragraph syntax--text">compound-list-2</span></span></span>
+<span></span>
+<span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">done</span></span></span></pre>
+<p></div></p>
+<ul>
+<li>Continuously executde compound-list-2 as long as compound-list-1 returns 0</li>
+</ul>
+<p>Exit status is the one of the last compound-list-2 executed, or 0</p>
+<h2>Until loop</h2>
+<p><div class="alert alert-info"></p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">until compound-list-1do</span></span></span>
+<span class=""><span class="syntax--text syntax--plain"><span class="leading-whitespace">    </span><span class="syntax--meta syntax--paragraph syntax--text">compound-list-2</span></span></span>
+<span></span>
+<span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">done</span></span></span></pre>
+<p></div></p>
+<ul>
+<li>Compound-list-1 is executed, and if it has a non-0 exit status, executes list-compound-2</li>
+<li>Repeat</li>
+</ul>
+<p>Exit status of until loop is the last compound-list-2 executed, or 0</p>
+<h2>Function Definition Command</h2>
+<p><strong>Function</strong> : user-defined name used as simple command to call compound command with new parameters</p>
+<p><div class="alert alert-info">
+Format of a function definition command :</p>
+<p><strong>fname() compound-command[io-redirect …]</strong>
+</div></p>
+<ul>
+<li>In function declaration, no expansion performed on compound-command or io-redirect (they will be performed when the function is called)</li>
+<li>Operands to the command become positional parameters during execution of compound-command, ‘#’ is changed too (nb args). They are restored afterwards</li>
+</ul>
+<p>Exit status is zero if function successfully declared, or &gt;0 otherwise</p>
+<h1>10 Shell Grammar</h1>
+<h2>Shell grammar lexical conventions</h2>
+<p>Input first recognized at character level</p>
+<ol>
+<li>A &lt;newline&gt; returns token NEWLINE</li>
+<li>An operator returns the token of that operator</li>
+<li>Digits with delimiter ‘&gt;’ or ‘&lt;’ returns token IO_NUMBER</li>
+<li>Otherwise, TOKEN is returned</li>
+</ol>
+<blockquote>
+<p>When more than one rule can apply, the highest number one is applied</p>
+</blockquote>
+<blockquote>
+<p>WORD tokens have to be expanded before execution</p>
+</blockquote>
+<h2>Shell grammar rules</h2>
+<ol>
+<li><strong>[Command name]</strong></li>
+</ol>
+<ul>
+<li>Token is a reserved word, result to token identifier for that word</li>
+<li>Otherwise, WORD returned</li>
+</ul>
+<ol start="2">
+<li><strong>[Redirection to/from filename]</strong></li>
+</ol>
+<ul>
+<li>Expand redirection (only one field result)</li>
+</ul>
+<ol start="3">
+<li>
+<p><strong>[Redirection from here-documents]</strong></p>
+</li>
+<li>
+<p><strong>[Case statement termination]</strong></p>
+</li>
+</ol>
+<ul>
+<li>When TOKEN is exactely <strong>esac</strong>, token identifier for esac returned</li>
+<li>Otherwise, WORD returnes</li>
+</ul>
+<ol start="5">
+<li><strong>[NAME in for]</strong></li>
+</ol>
+<ul>
+<li>NAME is returned if TOKEN meets requirements for a name</li>
+</ul>
+<ol start="6">
+<li><strong>[Third word of for and case]</strong>
+a. case only
+- TOKEN is in, token for in is returned
+b. for only
+- TOKEN exactly in or do, return the token for that reserved word</li>
+</ol>
+<blockquote>
+<p>linebreak has te precede in and do</p>
+</blockquote>
+<ol start="7">
+<li>
+<p><strong>[Assignment preceding command name]</strong>
+a. When first word
+- TOKEN does not contain ‘=’, Rule 1 applied
+- Else 7b applies
+b. Not the first word
+- Begins with ‘=’, TOKEN returned
+- Chars before ‘=’ are a valid name, return ASSIGNMENT_WORD
+- Otherwise, unspecified</p>
+</li>
+<li>
+<p><strong>NAME in function</strong></p>
+</li>
+</ol>
+<ul>
+<li>TOKEN reserved word, return the token for that word</li>
+<li>Else, return NAME is it is a valid name</li>
+<li>Otherwise, rule 7 applies</li>
+</ul>
+<ol start="9">
+<li><strong>[Body of funcion]</strong></li>
+</ol>
+<ul>
+<li>NO RULE EXPANSION IN THIS RULE</li>
+<li>Each TOKEN are returned as single WORD</li>
+</ul>
+<h1>11 Signals and Error Handling</h1>
+<p>Command in asynchronous list : No SIGQUIT and SIGINT from keyboard can stop command</p>
+<ul>
+<li>Trap received while shell executing a foreground commands, waits for the commands to finish before sending signal</li>
+<li>While executing asynchronous commands, receiving a signal for whiwh a trap exists returns a &gt;128 error</li>
+</ul>
+<h1>12 Shell execution environment</h1>
+<p><strong>Shell execution environment</strong> :</p>
+<ul>
+<li>Open files (upon invocation of shell) and open files controlled by exec</li>
+<li>Working directory (set by cd)</li>
+<li>File creation mask (set by umask)</li>
+<li>Current traps (set by trap)</li>
+<li>Shell parameters (set by var assignment or System Interfaces + export)</li>
+<li>Shell functions</li>
+<li>Options (set by set at invocation)</li>
+<li>PID of last command in asynchronous list</li>
+<li>Shell aliases</li>
+</ul>
+<p>Utilities other than builtins :</p>
+<ul>
+<li>Files</li>
+<li>Current working directory</li>
+<li>File creation mask</li>
+<li>Utility is a shell script &gt; the traps are set by shell</li>
+<li>Variables exported</li>
+</ul>
+<p>Subshell duplicates of shell environment (but traps are not default traps)</p>
+<p>Command substitution, commands grouped w/ parenthesis and asynchronous lists &gt; executed in subshell environments</p>
+<h1>13 Pattern matching notation</h1>
+<h1>14 Special built-in Utilities</h1>
+<p><strong>built-in</strong> : Shell can execute the utility directly (no search)</p>
+<p>In special built-ins :</p>
+<ul>
+<li>Syntax errors may abort execution (or at least its exit status is non-zero)</li>
+<li>Variable assignment in buikt-in remain after execution</li>
+</ul>
+
+  </body>
+</html>
