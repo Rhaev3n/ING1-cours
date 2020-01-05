@@ -105,7 +105,7 @@ digraph hierarchy {
 |8|8, <span style=color:blue;>9</span>|8, <span style=color:blue;>9, 10, 12</span>|8, 9, 10, 12, 13|
 |9|9, 10, 12|9, 10, <span style=color:magenta;>12, 13</span>|9, 10, 12, 13|
 |10|10|10|10|
-|11|11, 10, <span style=color:magenta;>12</span>|11, 10, <span style=color:magenta;>12, 13</span>|11, 1012, 13|
+|11|11, 10, <span style=color:magenta;>12</span>|11, 10, <span style=color:magenta;>12, 13</span>|11, 10, 12, 13|
 |12|12, 13|12, 13|12, 13|
 |13|13|13|13|
 
