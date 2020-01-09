@@ -81,8 +81,8 @@ digraph hierarchy {
     "2"->"3" [label="a"]
     "3"->"2" [label="ε"]
     "3"->"4" [label="ε"]
-    "4"->"5" [label=""]
-    "5"->"6" [label="ε"]
+    "4"->"5" [label="ε"]
+    "5"->"6" [label="n"]
     "6"->"13" [label="ε"]
     13->qj
 }
@@ -98,14 +98,14 @@ digraph hierarchy {
 |1|1, 2, <span style=color:green;>4</span>|1, 2, <span style=color:green;>4, 5</span>|1, 2, 4, 5|
 |2|2|2|2|
 |3|3, 2, <span style=color:green;>4</span>|3, 2, <span style=color:green;>4, 5</span>|3, 2, 4, 5|
-|4|4, 5|4, 5|
+|4|4, 5|4, 5|4, 5|
 |5|5|5|5
 |6|6, 13|6, 13|6, 13|
 |7|7|7|7|
 |8|8, <span style=color:blue;>9</span>|8, <span style=color:blue;>9, 10, 12</span>|8, 9, 10, 12, 13|
 |9|9, 10, 12|9, 10, <span style=color:magenta;>12, 13</span>|9, 10, 12, 13|
 |10|10|10|10|
-|11|11, 10, <span style=color:magenta;>12</span>|11, 10, <span style=color:magenta;>12, 13</span>|12, 13|
+|11|11, 10, <span style=color:magenta;>12</span>|11, 10, <span style=color:magenta;>12, 13</span>|11, 10, 12, 13|
 |12|12, 13|12, 13|12, 13|
 |13|13|13|13|
 
