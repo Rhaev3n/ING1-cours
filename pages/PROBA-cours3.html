@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html data-markdown-preview-plus-context="html-export">
+  <head>
+    <meta charset="utf-8" />
+    <title>PROBA-cours3</title><script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX","output/HTML-CSS"],
+    extensions: ["[a11y]/accessibility-menu.js"],
+    'HTML-CSS': {
+      availableFonts: [],
+      webFont: 'TeX',
+      undefinedFamily: "serif",
+      mtextFontInherit: true,
+    },
+    TeX: {
+  "Macros": {},
+  "equationNumbers": {},
+  "extensions": [
+    "AMSmath.js",
+    "AMSsymbols.js",
+    "noErrors.js",
+    "noUndefined.js"
+  ]
+},
+    showMathMenu: true
+  });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js"></script>
+    <style>.emoji {
+  max-width: 1em !important;
+}
+del {
+  text-decoration: none;
+  position: relative;
+}
+del::after {
+  border-bottom: 1px solid black;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+ul.contains-task-list li.task-list-item {
+  position: relative;
+  list-style-type: none;
+}
+ul.contains-task-list li.task-list-item input.task-list-item-checkbox {
+  position: absolute;
+  transform: translateX(-100%);
+  width: 30px;
+}
+span.critic.comment {
+  position: relative;
+}
+span.critic.comment::before {
+  content: '\1f4ac';
+  position: initial;
+}
+span.critic.comment > span {
+  display: none;
+}
+span.critic.comment:hover > span {
+  display: initial;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  border: 1px solid;
+  border-radius: 5px;
+  max-height: 4em;
+  overflow: auto;
+}
+span.critic.comment:focus > span {
+  display: initial;
+  text-decoration: underline;
+  position: initial;
+  top: auto;
+  left: auto;
+  border: initial;
+  border-radius: initial;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: transparent;
+}
+
+body {
+  padding: 2em;
+  font-size: 1.2em;
+  color: #abb2bf;
+  background-color: #282c34;
+  overflow: auto;
+}
+body > :first-child,
+body > div.update-preview > :first-child {
+  margin-top: 0;
+}
+body > p,
+body > div.update-preview > p {
+  margin-top: 0;
+  margin-bottom: 1.5em;
+}
+body > ul,
+body > div.update-preview > ul,
+body > ol,
+body > div.update-preview > ol {
+  margin-bottom: 1.5em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  color: #ffffff;
+}
+h1 {
+  font-size: 2.4em;
+  font-weight: 300;
+}
+h2 {
+  font-size: 1.8em;
+  font-weight: 400;
+}
+h3 {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+h4 {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+h5 {
+  font-size: 1.1em;
+  font-weight: 600;
+}
+h6 {
+  font-size: 1em;
+  font-weight: 600;
+}
+strong {
+  color: #ffffff;
+}
+del {
+  color: #7c879c;
+}
+a,
+a code {
+  color: #528bff;
+}
+img {
+  max-width: 100%;
+}
+blockquote {
+  margin: 1.5em 0;
+  font-size: inherit;
+  color: #7c879c;
+  border-color: #4b5362;
+  border-width: 4px;
+}
+hr {
+  margin: 3em 0;
+  border-top: 2px dashed #4b5362;
+  background: none;
+}
+table {
+  margin: 1.5em 0;
+}
+th {
+  color: #ffffff;
+}
+th,
+td {
+  padding: 0.66em 1em;
+  border: 1px solid #4b5362;
+}
+code {
+  color: #ffffff;
+  background-color: #3a3f4b;
+}
+pre.editor-colors {
+  margin: 1.5em 0;
+  padding: 1em;
+  font-size: 0.92em;
+  border-radius: 3px;
+  background-color: #31363f;
+}
+kbd {
+  color: #ffffff;
+  border: 1px solid #4b5362;
+  border-bottom: 2px solid #3e4451;
+  background-color: #3a3f4b;
+}
+
+pre.editor-colors {
+  color: #839496;
+  background-color: #002b36;
+}
+pre.editor-colors .gutter {
+  color: #839496;
+  background-color: #073642;
+}
+pre.editor-colors .gutter .line-number.cursor-line {
+  background-color: #0a4d5e;
+}
+pre.editor-colors .invisible-character {
+  color: #0a4d5e;
+}
+pre.editor-colors .indent-guide {
+  color: #0a4d5e;
+}
+pre.editor-colors .cursor {
+  border-color: #fdf6e3;
+}
+pre.editor-colors .cursor-line {
+  background-color: rgba(0, 165, 207, 0.08);
+}
+pre.editor-colors .selection .region {
+  background-color: #073a47;
+}
+pre.editor-colors .fold-marker:after,
+pre.editor-colors .gutter .line-number.folded {
+  color: #d33682;
+}
+pre.editor-colors .bracket-matcher .region {
+  border-color: #d33682;
+}
+.syntax--comment {
+  color: #586e75;
+  font-style: italic;
+}
+.syntax--comment .syntax--markup.syntax--link {
+  color: #586e75;
+}
+.syntax--string {
+  color: #2aa198;
+}
+.syntax--string.syntax--regexp {
+  color: #dc322f;
+}
+.syntax--constant.syntax--numeric {
+  color: #d33682;
+}
+.syntax--constant.syntax--language {
+  color: #b58900;
+}
+.syntax--constant.syntax--character,
+.syntax--constant.syntax--other,
+.syntax--constant.syntax--support {
+  color: #cb4b16;
+}
+.syntax--variable {
+  color: #268bd2;
+}
+.syntax--keyword {
+  color: #859900;
+}
+.syntax--storage {
+  color: #859900;
+}
+.syntax--meta.syntax--class {
+  color: #268bd2;
+}
+.syntax--entity.syntax--name.syntax--class,
+.syntax--entity.syntax--name.syntax--function,
+.syntax--entity.syntax--name.syntax--section,
+.syntax--entity.syntax--name.syntax--type {
+  color: #268bd2;
+}
+.syntax--entity.syntax--other.syntax--attribute-name {
+  color: #657b83;
+}
+.syntax--support.syntax--function {
+  color: #268bd2;
+}
+.syntax--support.syntax--function.syntax--builtin {
+  color: #859900;
+}
+.syntax--support.syntax--type,
+.syntax--support.syntax--class {
+  color: #859900;
+}
+.syntax--tag.syntax--entity.syntax--name {
+  color: #268bd2;
+}
+.syntax--tag.syntax--punctuation.syntax--definition.syntax--html,
+.syntax--tag.syntax--punctuation.syntax--definition.syntax--begin,
+.syntax--tag.syntax--punctuation.syntax--definition.syntax--end {
+  color: #586e75;
+}
+.syntax--invalid.syntax--deprecated {
+  color: #b58900;
+  text-decoration: underline;
+}
+.syntax--invalid.syntax--illegal {
+  color: #dc322f;
+  text-decoration: underline;
+}
+.syntax--none {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--meta.syntax--preprocessor,
+.syntax--source.syntax--cpp .syntax--meta.syntax--preprocessor {
+  color: #dc322f;
+}
+.syntax--source.syntax--c .syntax--keyword.syntax--control.syntax--directive,
+.syntax--source.syntax--cpp .syntax--keyword.syntax--control.syntax--directive {
+  color: #cb4b16;
+}
+.syntax--source.syntax--c .syntax--punctuation.syntax--string,
+.syntax--source.syntax--cpp .syntax--punctuation.syntax--string {
+  color: #2aa198;
+}
+.syntax--source.syntax--c .syntax--constant,
+.syntax--source.syntax--cpp .syntax--constant {
+  color: #cb4b16;
+}
+.syntax--source.syntax--c .syntax--constant.syntax--numeric,
+.syntax--source.syntax--cpp .syntax--constant.syntax--numeric,
+.syntax--source.syntax--c .syntax--constant.syntax--language.syntax--c,
+.syntax--source.syntax--cpp .syntax--constant.syntax--language.syntax--c {
+  color: #2aa198;
+}
+.syntax--source.syntax--c .syntax--storage,
+.syntax--source.syntax--cpp .syntax--storage {
+  color: #b58900;
+}
+.syntax--source.syntax--c .syntax--entity,
+.syntax--source.syntax--cpp .syntax--entity {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--entity.syntax--name.syntax--function.syntax--preprocessor,
+.syntax--source.syntax--cpp .syntax--entity.syntax--name.syntax--function.syntax--preprocessor {
+  color: #dc322f;
+}
+.syntax--source.syntax--c .syntax--support.syntax--type,
+.syntax--source.syntax--cpp .syntax--support.syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--c .syntax--support.syntax--type.syntax--posix-reserved,
+.syntax--source.syntax--cpp .syntax--support.syntax--type.syntax--posix-reserved {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--variable.syntax--other.syntax--dot-access,
+.syntax--source.syntax--cpp .syntax--variable.syntax--other.syntax--dot-access {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--variable.syntax--parameter.syntax--preprocessor,
+.syntax--source.syntax--cpp .syntax--variable.syntax--parameter.syntax--preprocessor {
+  color: #dc322f;
+}
+.syntax--source.syntax--coffee .syntax--support.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--variable,
+.syntax--source.syntax--coffee .syntax--entity.syntax--name.syntax--function,
+.syntax--source.syntax--coffee .syntax--entity.syntax--name.syntax--class {
+  color: #268bd2;
+}
+.syntax--source.syntax--coffee .syntax--variable.syntax--parameter.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--variable.syntax--other.syntax--readwrite {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--storage.syntax--type.syntax--function {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--entity.syntax--name {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--meta.syntax--brace.syntax--round,
+.syntax--source.syntax--coffee .syntax--meta.syntax--brace.syntax--square {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--meta.syntax--delimiter {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--storage.syntax--type.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--punctuation.syntax--terminator {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--punctuation.syntax--section.syntax--embedded {
+  color: #dc322f;
+}
+.syntax--source.syntax--coffee .syntax--embedded.syntax--source {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--constant.syntax--numeric {
+  color: #d33682;
+}
+.syntax--source.syntax--coffee .syntax--constant.syntax--language.syntax--boolean {
+  color: #b58900;
+}
+.syntax--source.syntax--css .syntax--punctuation.syntax--separator,
+.syntax--source.syntax--css .syntax--punctuation.syntax--terminator {
+  color: #839496;
+}
+.syntax--source.syntax--css .syntax--punctuation.syntax--property-list.syntax--begin,
+.syntax--source.syntax--css .syntax--punctuation.syntax--property-list.syntax--end {
+  color: #dc322f;
+}
+.syntax--source.syntax--css .syntax--punctuation.syntax--section.syntax--function {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--entity.syntax--name {
+  color: #859900;
+}
+.syntax--source.syntax--css .syntax--attribute-name.syntax--class,
+.syntax--source.syntax--css .syntax--id {
+  color: #268bd2;
+}
+.syntax--source.syntax--css .syntax--pseudo-element,
+.syntax--source.syntax--css .syntax--pseudo-class {
+  color: #cb4b16;
+}
+.syntax--source.syntax--css .syntax--property-value {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--constant.syntax--numeric {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--constant.syntax--numeric .syntax--unit {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--rgb-value {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--support.syntax--constant {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--support.syntax--constant.syntax--media {
+  color: #dc322f;
+}
+.syntax--source.syntax--css .syntax--keyword.syntax--important {
+  color: #dc322f;
+}
+.syntax--source.syntax--less .syntax--keyword.syntax--unit,
+.syntax--source.syntax--scss .syntax--keyword.syntax--unit {
+  color: #2aa198;
+}
+.syntax--source.syntax--go .syntax--operator {
+  color: #839496;
+}
+.syntax--source.syntax--go .syntax--operator.syntax--assignment {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--keyword.syntax--operator {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--keyword.syntax--import {
+  color: #cb4b16;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--modifier.syntax--import {
+  color: #586e75;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--class .syntax--storage.syntax--modifier {
+  color: #b58900;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--class .syntax--meta.syntax--class.syntax--identifier .syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #268bd2;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--type.syntax--primitive.syntax--array {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--constant.syntax--numeric {
+  color: #d33682;
+}
+.syntax--source.syntax--java .syntax--constant.syntax--other {
+  color: #cb4b16;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--type {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--method-call {
+  color: #dc322f;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--method-call .syntax--meta.syntax--method {
+  color: #6c71c4;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--method-call .syntax--punctuation.syntax--definition.syntax--seperator.syntax--parameter {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--punctuation.syntax--definition.syntax--method-parameters {
+  color: #93a1a1;
+}
+.syntax--source.syntax--js .syntax--comma {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--support.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name.syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name.syntax--function {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name.syntax--tag {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--other.syntax--attribute-name {
+  color: #b58900;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--brace {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--keyword {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--new {
+  color: #859900;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--control {
+  color: #cb4b16;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--control.syntax--regexp {
+  color: #2aa198;
+}
+.syntax--source.syntax--js .syntax--variable {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--variable.syntax--dom {
+  color: #859900;
+}
+.syntax--source.syntax--js .syntax--delimiter + .syntax--dom {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--name {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--variable.syntax--language {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--variable.syntax--parameter {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--regexp {
+  color: #2aa198;
+}
+.syntax--source.syntax--js .syntax--support.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--support.syntax--constant {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--storage.syntax--modifier {
+  color: #b58900;
+}
+.syntax--source.syntax--js .syntax--punctuation.syntax--terminator.syntax--statement {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--delimiter.syntax--method.syntax--period {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--brace.syntax--square {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--brace.syntax--curly {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--string.syntax--quoted.syntax--template .syntax--embedded.syntax--source {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--string.syntax--quoted.syntax--template .syntax--embedded.syntax--source > .syntax--embedded.syntax--punctuation {
+  color: #dc322f;
+}
+.syntax--source.syntax--js.syntax--embedded .syntax--entity.syntax--name.syntax--tag {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--import .syntax--control {
+  color: #cb4b16;
+}
+.syntax--source.syntax--js.syntax--rails .syntax--instance {
+  color: #268bd2;
+}
+.syntax--source.syntax--js.syntax--rails .syntax--class {
+  color: #b58900;
+}
+.syntax--md .syntax--link .syntax--entity,
+.syntax--gfm .syntax--link .syntax--entity {
+  color: #6c71c4;
+}
+.syntax--md .syntax--list.syntax--ordered,
+.syntax--gfm .syntax--list.syntax--ordered {
+  color: #859900;
+}
+.syntax--md .syntax--list.syntax--unordered,
+.syntax--gfm .syntax--list.syntax--unordered {
+  color: #b58900;
+}
+.syntax--md .syntax--raw,
+.syntax--gfm .syntax--raw {
+  font-style: italic;
+}
+.syntax--md.syntax--support,
+.syntax--gfm.syntax--support {
+  color: #586e75;
+}
+.syntax--md.syntax--support.syntax--quote,
+.syntax--gfm.syntax--support.syntax--quote {
+  color: #6c71c4;
+}
+.syntax--markup.syntax--bold {
+  font-weight: bold;
+}
+.syntax--markup.syntax--italic {
+  font-style: italic;
+}
+.syntax--markup.syntax--heading {
+  color: #268bd2;
+}
+.syntax--markup.syntax--link {
+  color: #2aa198;
+}
+.syntax--markup.syntax--deleted {
+  color: #dc322f;
+}
+.syntax--markup.syntax--changed {
+  color: #b58900;
+}
+.syntax--markup.syntax--inserted {
+  color: #2aa198;
+}
+.syntax--source.syntax--php .syntax--storage.syntax--type.syntax--class {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--storage.syntax--type.syntax--function {
+  color: #cb4b16;
+}
+.syntax--source.syntax--php .syntax--storage.syntax--modifier {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--entity.syntax--name.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--entity.syntax--other {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--variable {
+  color: #268bd2;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--comment {
+  color: #586e75;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--array {
+  color: #dc322f;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--string {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--variable {
+  color: #859900;
+}
+.syntax--source.syntax--php .syntax--support.syntax--function.syntax--construct {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--support.syntax--function.syntax--array {
+  color: #859900;
+}
+.syntax--source.syntax--php .syntax--keyword.syntax--operator.syntax--class {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--keyword.syntax--operator.syntax--assignment {
+  color: #859900;
+}
+.syntax--source.syntax--php .syntax--keyword.syntax--other {
+  color: #dc322f;
+}
+.syntax--source.syntax--python .syntax--entity {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--entity.syntax--name {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--entity.syntax--other {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--function {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--function.syntax--magic {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--string {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator.syntax--quantifier {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator.syntax--logical {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--control.syntax--import {
+  color: #cb4b16;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--other {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--constant.syntax--language {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--constant.syntax--character {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--constant.syntax--other {
+  color: #dc322f;
+}
+.syntax--source.syntax--python .syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--variable {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--support.syntax--function.syntax--builtin {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--support.syntax--type.syntax--exception.syntax--python {
+  color: #b58900;
+}
+.syntax--source.syntax--python .syntax--support.syntax--type.syntax--python {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--string {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--class.syntax--todo {
+  color: #d33682;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--function {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--definition.syntax--parameters {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--section.syntax--function.syntax--begin {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--separator.syntax--parameters {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--meta.syntax--embedded .syntax--punctuation.syntax--section {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--definition {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--definition.syntax--string {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--definition.syntax--comment {
+  color: #586e75;
+}
+.syntax--source.syntax--ruby .syntax--entity.syntax--inherited-class {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--parameter {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--constant {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--constant.syntax--boolean {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--instance .syntax--punctuation.syntax--definition {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--class {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--class.syntax--control {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--module {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--require .syntax--keyword.syntax--other.syntax--special-method {
+  color: #cb4b16;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--other.syntax--special-method {
+  color: #cb4b16;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--other {
+  color: #859900;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--control {
+  color: #859900;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--operator {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--special-method {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--symbol {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--symbol .syntax--punctuation.syntax--definition {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--hashkey {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--hashkey .syntax--punctuation.syntax--definition {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--regexp {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--todo {
+  color: #d33682;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--ruby.syntax--global {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--ruby.syntax--global .syntax--punctuation {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--block {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--self {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--separator {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--numeric {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--section.syntax--regexp {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--punctuation .syntax--source.syntax--ruby {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--source.syntax--ruby {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--source.syntax--ruby .syntax--punctuation.syntax--array,
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--source.syntax--ruby .syntax--punctuation.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--support.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--support.syntax--function.syntax--kernel {
+  color: #859900;
+}
+.syntax--source.syntax--scala .syntax--variable {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--declaration {
+  color: #93a1a1;
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--comparison {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--class,
+.syntax--source.syntax--scala .syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--scala .syntax--val {
+  font-weight: normal;
+}
+.syntax--source.syntax--scala .syntax--variable {
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--variable.syntax--parameter {
+  color: #6c71c4;
+  font-weight: normal;
+}
+.syntax--source.syntax--scala .syntax--control.syntax--flow {
+  color: #93a1a1;
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--constant.syntax--language {
+  color: #93a1a1;
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--function.syntax--declaration {
+  color: #6c71c4;
+}
+.syntax--source.syntax--scala .syntax--modifier.syntax--other {
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--package {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--variable.syntax--import {
+  font-weight: normal;
+}
+.syntax--source.syntax--scala .syntax--type .syntax--bounds,
+.syntax--source.syntax--scala .syntax--type .syntax--class {
+  color: #6c71c4;
+}
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded).syntax--link.syntax--entity {
+  color: #268bd2;
+  text-decoration: underline;
+}
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded) .syntax--class,
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded) .syntax--parameter {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded) .syntax--description {
+  color: #586e75;
+}
+.syntax--source.syntax--scala .syntax--embedded {
+  color: #6c7c7c;
+  font-style: italic;
+}
+.syntax--source.syntax--scala .syntax--embedded .syntax--margin,
+.syntax--source.syntax--scala .syntax--embedded .syntax--delimiters {
+  font-style: normal;
+}
+.syntax--source.syntax--ts .syntax--import .syntax--control,
+.syntax--source.syntax--tsx .syntax--import .syntax--control {
+  color: #cb4b16;
+}
+.syntax--source.syntax--ts .syntax--entity.syntax--name.syntax--type,
+.syntax--source.syntax--tsx .syntax--entity.syntax--name.syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--ts .syntax--entity.syntax--inherited-class,
+.syntax--source.syntax--tsx .syntax--entity.syntax--inherited-class {
+  color: #b58900;
+}
+.syntax--source.syntax--ts .syntax--support.syntax--type,
+.syntax--source.syntax--tsx .syntax--support.syntax--type {
+  color: #b58900;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="../style.css">
+
+  </head>
+  <body>
+    <h1>[PROBA] Probabilites discretes (3)</h1>
+<h2>Probabilites conditionnelles</h2>
+<p><span class="math inline-math"><script type="math/tex">(\Omega, P)</script></span> espace probabilise fini, ou P est la probabilite uniforme<br>
+Supposons que l’evenement A soit realise <span class="math inline-math"><script type="math/tex">(P(A) \neq 0)</script></span></p>
+<p>La <mark><strong>probabilite conditionnelle</strong></mark> de B sachant A est definie par</p>
+<p><span class="math inline-math"><script type="math/tex">\begin{align}P(B/A) = \frac{P(A \cap B)}{P(A)}\end{align}</script></span></p>
+<p><div class="alert alert-info">
+<strong>Notation</strong> : <span class="math inline-math"><script type="math/tex">P(B/A) = P_A(B)</script></span>
+</div></p>
+<p><span class="math inline-math"><script type="math/tex">\forall A \in \mathcal{P}(\Omega)</script></span> l’application <span class="math inline-math"><script type="math/tex">P_A: \mathcal{P}(\Omega) \to [0, 1]</script></span><br>
+<span class="math inline-math"><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  B \to P_A(B)</script></span></p>
+<p>est une probabilite sur <span class="math inline-math"><script type="math/tex">\Omega</script></span> appelee <strong>probabilite conditionnelle</strong></p>
+<p><div class="alert alert-info">
+<strong>Remarque</strong> : <span class="math inline-math"><script type="math/tex">P_A(\overline B) = 1 - P_A(B)</script></span>
+</div></p>
+<h3>Formule des probabilites composees</h3>
+<p>Soit <span class="math inline-math"><script type="math/tex">n \in \mathbb{N}\ \ (n \geq 2)</script></span><br>
+Pour toute famille d’evenements <span class="math inline-math"><script type="math/tex">(A_1, A_2, ..., A_n)</script></span> de <span class="math inline-math"><script type="math/tex">(\Omega, P)</script></span> tel que <span class="math inline-math"><script type="math/tex">P(A_1 \cap A_2, ..., \cap A_{n-1}) \neq 0</script></span></p>
+<p>Alors on a <span class="math inline-math"><script type="math/tex">(A_1 \cap A_2 ... \cap A_{n}) = P(A_1)P(A_2/A_1)P(A_3/A_1\cap A_2)...P(A_n/A_1 \cap A_2 ... \cap A_{n-1})</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">P(A_1 \cap A_2 \cap ... \cap A_n) = P(A_1)\prod_{k=2}^{n}P(A_k/A_1\cap A_2 \cap ... \cap A_{k-1})</script></span></p>
+<p>En effet,</p>
+<p><span class="math inline-math"><script type="math/tex">\begin{align}P(A_1)P({A_2}_{/A_1})P({A_1}_{/A_1 \cap A_2})...P({A_n}_{/A_1 \cap ... \cap A_{n-1}}) &= P(A_1)\frac{P(A_1 \cap A_2)}{P(A_1)} \times \frac{P(A_1 \cap A_2 \cap A_3)}{P(A_1 \cap A_2)}....\frac{P(A_1 \cap A_2 ... A_n)}{P(A_1 \cap A_2 ... A_{n-1})} \\ &= P(A_1 \cap A_2 \cap ... \cap A_n)\end{align}</script></span></p>
+<h3>Systeme complet</h3>
+<p></mark><strong>Definition</strong></mark></p>
+<p><span class="math inline-math"><script type="math/tex">\Omega</script></span> univers fini<br>
+On appelle <strong>systeme complet</strong> d’evenements <span class="math inline-math"><script type="math/tex">A_i\ (1 \leq i \leq n)\ (n \in \mathbb{N}^*))</script></span> toute famille <span class="math inline-math"><script type="math/tex">A_i\ (A_i \cap A_j \neq \varnothing\ \ \forall i \neq j\ et\ \bigcup^n_{i=1}A_i = \Omega)</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">(A_i)_{1 \leq i \leq n}</script></span> est une <strong>partition</strong> de l’univers</p>
+<p><div class="alert alert-info">
+<strong>Remarque</strong><br>
+<span class="math inline-math"><script type="math/tex">\begin{align}\sum_{i=1}^{n} P(A_i) = 1\ car\ \bigcup_{i=1}^{n}A_i = \Omega &\implies P(\bigcup_{i=1}^{n} A_i) = P(\Omega = 1) \\ &\implies \sum_{i=1}^{n} A(A_i) = 1\end{align}</script></span></p>
+<p><strong>Formule de probabilites totales</strong>
+<span class="math inline-math"><script type="math/tex">P(B) = \sum_{i=1}^{n} P(B \cap A_i)\ \ \forall B \in \mathcal{\Omega}</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">B \cap A_1, B \cap A_2, ..., B \cap A_n</script></span> sont 2 a 2 incompatibles car</p>
+<p><span class="math inline-math"><script type="math/tex">B \cap A_i \cap B \cap A_j = B \cap A_i \cap A_j \ B \cap \varnothing = \varnothing</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">P(\bigcup_{i=1}^{n}B \cap A_i) = \sum_{i=1}^{n} P(B \cap A_i)</script></span></p>
+<p>car<br>
+<span class="math inline-math"><script type="math/tex">\bigcup_{i=1}^{n}(B \cap A_i) = B \cap (\bigcup_{i=1}^{n} A_i) = B \cap \Omega = B \implies P(B) = \sum_{i=1}^{n}P(B \cap A_i) = \sum_{i=1}^{n}P(B/A_i)P(A_i)</script></span>
+</div></p>
+<h3>Formule de Bayes</h3>
+<ol>
+<li><span class="math inline-math"><script type="math/tex">\begin{align}P(A/B) = \frac{P(B/A)P(A)}{P(B)}\ \ \ (P(B) \neq 0, P(A) \neq 0)\end{align}</script></span></li>
+</ol>
+<p>En effet <span class="math inline-math"><script type="math/tex">P(A/B) = \frac{A \cap B}{P(B)} = \frac{P(B/A)P(A)}{P(B)}</script></span> et <span class="math inline-math"><script type="math/tex">P(B/A) = \frac{B \cap A}{P(A)}</script></span></p>
+<ol start="2">
+<li><span class="math inline-math"><script type="math/tex">(A_1, A_2, ..., A_n)</script></span> un systeme complet<br>
+<span class="math inline-math"><script type="math/tex">\begin{align}\forall i \in [[1, n]],\ \ \ P(A_i/B) = \frac{P(B/A_i)P(A_i)}{P(B)} = \frac{P(B/A_i)P(A_i)}{\sum_{j=1}^{n} P(B/A_j)P(A_j)}\end{align}</script></span></li>
+</ol>
+<p>car <span class="math inline-math"><script type="math/tex">P(B) = \sum_{j=1}^{n} P(B/A_j)P(A_j)</script></span></p>
+<hr>
+<p><strong><mark>Definition (evenements independants)</mark></strong></p>
+<p>A et B sont 2 <strong>evenements independants</strong> ssi</p>
+<p><span class="math inline-math"><script type="math/tex">P_A(B) = P(B) \iff P(A \cap B) = P(A)P(B)</script></span></p>
+<h2>Variables aleatoires discretes</h2>
+<p><strong><mark>Definition (variable aleatoire)</mark></strong></p>
+<p><span class="math inline-math"><script type="math/tex">\Omega</script></span> univers fini<br>
+Toute application X definie sur <span class="math inline-math"><script type="math/tex">\Omega</script></span> a valeurs dans un ensemble E est appele <strong>variable aleatoire</strong> sur <span class="math inline-math"><script type="math/tex">\Omega</script></span></p>
+<p>Si <span class="math inline-math"><script type="math/tex">E = \mathbb{R}</script></span> alors X est appelle V.A (variable aleatoire) reelle</p>
+<p><span class="math inline-math"><script type="math/tex">\Omega</script></span> fini, <span class="math inline-math"><script type="math/tex">X(\Omega) = \{x_1, x_2, ..., x_n\}</script></span> l’ensemble des valeurs de X</p>
+<h3>Applications</h3>
+<p><ins>Exemple 1</div>:</p>
+<p>Considerons le lancer de 2 des equilibres</p>
+<p><span class="math inline-math"><script type="math/tex">\Omega = [[1, 6]]^2 = \{(i, j) / i\in [[1, 6]], j \in [[1, 6]]\}</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">Card(\Omega) = 6^2 = 36</script></span><br>
+<span class="math inline-math"><script type="math/tex">\forall \omega = (i, j) \in \Omega P(\omega) = \frac{1}{36}</script></span></p>
+<p>Soit X l’application <span class="math inline-math"><script type="math/tex">X \to E = \{2, ..., n\}</script></span><br>
+<span class="math inline-math"><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (i, j) \to i + j</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">P(X=5) = P(\{(2, 3), (3, 2), (1, 4), (4, 1)\})</script></span><br>
+<span class="math inline-math"><script type="math/tex">P(X=5) = \frac{4}{36} = \frac{1}{9}</script></span></p>
+<p><ins>Generalisation</ins><br>
+<span class="math inline-math"><script type="math/tex">\forall x \in E</script></span><br>
+<span class="math inline-math"><script type="math/tex">P(X=x) = P(\{ X^{-1}(x) \}) = \{ \omega \in \Omega | X(\omega) = x\}</script></span></p>
+<p><ins>Exemple 2</ins>:</p>
+<p><span class="math inline-math"><script type="math/tex">A \in \mathcal{P}(\Omega)</script></span><br>
+Soit <span class="math inline-math"><script type="math/tex">X \to \mathbb{R}</script></span><br>
+<span class="math inline-math"><script type="math/tex">\ \ \ \ \ \ \ \ \omega \to \begin{cases}1\ si\ \omega \in A \\ 0\ si\ \omega \in \overline A\end{cases}</script></span></p>
+<p>On dit que <span class="math inline-math"><script type="math/tex">X</script></span> est une <strong>variable aleatoire indicatrice</strong> de A</p<>
+<p><span class="math inline-math"><script type="math/tex">X = \mathbb{1}|_A</script></span></p>
+<p><div class="alert alert-info">
+<strong>Remarque</strong><br>
+L’ensemble des V.A discretes munies de (+) et (.) (multiplications par des scalaires) est un espace vectoriel</p>
+<p>On le note <span class="math inline-math"><script type="math/tex">\mathcal{F} (\Omega, \mathbb{R})</script></span>
+</div></p>
+<p><strong><ins>Definition</ins></strong></p>
+<p>On appelle <strong>fonction de repartition</strong> de la variable aleatoire <span class="math inline-math"><script type="math/tex">X</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">F: \Omega \to [0, 1]</script></span><br>
+<span class="math inline-math"><script type="math/tex">\ \ \ \ \ \ \ x\to F(x)</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">F(x) = P(X < x)\ \ \forall x \in \mathbb{R}</script></span></p>
+<p><div class="alert alert-info">
+<strong>Remarque</strong><br>
+F est croissante<br>
+<span class="math inline-math"><script type="math/tex">F(-\infty) = P(\varnothing) = 0</script></span><br>
+<span class="math inline-math"><script type="math/tex">F(+\infty) = P(\Omega) = 1</script></span>
+</div></p>
+<h2>Moment d’une variable aleatoire</h2>
+<h3>Esperance mathematique</h3>
+<p>Soit X une variable aleatoire discrete<br>
+On appelle <mark><strong>esperance</strong></mark> de <span class="math inline-math"><script type="math/tex">X</script></span></p>
+<p><div class="alert alert-danger">
+<span class="math inline-math"><script type="math/tex">E(X) = \sum x_i\ \ P(X=x_i)</script></span>
+</div></p>
+<p><div class="alert alert-info">
+<strong>Remarque</strong>
+L’operateur E est lineaire</p>
+<ul>
+<li><span class="math inline-math"><script type="math/tex">E(\alpha X) = \alpha E(X)\ \ \forall \alpha \in \mathbb{R}</script></span></li>
+<li><span class="math inline-math"><script type="math/tex">E(X + Y) = E(X) + E(Y)</script></span></li>
+<li><span class="math inline-math"><script type="math/tex">E(a) = a\ \ \forall a \in \mathbb{R}</script></span>
+</div></li>
+</ul>
+<p><strong><mark>Definition</mark></strong></p>
+<p>Soit <span class="math inline-math"><script type="math/tex">\varphi</script></span>  une fonction quelconque et <span class="math inline-math"><script type="math/tex">X</script></span> une variable aleatoire</p>
+<p><span class="math inline-math"><script type="math/tex">E(\varphi(X)) = \sum_{i}^{} \varphi(x_i)P(X=x_i)</script></span></p>
+<hr>
+<h3>Variance de X</h3>
+<p><strong><mark>Definition (Variance)</mark></strong></p>
+<p>Soit X une variable aleatoire discrete<br>
+On appelle <strong>variance</strong> de <span class="math inline-math"><script type="math/tex">X</script></span></p>
+<p><div class="alert alert-danger">
+<span class="math inline-math"><script type="math/tex">\sigma^2 = V(X) = E((X - E(X))^2)</script></span>
+</div></p>
+<p><span class="math inline-math"><script type="math/tex">\sigma = \sqrt{V(X)} \implies</script></span> <strong>ecart type</strong> de <span class="math inline-math"><script type="math/tex">X</script></span><br>
+C’est une mesure de la dispersion de X autour de la valeur centrale E(X)</p>
+<p><div class="alert alert-info">
+<strong>Remarque</strong>
+V n’est pas lineaire</p>
+<ul>
+<li><span class="math inline-math"><script type="math/tex">V(\alpha X) = \alpha^2V(X)</script></span></li>
+<li><span class="math inline-math"><script type="math/tex">V(X + Y) = V(X) + V(Y)\ si\ X+Y</script></span> sont independantes
+</div></li>
+</ul>
+<h3>Formule de Konig Huggheus</h3>
+<p><span class="math inline-math"><script type="math/tex">V(X) = E(X^2) - E^2(X)</script></span></p>
+<p><strong><mark>Definition (Moment d’ordre k)</mark></strong></p>
+<p>On appelle <strong>moment d’ordre k</strong> <span class="math inline-math"><script type="math/tex">(k \in \mathbb{N}^*)</script></span> de X<br>
+<span class="math inline-math"><script type="math/tex">\mathcal{F}_k = E(X^k)</script></span></p>
+<h2>Lois de probabilites d’usage courant</h2>
+<blockquote>
+<p>Lois classiques</p>
+</blockquote>
+<h3></mark><strong>Loi uniforme</strong></mark></h3>
+<p><span class="math inline-math"><script type="math/tex">X(\Omega) = \{1, 2, ..., n\}</script></span><br>
+<span class="math inline-math"><script type="math/tex">P(X=1) = \frac{1}{n}\ \ \forall k \in X(\Omega)</script></span></p>
+<p><ins>Esperance</ins></p>
+<p><span class="math inline-math"><script type="math/tex">E(X) = \sum_{k=1}^{n} kP(X=k) = (1/n)\sum_{k=1}^{n} k = \frac{n(n+1)}{2n} = \frac{n+1}{2}</script></span></p>
+<p><ins>Variance</ins></p>
+<p><span class="math inline-math"><script type="math/tex">V(X) = E(X^2 - E^2(X))</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">E(X^2) = \sum_{k=1}^{n}k^2P(X=k) = (1/n) \sum_{k=1}^{n}k^2 = (1/n)\frac{n(n+1)(2n+1)}{6} = \frac{(n+1)(2n+1)}{6}</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">\phi(X) = X^2</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">V(X) = \frac{(n+1)(2n+1)}{6} = \frac{n+1}{4} = \frac{2(2n^2 + 3n + 1) - 3(n^2 + 2n+1)}{12}</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">V(X) = \frac{n^2 - 1}{12}</script></span></p>
+<hr>
+<h3><strong><mark>Loi de Bernoulli <span class="math inline-math"><script type="math/tex">B(p)</script></span></mark></strong></h3>
+<p><span class="math inline-math"><script type="math/tex">X = 1</script></span> si un evenement A se realise avec la probabilite p<br>
+<span class="math inline-math"><script type="math/tex">X = 0</script></span> sinon (avec la probabilite <span class="math inline-math"><script type="math/tex">1-p</script></span>)</p>
+<p><ins>Esperance</ins></p>
+<p><span class="math inline-math"><script type="math/tex">E(X) = \sum_{k=0}^{1} kP(X=k) =p</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">E(X^2) = \sum_{k=0}^{1} k^2P(X=k) =p</script></span></p>
+<p><ins>Variance</ins></p>
+<p><span class="math inline-math"><script type="math/tex">V(X) = p - p^2 = p(1-p)</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">V(X) = pq</script></span> ou <span class="math inline-math"><script type="math/tex">q = 1-p</script></span></p>
+<hr>
+<h3><strong><mark>Loi binomiale <span class="math inline-math"><script type="math/tex">B(n, p)</script></span></mark></strong></h3>
+<p>On repete n fois l’experience de Bernoulli de maniere independante dans des conditions identiques</p>
+<p>Soit X le nombre de realisations de l’evenement A</p>
+<p><span class="math inline-math"><script type="math/tex">X = \sum_{i=0}^{n} X_i</script></span>, <span class="math inline-math"><script type="math/tex">X_i</script></span> suit la loi de Bernoulli <span class="math inline-math"><script type="math/tex">B(p)</script></span><br>
+<span class="math inline-math"><script type="math/tex">X_i</script></span> independante</p>
+<p><ins>Esperance</ins></p>
+<p><span class="math inline-math"><script type="math/tex">E(X) = \sum_{i=1}^{n} E(X_i) = \sum_{i=1}^{n}p</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">E(X) = np</script></span></p>
+<p><ins>Variance</ins></p>
+<p><span class="math inline-math"><script type="math/tex">V(X) = \sum_{i=1}^{n} V(X_i)</script></span> car <span class="math inline-math"><script type="math/tex">X_i</script></span> independante</p>
+<p><span class="math inline-math"><script type="math/tex">V(X) = \sum_{i=1}^{n} pq = npq</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">P(X=k) = \binom{n}{k} p^k(1-p)^{n-k} \forall k \in [[0, n]]</script></span></p>
+
+  </body>
+</html>

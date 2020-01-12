@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html data-markdown-preview-plus-context="html-export">
+  <head>
+    <meta charset="utf-8" />
+    <title>PROBA-cours4</title><script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX","output/HTML-CSS"],
+    extensions: ["[a11y]/accessibility-menu.js"],
+    'HTML-CSS': {
+      availableFonts: [],
+      webFont: 'TeX',
+      undefinedFamily: "serif",
+      mtextFontInherit: true,
+    },
+    TeX: {
+  "Macros": {},
+  "equationNumbers": {},
+  "extensions": [
+    "AMSmath.js",
+    "AMSsymbols.js",
+    "noErrors.js",
+    "noUndefined.js"
+  ]
+},
+    showMathMenu: true
+  });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js"></script>
+    <style>.emoji {
+  max-width: 1em !important;
+}
+del {
+  text-decoration: none;
+  position: relative;
+}
+del::after {
+  border-bottom: 1px solid black;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+ul.contains-task-list li.task-list-item {
+  position: relative;
+  list-style-type: none;
+}
+ul.contains-task-list li.task-list-item input.task-list-item-checkbox {
+  position: absolute;
+  transform: translateX(-100%);
+  width: 30px;
+}
+span.critic.comment {
+  position: relative;
+}
+span.critic.comment::before {
+  content: '\1f4ac';
+  position: initial;
+}
+span.critic.comment > span {
+  display: none;
+}
+span.critic.comment:hover > span {
+  display: initial;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  border: 1px solid;
+  border-radius: 5px;
+  max-height: 4em;
+  overflow: auto;
+}
+span.critic.comment:focus > span {
+  display: initial;
+  text-decoration: underline;
+  position: initial;
+  top: auto;
+  left: auto;
+  border: initial;
+  border-radius: initial;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: transparent;
+}
+
+body {
+  padding: 2em;
+  font-size: 1.2em;
+  color: #abb2bf;
+  background-color: #282c34;
+  overflow: auto;
+}
+body > :first-child,
+body > div.update-preview > :first-child {
+  margin-top: 0;
+}
+body > p,
+body > div.update-preview > p {
+  margin-top: 0;
+  margin-bottom: 1.5em;
+}
+body > ul,
+body > div.update-preview > ul,
+body > ol,
+body > div.update-preview > ol {
+  margin-bottom: 1.5em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  color: #ffffff;
+}
+h1 {
+  font-size: 2.4em;
+  font-weight: 300;
+}
+h2 {
+  font-size: 1.8em;
+  font-weight: 400;
+}
+h3 {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+h4 {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+h5 {
+  font-size: 1.1em;
+  font-weight: 600;
+}
+h6 {
+  font-size: 1em;
+  font-weight: 600;
+}
+strong {
+  color: #ffffff;
+}
+del {
+  color: #7c879c;
+}
+a,
+a code {
+  color: #528bff;
+}
+img {
+  max-width: 100%;
+}
+blockquote {
+  margin: 1.5em 0;
+  font-size: inherit;
+  color: #7c879c;
+  border-color: #4b5362;
+  border-width: 4px;
+}
+hr {
+  margin: 3em 0;
+  border-top: 2px dashed #4b5362;
+  background: none;
+}
+table {
+  margin: 1.5em 0;
+}
+th {
+  color: #ffffff;
+}
+th,
+td {
+  padding: 0.66em 1em;
+  border: 1px solid #4b5362;
+}
+code {
+  color: #ffffff;
+  background-color: #3a3f4b;
+}
+pre.editor-colors {
+  margin: 1.5em 0;
+  padding: 1em;
+  font-size: 0.92em;
+  border-radius: 3px;
+  background-color: #31363f;
+}
+kbd {
+  color: #ffffff;
+  border: 1px solid #4b5362;
+  border-bottom: 2px solid #3e4451;
+  background-color: #3a3f4b;
+}
+
+pre.editor-colors {
+  color: #839496;
+  background-color: #002b36;
+}
+pre.editor-colors .gutter {
+  color: #839496;
+  background-color: #073642;
+}
+pre.editor-colors .gutter .line-number.cursor-line {
+  background-color: #0a4d5e;
+}
+pre.editor-colors .invisible-character {
+  color: #0a4d5e;
+}
+pre.editor-colors .indent-guide {
+  color: #0a4d5e;
+}
+pre.editor-colors .cursor {
+  border-color: #fdf6e3;
+}
+pre.editor-colors .cursor-line {
+  background-color: rgba(0, 165, 207, 0.08);
+}
+pre.editor-colors .selection .region {
+  background-color: #073a47;
+}
+pre.editor-colors .fold-marker:after,
+pre.editor-colors .gutter .line-number.folded {
+  color: #d33682;
+}
+pre.editor-colors .bracket-matcher .region {
+  border-color: #d33682;
+}
+.syntax--comment {
+  color: #586e75;
+  font-style: italic;
+}
+.syntax--comment .syntax--markup.syntax--link {
+  color: #586e75;
+}
+.syntax--string {
+  color: #2aa198;
+}
+.syntax--string.syntax--regexp {
+  color: #dc322f;
+}
+.syntax--constant.syntax--numeric {
+  color: #d33682;
+}
+.syntax--constant.syntax--language {
+  color: #b58900;
+}
+.syntax--constant.syntax--character,
+.syntax--constant.syntax--other,
+.syntax--constant.syntax--support {
+  color: #cb4b16;
+}
+.syntax--variable {
+  color: #268bd2;
+}
+.syntax--keyword {
+  color: #859900;
+}
+.syntax--storage {
+  color: #859900;
+}
+.syntax--meta.syntax--class {
+  color: #268bd2;
+}
+.syntax--entity.syntax--name.syntax--class,
+.syntax--entity.syntax--name.syntax--function,
+.syntax--entity.syntax--name.syntax--section,
+.syntax--entity.syntax--name.syntax--type {
+  color: #268bd2;
+}
+.syntax--entity.syntax--other.syntax--attribute-name {
+  color: #657b83;
+}
+.syntax--support.syntax--function {
+  color: #268bd2;
+}
+.syntax--support.syntax--function.syntax--builtin {
+  color: #859900;
+}
+.syntax--support.syntax--type,
+.syntax--support.syntax--class {
+  color: #859900;
+}
+.syntax--tag.syntax--entity.syntax--name {
+  color: #268bd2;
+}
+.syntax--tag.syntax--punctuation.syntax--definition.syntax--html,
+.syntax--tag.syntax--punctuation.syntax--definition.syntax--begin,
+.syntax--tag.syntax--punctuation.syntax--definition.syntax--end {
+  color: #586e75;
+}
+.syntax--invalid.syntax--deprecated {
+  color: #b58900;
+  text-decoration: underline;
+}
+.syntax--invalid.syntax--illegal {
+  color: #dc322f;
+  text-decoration: underline;
+}
+.syntax--none {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--meta.syntax--preprocessor,
+.syntax--source.syntax--cpp .syntax--meta.syntax--preprocessor {
+  color: #dc322f;
+}
+.syntax--source.syntax--c .syntax--keyword.syntax--control.syntax--directive,
+.syntax--source.syntax--cpp .syntax--keyword.syntax--control.syntax--directive {
+  color: #cb4b16;
+}
+.syntax--source.syntax--c .syntax--punctuation.syntax--string,
+.syntax--source.syntax--cpp .syntax--punctuation.syntax--string {
+  color: #2aa198;
+}
+.syntax--source.syntax--c .syntax--constant,
+.syntax--source.syntax--cpp .syntax--constant {
+  color: #cb4b16;
+}
+.syntax--source.syntax--c .syntax--constant.syntax--numeric,
+.syntax--source.syntax--cpp .syntax--constant.syntax--numeric,
+.syntax--source.syntax--c .syntax--constant.syntax--language.syntax--c,
+.syntax--source.syntax--cpp .syntax--constant.syntax--language.syntax--c {
+  color: #2aa198;
+}
+.syntax--source.syntax--c .syntax--storage,
+.syntax--source.syntax--cpp .syntax--storage {
+  color: #b58900;
+}
+.syntax--source.syntax--c .syntax--entity,
+.syntax--source.syntax--cpp .syntax--entity {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--entity.syntax--name.syntax--function.syntax--preprocessor,
+.syntax--source.syntax--cpp .syntax--entity.syntax--name.syntax--function.syntax--preprocessor {
+  color: #dc322f;
+}
+.syntax--source.syntax--c .syntax--support.syntax--type,
+.syntax--source.syntax--cpp .syntax--support.syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--c .syntax--support.syntax--type.syntax--posix-reserved,
+.syntax--source.syntax--cpp .syntax--support.syntax--type.syntax--posix-reserved {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--variable.syntax--other.syntax--dot-access,
+.syntax--source.syntax--cpp .syntax--variable.syntax--other.syntax--dot-access {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--variable.syntax--parameter.syntax--preprocessor,
+.syntax--source.syntax--cpp .syntax--variable.syntax--parameter.syntax--preprocessor {
+  color: #dc322f;
+}
+.syntax--source.syntax--coffee .syntax--support.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--variable,
+.syntax--source.syntax--coffee .syntax--entity.syntax--name.syntax--function,
+.syntax--source.syntax--coffee .syntax--entity.syntax--name.syntax--class {
+  color: #268bd2;
+}
+.syntax--source.syntax--coffee .syntax--variable.syntax--parameter.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--variable.syntax--other.syntax--readwrite {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--storage.syntax--type.syntax--function {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--entity.syntax--name {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--meta.syntax--brace.syntax--round,
+.syntax--source.syntax--coffee .syntax--meta.syntax--brace.syntax--square {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--meta.syntax--delimiter {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--storage.syntax--type.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--punctuation.syntax--terminator {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--punctuation.syntax--section.syntax--embedded {
+  color: #dc322f;
+}
+.syntax--source.syntax--coffee .syntax--embedded.syntax--source {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--constant.syntax--numeric {
+  color: #d33682;
+}
+.syntax--source.syntax--coffee .syntax--constant.syntax--language.syntax--boolean {
+  color: #b58900;
+}
+.syntax--source.syntax--css .syntax--punctuation.syntax--separator,
+.syntax--source.syntax--css .syntax--punctuation.syntax--terminator {
+  color: #839496;
+}
+.syntax--source.syntax--css .syntax--punctuation.syntax--property-list.syntax--begin,
+.syntax--source.syntax--css .syntax--punctuation.syntax--property-list.syntax--end {
+  color: #dc322f;
+}
+.syntax--source.syntax--css .syntax--punctuation.syntax--section.syntax--function {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--entity.syntax--name {
+  color: #859900;
+}
+.syntax--source.syntax--css .syntax--attribute-name.syntax--class,
+.syntax--source.syntax--css .syntax--id {
+  color: #268bd2;
+}
+.syntax--source.syntax--css .syntax--pseudo-element,
+.syntax--source.syntax--css .syntax--pseudo-class {
+  color: #cb4b16;
+}
+.syntax--source.syntax--css .syntax--property-value {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--constant.syntax--numeric {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--constant.syntax--numeric .syntax--unit {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--rgb-value {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--support.syntax--constant {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--support.syntax--constant.syntax--media {
+  color: #dc322f;
+}
+.syntax--source.syntax--css .syntax--keyword.syntax--important {
+  color: #dc322f;
+}
+.syntax--source.syntax--less .syntax--keyword.syntax--unit,
+.syntax--source.syntax--scss .syntax--keyword.syntax--unit {
+  color: #2aa198;
+}
+.syntax--source.syntax--go .syntax--operator {
+  color: #839496;
+}
+.syntax--source.syntax--go .syntax--operator.syntax--assignment {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--keyword.syntax--operator {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--keyword.syntax--import {
+  color: #cb4b16;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--modifier.syntax--import {
+  color: #586e75;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--class .syntax--storage.syntax--modifier {
+  color: #b58900;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--class .syntax--meta.syntax--class.syntax--identifier .syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #268bd2;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--type.syntax--primitive.syntax--array {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--constant.syntax--numeric {
+  color: #d33682;
+}
+.syntax--source.syntax--java .syntax--constant.syntax--other {
+  color: #cb4b16;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--type {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--method-call {
+  color: #dc322f;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--method-call .syntax--meta.syntax--method {
+  color: #6c71c4;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--method-call .syntax--punctuation.syntax--definition.syntax--seperator.syntax--parameter {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--punctuation.syntax--definition.syntax--method-parameters {
+  color: #93a1a1;
+}
+.syntax--source.syntax--js .syntax--comma {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--support.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name.syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name.syntax--function {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name.syntax--tag {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--other.syntax--attribute-name {
+  color: #b58900;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--brace {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--keyword {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--new {
+  color: #859900;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--control {
+  color: #cb4b16;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--control.syntax--regexp {
+  color: #2aa198;
+}
+.syntax--source.syntax--js .syntax--variable {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--variable.syntax--dom {
+  color: #859900;
+}
+.syntax--source.syntax--js .syntax--delimiter + .syntax--dom {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--name {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--variable.syntax--language {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--variable.syntax--parameter {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--regexp {
+  color: #2aa198;
+}
+.syntax--source.syntax--js .syntax--support.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--support.syntax--constant {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--storage.syntax--modifier {
+  color: #b58900;
+}
+.syntax--source.syntax--js .syntax--punctuation.syntax--terminator.syntax--statement {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--delimiter.syntax--method.syntax--period {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--brace.syntax--square {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--brace.syntax--curly {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--string.syntax--quoted.syntax--template .syntax--embedded.syntax--source {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--string.syntax--quoted.syntax--template .syntax--embedded.syntax--source > .syntax--embedded.syntax--punctuation {
+  color: #dc322f;
+}
+.syntax--source.syntax--js.syntax--embedded .syntax--entity.syntax--name.syntax--tag {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--import .syntax--control {
+  color: #cb4b16;
+}
+.syntax--source.syntax--js.syntax--rails .syntax--instance {
+  color: #268bd2;
+}
+.syntax--source.syntax--js.syntax--rails .syntax--class {
+  color: #b58900;
+}
+.syntax--md .syntax--link .syntax--entity,
+.syntax--gfm .syntax--link .syntax--entity {
+  color: #6c71c4;
+}
+.syntax--md .syntax--list.syntax--ordered,
+.syntax--gfm .syntax--list.syntax--ordered {
+  color: #859900;
+}
+.syntax--md .syntax--list.syntax--unordered,
+.syntax--gfm .syntax--list.syntax--unordered {
+  color: #b58900;
+}
+.syntax--md .syntax--raw,
+.syntax--gfm .syntax--raw {
+  font-style: italic;
+}
+.syntax--md.syntax--support,
+.syntax--gfm.syntax--support {
+  color: #586e75;
+}
+.syntax--md.syntax--support.syntax--quote,
+.syntax--gfm.syntax--support.syntax--quote {
+  color: #6c71c4;
+}
+.syntax--markup.syntax--bold {
+  font-weight: bold;
+}
+.syntax--markup.syntax--italic {
+  font-style: italic;
+}
+.syntax--markup.syntax--heading {
+  color: #268bd2;
+}
+.syntax--markup.syntax--link {
+  color: #2aa198;
+}
+.syntax--markup.syntax--deleted {
+  color: #dc322f;
+}
+.syntax--markup.syntax--changed {
+  color: #b58900;
+}
+.syntax--markup.syntax--inserted {
+  color: #2aa198;
+}
+.syntax--source.syntax--php .syntax--storage.syntax--type.syntax--class {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--storage.syntax--type.syntax--function {
+  color: #cb4b16;
+}
+.syntax--source.syntax--php .syntax--storage.syntax--modifier {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--entity.syntax--name.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--entity.syntax--other {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--variable {
+  color: #268bd2;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--comment {
+  color: #586e75;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--array {
+  color: #dc322f;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--string {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--variable {
+  color: #859900;
+}
+.syntax--source.syntax--php .syntax--support.syntax--function.syntax--construct {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--support.syntax--function.syntax--array {
+  color: #859900;
+}
+.syntax--source.syntax--php .syntax--keyword.syntax--operator.syntax--class {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--keyword.syntax--operator.syntax--assignment {
+  color: #859900;
+}
+.syntax--source.syntax--php .syntax--keyword.syntax--other {
+  color: #dc322f;
+}
+.syntax--source.syntax--python .syntax--entity {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--entity.syntax--name {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--entity.syntax--other {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--function {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--function.syntax--magic {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--string {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator.syntax--quantifier {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator.syntax--logical {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--control.syntax--import {
+  color: #cb4b16;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--other {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--constant.syntax--language {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--constant.syntax--character {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--constant.syntax--other {
+  color: #dc322f;
+}
+.syntax--source.syntax--python .syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--variable {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--support.syntax--function.syntax--builtin {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--support.syntax--type.syntax--exception.syntax--python {
+  color: #b58900;
+}
+.syntax--source.syntax--python .syntax--support.syntax--type.syntax--python {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--string {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--class.syntax--todo {
+  color: #d33682;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--function {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--definition.syntax--parameters {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--section.syntax--function.syntax--begin {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--separator.syntax--parameters {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--meta.syntax--embedded .syntax--punctuation.syntax--section {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--definition {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--definition.syntax--string {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--definition.syntax--comment {
+  color: #586e75;
+}
+.syntax--source.syntax--ruby .syntax--entity.syntax--inherited-class {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--parameter {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--constant {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--constant.syntax--boolean {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--instance .syntax--punctuation.syntax--definition {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--class {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--class.syntax--control {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--module {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--require .syntax--keyword.syntax--other.syntax--special-method {
+  color: #cb4b16;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--other.syntax--special-method {
+  color: #cb4b16;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--other {
+  color: #859900;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--control {
+  color: #859900;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--operator {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--special-method {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--symbol {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--symbol .syntax--punctuation.syntax--definition {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--hashkey {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--hashkey .syntax--punctuation.syntax--definition {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--regexp {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--todo {
+  color: #d33682;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--ruby.syntax--global {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--ruby.syntax--global .syntax--punctuation {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--block {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--self {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--separator {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--numeric {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--section.syntax--regexp {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--punctuation .syntax--source.syntax--ruby {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--source.syntax--ruby {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--source.syntax--ruby .syntax--punctuation.syntax--array,
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--source.syntax--ruby .syntax--punctuation.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--support.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--support.syntax--function.syntax--kernel {
+  color: #859900;
+}
+.syntax--source.syntax--scala .syntax--variable {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--declaration {
+  color: #93a1a1;
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--comparison {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--class,
+.syntax--source.syntax--scala .syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--scala .syntax--val {
+  font-weight: normal;
+}
+.syntax--source.syntax--scala .syntax--variable {
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--variable.syntax--parameter {
+  color: #6c71c4;
+  font-weight: normal;
+}
+.syntax--source.syntax--scala .syntax--control.syntax--flow {
+  color: #93a1a1;
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--constant.syntax--language {
+  color: #93a1a1;
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--function.syntax--declaration {
+  color: #6c71c4;
+}
+.syntax--source.syntax--scala .syntax--modifier.syntax--other {
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--package {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--variable.syntax--import {
+  font-weight: normal;
+}
+.syntax--source.syntax--scala .syntax--type .syntax--bounds,
+.syntax--source.syntax--scala .syntax--type .syntax--class {
+  color: #6c71c4;
+}
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded).syntax--link.syntax--entity {
+  color: #268bd2;
+  text-decoration: underline;
+}
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded) .syntax--class,
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded) .syntax--parameter {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded) .syntax--description {
+  color: #586e75;
+}
+.syntax--source.syntax--scala .syntax--embedded {
+  color: #6c7c7c;
+  font-style: italic;
+}
+.syntax--source.syntax--scala .syntax--embedded .syntax--margin,
+.syntax--source.syntax--scala .syntax--embedded .syntax--delimiters {
+  font-style: normal;
+}
+.syntax--source.syntax--ts .syntax--import .syntax--control,
+.syntax--source.syntax--tsx .syntax--import .syntax--control {
+  color: #cb4b16;
+}
+.syntax--source.syntax--ts .syntax--entity.syntax--name.syntax--type,
+.syntax--source.syntax--tsx .syntax--entity.syntax--name.syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--ts .syntax--entity.syntax--inherited-class,
+.syntax--source.syntax--tsx .syntax--entity.syntax--inherited-class {
+  color: #b58900;
+}
+.syntax--source.syntax--ts .syntax--support.syntax--type,
+.syntax--source.syntax--tsx .syntax--support.syntax--type {
+  color: #b58900;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="../style.css">
+
+  </head>
+  <body>
+    <h1>[PROBA] Probabilites discretes (4)</h1>
+<h2>Loi de Poisson de parametre <span class="math inline-math"><script type="math/tex">\lambda\mathcal{P}(\lambda)</script></span></h2>
+<p>C’est la loi d’une variable aleatoire entiere positive qui satisfait<br>
+<span class="math inline-math"><script type="math/tex">\begin{align}P(X=k) = e^{-\lambda}\frac{\lambda^k}{k!}\ \ \forall k \in \mathbb{N}\end{align}</script></span></p>
+<p>On obtient la loi de Poisson comme une approximation de la loi <span class="math inline-math"><script type="math/tex">B(n,p)</script></span></p>
+<p></mark><strong>Theoreme</strong></mark></p>
+<p>La loi <span class="math inline-math"><script type="math/tex">B(n,p)</script></span> <strong>converge en loi</strong> vers la loi de Poisson <span class="math inline-math"><script type="math/tex">\mathcal{P}(\lambda = np)</script></span> lorsque <span class="math inline-math"><script type="math/tex">n \to +\infty</script></span> et <span class="math inline-math"><script type="math/tex">p \to 0</script></span></p>
+<p><div class="alert alert-info">
+<strong>Remarque</strong> :<br>
+En pratique, <span class="math inline-math"><script type="math/tex">B(n, p) \simeq \mathcal{P}(\lambda = np)</script></span> des que <span class="math inline-math"><script type="math/tex">p<0,1</script></span> et <span class="math inline-math"><script type="math/tex">n > 50</script></span>
+</div></p>
+<hr>
+<p><strong>Esperance</strong></p>
+<p><span class="math inline-math"><script type="math/tex">E(X) = \sum_{k=0}^{+\infty} k P(X=k) = \sum^{+\infty}_{k=0} ke^{-\lambda}\frac{\lambda^k}{k!}</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">E(X) = e^{-\lambda} = \sum^{+\infty}_{k=1} \frac{\lambda^k}{(k-1)!}</script></span></p>
+<blockquote>
+<p>Faire apparaitre le developpement en series de l’exponentielle</p>
+</blockquote>
+<p><span class="math inline-math"><script type="math/tex">E(X) = e^{-\lambda}\lambda \sum_{k=1}^{+\infty}\frac{\lambda^{k-1}}{(k-1)!} = e^{-\lambda}\lambda e^{\lambda}</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">E(X) = \lambda</script></span></p>
+<p><strong>Variance</strong></p>
+<p><span class="math inline-math"><script type="math/tex">V(X) = E(X^2) - E^2(X)</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">E(X) = \sum_{k=0}^{+\infty} k^2 e^{-\lambda} \frac{\lambda^k}{k!} = e^{-\lambda} \sum_{k=1}^{+\infty} k \frac{\lambda^k}{(k-1)!}</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">E(X^2) = e^{-\lambda} \sum{k=1}^{+\infty} = (k - 1 + 1) \frac{\lambda^k}{(k-1)!} = e^{-\lambda} (\sum{k=2}^{+\infty} \frac{\lambda^k}{(k-2)!} + \sum_{k=1}^{+\infty} \frac{\lambda^k}{(k-1)!})</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">E(X^2)= e^{-\lambda}(\lambda^2\sum_{k=2}^{+\infty}\frac{\lambda^{k-2}}{(k-2)!} + \lambda\sum_{k=1}^{+\infty} \frac{\lambda^{k-1}}{(k-1)!})</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">E(X^2) = (\lambda^2e^{\lambda} + \lambda e^{\lambda}) = \lambda^2 + \lambda</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">V(X) = \lambda^2 + \lambda - \lambda^2 = \lambda \implies V(X) = \lambda</script></span></p>
+<h2>Loi hypergeometrique <span class="math inline-math"><script type="math/tex">H(N, n, p)</script></span></h2>
+<p>Soit une population de <span class="math inline-math"><script type="math/tex">N</script></span> individus parmis lesquels une proportion <span class="math inline-math"><script type="math/tex">p</script></span> possede un certain caractere (propriete).</p>
+<p>On preleve un echantillon de <span class="math inline-math"><script type="math/tex">n</script></span> individus dans cette population (tirage sans remise).</p>
+<p>Soit <span class="math inline-math"><script type="math/tex">X</script></span> la variable aleatoire qui represente le nombre d’individus de l’echantillon possedant le caractere</p>
+<p><span class="math inline-math"><script type="math/tex">\begin{align}P(X=k) = \frac{\binom{Np}{k}\binom{N-Np}{n-k}}{\binom{N}{n}}\end{align}</script></span></p>
+<blockquote>
+<p><span class="math inline-math"><script type="math/tex">\binom{Np}{k}</script></span> : nombre de groupes de k individus possedant le caractere</p>
+<p><span class="math inline-math"><script type="math/tex">\binom{N-Np}{n-k}</script></span> : nombre de groupes de n-k individus ne possedant pas le caractere</p>
+<p><span class="math inline-math"><script type="math/tex">\binom{N}{n}</script></span> : nombre d’echantillons possibles</p>
+</blockquote>
+<p>On dit que <span class="math inline-math"><script type="math/tex">X</script></span> suit la loi hypergeometrique <span class="math inline-math"><script type="math/tex">H(N, n, p)</script></span></p>
+<p><div class="alert alert-info">
+<strong>Remarque</strong> :
+<span class="math inline-math"><script type="math/tex">H(N, n, p) \overset{CV en loi}\to_{N \to +\infty} B(n, p)</script></span></p>
+<p>En pratique, cette approximation est tres satisfaisante des que le “taux de sondage” <span class="math inline-math"><script type="math/tex">\frac{n}{N} < 10\%</script></span>
+</div></p>
+<p><span class="math inline-math"><script type="math/tex">E(X) = np</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">V(X) = (\frac{N-n}{N-1}) npq\ \ ou\ q = 1 -p</script></span></p>
+<h2>Loi geometrique et loi de Pascal</h2>
+<p>La <mark><strong>loi geometrique</strong></mark> est la loi du nombre d’essais necessaires pour faire apparaitre un evenement <span class="math inline-math"><script type="math/tex">A</script></span> de probabilite p</p>
+<p><span class="math inline-math"><script type="math/tex">P(X=k) = (1-p)^{k-1}\times p = q^{k-1}p</script></span> avec <span class="math inline-math"><script type="math/tex">q = 1-p\ \ \forall k \geq 1</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">E(X) = 1/p</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">V(X) = q / p^2</script></span> avec <span class="math inline-math"><script type="math/tex">q = 1-p</script></span></p>
+<p>La <mark><strong>Loi de Pascal</strong></mark> est la loi du nombre d’essais necessaire pour observer <span class="math inline-math"><script type="math/tex">n</script></span> fois un evenement <span class="math inline-math"><script type="math/tex">A</script></span> de probabailite <span class="math inline-math"><script type="math/tex">p</script></span>.</p>
+<p>L’experience se termine par A</p>
+<p><div class="alert alert-info">
+<strong>Remarque</strong> :
+On retrouve la loi geometrique si on prend <span class="math inline-math"><script type="math/tex">n=1</script></span>
+</div></p>
+<p><span class="math inline-math"><script type="math/tex">P(X=k) = p\binom{k-1}{n-1} p^{n-1} (1-p)^{k-n}</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">P(X=k) = \binom{k-1}{n-1} p^n q^{k-n}\ \ \forall k \geq n</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">X = \sum_{i=1}^{n}X_i</script></span> somme independante de lois geometrique<br>
+<span class="math inline-math"><script type="math/tex">X_i</script></span> suit la loi <span class="math inline-math"><script type="math/tex">G(p)</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">E(X) - \sum_{i=1}^{n} E(X_i) = \sum_{i=1}^{n} 1/p</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">E(X) = \frac{n}{p}</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">V(X) = \sum_{i=1}^{n} V(X_i) = \sum_{i=1}^{n} q/p^2 = \frac{nq}{p^2}</script></span> car <span class="math inline-math"><script type="math/tex">X_i</script></span> sont independantes</p>
+<h3>Rappels</h3>
+<ul>
+<li>Bernouilli : 1 epreuve, issue soit 0 ou 1</li>
+<li>Binomiale : Plusieurs Bernouilli</li>
+<li>Hypergeometrique : Certain caractere dans population</li>
+<li>Geometrique : Plusieurs essais, apparition d’un phenomene pour la premiere fois</li>
+<li>Pascal : Plusieurs essais, apparition d’un phenomene n fois</li>
+</ul>
+<h2>Exercices</h2>
+<p><ins>Exercice 1</ins> :</p>
+<p>La proportion de pieces defectueuses dans un lot de pieces est de 5%. Le controle de fabrication de pieces est tel que si la piece est bonne elle est acceptee avec la probabilite de 0.96<br>
+Si la piece est mauvaise, elle est refusee avec la probabilite de 0.98</p>
+<p>On choisit une piece au hasard et on la controle</p>
+<ol>
+<li>Quelle est la probabilite qu’il y ait une erreur de controle ?</li>
+<li>Quelle est la probabilite qu’une piece acceptee soit mauvaise ?</li>
+</ol>
+<p><ins>Notation des evenements</ins> :<br>
+<span class="math inline-math"><script type="math/tex">B</script></span> : “piece bonne”<br>
+<span class="math inline-math"><script type="math/tex">A</script></span> : “piece acceptee”<br>
+<span class="math inline-math"><script type="math/tex">E</script></span> : “erreur de controle”</p>
+<p><ins>Donnees de l’exercice</ins>:<br>
+<span class="math inline-math"><script type="math/tex">P(\overline{B}) = 5\%</script></span><br>
+<span class="math inline-math"><script type="math/tex">P(A/B) = 96\%</script></span><br>
+<span class="math inline-math"><script type="math/tex">P(\overline{A}/\overline{B}) = 98\%</script></span></p>
+<ol>
+<li>Quelle est la probabilite qu’il y ait une erreur de controle ?</li>
+</ol>
+<blockquote>
+<p>On cherche la probabilite de E</p>
+</blockquote>
+<p><span class="math inline-math"><script type="math/tex">E = (A \cap \overline{B}) \cup (\overline{A} \cap B)</script></span></p>
+<blockquote>
+<p><span class="math inline-math"><script type="math/tex">\cap</script></span> = et<br>
+<span class="math inline-math"><script type="math/tex">\cup</script></span> = ou</p>
+</blockquote>
+<p><span class="math inline-math"><script type="math/tex">(A \cap \overline{B})</script></span> et <span class="math inline-math"><script type="math/tex">(\overline{A} \cap B)</script></span> evenements incompatibles, pas d’intersection</p>
+<p><span class="math inline-math"><script type="math/tex">\begin{align}P(E) &= P(A \cap \overline{B}) + P(\overline{A} \cap B) \\&= P(A/\overline{B})P(\overline{B}) + P(\overline{A}/B)P(B) \\ &= 0.02 \times 0.05 + 0.04 \times 0.95 \\ &= 0.039\end{align}</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">P(E) = 3.9\%</script></span></p>
+<ol start="2">
+<li>Quelle est la probabilite qu’une piece acceptee soit mauvaise ?</li>
+</ol>
+<blockquote>
+<p>On cherche la probabilite de <span class="math inline-math"><script type="math/tex">P(\overline{B}/A)</script></span></p>
+</blockquote>
+<p>Formule de Bayes<br>
+<span class="math inline-math"><script type="math/tex">\begin{align}P(\overline{B}/A) = \frac{P(A/\overline{B})P(\overline{B})}{P(A)}\end{align}</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">A = (A \cap B) \cup (A \cap \overline{B})</script></span><br>
+<span class="math inline-math"><script type="math/tex">P(A) = P(A \cap B) + P(A \cap \overline{B})</script></span><br>
+<span class="math inline-math"><script type="math/tex">P(A) = P(A/B)P(B) + P(A/\overline{B})P(\overline{B})</script></span><br>
+<span class="math inline-math"><script type="math/tex">P(A) = 0.96 \times 0.95 + 0.02 \times 0.05</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">\begin{align}P(\overline{B}/A) = \frac{0.02 \times 0.05}{0.96 \times 0.95 + 0.02 \times 0.05} = 0.0011\end{align}</script></span></p>
+<hr>
+<p><ins>Exercice 2</ins>:</p>
+<p>On dispose de 2 des equilibres A et B<br>
+Le de A a 4 faces rouges et 2 blanches<br>
+Le de B a 2 faces rouges et 4 blanches<br>
+Les 2 des sont equilibres</p>
+<p>On lance une piece de monnaie telle que la proba d’obtenir pile soit 1/3<br>
+Si on obtient pile, on decide de jouer uniquement avec A<br>
+Sinon, on joue uniquement avec B</p>
+<ol>
+<li>Calculer la probabilite d’obtenir rouge au premier coup</li>
+<li>On a obtenu rouge aux 2 premiers coups. Calculer la probabilite d’obtenir rouge au troisieme</li>
+<li>On a obtenu rouge aux n premiers roups <span class="math inline-math"><script type="math/tex">(n \in \mathbb{N}^*)</script></span>. Determiner la probabilite d’avoir utilise A</li>
+</ol>
+<p><ins>Donnees de l’exercice</ins><br>
+<span class="math inline-math"><script type="math/tex">A</script></span> : “Obtenir pile”<br>
+<span class="math inline-math"><script type="math/tex">B</script></span> : “Obtenir face”<br>
+<span class="math inline-math"><script type="math/tex">R</script></span> : “Obtenir rouge”</p>
+<p><span class="math inline-math"><script type="math/tex">P(B) = 2/3</script></span><br>
+<span class="math inline-math"><script type="math/tex">P(R/B) = 1/3</script></span><br>
+<span class="math inline-math"><script type="math/tex">P(A)=1/3</script></span><br>
+<span class="math inline-math"><script type="math/tex">P(R/A)=2/3</script></span></p>
+<p>Soit <span class="math inline-math"><script type="math/tex">R_k</script></span> “On obtient rouge au k-ieme coup”</p>
+<ol>
+<li>Calculer la probabilite d’obtenir rouge au premier coup</li>
+</ol>
+<p><span class="math inline-math"><script type="math/tex">R_1 = (R_1 \cap A) \cup (R_1 \cap B)</script></span> (evenements incompatibles)</p>
+<p><span class="math inline-math"><script type="math/tex">P(R_1) = P(R_1/A)P(A) + P(R_1/B)P(B)</script></span><br>
+<span class="math inline-math"><script type="math/tex">P(R_1) = 2/3 \times 1/3 + 1/3 \times 2/3</script></span><br>
+<span class="math inline-math"><script type="math/tex">P(R_1) = 4/9</script></span></p>
+<ol start="2">
+<li>On a obtenu rouge aux 2 premiers coups. Calculer la probabilite d’obtenir rouge au troisieme</li>
+</ol>
+<blockquote>
+<p>On cherche la probabilite de <span class="math inline-math"><script type="math/tex">P(R_3/(R_1 \cap R_2))</script></span></p>
+</blockquote>
+<p><span class="math inline-math"><script type="math/tex">P(R_3/(R_1 \cap R_2)) = \frac{P(R1 \cap R_2 \cap R_3)}{P(R_1 \cap R_2)}</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">R_1 \cap R_2 = (R_1 \cap R_2 \cap A) \cup (R_1 \cap R_2 \cap B)</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">P(R_1 \cap R_2) = P((R_1 \cap R_2)/A)P(A) + P((R_1 \cap R_2)/B)P(B)</script></span><br>
+<span class="math inline-math"><script type="math/tex">P(R_1 \cap R_2) = (2/3)^2(1/3) + (1/3)^2(2/3)</script></span><br>
+<span class="math inline-math"><script type="math/tex">P(R_1 \cap R_2) = (4/27) + (2/27) = 2/9</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">P(R_1 \cap R_2 \cap R_3) = P((R_1 \cap R_2 \cap R_3)/A)P(A) + P((R_1 \cap R_2 \cap R_3)/B)P(B)</script></span><br>
+<span class="math inline-math"><script type="math/tex">P(R_1 \cap R_2 \cap R_3) = (2/3)^2(1/3) + (1/3)^2(2/3) = (8/81) + (2/81) = 10/81</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">P(R_3 / (R_2 \cap R_1)) = 10/81 \times 9/2 = 5/9</script></span></p>
+<ol start="3">
+<li>On a obtenu rouge aux <span class="math inline-math"><script type="math/tex">n</script></span> premiers roups <span class="math inline-math"><script type="math/tex">(n \in \mathbb{N}^*)</script></span>. Determiner la probabilite d’avoir utilise <span class="math inline-math"><script type="math/tex">A</script></span></li>
+</ol>
+<blockquote>
+<p>On cherche la probabilite <span class="math inline-math"><script type="math/tex">P(A/(R_1 \cap R_2 \cap ... \cap R_n))</script></span></p>
+</blockquote>
+<p><span class="math inline-math"><script type="math/tex">\begin{align}P(A/(R_1 \cap R_2 \cap ... \cap R_n)) &= \frac{P((R_1 \cap ... \cap R_n) / A)P(A)}{P(R_1 \cap ... R_n)}
+\\ &= \frac{P(R/A)^n P(A)}{P(R_1...R_n/A)P(A) + P(R_1...R_n/A)P(B)}
+\\ &= \frac{(P(R/A))^nP(A)}{(P(R/A))^(A) + (P(R/B))^nP(B)}
+\\ &= \frac{(2/3)^n * (1/3)}{(2/3)^n * (1/3) + (1/3)^n * (2/3)}
+\\ &= \frac{2^n}{2^n + 2} = \frac{2^{n-1}}{2^{n-1} + 1} \end{align}</script></span></p>
+<hr>
+<p><ins>Exercice 3</ins></p>
+<p>Le nombre d’appels telephoniques a un standard suit une loi de Poisson de parametre <span class="math inline-math"><script type="math/tex">\lambda</script></span><br>
+Supposons que pour tous les appels, il y ait une probabilite <span class="math inline-math"><script type="math/tex">p</script></span> que le correspondant demande un poste <span class="math inline-math"><script type="math/tex">A</script></span></p>
+<ol>
+<li>Calculer la probabilite qu’il y ait k appels vers <span class="math inline-math"><script type="math/tex">A</script></span> sachant qu’il y a eu <span class="math inline-math"><script type="math/tex">n</script></span> appels au standard</li>
+<li>Calculer <span class="math inline-math"><script type="math/tex">p(n,k) = P((X=n) \cap (Y=k))</script></span></li>
+</ol>
+<blockquote>
+<p>Ou <span class="math inline-math"><script type="math/tex">X</script></span> = nombre d’appels vers le standard et <span class="math inline-math"><script type="math/tex">Y</script></span> = nombre d’appels vers le poste <span class="math inline-math"><script type="math/tex">A</script></span></p>
+</blockquote>
+<ol start="3">
+<li>Determiner la loi de <span class="math inline-math"><script type="math/tex">Y</script></span></li>
+</ol>
+<p><ins>Question 1</ins></p>
+<p>On cherche <span class="math inline-math"><script type="math/tex">P(Y=k/X=n)</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">P(Y=k/X=n) = \binom{n}{k}p^k(1-p)^{n-k}</script></span> (loi Binomiale)<br>
+Donc <span class="math inline-math"><script type="math/tex">Y/X</script></span> suit <span class="math inline-math"><script type="math/tex">B(n,p)</script></span></p>
+<p><ins>Question 2</ins></p>
+<p><span class="math inline-math"><script type="math/tex">\begin{align}p(n,k) &= P((X=n) \cap (Y=k))
+\\ &= P(Y=k/X=n) \times P(X=n)
+\\ &= \binom{n}{k}p^k(n-p)^{n-k} \times e^{-\lambda}\frac{\lambda^{n}}{n!}
+\\ &= \frac{p^k(1-p)^{n-k}}{k!(n-k)!} e^{-\lambda} \lambda^n\end{align}</script></span></p>
+<p><ins>Question 3</ins></p>
+<p><span class="math inline-math"><script type="math/tex">\forall k \in \mathbb{R}</script></span><br>
+<span class="math inline-math"><script type="math/tex">\begin{align}(Y=k) = \bigcup_{n \geq k}^{+\infty} ((Y=k) \cap (X=n))\end{align}</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">\begin{align}P(Y=k) &= \sum_{n \geq k}^{+\infty} P((Y=k) \cap (X=n))
+\\ &= \sum^{+\infty}_{n \geq k} \frac{p^k(1-p)^{n-k}}{k!(n-k)!}  e^{-\lambda} \lambda^n
+\\ &= e^{-\lambda} \frac{p^k}{k!} \times \sum^{+\infty}_{n \geq k} \frac{((1-p)\lambda^{n-k})}{(n-k)!}
+\\ &= \frac{e^{-\lambda}p^k}{k!} \lambda^k e^{(1-p)\lambda}
+\\ &= \frac{(\lambda p)^k}{k!} e^{\lambda p} = \mathcal{P}(\lambda p)\end{align}</script></span></p>
+<p><ins>Conclusion</ins></p>
+<p><span class="math inline-math"><script type="math/tex">Y</script></span> suit la loi de Poisson <span class="math inline-math"><script type="math/tex">\mathcal{P}(\lambda p)</script></span></p>
+<p><ins>Exercice 4</ins></p>
+<p>Une urne contient 9 boules blanches et 5 boules noires<br>
+On tire sans remise 3 boules</p>
+<p>Soit <span class="math inline-math"><script type="math/tex">X</script></span> la variable aleatoire : nombre de boules blanches observees</p>
+<ol>
+<li>Calculer <span class="math inline-math"><script type="math/tex">X</script></span> et <span class="math inline-math"><script type="math/tex">E(X)</script></span></li>
+<li><span class="math inline-math"><script type="math/tex">\forall i \in [[0;3]]</script></span>, on note <span class="math inline-math"><script type="math/tex">A_i</script></span> l’evenement <span class="math inline-math"><script type="math/tex">X = i</script></span>. Calculer <span class="math inline-math"><script type="math/tex">P(A_i)</script></span></li>
+<li>On remet les boules noires dans l’urne et on en prend une nouvelle. Quelle est la probabilite d’obtenir une boule blanche ?</li>
+</ol>
+<p><ins>Question 1</ins></p>
+<p>On utilise la loi Hypergeometrique : Prelevement d’une portion de population sans remise</p>
+<p><span class="math inline-math"><script type="math/tex">X</script></span> suit <span class="math inline-math"><script type="math/tex">H(N=9,\ n=3,\ p=4/9)</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">P(X=k) = \frac{\binom{4}{k}\binom{5}{3-k}}{\binom{9}{3}}</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">X(\Omega) = [[0;3]]</script></span> (nombre de valeurs possibles de X)<br>
+<span class="math inline-math"><script type="math/tex">E(X) = np = 3 \times 4/9 = 4/3</script></span></p>
+<p><ins>Question 2</ins></p>
+<p><div class="alert alert-info">
+<strong>Rappel</strong></p>
+<p><span class="math inline-math"><script type="math/tex">\binom{a}{b} = \frac{a!}{b!(a-b)!}</script></span>
+</div>
+<span class="math inline-math"><script type="math/tex">P(X=i) = \frac{\binom{4}{i}\binom{5}{3-i}}{\binom{9}{3}}</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">P(X=0)= \frac{\binom{4}{0}\binom{5}{3}}{\binom{9}{3}} = 5/42</script></span><br>
+<span class="math inline-math"><script type="math/tex">P(X=1) = 10/21</script></span><br>
+<span class="math inline-math"><script type="math/tex">P(X=2) = 5/14</script></span><br>
+<span class="math inline-math"><script type="math/tex">P(X=3) = 1/21</script></span></p>
+<p><ins>Question 3</ins></p>
+<p><span class="math inline-math"><script type="math/tex">P(B) = P(B/X=0)P(X=0) + P(B/X=1)P(X=1) + P(B/X=2)P(X=2) + P(B/X=3)P(X=3)</script></span><br>
+<span class="math inline-math"><script type="math/tex">B = \bigcup_{i=0}^{3} (B \cap A_i)</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">P(B) = \sum^{3}_{i=0}P(B/A_i)P(A_i) = \sum_{i=0}^{3} \frac{4-1}{9-1}P(A_i)</script></span></p>
+
+  </body>
+</html>
