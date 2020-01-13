@@ -45,7 +45,7 @@ Table de verite EQUIVALENCE
 |Vrai|Vrai|Faux|
 |Faux|Faux|Vrai|
 
-$(p \Rightarrow q) \Rightarrow q$
+$(p \Rightarrow q) \Rightarrow p$
 |p|q|$p \Rightarrow q$|$[...] \Rightarrow p$
 |:--:|:--:|:--:|:--:|
 |0|0|1|0|
