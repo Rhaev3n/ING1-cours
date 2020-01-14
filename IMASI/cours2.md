@@ -37,7 +37,7 @@ Pour 2 signaux x et y avec un retard $t_0$ inconnu :
 
 ## Convolution
 
-Le produit de convolution de 2 fonctions f et g est defini comme la fonction $h: t \to h(t) = (f \times g)(t) = \int_{\mathbb{R}}f(x)g(t - x)dx$
+Le produit de convolution de 2 fonctions f et g est defini comme la fonction $h: t \to h(t) = (f \times g)(t) = \int_{\mathbb{R}}f(t)g(t - x)dx$
 
 - Existence du produit de convolution : $f\ et\ g \in \mathcal{L}^1(\mathbb{R})$, alors $(f \times g)$ existe et $(f \times g) \in \mathcal{}L^1(\mathbb{R})$
 
