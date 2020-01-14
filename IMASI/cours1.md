@@ -6,7 +6,7 @@
 
 # Definitions
 
-**Signal** : Observation / Mesure d'un phenomene physique ou chimique  variant dans k;espace et / ou le temps et qui transporte de l'information
+**Signal** : Observation / Mesure d'un phenomene physique ou chimique  variant dans l'espace et / ou le temps et qui transporte de l'information
 - $f(x, y, z, t)$
 
 ### Types de signaux
@@ -43,7 +43,7 @@ $\begin{align}<\overset{\to}x, \overset{\to}y> &= x_1y_1 + ... + x_ny_n \\ &= \s
 
 E un espace vectoriel
 
-$<,>: E \times E \to mathbb{R}$
+$<,>: E \times E \to \mathbb{R}$
 $\ \ \ \ \ \ \ \ \ \ (\overset{\to}x, \overset{\to}y) \to\ <\overset{\to}x, \overset{\to}y>$
 
 ### 4 axiomes
@@ -66,7 +66,7 @@ $\begin{align}d(\overset{\to}x, \overset{\to}y) &= ||\overset{\to}x - \overset{\
 Une fonction est dite *integrable* sur $I \subset \mathbb{R}$ ssi
 $\int_I |f(t)|dt < +\infty$
 
-Une fonction est dite *p=integrable* sur $I \subset \mathbb{R}$ ssi
+Une fonction est dite *p-integrable* sur $I \subset \mathbb{R}$ ssi
 $\int_I |f(t)|^pdt < +\infty$ $\ \ \ \ f \in \mathcal{L}^p(I)$
 
 ++Exemple++ (pour p = 2) :
