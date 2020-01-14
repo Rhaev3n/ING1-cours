@@ -2,7 +2,7 @@
 <html data-markdown-preview-plus-context="html-export">
   <head>
     <meta charset="utf-8" />
-    <title>IMASI-cours2</title><script type="text/x-mathjax-config">
+    <title>IMASI-cours2TEST</title><script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     jax: ["input/TeX","output/HTML-CSS"],
     extensions: ["[a11y]/accessibility-menu.js"],
@@ -967,7 +967,10 @@ pre.editor-colors .bracket-matcher .region {
 <p>Si x et y a valeur reelle <span class="math inline-math"><script type="math/tex">\int_{-\infty}^{+\infty}x(t)y(t)dt</script></span></p>
 <p><span class="math inline-math"><script type="math/tex">\int_{\mathbb{R}}|x(t)|^2dt \ \int_{\mathbb{R}}x(t)\overline{x(t)}dt = <x(t), x(t)> = ||x||^2 = Ex</script></span></p>
 <p><span class="math inline-math"><script type="math/tex">y(t - \gamma)</script></span> est a version retardee de y d’un temps <span class="math inline-math"><script type="math/tex">\gamma</script></span></p>
-<p><span class="math inline-math"><script type="math/tex"><x(t), x(t - \gamma)> = \int_{\mathbb{R}}x(t)\overline{x(t - \gamma)}dt = \Gamma_{xx} =</script></span> autocorrelation</p>
+<p><div class="alert alert-danger">
+<strong>Formule de l’auto-correlation</strong></p>
+<p><span class="math inline-math"><script type="math/tex">\Gamma_{xx} = <x(t), x(t - \gamma)> = \int_{\mathbb{R}}x(t)\overline{x(t - \gamma)}dt</script></span>
+</div></p>
 <ul>
 <li><span class="math inline-math"><script type="math/tex">\Gamma_{xx}(0) = <x(t), x(t - 0)> = \int_{\mathbb{R}}|x(t)|^2dt = ||x||^2 = Ex =</script></span> energie du signal</li>
 <li><span class="math inline-math"><script type="math/tex">\forall \gamma \in \mathbb{R}, |\Gamma_{xx}(\gamma)| = \Gamma_{xx}(0) \to</script></span> autocorrelation maxinale en 0 (quand <span class="math inline-math"><script type="math/tex">\gamma = 0</script></span>)</li>
@@ -978,17 +981,20 @@ pre.editor-colors .bracket-matcher .region {
 </li>
 </ul>
 <h2>Inter-correlation</h2>
-<p><span class="math inline-math"><script type="math/tex">\Gamma_{xy}: \gamma \to <x(t), y(t- \gamma)> = \int_{\mathbb{R}}x(t)\overline{y(t - \gamma)}dt</script></span><br>
-<span class="math inline-math"><script type="math/tex">\Gamma_{xy}(\gamma) =</script></span> ressemblence entre <span class="math inline-math"><script type="math/tex">x</script></span> et <span class="math inline-math"><script type="math/tex">y</script></span> retarde de <span class="math inline-math"><script type="math/tex">\gamma</script></span></p>
+<p><div class="alert alert-danger">
+<strong>Formule de l’inter-correlation</strong></p>
+<p><span class="math inline-math"><script type="math/tex">\Gamma_{xy}\gamma \to <x(t), y(t- \gamma)> = \int_{\mathbb{R}}x(t)\overline{y(t - \gamma)}dt</script></span>
+</div></p>
+<p><span class="math inline-math"><script type="math/tex">\Gamma_{xy}(\gamma) =</script></span> ressemblence entre <span class="math inline-math"><script type="math/tex">x</script></span> et <span class="math inline-math"><script type="math/tex">y</script></span> retarde de <span class="math inline-math"><script type="math/tex">\gamma</script></span></p>
 <p><span class="math inline-math"><script type="math/tex">y(t) = x(t - t_0)</script></span>: x retarde de <span class="math inline-math"><script type="math/tex">\begin{align}t_0 \to \Gamma_{xy}(\gamma) &= <x(t), y(t - \gamma)> = <x(t), x(t - t_0 - \gamma)> \\ &= <x(t), x(t - (t_0 + \gamma))> \\ &= \Gamma_{xx}(t_0 + \gamma)\end{align}</script></span></p>
 <p>Autocorrelation maximale en 0: <span class="math inline-math"><script type="math/tex">t_0 + \gamma = 0 \iff \gamma = - t_0</script></span><br>
 <span class="math inline-math"><script type="math/tex">\Gamma_{xy}(-t_0)</script></span> est maximale</p>
-<p>Pour 2 signaux x et y avec un retard <span class="math inline-math"><script type="math/tex">t_0</script></span> inconnu :</p>
-<ol>
-<li>Calcul</li>
-</ol>
 <h2>Convolution</h2>
-<p>Le produit de convolution de 2 fonctions f et g est defini comme la fonction <span class="math inline-math"><script type="math/tex">h: t \to h(t) = (f \times g)(t) = \int_{\mathbb{R}}f(t)g(t - x)dx</script></span></p>
+<p><div class="alert alert-danger">
+<strong>Formule de la Concolution</strong></p>
+<p>Le produit de convolution de 2 fonctions <span class="math inline-math"><script type="math/tex">f</script></span> et <span class="math inline-math"><script type="math/tex">g</script></span> est defini comme la fonction :</p>
+<p><span class="math inline-math"><script type="math/tex">h(t) = (f \times g)(t) = \int_{\mathbb{R}}f(t)g(t - x)dx</script></span>
+</div></p>
 <ul>
 <li>Existence du produit de convolution : <span class="math inline-math"><script type="math/tex">f\ et\ g \in \mathcal{L}^1(\mathbb{R})</script></span>, alors <span class="math inline-math"><script type="math/tex">(f \times g)</script></span> existe et <span class="math inline-math"><script type="math/tex">(f \times g) \in \mathcal{}L^1(\mathbb{R})</script></span></li>
 </ul>
