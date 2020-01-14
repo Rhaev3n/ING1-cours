@@ -14,7 +14,11 @@ $\int_{\mathbb{R}}|x(t)|^2dt \ \int_{\mathbb{R}}x(t)\overline{x(t)}dt = <x(t), x
 
 $y(t - \gamma)$ est a version retardee de y d'un temps $\gamma$
 
-$<x(t), x(t - \gamma)> = \int_{\mathbb{R}}x(t)\overline{x(t - \gamma)}dt = \Gamma_{xx} =$ autocorrelation
+:::danger
+**Formule de l'auto-correlation**
+
+$\Gamma_{xx} = <x(t), x(t - \gamma)> = \int_{\mathbb{R}}x(t)\overline{x(t - \gamma)}dt$
+:::
 
 - $\Gamma_{xx}(0) = <x(t), x(t - 0)> = \int_{\mathbb{R}}|x(t)|^2dt = ||x||^2 = Ex =$ energie du signal
 - $\forall \gamma \in \mathbb{R}, |\Gamma_{xx}(\gamma)| = \Gamma_{xx}(0) \to$ autocorrelation maxinale en 0 (quand $\gamma = 0$)
@@ -23,7 +27,12 @@ $<x(t), x(t - \gamma)> = \int_{\mathbb{R}}x(t)\overline{x(t - \gamma)}dt = \Gamm
 
 ## Inter-correlation
 
-$\Gamma_{xy}: \gamma \to <x(t), y(t- \gamma)> = \int_{\mathbb{R}}x(t)\overline{y(t - \gamma)}dt$
+:::danger
+**Formule de l'inter-correlation**
+
+$\Gamma_{xy}\gamma \to <x(t), y(t- \gamma)> = \int_{\mathbb{R}}x(t)\overline{y(t - \gamma)}dt$
+:::
+
 $\Gamma_{xy}(\gamma) =$ ressemblence entre $x$ et $y$ retarde de $\gamma$
 
 $y(t) = x(t - t_0)$: x retarde de $\begin{align}t_0 \to \Gamma_{xy}(\gamma) &= <x(t), y(t - \gamma)> = <x(t), x(t - t_0 - \gamma)> \\ &= <x(t), x(t - (t_0 + \gamma))> \\ &= \Gamma_{xx}(t_0 + \gamma)\end{align}$
@@ -33,11 +42,16 @@ $\Gamma_{xy}(-t_0)$ est maximale
 
 Pour 2 signaux x et y avec un retard $t_0$ inconnu : 
 1. Calcul
-2.
 
 ## Convolution
 
-Le produit de convolution de 2 fonctions f et g est defini comme la fonction $h: t \to h(t) = (f \times g)(t) = \int_{\mathbb{R}}f(t)g(t - x)dx$
+:::danger
+**Formule de la Concolution**
+
+Le produit de convolution de 2 fonctions $f$ et $g$ est defini comme la fonction :
+
+$h(t) = (f \times g)(t) = \int_{\mathbb{R}}f(t)g(t - x)dx$
+:::
 
 - Existence du produit de convolution : $f\ et\ g \in \mathcal{L}^1(\mathbb{R})$, alors $(f \times g)$ existe et $(f \times g) \in \mathcal{}L^1(\mathbb{R})$
 
