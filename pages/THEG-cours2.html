@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html data-markdown-preview-plus-context="html-export">
+  <head>
+    <meta charset="utf-8" />
+    <title>THEG-cours2</title><script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX","output/HTML-CSS"],
+    extensions: ["[a11y]/accessibility-menu.js"],
+    'HTML-CSS': {
+      availableFonts: [],
+      webFont: 'TeX',
+      undefinedFamily: "serif",
+      mtextFontInherit: true,
+    },
+    TeX: {
+  "Macros": {},
+  "equationNumbers": {},
+  "extensions": [
+    "AMSmath.js",
+    "AMSsymbols.js",
+    "noErrors.js",
+    "noUndefined.js"
+  ]
+},
+    showMathMenu: true
+  });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js"></script>
+    <style>.emoji {
+  max-width: 1em !important;
+}
+del {
+  text-decoration: none;
+  position: relative;
+}
+del::after {
+  border-bottom: 1px solid black;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+ul.contains-task-list li.task-list-item {
+  position: relative;
+  list-style-type: none;
+}
+ul.contains-task-list li.task-list-item input.task-list-item-checkbox {
+  position: absolute;
+  transform: translateX(-100%);
+  width: 30px;
+}
+span.critic.comment {
+  position: relative;
+}
+span.critic.comment::before {
+  content: '\1f4ac';
+  position: initial;
+}
+span.critic.comment > span {
+  display: none;
+}
+span.critic.comment:hover > span {
+  display: initial;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  border: 1px solid;
+  border-radius: 5px;
+  max-height: 4em;
+  overflow: auto;
+}
+span.critic.comment:focus > span {
+  display: initial;
+  text-decoration: underline;
+  position: initial;
+  top: auto;
+  left: auto;
+  border: initial;
+  border-radius: initial;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: transparent;
+}
+
+body {
+  padding: 2em;
+  font-size: 1.2em;
+  color: #abb2bf;
+  background-color: #282c34;
+  overflow: auto;
+}
+body > :first-child,
+body > div.update-preview > :first-child {
+  margin-top: 0;
+}
+body > p,
+body > div.update-preview > p {
+  margin-top: 0;
+  margin-bottom: 1.5em;
+}
+body > ul,
+body > div.update-preview > ul,
+body > ol,
+body > div.update-preview > ol {
+  margin-bottom: 1.5em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  color: #ffffff;
+}
+h1 {
+  font-size: 2.4em;
+  font-weight: 300;
+}
+h2 {
+  font-size: 1.8em;
+  font-weight: 400;
+}
+h3 {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+h4 {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+h5 {
+  font-size: 1.1em;
+  font-weight: 600;
+}
+h6 {
+  font-size: 1em;
+  font-weight: 600;
+}
+strong {
+  color: #ffffff;
+}
+del {
+  color: #7c879c;
+}
+a,
+a code {
+  color: #528bff;
+}
+img {
+  max-width: 100%;
+}
+blockquote {
+  margin: 1.5em 0;
+  font-size: inherit;
+  color: #7c879c;
+  border-color: #4b5362;
+  border-width: 4px;
+}
+hr {
+  margin: 3em 0;
+  border-top: 2px dashed #4b5362;
+  background: none;
+}
+table {
+  margin: 1.5em 0;
+}
+th {
+  color: #ffffff;
+}
+th,
+td {
+  padding: 0.66em 1em;
+  border: 1px solid #4b5362;
+}
+code {
+  color: #ffffff;
+  background-color: #3a3f4b;
+}
+pre.editor-colors {
+  margin: 1.5em 0;
+  padding: 1em;
+  font-size: 0.92em;
+  border-radius: 3px;
+  background-color: #31363f;
+}
+kbd {
+  color: #ffffff;
+  border: 1px solid #4b5362;
+  border-bottom: 2px solid #3e4451;
+  background-color: #3a3f4b;
+}
+
+pre.editor-colors {
+  color: #839496;
+  background-color: #002b36;
+}
+pre.editor-colors .gutter {
+  color: #839496;
+  background-color: #073642;
+}
+pre.editor-colors .gutter .line-number.cursor-line {
+  background-color: #0a4d5e;
+}
+pre.editor-colors .invisible-character {
+  color: #0a4d5e;
+}
+pre.editor-colors .indent-guide {
+  color: #0a4d5e;
+}
+pre.editor-colors .cursor {
+  border-color: #fdf6e3;
+}
+pre.editor-colors .cursor-line {
+  background-color: rgba(0, 165, 207, 0.08);
+}
+pre.editor-colors .selection .region {
+  background-color: #073a47;
+}
+pre.editor-colors .fold-marker:after,
+pre.editor-colors .gutter .line-number.folded {
+  color: #d33682;
+}
+pre.editor-colors .bracket-matcher .region {
+  border-color: #d33682;
+}
+.syntax--comment {
+  color: #586e75;
+  font-style: italic;
+}
+.syntax--comment .syntax--markup.syntax--link {
+  color: #586e75;
+}
+.syntax--string {
+  color: #2aa198;
+}
+.syntax--string.syntax--regexp {
+  color: #dc322f;
+}
+.syntax--constant.syntax--numeric {
+  color: #d33682;
+}
+.syntax--constant.syntax--language {
+  color: #b58900;
+}
+.syntax--constant.syntax--character,
+.syntax--constant.syntax--other,
+.syntax--constant.syntax--support {
+  color: #cb4b16;
+}
+.syntax--variable {
+  color: #268bd2;
+}
+.syntax--keyword {
+  color: #859900;
+}
+.syntax--storage {
+  color: #859900;
+}
+.syntax--meta.syntax--class {
+  color: #268bd2;
+}
+.syntax--entity.syntax--name.syntax--class,
+.syntax--entity.syntax--name.syntax--function,
+.syntax--entity.syntax--name.syntax--section,
+.syntax--entity.syntax--name.syntax--type {
+  color: #268bd2;
+}
+.syntax--entity.syntax--other.syntax--attribute-name {
+  color: #657b83;
+}
+.syntax--support.syntax--function {
+  color: #268bd2;
+}
+.syntax--support.syntax--function.syntax--builtin {
+  color: #859900;
+}
+.syntax--support.syntax--type,
+.syntax--support.syntax--class {
+  color: #859900;
+}
+.syntax--tag.syntax--entity.syntax--name {
+  color: #268bd2;
+}
+.syntax--tag.syntax--punctuation.syntax--definition.syntax--html,
+.syntax--tag.syntax--punctuation.syntax--definition.syntax--begin,
+.syntax--tag.syntax--punctuation.syntax--definition.syntax--end {
+  color: #586e75;
+}
+.syntax--invalid.syntax--deprecated {
+  color: #b58900;
+  text-decoration: underline;
+}
+.syntax--invalid.syntax--illegal {
+  color: #dc322f;
+  text-decoration: underline;
+}
+.syntax--none {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--meta.syntax--preprocessor,
+.syntax--source.syntax--cpp .syntax--meta.syntax--preprocessor {
+  color: #dc322f;
+}
+.syntax--source.syntax--c .syntax--keyword.syntax--control.syntax--directive,
+.syntax--source.syntax--cpp .syntax--keyword.syntax--control.syntax--directive {
+  color: #cb4b16;
+}
+.syntax--source.syntax--c .syntax--punctuation.syntax--string,
+.syntax--source.syntax--cpp .syntax--punctuation.syntax--string {
+  color: #2aa198;
+}
+.syntax--source.syntax--c .syntax--constant,
+.syntax--source.syntax--cpp .syntax--constant {
+  color: #cb4b16;
+}
+.syntax--source.syntax--c .syntax--constant.syntax--numeric,
+.syntax--source.syntax--cpp .syntax--constant.syntax--numeric,
+.syntax--source.syntax--c .syntax--constant.syntax--language.syntax--c,
+.syntax--source.syntax--cpp .syntax--constant.syntax--language.syntax--c {
+  color: #2aa198;
+}
+.syntax--source.syntax--c .syntax--storage,
+.syntax--source.syntax--cpp .syntax--storage {
+  color: #b58900;
+}
+.syntax--source.syntax--c .syntax--entity,
+.syntax--source.syntax--cpp .syntax--entity {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--entity.syntax--name.syntax--function.syntax--preprocessor,
+.syntax--source.syntax--cpp .syntax--entity.syntax--name.syntax--function.syntax--preprocessor {
+  color: #dc322f;
+}
+.syntax--source.syntax--c .syntax--support.syntax--type,
+.syntax--source.syntax--cpp .syntax--support.syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--c .syntax--support.syntax--type.syntax--posix-reserved,
+.syntax--source.syntax--cpp .syntax--support.syntax--type.syntax--posix-reserved {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--variable.syntax--other.syntax--dot-access,
+.syntax--source.syntax--cpp .syntax--variable.syntax--other.syntax--dot-access {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--variable.syntax--parameter.syntax--preprocessor,
+.syntax--source.syntax--cpp .syntax--variable.syntax--parameter.syntax--preprocessor {
+  color: #dc322f;
+}
+.syntax--source.syntax--coffee .syntax--support.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--variable,
+.syntax--source.syntax--coffee .syntax--entity.syntax--name.syntax--function,
+.syntax--source.syntax--coffee .syntax--entity.syntax--name.syntax--class {
+  color: #268bd2;
+}
+.syntax--source.syntax--coffee .syntax--variable.syntax--parameter.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--variable.syntax--other.syntax--readwrite {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--storage.syntax--type.syntax--function {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--entity.syntax--name {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--meta.syntax--brace.syntax--round,
+.syntax--source.syntax--coffee .syntax--meta.syntax--brace.syntax--square {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--meta.syntax--delimiter {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--storage.syntax--type.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--punctuation.syntax--terminator {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--punctuation.syntax--section.syntax--embedded {
+  color: #dc322f;
+}
+.syntax--source.syntax--coffee .syntax--embedded.syntax--source {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--constant.syntax--numeric {
+  color: #d33682;
+}
+.syntax--source.syntax--coffee .syntax--constant.syntax--language.syntax--boolean {
+  color: #b58900;
+}
+.syntax--source.syntax--css .syntax--punctuation.syntax--separator,
+.syntax--source.syntax--css .syntax--punctuation.syntax--terminator {
+  color: #839496;
+}
+.syntax--source.syntax--css .syntax--punctuation.syntax--property-list.syntax--begin,
+.syntax--source.syntax--css .syntax--punctuation.syntax--property-list.syntax--end {
+  color: #dc322f;
+}
+.syntax--source.syntax--css .syntax--punctuation.syntax--section.syntax--function {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--entity.syntax--name {
+  color: #859900;
+}
+.syntax--source.syntax--css .syntax--attribute-name.syntax--class,
+.syntax--source.syntax--css .syntax--id {
+  color: #268bd2;
+}
+.syntax--source.syntax--css .syntax--pseudo-element,
+.syntax--source.syntax--css .syntax--pseudo-class {
+  color: #cb4b16;
+}
+.syntax--source.syntax--css .syntax--property-value {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--constant.syntax--numeric {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--constant.syntax--numeric .syntax--unit {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--rgb-value {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--support.syntax--constant {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--support.syntax--constant.syntax--media {
+  color: #dc322f;
+}
+.syntax--source.syntax--css .syntax--keyword.syntax--important {
+  color: #dc322f;
+}
+.syntax--source.syntax--less .syntax--keyword.syntax--unit,
+.syntax--source.syntax--scss .syntax--keyword.syntax--unit {
+  color: #2aa198;
+}
+.syntax--source.syntax--go .syntax--operator {
+  color: #839496;
+}
+.syntax--source.syntax--go .syntax--operator.syntax--assignment {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--keyword.syntax--operator {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--keyword.syntax--import {
+  color: #cb4b16;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--modifier.syntax--import {
+  color: #586e75;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--class .syntax--storage.syntax--modifier {
+  color: #b58900;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--class .syntax--meta.syntax--class.syntax--identifier .syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #268bd2;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--type.syntax--primitive.syntax--array {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--constant.syntax--numeric {
+  color: #d33682;
+}
+.syntax--source.syntax--java .syntax--constant.syntax--other {
+  color: #cb4b16;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--type {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--method-call {
+  color: #dc322f;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--method-call .syntax--meta.syntax--method {
+  color: #6c71c4;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--method-call .syntax--punctuation.syntax--definition.syntax--seperator.syntax--parameter {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--punctuation.syntax--definition.syntax--method-parameters {
+  color: #93a1a1;
+}
+.syntax--source.syntax--js .syntax--comma {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--support.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name.syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name.syntax--function {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name.syntax--tag {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--other.syntax--attribute-name {
+  color: #b58900;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--brace {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--keyword {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--new {
+  color: #859900;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--control {
+  color: #cb4b16;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--control.syntax--regexp {
+  color: #2aa198;
+}
+.syntax--source.syntax--js .syntax--variable {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--variable.syntax--dom {
+  color: #859900;
+}
+.syntax--source.syntax--js .syntax--delimiter + .syntax--dom {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--name {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--variable.syntax--language {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--variable.syntax--parameter {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--regexp {
+  color: #2aa198;
+}
+.syntax--source.syntax--js .syntax--support.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--support.syntax--constant {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--storage.syntax--modifier {
+  color: #b58900;
+}
+.syntax--source.syntax--js .syntax--punctuation.syntax--terminator.syntax--statement {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--delimiter.syntax--method.syntax--period {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--brace.syntax--square {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--brace.syntax--curly {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--string.syntax--quoted.syntax--template .syntax--embedded.syntax--source {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--string.syntax--quoted.syntax--template .syntax--embedded.syntax--source > .syntax--embedded.syntax--punctuation {
+  color: #dc322f;
+}
+.syntax--source.syntax--js.syntax--embedded .syntax--entity.syntax--name.syntax--tag {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--import .syntax--control {
+  color: #cb4b16;
+}
+.syntax--source.syntax--js.syntax--rails .syntax--instance {
+  color: #268bd2;
+}
+.syntax--source.syntax--js.syntax--rails .syntax--class {
+  color: #b58900;
+}
+.syntax--md .syntax--link .syntax--entity,
+.syntax--gfm .syntax--link .syntax--entity {
+  color: #6c71c4;
+}
+.syntax--md .syntax--list.syntax--ordered,
+.syntax--gfm .syntax--list.syntax--ordered {
+  color: #859900;
+}
+.syntax--md .syntax--list.syntax--unordered,
+.syntax--gfm .syntax--list.syntax--unordered {
+  color: #b58900;
+}
+.syntax--md .syntax--raw,
+.syntax--gfm .syntax--raw {
+  font-style: italic;
+}
+.syntax--md.syntax--support,
+.syntax--gfm.syntax--support {
+  color: #586e75;
+}
+.syntax--md.syntax--support.syntax--quote,
+.syntax--gfm.syntax--support.syntax--quote {
+  color: #6c71c4;
+}
+.syntax--markup.syntax--bold {
+  font-weight: bold;
+}
+.syntax--markup.syntax--italic {
+  font-style: italic;
+}
+.syntax--markup.syntax--heading {
+  color: #268bd2;
+}
+.syntax--markup.syntax--link {
+  color: #2aa198;
+}
+.syntax--markup.syntax--deleted {
+  color: #dc322f;
+}
+.syntax--markup.syntax--changed {
+  color: #b58900;
+}
+.syntax--markup.syntax--inserted {
+  color: #2aa198;
+}
+.syntax--source.syntax--php .syntax--storage.syntax--type.syntax--class {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--storage.syntax--type.syntax--function {
+  color: #cb4b16;
+}
+.syntax--source.syntax--php .syntax--storage.syntax--modifier {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--entity.syntax--name.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--entity.syntax--other {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--variable {
+  color: #268bd2;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--comment {
+  color: #586e75;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--array {
+  color: #dc322f;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--string {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--variable {
+  color: #859900;
+}
+.syntax--source.syntax--php .syntax--support.syntax--function.syntax--construct {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--support.syntax--function.syntax--array {
+  color: #859900;
+}
+.syntax--source.syntax--php .syntax--keyword.syntax--operator.syntax--class {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--keyword.syntax--operator.syntax--assignment {
+  color: #859900;
+}
+.syntax--source.syntax--php .syntax--keyword.syntax--other {
+  color: #dc322f;
+}
+.syntax--source.syntax--python .syntax--entity {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--entity.syntax--name {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--entity.syntax--other {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--function {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--function.syntax--magic {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--string {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator.syntax--quantifier {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator.syntax--logical {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--control.syntax--import {
+  color: #cb4b16;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--other {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--constant.syntax--language {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--constant.syntax--character {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--constant.syntax--other {
+  color: #dc322f;
+}
+.syntax--source.syntax--python .syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--variable {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--support.syntax--function.syntax--builtin {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--support.syntax--type.syntax--exception.syntax--python {
+  color: #b58900;
+}
+.syntax--source.syntax--python .syntax--support.syntax--type.syntax--python {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--string {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--class.syntax--todo {
+  color: #d33682;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--function {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--definition.syntax--parameters {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--section.syntax--function.syntax--begin {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--separator.syntax--parameters {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--meta.syntax--embedded .syntax--punctuation.syntax--section {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--definition {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--definition.syntax--string {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--definition.syntax--comment {
+  color: #586e75;
+}
+.syntax--source.syntax--ruby .syntax--entity.syntax--inherited-class {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--parameter {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--constant {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--constant.syntax--boolean {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--instance .syntax--punctuation.syntax--definition {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--class {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--class.syntax--control {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--module {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--require .syntax--keyword.syntax--other.syntax--special-method {
+  color: #cb4b16;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--other.syntax--special-method {
+  color: #cb4b16;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--other {
+  color: #859900;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--control {
+  color: #859900;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--operator {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--special-method {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--symbol {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--symbol .syntax--punctuation.syntax--definition {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--hashkey {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--hashkey .syntax--punctuation.syntax--definition {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--regexp {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--todo {
+  color: #d33682;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--ruby.syntax--global {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--ruby.syntax--global .syntax--punctuation {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--block {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--self {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--separator {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--numeric {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--section.syntax--regexp {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--punctuation .syntax--source.syntax--ruby {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--source.syntax--ruby {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--source.syntax--ruby .syntax--punctuation.syntax--array,
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--source.syntax--ruby .syntax--punctuation.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--support.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--support.syntax--function.syntax--kernel {
+  color: #859900;
+}
+.syntax--source.syntax--scala .syntax--variable {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--declaration {
+  color: #93a1a1;
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--comparison {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--class,
+.syntax--source.syntax--scala .syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--scala .syntax--val {
+  font-weight: normal;
+}
+.syntax--source.syntax--scala .syntax--variable {
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--variable.syntax--parameter {
+  color: #6c71c4;
+  font-weight: normal;
+}
+.syntax--source.syntax--scala .syntax--control.syntax--flow {
+  color: #93a1a1;
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--constant.syntax--language {
+  color: #93a1a1;
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--function.syntax--declaration {
+  color: #6c71c4;
+}
+.syntax--source.syntax--scala .syntax--modifier.syntax--other {
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--package {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--variable.syntax--import {
+  font-weight: normal;
+}
+.syntax--source.syntax--scala .syntax--type .syntax--bounds,
+.syntax--source.syntax--scala .syntax--type .syntax--class {
+  color: #6c71c4;
+}
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded).syntax--link.syntax--entity {
+  color: #268bd2;
+  text-decoration: underline;
+}
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded) .syntax--class,
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded) .syntax--parameter {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded) .syntax--description {
+  color: #586e75;
+}
+.syntax--source.syntax--scala .syntax--embedded {
+  color: #6c7c7c;
+  font-style: italic;
+}
+.syntax--source.syntax--scala .syntax--embedded .syntax--margin,
+.syntax--source.syntax--scala .syntax--embedded .syntax--delimiters {
+  font-style: normal;
+}
+.syntax--source.syntax--ts .syntax--import .syntax--control,
+.syntax--source.syntax--tsx .syntax--import .syntax--control {
+  color: #cb4b16;
+}
+.syntax--source.syntax--ts .syntax--entity.syntax--name.syntax--type,
+.syntax--source.syntax--tsx .syntax--entity.syntax--name.syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--ts .syntax--entity.syntax--inherited-class,
+.syntax--source.syntax--tsx .syntax--entity.syntax--inherited-class {
+  color: #b58900;
+}
+.syntax--source.syntax--ts .syntax--support.syntax--type,
+.syntax--source.syntax--tsx .syntax--support.syntax--type {
+  color: #b58900;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="../style.css">
+
+  </head>
+  <body>
+    <h1>[THEG] Theorie des graphes (2)</h1>
+<blockquote>
+<p>BFS / DFS</p>
+</blockquote>
+<h2>Representation des graphes</h2>
+<h3>Representation mathematique</h3>
+<p><ins>Representation traditionnelle</ins>:</p>
+<p><span class="math inline-math"><script type="math/tex">V</script></span> : ensemble des sommets<br>
+<span class="math inline-math"><script type="math/tex">E \subseteq X \times V</script></span> : ensemble des aretes</p>
+<p><span class="math inline-math"><script type="math/tex">\implies</script></span> Interdit les doublons<br>
+<span class="math inline-math"><script type="math/tex">\implies</script></span> Ne peut pas representer tous les graphes</p>
+<p><ins>Exemple</ins>:</p>
+<pre class="graphviz"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg width="222pt" height="204pt" viewBox="0.00 0.00 222.43 204.43" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 200.4282)">
+<title>G</title>
+<polygon fill="#282c34" stroke="transparent" points="-4,4 -4,-200.4282 218.4282,-200.4282 218.4282,4 -4,4"></polygon>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<ellipse fill="none" stroke="#ffffff" cx="107.2141" cy="-18" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="107.2141" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">A</text>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<ellipse fill="none" stroke="#ffffff" cx="27" cy="-98.2141" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="27" y="-94.0141" font-family="Times,serif" font-size="14.00" fill="#ffffff">B</text>
+</g>
+<!-- A&#45;&gt;B -->
+<g id="edge1" class="edge">
+<title>A-&gt;B</title>
+<path fill="none" stroke="#ffffff" d="M87.0581,-30.309C73.5667,-41.7686 56.141,-58.9849 43.4735,-73.2655"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="40.4689,-71.3937 36.6305,-81.2688 45.7894,-75.9428 40.4689,-71.3937"></polygon>
+</g>
+<!-- A&#45;&gt;B -->
+<g id="edge2" class="edge">
+<title>A-&gt;B</title>
+<path fill="none" stroke="#ffffff" d="M97.6215,-34.8989C86.9861,-47.9087 69.6436,-65.7377 54.7587,-79.2211"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="52.4449,-76.5949 47.2475,-85.8273 57.0679,-81.8512 52.4449,-76.5949"></polygon>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<ellipse fill="none" stroke="#ffffff" cx="187.4282" cy="-98.2141" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="187.4282" y="-94.0141" font-family="Times,serif" font-size="14.00" fill="#ffffff">C</text>
+</g>
+<!-- A&#45;&gt;C -->
+<g id="edge3" class="edge">
+<title>A-&gt;C</title>
+<path fill="none" stroke="#ffffff" d="M122.3017,-33.0877C134.402,-45.1879 151.5609,-62.3468 165.2285,-76.0145"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="162.8622,-78.5979 172.4082,-83.1941 167.812,-73.6481 162.8622,-78.5979"></polygon>
+</g>
+<!-- B&#45;&gt;C -->
+<g id="edge7" class="edge">
+<title>B-&gt;C</title>
+<path fill="none" stroke="#ffffff" d="M54.2145,-98.2141C80.5682,-98.2141 120.7369,-98.2141 150.0752,-98.2141"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="150.3484,-101.7142 160.3484,-98.2141 150.3484,-94.7142 150.3484,-101.7142"></polygon>
+</g>
+<!-- D -->
+<g id="node4" class="node">
+<title>D</title>
+<ellipse fill="none" stroke="#ffffff" cx="107.2141" cy="-178.4282" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="107.2141" y="-174.2282" font-family="Times,serif" font-size="14.00" fill="#ffffff">D</text>
+</g>
+<!-- B&#45;&gt;D -->
+<g id="edge5" class="edge">
+<title>B-&gt;D</title>
+<path fill="none" stroke="#ffffff" d="M36.5926,-115.113C47.228,-128.1228 64.5705,-145.9518 79.4554,-159.4351"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="77.1462,-162.0653 86.9666,-166.0414 81.7692,-156.809 77.1462,-162.0653"></polygon>
+</g>
+<!-- B&#45;&gt;D -->
+<g id="edge6" class="edge">
+<title>B-&gt;D</title>
+<path fill="none" stroke="#ffffff" d="M47.156,-110.5231C60.6474,-121.9827 78.0731,-139.199 90.7406,-153.4796"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="88.4247,-156.1568 97.5836,-161.4829 93.7451,-151.6078 88.4247,-156.1568"></polygon>
+</g>
+<!-- C&#45;&gt;D -->
+<g id="edge4" class="edge">
+<title>C-&gt;D</title>
+<path fill="none" stroke="#ffffff" d="M172.3405,-113.3017C160.2403,-125.402 143.0814,-142.5609 129.4137,-156.2285"></path>
+<polygon fill="#ffffff" stroke="#ffffff" points="126.8303,-153.8622 122.2341,-163.4082 131.7801,-158.812 126.8303,-153.8622"></polygon>
+</g>
+</g>
+</svg>
+</pre>
+<p><span class="math inline-math"><script type="math/tex">\{\{(A,B), (A,B), (A,C), (B,C), (B,D), (B,D), (C,D)\}\}</script></span></p>
+<p>Si le graphe est <strong>non-oriente</strong> :</p>
+<ul>
+<li><span class="math inline-math"><script type="math/tex">(x, y) \in E</script></span> signifie que soit <span class="math inline-math"><script type="math/tex">(x,y)</script></span> soit <span class="math inline-math"><script type="math/tex">(y, x)</script></span> est dans E.</li>
+<li><span class="math inline-math"><script type="math/tex">succ(x) = \{ y \in V | (x, y) \in E \}</script></span></li>
+</ul>
+<hr>
+<h3>Representation sur machine</h3>
+<p>Sur machine, on a plusieurs facons de representer un graphe :</p>
+<ul>
+<li><span class="math inline-math"><script type="math/tex">n \in \mathbb{N}</script></span>, <strong>edges = liste(paire(<span class="math inline-math"><script type="math/tex">\mathbb{N}, \mathbb{N}</script></span>))</strong></li>
+<li><strong>Liste d’adjacence</strong> (chaque entree du tableau pointe sur une liste contenant ses successeurs)</li>
+<li><strong>Matrice d’adjacence</strong> : <span class="math inline-math"><script type="math/tex">M[x,y] = 1 \iff (x,y) \in E</script></span></li>
+</ul>
+<h3>Cout des operations sur les graphes</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Representation</th>
+<th style="text-align:center">Tester <span class="math inline-math"><script type="math/tex">(x, y) \in E</script></span></th>
+<th style="text-align:center">Trouver <span class="math inline-math"><script type="math/tex">succ(x)</script></span></th>
+<th style="text-align:center">Cout de la boucle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">edges = liste(paire(<span class="math inline-math"><script type="math/tex">\mathbb{N}, \mathbb{N}</script></span>))</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">O(\|E\|)</script></span></td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(\|E\|)</script></span></td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(\|V\|.\|E\|)</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">Liste d’adjacence</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">O(\|succ(x)\|) = O(\|E\|)</script></span></td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(1)</script></span> (retourne la liste)</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\sum_{x \in V}(\Theta(1) + deg(x)) = \Theta(\|V\|) + \Theta(\|E\|))^{(1)}</script></span></td>
+</tr>
+<tr>
+<td style="text-align:center">Matrice d’adjacence</td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(1)</script></span></td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(\|V\|)</script></span></td>
+<td style="text-align:center"><span class="math inline-math"><script type="math/tex">\Theta(\|V\|^2)</script></span></td>
+</tr>
+</tbody>
+</table>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">/* Cout de la boucle */</span></span></span>
+<span class=""><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">for x in V :<span class="trailing-whitespace"> </span></span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">    </span><span class="syntax--meta syntax--paragraph syntax--text">for y in succ(x): // Cout de cette ligne pour tout x</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">        </span><span class="syntax--meta syntax--paragraph syntax--text">// ...</span></span></span></pre>
+<p>:::info
+<strong>Notes</strong> :</p>
+<ul>
+<li><span class="math inline-math"><script type="math/tex">^{(1)}</script></span> Si le graphe est connecte, alors <span class="math inline-math"><script type="math/tex">\|E\| \geq \|V\| - 1</script></span> et <span class="math inline-math"><script type="math/tex">\|E\| = \Omega(\|V\|)</script></span> donc <span class="math inline-math"><script type="math/tex">\Theta(\|E\|) + \Theta(\|V\|) = \Theta(\|E\|)</script></span></li>
+<li>Si le graphe n’a pas d’aretes en double (graphe simple), <span class="math inline-math"><script type="math/tex">\|E\| \leq \|V\|^2</script></span>
+:::</li>
+</ul>
+<h2>Parcours d’un graphe</h2>
+<h3>DFS (Depth First Search)</h3>
+<pre class="graphviz"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg width="342pt" height="235pt" viewBox="0.00 0.00 342.39 234.72" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 230.7203)">
+<title>G</title>
+<polygon fill="#282c34" stroke="transparent" points="-4,4 -4,-230.7203 338.3858,-230.7203 338.3858,4 -4,4"></polygon>
+<!-- 0 -->
+<g id="node1" class="node">
+<title>0</title>
+<ellipse fill="none" stroke="#ffffff" cx="27" cy="-54.4243" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="27" y="-50.2243" font-family="Times,serif" font-size="14.00" fill="#ffffff">0</text>
+</g>
+<!-- 1 -->
+<g id="node2" class="node">
+<title>1</title>
+<ellipse fill="none" stroke="#ffffff" cx="139.1026" cy="-208.7203" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="139.1026" y="-204.5203" font-family="Times,serif" font-size="14.00" fill="#ffffff">1</text>
+</g>
+<!-- 0&#45;&#45;1 -->
+<g id="edge1" class="edge">
+<title>0--1</title>
+<path fill="none" stroke="#ffffff" d="M38.7851,-70.6451C60.2591,-100.2015 105.5322,-162.5146 127.138,-192.2525"></path>
+</g>
+<!-- 2 -->
+<g id="node3" class="node">
+<title>2</title>
+<ellipse fill="none" stroke="#ffffff" cx="27" cy="-172.296" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="27" y="-168.096" font-family="Times,serif" font-size="14.00" fill="#ffffff">2</text>
+</g>
+<!-- 0&#45;&#45;2 -->
+<g id="edge2" class="edge">
+<title>0--2</title>
+<path fill="none" stroke="#ffffff" d="M27,-72.5835C27,-94.6692 27,-131.7397 27,-153.922"></path>
+</g>
+<!-- 1&#45;&#45;2 -->
+<g id="edge3" class="edge">
+<title>1--2</title>
+<path fill="none" stroke="#ffffff" d="M114.778,-200.8168C95.9746,-194.7072 70.0685,-186.2898 51.2771,-180.1841"></path>
+</g>
+<!-- 5 -->
+<g id="node5" class="node">
+<title>5</title>
+<ellipse fill="none" stroke="#ffffff" cx="208.3858" cy="-113.3602" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="208.3858" y="-109.1602" font-family="Times,serif" font-size="14.00" fill="#ffffff">5</text>
+</g>
+<!-- 1&#45;&#45;5 -->
+<g id="edge6" class="edge">
+<title>1--5</title>
+<path fill="none" stroke="#ffffff" d="M151.1708,-192.1099C163.8873,-174.6071 183.7918,-147.2109 196.4559,-129.7803"></path>
+</g>
+<!-- 3 -->
+<g id="node4" class="node">
+<title>3</title>
+<ellipse fill="none" stroke="#ffffff" cx="139.1026" cy="-18" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="139.1026" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">3</text>
+</g>
+<!-- 2&#45;&#45;3 -->
+<g id="edge4" class="edge">
+<title>2--3</title>
+<path fill="none" stroke="#ffffff" d="M38.7851,-156.0752C60.2591,-126.5188 105.5322,-64.2057 127.138,-34.4678"></path>
+</g>
+<!-- 3&#45;&#45;5 -->
+<g id="edge5" class="edge">
+<title>3--5</title>
+<path fill="none" stroke="#ffffff" d="M151.1708,-34.6105C163.8873,-52.1132 183.7918,-79.5095 196.4559,-96.94"></path>
+</g>
+<!-- 4 -->
+<g id="node6" class="node">
+<title>4</title>
+<ellipse fill="none" stroke="#ffffff" cx="307.3858" cy="-113.3602" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="307.3858" y="-109.1602" font-family="Times,serif" font-size="14.00" fill="#ffffff">4</text>
+</g>
+<!-- 5&#45;&#45;4 -->
+<g id="edge7" class="edge">
+<title>5--4</title>
+<path fill="none" stroke="#ffffff" d="M235.438,-113.3602C249.407,-113.3602 266.402,-113.3602 280.3663,-113.3602"></path>
+</g>
+</g>
+</svg>
+</pre>
+<pre class="graphviz"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg width="342pt" height="235pt" viewBox="0.00 0.00 342.39 234.72" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 230.7203)">
+<title>G</title>
+<polygon fill="#282c34" stroke="transparent" points="-4,4 -4,-230.7203 338.3858,-230.7203 338.3858,4 -4,4"></polygon>
+<!-- 0 -->
+<g id="node1" class="node">
+<title>0</title>
+<ellipse fill="none" stroke="#ffffff" cx="27" cy="-54.4243" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="27" y="-50.2243" font-family="Times,serif" font-size="14.00" fill="#ffffff">0</text>
+</g>
+<!-- 1 -->
+<g id="node2" class="node">
+<title>1</title>
+<ellipse fill="none" stroke="#ffffff" cx="139.1026" cy="-208.7203" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="139.1026" y="-204.5203" font-family="Times,serif" font-size="14.00" fill="#ffffff">1</text>
+</g>
+<!-- 0&#45;&gt;1 -->
+<g id="edge1" class="edge">
+<title>0-&gt;1</title>
+<path fill="none" stroke="#0000ff" d="M34.546,-71.9751C51.3102,-100.2097 91.0378,-155.4262 116.5145,-186.4035"></path>
+<polygon fill="#0000ff" stroke="#0000ff" points="113.8626,-188.6881 122.9765,-194.0908 119.221,-184.1838 113.8626,-188.6881"></polygon>
+<text text-anchor="middle" x="68.5303" y="-133.3893" font-family="Times,serif" font-size="14.00" fill="#ffffff">15</text>
+</g>
+<!-- 2 -->
+<g id="node3" class="node">
+<title>2</title>
+<ellipse fill="none" stroke="#ffffff" cx="27" cy="-172.296" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="27" y="-168.096" font-family="Times,serif" font-size="14.00" fill="#ffffff">2</text>
+</g>
+<!-- 0&#45;&gt;2 -->
+<g id="edge3" class="edge">
+<title>0-&gt;2</title>
+<path fill="none" stroke="#ff0000" d="M21.9906,-72.3265C20.0012,-91.3656 19.7171,-121.7467 21.1384,-144.0249"></path>
+<polygon fill="#ff0000" stroke="#ff0000" points="17.6691,-144.5442 21.9731,-154.2254 24.6458,-143.9732 17.6691,-144.5442"></polygon>
+<text text-anchor="middle" x="18.0645" y="-112.3757" font-family="Times,serif" font-size="14.00" fill="#ffffff">2</text>
+</g>
+<!-- 1&#45;&gt;0 -->
+<g id="edge2" class="edge">
+<title>1-&gt;0</title>
+<path fill="none" stroke="#0000ff" d="M131.5566,-191.1696C114.7924,-162.935 75.0648,-107.7185 49.5881,-76.7412"></path>
+<polygon fill="#0000ff" stroke="#0000ff" points="52.24,-74.4566 43.1261,-69.0539 46.8816,-78.9608 52.24,-74.4566"></polygon>
+<text text-anchor="middle" x="87.0723" y="-138.1554" font-family="Times,serif" font-size="14.00" fill="#ffffff">6</text>
+</g>
+<!-- 1&#45;&gt;2 -->
+<g id="edge5" class="edge">
+<title>1-&gt;2</title>
+<path fill="none" stroke="#0000ff" d="M119.1747,-196.5065C103.8156,-190.0743 82.1717,-182.7476 63.711,-177.6027"></path>
+<polygon fill="#0000ff" stroke="#0000ff" points="64.4056,-174.1661 53.8427,-174.9885 62.613,-180.9327 64.4056,-174.1661"></polygon>
+<text text-anchor="middle" x="87.9429" y="-191.2546" font-family="Times,serif" font-size="14.00" fill="#ffffff">7</text>
+</g>
+<!-- 5 -->
+<g id="node5" class="node">
+<title>5</title>
+<ellipse fill="none" stroke="#ffffff" cx="208.3858" cy="-113.3602" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="208.3858" y="-109.1602" font-family="Times,serif" font-size="14.00" fill="#ffffff">5</text>
+</g>
+<!-- 1&#45;&gt;5 -->
+<g id="edge12" class="edge">
+<title>1-&gt;5</title>
+<path fill="none" stroke="#0000ff" d="M156.1498,-194.3827C168.7415,-179.8856 185.356,-157.2972 196.551,-139.6135"></path>
+<polygon fill="#0000ff" stroke="#0000ff" points="199.6555,-141.2446 201.8613,-130.8819 193.6747,-137.6072 199.6555,-141.2446"></polygon>
+<text text-anchor="middle" x="172.8504" y="-171.1981" font-family="Times,serif" font-size="14.00" fill="#ffffff">8</text>
+</g>
+<!-- 2&#45;&gt;0 -->
+<g id="edge4" class="edge">
+<title>2-&gt;0</title>
+<path fill="none" stroke="#0000ff" d="M32.0094,-154.3938C33.9988,-135.3548 34.2829,-104.9737 32.8616,-82.6955"></path>
+<polygon fill="#0000ff" stroke="#0000ff" points="36.3309,-82.1762 32.0269,-72.495 29.3542,-82.7472 36.3309,-82.1762"></polygon>
+<text text-anchor="middle" x="39.4355" y="-122.7446" font-family="Times,serif" font-size="14.00" fill="#ffffff">13</text>
+</g>
+<!-- 2&#45;&gt;1 -->
+<g id="edge6" class="edge">
+<title>2-&gt;1</title>
+<path fill="none" stroke="#0000ff" d="M46.9279,-184.5098C62.287,-190.9421 83.9309,-198.2687 102.3916,-203.4136"></path>
+<polygon fill="#0000ff" stroke="#0000ff" points="101.697,-206.8503 112.2599,-206.0278 103.4896,-200.0837 101.697,-206.8503"></polygon>
+<text text-anchor="middle" x="67.6597" y="-198.1617" font-family="Times,serif" font-size="14.00" fill="#ffffff">14</text>
+</g>
+<!-- 3 -->
+<g id="node4" class="node">
+<title>3</title>
+<ellipse fill="none" stroke="#ffffff" cx="139.1026" cy="-18" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="139.1026" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">3</text>
+</g>
+<!-- 2&#45;&gt;3 -->
+<g id="edge7" class="edge">
+<title>2-&gt;3</title>
+<path fill="none" stroke="#ff0000" d="M43.0113,-157.7995C65.5724,-131.6748 105.7544,-76.6773 126.4016,-43.9475"></path>
+<polygon fill="#ff0000" stroke="#ff0000" points="129.4307,-45.7031 131.6763,-35.349 123.4639,-42.0428 129.4307,-45.7031"></polygon>
+<text text-anchor="middle" x="81.2064" y="-105.0735" font-family="Times,serif" font-size="14.00" fill="#ffffff">3</text>
+</g>
+<!-- 3&#45;&gt;2 -->
+<g id="edge8" class="edge">
+<title>3-&gt;2</title>
+<path fill="none" stroke="#0000ff" d="M123.0913,-32.4965C100.5302,-58.6212 60.3482,-113.6187 39.701,-146.3485"></path>
+<polygon fill="#0000ff" stroke="#0000ff" points="36.6719,-144.5929 34.4263,-154.947 42.6387,-148.2532 36.6719,-144.5929"></polygon>
+<text text-anchor="middle" x="74.3962" y="-76.8225" font-family="Times,serif" font-size="14.00" fill="#ffffff">12</text>
+</g>
+<!-- 3&#45;&gt;5 -->
+<g id="edge9" class="edge">
+<title>3-&gt;5</title>
+<path fill="none" stroke="#ff0000" d="M145.8325,-35.8757C155.0007,-51.6366 171.2294,-74.5366 184.9416,-91.3941"></path>
+<polygon fill="#ff0000" stroke="#ff0000" points="182.3201,-93.7151 191.4288,-99.1264 187.6828,-89.2159 182.3201,-93.7151"></polygon>
+<text text-anchor="middle" x="161.887" y="-67.8349" font-family="Times,serif" font-size="14.00" fill="#ffffff">4</text>
+</g>
+<!-- 5&#45;&gt;1 -->
+<g id="edge11" class="edge">
+<title>5-&gt;1</title>
+<path fill="none" stroke="#ff0000" d="M191.3386,-127.6978C178.7469,-142.1949 162.1325,-164.7833 150.9374,-182.467"></path>
+<polygon fill="#ff0000" stroke="#ff0000" points="147.8329,-180.8359 145.6271,-191.1986 153.8137,-184.4733 147.8329,-180.8359"></polygon>
+<text text-anchor="middle" x="167.638" y="-142.4824" font-family="Times,serif" font-size="14.00" fill="#ffffff">5</text>
+</g>
+<!-- 5&#45;&gt;3 -->
+<g id="edge10" class="edge">
+<title>5-&gt;3</title>
+<path fill="none" stroke="#0000ff" d="M201.656,-95.4845C192.4877,-79.7236 176.259,-56.8236 162.5469,-39.9661"></path>
+<polygon fill="#0000ff" stroke="#0000ff" points="165.1683,-37.6451 156.0596,-32.2338 159.8056,-42.1443 165.1683,-37.6451"></polygon>
+<text text-anchor="middle" x="175.1014" y="-71.9253" font-family="Times,serif" font-size="14.00" fill="#ffffff">11</text>
+</g>
+<!-- 4 -->
+<g id="node6" class="node">
+<title>4</title>
+<ellipse fill="none" stroke="#ffffff" cx="307.3858" cy="-113.3602" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="307.3858" y="-109.1602" font-family="Times,serif" font-size="14.00" fill="#ffffff">4</text>
+</g>
+<!-- 5&#45;&gt;4 -->
+<g id="edge13" class="edge">
+<title>5-&gt;4</title>
+<path fill="none" stroke="#ff0000" d="M233.8808,-119.3484C245.339,-120.1373 259.0614,-120.3134 271.5308,-119.8769"></path>
+<polygon fill="#ff0000" stroke="#ff0000" points="271.8227,-123.3667 281.6332,-119.366 271.4691,-116.3756 271.8227,-123.3667"></polygon>
+<text text-anchor="middle" x="249.2058" y="-123.8126" font-family="Times,serif" font-size="14.00" fill="#ffffff">9</text>
+</g>
+<!-- 4&#45;&gt;5 -->
+<g id="edge14" class="edge">
+<title>4-&gt;5</title>
+<path fill="none" stroke="#0000ff" d="M281.8909,-107.3719C270.4327,-106.583 256.7102,-106.4069 244.2408,-106.8435"></path>
+<polygon fill="#0000ff" stroke="#0000ff" points="243.9489,-103.3537 234.1385,-107.3543 244.3025,-110.3447 243.9489,-103.3537"></polygon>
+<text text-anchor="middle" x="256.0658" y="-94.5077" font-family="Times,serif" font-size="14.00" fill="#ffffff">10</text>
+</g>
+</g>
+</svg>
+</pre>
+<p><span style="color:red;"><span class="math inline-math"><script type="math/tex">\implies</script></span> Decouverte d’un nouveau succ : forme un arbre couvrant si le graphe est connexe</span><br>
+<span style="color:blue;"><span class="math inline-math"><script type="math/tex">\implies</script></span> Decouverte d’un succ connu</span></p>
+<hr>
+<h3>BFS (Breadth-First Search)</h3>
+<pre class="graphviz"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg width="342pt" height="235pt" viewBox="0.00 0.00 342.39 234.72" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 230.7203)">
+<title>G</title>
+<polygon fill="#282c34" stroke="transparent" points="-4,4 -4,-230.7203 338.3858,-230.7203 338.3858,4 -4,4"></polygon>
+<!-- 0 -->
+<g id="node1" class="node">
+<title>0</title>
+<ellipse fill="none" stroke="#ffffff" cx="27" cy="-54.4243" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="27" y="-50.2243" font-family="Times,serif" font-size="14.00" fill="#ffffff">0</text>
+</g>
+<!-- 1 -->
+<g id="node2" class="node">
+<title>1</title>
+<ellipse fill="none" stroke="#ffffff" cx="139.1026" cy="-208.7203" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="139.1026" y="-204.5203" font-family="Times,serif" font-size="14.00" fill="#ffffff">1</text>
+</g>
+<!-- 0&#45;&gt;1 -->
+<g id="edge1" class="edge">
+<title>0-&gt;1</title>
+<path fill="none" stroke="#ff0000" d="M34.546,-71.9751C51.3102,-100.2097 91.0378,-155.4262 116.5145,-186.4035"></path>
+<polygon fill="#ff0000" stroke="#ff0000" points="113.8626,-188.6881 122.9765,-194.0908 119.221,-184.1838 113.8626,-188.6881"></polygon>
+<text text-anchor="middle" x="72.0303" y="-133.3893" font-family="Times,serif" font-size="14.00" fill="#ffffff">3</text>
+</g>
+<!-- 2 -->
+<g id="node3" class="node">
+<title>2</title>
+<ellipse fill="none" stroke="#ffffff" cx="27" cy="-172.296" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="27" y="-168.096" font-family="Times,serif" font-size="14.00" fill="#ffffff">2</text>
+</g>
+<!-- 0&#45;&gt;2 -->
+<g id="edge3" class="edge">
+<title>0-&gt;2</title>
+<path fill="none" stroke="#ff0000" d="M21.9906,-72.3265C20.0012,-91.3656 19.7171,-121.7467 21.1384,-144.0249"></path>
+<polygon fill="#ff0000" stroke="#ff0000" points="17.6691,-144.5442 21.9731,-154.2254 24.6458,-143.9732 17.6691,-144.5442"></polygon>
+<text text-anchor="middle" x="18.0645" y="-112.3757" font-family="Times,serif" font-size="14.00" fill="#ffffff">2</text>
+</g>
+<!-- 1&#45;&gt;0 -->
+<g id="edge2" class="edge">
+<title>1-&gt;0</title>
+<path fill="none" stroke="#0000ff" d="M131.5566,-191.1696C114.7924,-162.935 75.0648,-107.7185 49.5881,-76.7412"></path>
+<polygon fill="#0000ff" stroke="#0000ff" points="52.24,-74.4566 43.1261,-69.0539 46.8816,-78.9608 52.24,-74.4566"></polygon>
+<text text-anchor="middle" x="87.0723" y="-138.1554" font-family="Times,serif" font-size="14.00" fill="#ffffff">9</text>
+</g>
+<!-- 1&#45;&gt;2 -->
+<g id="edge5" class="edge">
+<title>1-&gt;2</title>
+<path fill="none" stroke="#ff0000" d="M119.1747,-196.5065C103.8156,-190.0743 82.1717,-182.7476 63.711,-177.6027"></path>
+<polygon fill="#ff0000" stroke="#ff0000" points="64.4056,-174.1661 53.8427,-174.9885 62.613,-180.9327 64.4056,-174.1661"></polygon>
+<text text-anchor="middle" x="87.9429" y="-191.2546" font-family="Times,serif" font-size="14.00" fill="#ffffff">6</text>
+</g>
+<!-- 5 -->
+<g id="node5" class="node">
+<title>5</title>
+<ellipse fill="none" stroke="#ffffff" cx="208.3858" cy="-113.3602" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="208.3858" y="-109.1602" font-family="Times,serif" font-size="14.00" fill="#ffffff">5</text>
+</g>
+<!-- 1&#45;&gt;5 -->
+<g id="edge11" class="edge">
+<title>1-&gt;5</title>
+<path fill="none" stroke="#0000ff" d="M156.1498,-194.3827C168.7415,-179.8856 185.356,-157.2972 196.551,-139.6135"></path>
+<polygon fill="#0000ff" stroke="#0000ff" points="199.6555,-141.2446 201.8613,-130.8819 193.6747,-137.6072 199.6555,-141.2446"></polygon>
+<text text-anchor="middle" x="172.8504" y="-171.1981" font-family="Times,serif" font-size="14.00" fill="#ffffff">7</text>
+</g>
+<!-- 2&#45;&gt;0 -->
+<g id="edge4" class="edge">
+<title>2-&gt;0</title>
+<path fill="none" stroke="#0000ff" d="M32.0094,-154.3938C33.9988,-135.3548 34.2829,-104.9737 32.8616,-82.6955"></path>
+<polygon fill="#0000ff" stroke="#0000ff" points="36.3309,-82.1762 32.0269,-72.495 29.3542,-82.7472 36.3309,-82.1762"></polygon>
+<text text-anchor="middle" x="28.9355" y="-122.7446" font-family="Times,serif" font-size="14.00" fill="#ffffff">5</text>
+</g>
+<!-- 2&#45;&gt;1 -->
+<g id="edge6" class="edge">
+<title>2-&gt;1</title>
+<path fill="none" stroke="#0000ff" d="M46.9279,-184.5098C62.287,-190.9421 83.9309,-198.2687 102.3916,-203.4136"></path>
+<polygon fill="#0000ff" stroke="#0000ff" points="101.697,-206.8503 112.2599,-206.0278 103.4896,-200.0837 101.697,-206.8503"></polygon>
+<text text-anchor="middle" x="71.1597" y="-198.1617" font-family="Times,serif" font-size="14.00" fill="#ffffff">8</text>
+</g>
+<!-- 3 -->
+<g id="node4" class="node">
+<title>3</title>
+<ellipse fill="none" stroke="#ffffff" cx="139.1026" cy="-18" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="139.1026" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">3</text>
+</g>
+<!-- 2&#45;&gt;3 -->
+<g id="edge7" class="edge">
+<title>2-&gt;3</title>
+<path fill="none" stroke="#ff0000" d="M43.0113,-157.7995C65.5724,-131.6748 105.7544,-76.6773 126.4016,-43.9475"></path>
+<polygon fill="#ff0000" stroke="#ff0000" points="129.4307,-45.7031 131.6763,-35.349 123.4639,-42.0428 129.4307,-45.7031"></polygon>
+<text text-anchor="middle" x="81.2064" y="-105.0735" font-family="Times,serif" font-size="14.00" fill="#ffffff">4</text>
+</g>
+<!-- 3&#45;&gt;2 -->
+<g id="edge8" class="edge">
+<title>3-&gt;2</title>
+<path fill="none" stroke="#0000ff" d="M123.0913,-32.4965C100.5302,-58.6212 60.3482,-113.6187 39.701,-146.3485"></path>
+<polygon fill="#0000ff" stroke="#0000ff" points="36.6719,-144.5929 34.4263,-154.947 42.6387,-148.2532 36.6719,-144.5929"></polygon>
+<text text-anchor="middle" x="74.3962" y="-76.8225" font-family="Times,serif" font-size="14.00" fill="#ffffff">12</text>
+</g>
+<!-- 3&#45;&gt;5 -->
+<g id="edge10" class="edge">
+<title>3-&gt;5</title>
+<path fill="none" stroke="#0000ff" d="M145.8325,-35.8757C155.0007,-51.6366 171.2294,-74.5366 184.9416,-91.3941"></path>
+<polygon fill="#0000ff" stroke="#0000ff" points="182.3201,-93.7151 191.4288,-99.1264 187.6828,-89.2159 182.3201,-93.7151"></polygon>
+<text text-anchor="middle" x="158.387" y="-67.8349" font-family="Times,serif" font-size="14.00" fill="#ffffff">13</text>
+</g>
+<!-- 5&#45;&gt;1 -->
+<g id="edge12" class="edge">
+<title>5-&gt;1</title>
+<path fill="none" stroke="#0000ff" d="M191.3386,-127.6978C178.7469,-142.1949 162.1325,-164.7833 150.9374,-182.467"></path>
+<polygon fill="#0000ff" stroke="#0000ff" points="147.8329,-180.8359 145.6271,-191.1986 153.8137,-184.4733 147.8329,-180.8359"></polygon>
+<text text-anchor="middle" x="164.138" y="-142.4824" font-family="Times,serif" font-size="14.00" fill="#ffffff">14</text>
+</g>
+<!-- 5&#45;&gt;3 -->
+<g id="edge9" class="edge">
+<title>5-&gt;3</title>
+<path fill="none" stroke="#0000ff" d="M201.656,-95.4845C192.4877,-79.7236 176.259,-56.8236 162.5469,-39.9661"></path>
+<polygon fill="#0000ff" stroke="#0000ff" points="165.1683,-37.6451 156.0596,-32.2338 159.8056,-42.1443 165.1683,-37.6451"></polygon>
+<text text-anchor="middle" x="175.1014" y="-71.9253" font-family="Times,serif" font-size="14.00" fill="#ffffff">10</text>
+</g>
+<!-- 4 -->
+<g id="node6" class="node">
+<title>4</title>
+<ellipse fill="none" stroke="#ffffff" cx="307.3858" cy="-113.3602" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="307.3858" y="-109.1602" font-family="Times,serif" font-size="14.00" fill="#ffffff">4</text>
+</g>
+<!-- 5&#45;&gt;4 -->
+<g id="edge13" class="edge">
+<title>5-&gt;4</title>
+<path fill="none" stroke="#ff0000" d="M233.8808,-119.3484C245.339,-120.1373 259.0614,-120.3134 271.5308,-119.8769"></path>
+<polygon fill="#ff0000" stroke="#ff0000" points="271.8227,-123.3667 281.6332,-119.366 271.4691,-116.3756 271.8227,-123.3667"></polygon>
+<text text-anchor="middle" x="245.7058" y="-123.8126" font-family="Times,serif" font-size="14.00" fill="#ffffff">12</text>
+</g>
+<!-- 4&#45;&gt;5 -->
+<g id="edge14" class="edge">
+<title>4-&gt;5</title>
+<path fill="none" stroke="#0000ff" d="M281.8909,-107.3719C270.4327,-106.583 256.7102,-106.4069 244.2408,-106.8435"></path>
+<polygon fill="#0000ff" stroke="#0000ff" points="243.9489,-103.3537 234.1385,-107.3543 244.3025,-110.3447 243.9489,-103.3537"></polygon>
+<text text-anchor="middle" x="256.0658" y="-94.5077" font-family="Times,serif" font-size="14.00" fill="#ffffff">15</text>
+</g>
+</g>
+</svg>
+</pre>
+<hr>
+<h3>Code</h3>
+<pre class="editor-colors lang-python="><span><span class="syntax--text syntax--plain syntax--null-grammar">def adjlist(n, edges):</span></span>
+<span class=""><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">    </span>succ = [[] for i in range(n)]</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">    </span>for (a,b) in edges:</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">        </span>succ[a].append(a)</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">        </span>succ[b].append(b)</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">    </span>return succ</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="trailing-whitespace">    </span></span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar">def dfs(n, edges, start):</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">    </span>succ = adjlist(n, edges)</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">    </span>seen = set()</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">    </span>def rec(x):</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">        </span>if x in seen:</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">            </span>return</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">        </span>print(x)</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">        </span>for y in succ[x]:</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">            </span>rec(y)</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">        </span>rec(start)</span></span></pre>
+<pre class="editor-colors lang-python="><span><span class="syntax--text syntax--plain syntax--null-grammar">def dfsi(n, edges, start):</span></span>
+<span class=""><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">    </span>succ = adjlist(n, edges)</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">    </span>seen = set()</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">    </span>todo = [start]</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">    </span>while(todo):</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">        </span>x = todo.pop()</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">        </span>if x not in seen:</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">            </span>seen.add(x)</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">            </span>print(x)</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">            </span>for y in succ[x]:</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">                </span>todo.append(y)</span></span></pre>
+<p>Parcours profondeur :</p>
+<pre class="editor-colors lang-python="><span><span class="syntax--text syntax--plain syntax--null-grammar">def bfsi(n, edges, start):</span></span>
+<span class=""><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">    </span>succ = adjlist(n, edges)</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">    </span>seen = set()</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">    </span>todo = [start]</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">    </span>while(todo):</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">        </span>x = todo.pop(0)</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">        </span>if x not in seen:</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">            </span>seen.add(x)</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">            </span>print(x)</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">            </span>for y in succ[x]:</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">                </span>todo.append(y)</span></span></pre>
+<hr>
+<h3>Cycle Eulerien</h3>
+<p><strong>Cycle</strong> : Chemin qui revient a son point de depart</p>
+<p><strong>Cycle Eulerien</strong> : Cycle qui visite toutes les aretes une fois exactement</p>
+<blockquote>
+<p>Un graphe est eulerien ssi il existe un cycle eulerien</p>
+</blockquote>
+<p><ins>Conditions necessaires</ins>:</p>
+<ul>
+<li>Tous les sommets sont de degre pair</li>
+<li>Le graphe a toutes ses aretes dans la meme composante (is_edge_connected)</li>
+</ul>
+<pre class="editor-colors lang-graphviz"><span><span class="syntax--text syntax--plain syntax--null-grammar">graph G</span></span>
+<span class=""><span class="syntax--text syntax--plain syntax--null-grammar">{</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">    </span>layout=circo</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">    </span>A--B</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">    </span>A--C</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">    </span>C--B</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">    </span>C--D</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">    </span>D--B</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">    </span>B--E</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">    </span>D--E</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">    </span>D--F</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">    </span>E--F</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">    </span>E--G</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">    </span>C--G</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar"><span class="leading-whitespace">    </span>H</span></span>
+<span><span class="syntax--text syntax--plain syntax--null-grammar">}</span></span></pre>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">A : ABCA</span></span></span>
+<span class=""><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">B : BDCGEB</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">D : DEFD</span></span></span>
+<span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">|ABDEFDCGEBC|A</span></span></span></pre>
+<h4>Algorithme</h4>
+<ol>
+<li>Choisir un sommet qui touche une arete</li>
+<li>Faire un DFS “sans backtrack” depuis ce sommet X. On s’axe necessairement sur X</li>
+<li>Chercher sur le cycle construit des sommets avec aretes non vues</li>
+<li>Repeter 3 jusqu’a ce qu’on ait vu toutes les aretes</li>
+</ol>
+
+  </body>
+</html>
