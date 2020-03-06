@@ -2,7 +2,7 @@
 <html data-markdown-preview-plus-context="html-export">
   <head>
     <meta charset="utf-8" />
-    <title>PROBC-cours3</title><script type="text/x-mathjax-config">
+    <title>PROBC-cours4</title><script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     jax: ["input/TeX","output/HTML-CSS"],
     extensions: ["[a11y]/accessibility-menu.js"],
@@ -959,153 +959,122 @@ pre.editor-colors .bracket-matcher .region {
 
   </head>
   <body>
-    <h1>[PROBC] Probabilites Continues (3)</h1>
-<h1>Applications (suite)</h1>
-<ol start="5">
-<li><em>Calculer <span class="math inline-math"><script type="math/tex">I = \int_0^{+\infty} te^{\alpha t}dt\ \ \forall a \in \mathbb{R}^*</script></span>. En deduire <span class="math inline-math"><script type="math/tex">E^0(Y)</script></span></em></li>
-</ol>
-<p><span class="math inline-math"><script type="math/tex">I = \int_0^{+\infty} te^{\alpha t}dt,\ \ \alpha < 0</script></span></p>
+    <h1>[PROBC] Probabilites Continues (4)</h1>
+<h2>Loi de Laplace-Gauss (Loi Normale)</h2>
+<p>Sa densite est <span class="math inline-math"><script type="math/tex">\begin{align}f(x) = \frac{1}{\sigma \sqrt{2\pi}} exp(-\frac{1}{2}(\frac{x-m}{\sigma})^2)\ \ \ \forall x \in \mathbb{R}\end{align}</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">m= E(X)</script></span>
+<span class="math inline-math"><script type="math/tex">\sigma = \sqrt{V(X)}</script></span> (ecart-type)</p>
 <blockquote>
-<p>Avec <span class="math inline-math"><script type="math/tex">v = t</script></span> et <span class="math inline-math"><script type="math/tex">u' = e^{\alpha t}</script></span><br>
-Donc <span class="math inline-math"><script type="math/tex">v' = 1</script></span> et <span class="math inline-math"><script type="math/tex">u = (1/\alpha)e^{\alpha t}</script></span></p>
+<p><strong>Notation</strong><br>
+On note <span class="math inline-math"><script type="math/tex">X \to N(m, \sigma)</script></span> ou <span class="math inline-math"><script type="math/tex">X \to L.G(m, \sigma)</script></span></p>
 </blockquote>
-<p><span class="math inline-math"><script type="math/tex">\begin{align}I = [(t/\alpha)e^{\alpha t}]_0^{+\infty} - \int^{+\infty}_{0} (1/\alpha)e^{\alpha t}\end{align}</script></span></p>
-<blockquote>
-<p>Or <span class="math inline-math"><script type="math/tex">(t/\alpha)e^{\alpha t} \underset{t \to +\infty}{\to} 0</script></span></p>
-</blockquote>
-<p><span class="math inline-math"><script type="math/tex">\begin{align}I = -(1/\alpha)[\frac{e^{\alpha t}}{\alpha}]_0^{+\infty} = \frac{1}{\alpha^2}\end{align}</script></span></p>
-<p><ins>La densite de <span class="math inline-math"><script type="math/tex">Y</script></span></ins> :</p>
-<p><span class="math inline-math"><script type="math/tex">f_Y(t) = \begin{cases}0\ \ t \leq 0 \\ (3/2)e^{-t/2}(1-e^{-t/2})^2\ \ t > 0\end{cases}</script></span></p>
-<p><div class="alert alert-info">
-<strong>Rappel (Esperance)</strong></p>
-<p><span class="math inline-math"><script type="math/tex">E(Y)=\int_{\mathbb{R}}f_y(t)dt</script></span>
-</div></p>
-<p><span class="math inline-math"><script type="math/tex">\begin{align}E(Y) &= (3/2)\int_0^{+\infty}te^{-t/2}(1-e^{-t/2})^2dt \\ &= (3/2)\int_0^{+\infty}te^{-t/2}(1-2e^{-t/2} + e^{-t})dt \\ &= (3/2)(\int_0^{+\infty}te^{-t/2}dt - 2\int_0^{+\infty} te^{-t}dt + \int_0^{+\infty}te^{-3t/2}dt) \\ &= (3/2)(\frac{1}{(1/4)} - 2\frac{1}{(-1)^2} + \frac{1}{(9/4)}) \\ &= (3/2)(2 + \frac{4}{9}) = \frac{11}{3}h\end{align}</script></span></p>
-<p><span class="math inline-math"><script type="math/tex">E(Y) = 3h\ 40min</script></span></p>
+<p>Soit <span class="math inline-math"><script type="math/tex">U = \frac{X-m}{\sigma} \to N(0, 1)</script></span><br>
+<span class="math inline-math"><script type="math/tex">E(U) = 0</script></span> (<span class="math inline-math"><script type="math/tex">U</script></span> est centree)<br>
+<span class="math inline-math"><script type="math/tex">\sigma = \sqrt{V(X)} = 1</script></span> (<span class="math inline-math"><script type="math/tex">U</script></span> est reduite)</p>
+<p><span class="math inline-math"><script type="math/tex">U</script></span> est dite variable normale centree et reduite<br>
+Sa densite est <span class="math inline-math"><script type="math/tex">\begin{align}f(u) = \frac{1}{\sqrt{2\pi}}e^{-\frac{u^2}{2}}\end{align}</script></span></p>
 <hr>
-<p><ins>Exercice 3</ins> :</p>
-<p>La duree de fonctionnement, exprimee en jours, d’un certain composant electronique est une variable aleatoire <span class="math inline-math"><script type="math/tex">X</script></span> dont la densite est <span class="math inline-math"><script type="math/tex">f(X) = \begin{cases}0 \ \ \ x < 0 \\ \beta x^2 e^{-\alpha x}\ \ \ x \geq 0\end{cases}</script></span></p>
-<ol>
-<li><em>Calculer <span class="math inline-math"><script type="math/tex">\beta</script></span> en fonction de <span class="math inline-math"><script type="math/tex">\alpha</script></span></em></li>
-</ol>
-<p><span class="math inline-math"><script type="math/tex">f</script></span> est une densite ssi<br>
-<span class="math inline-math"><script type="math/tex">\begin{align}\int_{\mathbb{R}}f(x)dx = 1 \implies \beta\int_0^{+\infty} x^2e^{-\alpha x}dx = 1\end{align}</script></span></p>
-<p>Soit <span class="math inline-math"><script type="math/tex">\begin{align}I = \int_0^{+\infty}x^2 e^{-\alpha x}dx\end{align}</script></span></p>
-<blockquote>
-<p>Ou <span class="math inline-math"><script type="math/tex">v = x^2</script></span> et <span class="math inline-math"><script type="math/tex">u' = e^{-\alpha x}</script></span></p>
-</blockquote>
-<p><span class="math inline-math"><script type="math/tex">\begin{align}I= [-(1/\alpha)x^2e^{-\alpha x}]_0^{+\infty} + (2/\alpha)\int_0^{+\infty}xe^{-\alpha x}dx\end{align}</script></span></p>
-<blockquote>
-<p>Et <span class="math inline-math"><script type="math/tex">x^2e^{-\alpha x} \underset{x \to +\infty}{\to} 0</script></span></p>
-</blockquote>
-<p><span class="math inline-math"><script type="math/tex">\begin{align}I = (2/\alpha)\int_0^{+\infty}xe^{-\alpha x}dx\end{align}</script></span></p>
-<blockquote>
-<p>Avec <span class="math inline-math"><script type="math/tex">v = x</script></span> et <span class="math inline-math"><script type="math/tex">u' = e^{-\alpha x}</script></span></p>
-</blockquote>
-<p><span class="math inline-math"><script type="math/tex">\begin{align}I &= (2/\alpha) ([-\frac{x}{\alpha} e^{-\alpha x}]_0^{+\infty} + (1/\alpha) \int_0^{+\infty} e^{-\alpha x}dx) \\ &= \frac{2}{\alpha^2}[-\frac{1}{\alpha}e^{-\alpha x}]_0^{+\infty} \\ &= \frac{2}{\alpha^3}\end{align}</script></span></p>
-<p><span class="math inline-math"><script type="math/tex">\begin{align}I\beta = 1 \implies \beta = \frac{\alpha^3}{2}\end{align}</script></span></p>
-<hr>
-<ol start="2">
-<li><em>Sachant qu’un tel composant fonctionne en moyenne pendant 200 jours. Calculer <span class="math inline-math"><script type="math/tex">\alpha</script></span>.</em></li>
-</ol>
-<p><span class="math inline-math"><script type="math/tex">E(X) = 200j</script></span>
-<span class="math inline-math"><script type="math/tex">\begin{align}E(X) = \beta\int_0^{+\infty}x^3 e^{-\alpha x}dx\end{align}</script></span></p>
-<blockquote>
-<p>Avec <span class="math inline-math"><script type="math/tex">v = x^3</script></span> et <span class="math inline-math"><script type="math/tex">u' = e^{-\alpha x}</script></span></p>
-</blockquote>
-<p><span class="math inline-math"><script type="math/tex">\begin{align}I= \beta([-(1/\alpha)x^3e^{-\alpha x}]_0^{+\infty} + (3/\alpha)\int_0^{+\infty}x^2e^{-\alpha x}dx)\end{align}</script></span></p>
-<blockquote>
-<p>Ou <span class="math inline-math"><script type="math/tex">x^3e^{-\alpha x} \underset{x \to +\infty}{\to} 0</script></span></p>
-</blockquote>
-<p><span class="math inline-math"><script type="math/tex">\begin{align}E(X) = \frac{3\beta}{\alpha}I\end{align}</script></span></p>
-<p>Or <span class="math inline-math"><script type="math/tex">\beta I = 1</script></span>
-Donc <span class="math inline-math"><script type="math/tex">\alpha = \frac{3}{200}</script></span></p>
-<hr>
-<ol start="3">
-<li><em>Determiner une densite de <span class="math inline-math"><script type="math/tex">Y</script></span> ou <span class="math inline-math"><script type="math/tex">Y = \sqrt{X}</script></span></em></li>
-</ol>
-<p>La fonction de repartition de <span class="math inline-math"><script type="math/tex">Y: F_Y(x) = P(Y < x)</script></span></p>
-<p><span class="math inline-math"><script type="math/tex">F_Y(x) = P(\sqrt{X} < x) = \begin{cases}0\ \ \ x < 0 \\ P(X < x^2) = F_X(x^2)\ \ \ x \geq 0\end{cases}</script></span></p>
-<p><span class="math inline-math"><script type="math/tex">F'_Y(x) = \begin{cases} 0\ \ \ x < 0 \\ 2xf(x^2)\ \ \ x \geq 0\end{cases}</script></span></p>
-<p>Une densite de <span class="math inline-math"><script type="math/tex">Y</script></span> :<br>
-<span class="math inline-math"><script type="math/tex">f_Y(x) = \begin{cases}0\ \ \ x < 0 \\ 2xf(x^2) &= 2x\beta x^4 e^{-\alpha x^2} =  \alpha^3 x^5 e^{-\alpha x^2}\end{cases}</script></span></p>
-<p>Donc <span class="math inline-math"><script type="math/tex">f_Y(x) = \begin{cases}0\ \ \ x < 0 \\ \alpha^3 x^5 e^{-\alpha x^2}\end{cases}</script></span></p>
-<hr>
-<h1>Lois usuelles continues</h1>
-<h2>Loi uniforme sur un intervalle</h2>
-<p>Une variable aleatoire <span class="math inline-math"><script type="math/tex">X</script></span> suit la loi uniforme sur <span class="math inline-math"><script type="math/tex">[a,b]</script></span> lorsque <span class="math inline-math"><script type="math/tex">X</script></span> admet pour densite :</p>
-<p><span class="math inline-math"><script type="math/tex">f(x) = \begin{cases}\frac{1}{b-a}\ si\ x \in [a,b] \\ 0\ sinon\end{cases}</script></span></p>
-<blockquote>
-<p><ins>Notation</ins> : <span class="math inline-math"><script type="math/tex">X \to U[a,b]</script></span> : <span class="math inline-math"><script type="math/tex">X</script></span> suit la loi uniforme</p>
-</blockquote>
-<p><strong>Esperance</strong><br>
-<span class="math inline-math"><script type="math/tex">\begin{align}E(X) = \int_{\mathbb{R}}xf(x)dx = \int^b_a x \frac{1}{b-a}dx\end{align}</script></span><br>
-<span class="math inline-math"><script type="math/tex">\begin{align}E(X) = \frac{b+a}{2}\end{align}</script></span></p>
-<p><strong>Variance</strong><br>
-<span class="math inline-math"><script type="math/tex">V(X) = E(X^2)-E^2(X)</script></span><br>
-<span class="math inline-math"><script type="math/tex">\begin{align}E(X^2) = \int_{\mathbb{R}}x^2f(x)dx = \int^b_a x^2 \frac{1}{b-a}dx = (1/3)(\frac{b^3-a^3}{b-a})\end{align}</script></span><br>
-<span class="math inline-math"><script type="math/tex">\begin{align}V(X) = \frac{(b-a)^2}{12}\end{align}</script></span></p>
-<h2>Loi exponentielle de parametre <span class="math inline-math"><script type="math/tex">\lambda\ (\lambda > 0)</script></span></h2>
-<p>Une variable aleatoire <span class="math inline-math"><script type="math/tex">X</script></span> suit la loi exponentielle si sa densite est</p>
-<p><span class="math inline-math"><script type="math/tex">f(x) = \begin{cases}0\ \ \ \ x < 0 \\ \lambda e^{-\lambda x}\ \ \ x \geq 0 \end{cases}</script></span></p>
-<p><ins>Notation</ins> : <span class="math inline-math"><script type="math/tex">X \to Exp(\lambda)</script></span> : <span class="math inline-math"><script type="math/tex">X</script></span> suit la loi exponentielle de parametre <span class="math inline-math"><script type="math/tex">\lambda</script></span></p>
-<hr>
-<p><strong>Esperance</strong><br>
-<span class="math inline-math"><script type="math/tex">\begin{align}E(X) = \int_0^{+\infty} x \lambda e^{-\lambda x}dx\end{align}</script></span></p>
-<blockquote>
-<p>avec <span class="math inline-math"><script type="math/tex">v = x</script></span> et <span class="math inline-math"><script type="math/tex">u' = \lambda e^{\lambda x}</script></span></p>
-</blockquote>
-<p><span class="math inline-math"><script type="math/tex">\begin{align}E(X) = [-x e^{-\lambda x}]_0^{+\infty} + \int_0^{+\infty} e^{-\lambda x}dx\end{align}</script></span></p>
-<blockquote>
-<p>Or <span class="math inline-math"><script type="math/tex">-x e^{-\lambda x} \underset{x \to +\infty}{\to} 0</script></span></p>
-</blockquote>
-<p><span class="math inline-math"><script type="math/tex">\begin{align}E(X) = \int_0^{+\infty} e^{-\lambda x}dx = [-1/\lambda e^{\lambda x}]_0^{+\infty}\end{align}</script></span></p>
-<p><span class="math inline-math"><script type="math/tex">E(X) = \frac{1}{\lambda}</script></span></p>
-<hr>
-<p><strong>Variance</strong><br>
-<span class="math inline-math"><script type="math/tex">V(X) = E(X^2)-E^2(X)</script></span><br>
-<span class="math inline-math"><script type="math/tex">\begin{align}E(X^2) = \int_0^{+\infty} x^2 \lambda e^{-\lambda x}dx\end{align}</script></span></p>
-<blockquote>
-<p>Avec <span class="math inline-math"><script type="math/tex">x^2 = v</script></span> et <span class="math inline-math"><script type="math/tex">\lambda e^{-\lambda x} = u'</script></span></p>
-</blockquote>
-<p><span class="math inline-math"><script type="math/tex">\begin{align}E(X^2) &= [-x^2 e^{-\lambda x}]_0^{+\infty} + 2 \int_0^{+\infty} xe^{-\lambda x}dx\\ &= 2\int^{+\infty}_{0}x e^{-\lambda x}dx  \\ &= \frac{2}{\lambda}E(X) = \frac{2}{\lambda^2}\end{align}</script></span></p>
-<p>Donc <span class="math inline-math"><script type="math/tex">\begin{align}V(X) = \frac{1}{\lambda^2}\end{align}</script></span></p>
-<p><div class="alert alert-info">
-<strong>Remarque</strong> :</p>
-<p><span class="math inline-math"><script type="math/tex">\forall (s, t) \in \mathbb{R}^2_+</script></span><br>
-<span class="math inline-math"><script type="math/tex">\begin{align}P(X \geq s+t / X > s) &= P(X > t) \\ &= \frac{P((X \geq s + t) \cup (X > s))}{P(X > s)} = \frac{P(X \geq s + t)}{P(X > s)}\end{align}</script></span>
-</div></p>
-<p>On dit que la loi exponentielle n’a pas de memoire</p>
-<h2>Loi Gamma de parametre <span class="math inline-math"><script type="math/tex">r\ (r > 0)</script></span></h2>
-<p><mark><strong>Definition</strong></mark></p>
-<p>On dit qu’une variable aleatoire <span class="math inline-math"><script type="math/tex">X</script></span> positive suit une loi Gamma notee <span class="math inline-math"><script type="math/tex">\gamma_r</script></span> de parametre <span class="math inline-math"><script type="math/tex">r</script></span> si sa densite est <span class="math inline-math"><script type="math/tex">\begin{align}f(x) = \frac{1}{\Gamma(r)}e^{-x} x^{r - 1}\end{align}</script></span></p>
-<p>Ou <span class="math inline-math"><script type="math/tex">\begin{align}\Gamma(r) = \int_0^{+\infty} e^{-t} t^{x-1}dt\end{align}</script></span> Fonction Gamma</p>
-<p><mark><strong>Proprietes de <span class="math inline-math"><script type="math/tex">\Gamma(x)</script></span></strong></mark></p>
-<ol>
-<li><span class="math inline-math"><script type="math/tex">\Gamma(x+1 = x\Gamma(x)) \ \ \ \forall x > 0</script></span></li>
-<li><span class="math inline-math"><script type="math/tex">\Gamma(1) = 1</script></span></li>
-<li><span class="math inline-math"><script type="math/tex">\Gamma(n + 1) = n!</script></span></li>
-<li><span class="math inline-math"><script type="math/tex">\Gamma(k + (1/2)) = \frac{1.3.5...(2k - 1)}{2^k} \Gamma(1/2)</script></span></li>
-<li><span class="math inline-math"><script type="math/tex">\Gamma(1/2) = \sqrt{\pi}</script></span></li>
-</ol>
-<h4>Esperance</h4>
-<p><span class="math inline-math"><script type="math/tex">\begin{align}E(X) = \int_{\mathbb{R}} xf(x)dx = \frac{1}{\Gamma(r)} \int_0^{+\infty} e^{-x} x^r dx\end{align}</script></span></p>
-<p><span class="math inline-math"><script type="math/tex">\begin{align}\Gamma(x) = \int_0^{+\infty} e^{-t} t^{x-1} dt\end{align}</script></span></p>
-<p><span class="math inline-math"><script type="math/tex">\begin{align}E(X) = \frac{\Gamma(r+1)}{\Gamma(r)} = \frac{r \Gamma(r)}{\Gamma(r)} = r\end{align}</script></span></p>
+<p><mark><strong>Proposition</strong></mark></p>
 <p><div class="alert alert-danger">
-<strong>Esperance de la Loi Gamma</strong><br>
-<span class="math inline-math"><script type="math/tex">E(X) = r</script></span>
+<span class="math inline-math"><script type="math/tex">V(U) = 1</script></span><br>
 </div></p>
-<h4>Variance</h4>
-<p><span class="math inline-math"><script type="math/tex">V(X) = E(X^2) - E(X)^2</script></span></p>
-<p><span class="math inline-math"><script type="math/tex">\begin{align}E(X^2) = \int_{\mathbb{R}} x^2f(x)dx = \frac{1}{\Gamma(r)} \int_0^{+\infty} e^{-x} x^{r+1} dx\end{align}</script></span></p>
-<p><span class="math inline-math"><script type="math/tex">\begin{align}E(X^2) = \frac{\Gamma(r+1)}{\Gamma(r)} = \frac{(r+1)\Gamma(r+1)}{\Gamma(r)} = (r+1)r\end{align}</script></span></p>
-<p><span class="math inline-math"><script type="math/tex">V(X) = E(X^2) - E(X)^2 = r^2 + r - r^2</script></span><br>
-<span class="math inline-math"><script type="math/tex">V(X) = r</script></span></p>
+<p><ins>Demonstration</ins></p>
+<p><span class="math inline-math"><script type="math/tex">V(U) = E(U^2) - E^2(U) = E(U^2)</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">\begin{align}E(U^2) = \int_0^{+\infty} \frac{1}{\sqrt{2\pi}} u^2 e^{-\frac{u^2}{2}} du = \frac{2}{\sqrt{2\pi}} \int_0^{+\infty} u^2 e^{-\frac{u^2}{2}}\end{align}</script></span></p>
+<blockquote>
+<p>Posons <span class="math inline-math"><script type="math/tex">t = \frac{u^2}{2} \implies dt = udu \implies du = \frac{dt}{\sqrt{2t}}</script></span></p>
+</blockquote>
+<p><span class="math inline-math"><script type="math/tex">\begin{align}E(U^2) = \frac{2}{\sqrt{2\pi}} \int_0^{+\infty} 2t e^{-t} \frac{dt}{\sqrt{2t}}\end{align}</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">\begin{align}E(U^2) = \frac{2}{\sqrt{\pi}} \int_0^{+\infty} t^{1/2} e^{-t} {dt} = \frac{2}{\sqrt{\pi}} \Gamma(3/2) = \frac{2}{\sqrt{\pi}} (1/2) \Gamma(1/2) = 1\end{align}</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">V(U) = 1</script></span></p>
+<p><ins>Calcul de <span class="math inline-math"><script type="math/tex">\Gamma(1/2)</script></span></ins></p>
+<p><span class="math inline-math"><script type="math/tex">\Gamma(1/2) = \int_0^{+\infty} x^{-1/2} e^{-x}dx</script></span></p>
+<blockquote>
+<p><span class="math inline-math"><script type="math/tex">x = \frac{u^2}{2}</script></span> et <span class="math inline-math"><script type="math/tex">dx = udu</script></span></p>
+</blockquote>
+<p><span class="math inline-math"><script type="math/tex">\begin{align}\Gamma(1/2) = \int_0^{+\infty} \sqrt{2} u^{-1} e^{-\frac{u^2}{2}} udu = \sqrt{2} \int_0^{+\infty} e^{-\frac{u^2}{2}}du\end{align}</script></span></p>
+<p>Or <span class="math inline-math"><script type="math/tex">\begin{align}\int_{-\infty}^{+\infty} \frac{e^{-\frac{u^2}{2}}du}{\sqrt{2\pi}} = 1 \implies 2\int_0^{+\infty} \frac{e^{-\frac{u^2}{2}}du}{\sqrt{2\pi}} = 1 \implies \int_0^{+\infty} e^{-\frac{u^2}{2}} du = \frac{\sqrt{2\pi}}{2}\end{align}</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">\begin{align} \Gamma(1/2) = \sqrt{2} \times \frac{\sqrt{2\pi}}{2} = \sqrt{\pi} \end{align}</script></span></p>
+<hr>
+<h3>Calculs des moments d’une loi Normale centree-reduite</h3>
+<p><span class="math inline-math"><script type="math/tex">U \to N(0, 1)</script></span></p>
 <p><div class="alert alert-danger">
-<strong>Variance de la Loi Gamma</strong><br>
-<span class="math inline-math"><script type="math/tex">V(X) = r</script></span>
+On appelle <strong>moment d’ordre <span class="math inline-math"><script type="math/tex">k</script></span> de <span class="math inline-math"><script type="math/tex">U</script></span></strong>:</p>
+<p><span class="math inline-math"><script type="math/tex">F_k = E(U^k) = \int_{\mathbb{R}} u^k f(u) du</script></span>
 </div></p>
+<p>Si <span class="math inline-math"><script type="math/tex">\begin{align}k = 2p+1\ \ \ F_{2p+1} = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{+\infty} e^{2p+1} e^{-\frac{u^2}{2}} du = 0\end{align}</script></span></p>
+<p>Si <span class="math inline-math"><script type="math/tex">\begin{align}k = 2p\ \ \ \ \ \ \ \ \ \ F_{2p} = \frac{2}{\sqrt{2\pi}} \int_0^{+\infty} u^{2p} e^{-\frac{u^2}{2}} du\end{align}</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">\begin{cases} t = \frac{u^2}{2} \\ dt = udu \iff du = \frac{dt}{\sqrt{2t}} \end{cases}</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">\begin{align}F_{2p} = \frac{2}{\sqrt{2\pi}} \frac{1}{\sqrt{2}} \int_0^{+\infty} (2t)^{p} e^{-t} \frac{dt}{\sqrt{t}} = \frac{2^p}{\sqrt{\pi}} \int_0^{+\infty} t^{p - 1/2} e^{-t} dt\end{align}</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">\begin{align}F_{2p} &= \frac{2^p}{\sqrt{\pi}} \Gamma(p + 1/2) = \frac{2^p}{\sqrt{\pi}} \frac{1.3.5...(2p-1)}{2^p}\Gamma(1/2) = 1.3.5...(2p-1)\end{align}</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">\begin{align}F_{2p} &= \frac{(2p)!}{2.4.6...2p} = \frac{(2p)!}{2^p(p!)}\end{align}</script></span></p>
+<hr>
+<h3>Somme de deux variables independantes</h3>
+<p>Soient <span class="math inline-math"><script type="math/tex">X</script></span> et <span class="math inline-math"><script type="math/tex">Y</script></span> deux variables aleatoires independantes et <span class="math inline-math"><script type="math/tex">Z = X + Y</script></span></p>
+<p><mark><strong>Theoreme</strong></mark></p>
+<p><span class="math inline-math"><script type="math/tex">X, Y</script></span> deux varaiables aleatoires independantes admettant pour densite <span class="math inline-math"><script type="math/tex">f</script></span> et <span class="math inline-math"><script type="math/tex">g</script></span>.<br>
+Une densite de <span class="math inline-math"><script type="math/tex">Z</script></span> est donnee par le <strong>produit de convolution</strong> :</p>
+<p><span class="math inline-math"><script type="math/tex">\begin{align}h(z) = \int_{-\infty}^{+\infty} f(u)g(z - u) du = \int_{-\infty}^{+\infty} g(y)f(z-y) dy\end{align}</script></span></p>
+<blockquote>
+<p>Avec <span class="math inline-math"><script type="math/tex">h(z)</script></span> la densite de <span class="math inline-math"><script type="math/tex">Z</script></span></p>
+</blockquote>
+<p><ins>Exemple</ins> :</p>
+<p><span class="math inline-math"><script type="math/tex">X \to \gamma_r, Y \to \gamma_s</script></span><br>
+X et Y independantes</p>
+<ol>
+<li>Determiner la loi de <span class="math inline-math"><script type="math/tex">Z = X + Y</script></span></li>
+</ol>
+<p><span class="math inline-math"><script type="math/tex">\begin{align}f(x) = \frac{1}{\Gamma(r)}e^{-x} x^{r-1}\end{align}</script></span> et <span class="math inline-math"><script type="math/tex">\begin{align}g(y) = \frac{1}{\Gamma(s)}e^{-y} y^{s-1}\end{align}</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">\begin{align}h(z) = \int_{\mathbb{R}} f(x) g(z - x)dx = \int_{0}^{z} \frac{1}{\Gamma(r)} e^{-x} x^{r-1} \frac{1}{\Gamma(s)} e^{-(z-x)}(z-x)^{s-1} dx \end{align}</script></span></p>
+<blockquote>
+<p><span class="math inline-math"><script type="math/tex">g(z-x) = 0</script></span> si <span class="math inline-math"><script type="math/tex">x > z</script></span></p>
+</blockquote>
+<p><span class="math inline-math"><script type="math/tex">\begin{align}h(z) = \frac{e^{-z}}{\Gamma(r)\Gamma(s)} \int_0^z u^{r-1} (z-x)^{s-1} dx\end{align}</script></span></p>
+<p>Posons <span class="math inline-math"><script type="math/tex">x = tz \implies dx = zdt</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">\begin{align} h(z) = \frac{e^{-z}}{\Gamma(r)\Gamma(s)} \int_0^1 (tz)^{r-1}(z - tz)zdt = \frac{e^{-z}z^{r+s-1}}{\Gamma(r)\Gamma(s)} \int_0^1 t^{r-1}(1 - t)^{s-1}dt \end{align}</script></span></p>
+<p>Soit <span class="math inline-math"><script type="math/tex">\begin{align}C = \frac{1}{\Gamma(r)\Gamma(s)} \int_0^1 t^{r-1}(1-t)^{s-1}dt\end{align}</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">\begin{align}\int_0^{+\infty} h(z) dz = 1 = C\int_0^{+\infty} e^{-z}z^{r+s-1} dz \implies C = \frac{1}{\int_0^{+\infty} e^{-z} z^{r+s-1} dz} = \frac{1}{\Gamma(r+s)} \end{align}</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">\begin{align}  h(z) = \frac{e^{-z} z^{r+s-1}}{\Gamma(r+s)} \end{align}</script></span> densite de la loi <span class="math inline-math"><script type="math/tex">\gamma_{r+s}</script></span></p>
+<p>Donc <span class="math inline-math"><script type="math/tex">Z \to \gamma_{r+s}</script></span></p>
+<blockquote>
+<p>Les parametres d’aditionnent pour la loi Gamma</p>
+</blockquote>
+<hr>
+<h3>Convergence en probabilite et convergence en loi</h3>
+<h4>Inegalite de MARKOV</h4>
+<p><mark><strong>Theoreme</strong></mark></p>
+<p>Si <span class="math inline-math"><script type="math/tex">X</script></span> est une variable aleatoire a densite admettant un moment d’ordre 2, alors <span class="math inline-math"><script type="math/tex">\begin{align}\forall \varepsilon > 0,\ \ P(|X| \geq \varepsilon) < \frac{E(X^2)}{\varepsilon^2}\end{align}</script></span></p>
+<p><ins>Demonstration</ins></p>
+<p><span class="math inline-math"><script type="math/tex">E(X^2) = \int^{+\infty}_{-\infty}</script></span></p>
+<hr>
+<h4>Inegalite de Bienaymé Tchebyschev</h4>
+<p><span class="math inline-math"><script type="math/tex">\begin{align}\forall \varepsilon > 0\ \ P(|X - E(X)| \geq \varepsilon) \leq \frac{V(X)}{\varepsilon^2}\end{align}</script></span></p>
+<p>En effet, on applique MARKOV a la variable aleatoire <span class="math inline-math"><script type="math/tex">X -E(X)</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">\begin{align}P(|X - E(X)| \geq \varepsilon) \leq \frac{E((X - E(X))^2)}{\varepsilon^2} = \frac{V(X)}{\varepsilon^2}\end{align}</script></span></p>
+<hr>
+<p><mark><strong>Definition (Convergence d’une suite)</strong></mark></p>
+<p>Soit <span class="math inline-math"><script type="math/tex">X_n</script></span> une suite de variables aleatoires et <span class="math inline-math"><script type="math/tex">X</script></span> une variable aleatoire. On dit que <span class="math inline-math"><script type="math/tex">X_n</script></span> converge en probabilite vers <span class="math inline-math"><script type="math/tex">X</script></span> ssi :</p>
+<p><span class="math inline-math"><script type="math/tex">\forall \varepsilon > 0,\ \ \underset{n \mapsto +\infty}{lim} P(|X_n - X| > \varepsilon) = 0</script></span></p>
+<blockquote>
+<p>Notation <span class="math inline-math"><script type="math/tex">X_n \underset{n \mapsto +\infty}{\overset{P}{\longrightarrow}} X</script></span></p>
+</blockquote>
+<p><div class="alert alert-info">
+<strong>Remarque</strong><br>
+<span class="math inline-math"><script type="math/tex">\{ X_n / |X_n - X| \geq \varepsilon \}</script></span> l’ensemble des points de divergence de la suite <span class="math inline-math"><script type="math/tex">X_n</script></span>
+</div></p>
+<p><div class="alert alert-info">
+<strong>Remarque</strong><br>
+Si <span class="math inline-math"><script type="math/tex">E(X_n) \underset{n \mapsto +\infty}{\to} a</script></span> et <span class="math inline-math"><script type="math/tex">V(X_n) \underset{n \mapsto +\infty}{\to} a</script></span> alors <span class="math inline-math"><script type="math/tex">X_n \underset{n \mapsto +\infty}{\overset{P}{\longrightarrow}} a</script></span>
+</div></p>
+<p><span class="math inline-math"><script type="math/tex">\forall \varepsilon > 0\ P(|X_n - E(X_n)| \geq \varepsilon) \leq \frac{V(X_n)}{\varepsilon^2} \to 0</script></span><br>
+Si <span class="math inline-math"><script type="math/tex">n \to +\infty\ \ \ \ \ P(|X_n - a| \geq \varepsilon) \underset{n \to +\infty}{\to 0}</script></span> Donc <span class="math inline-math"><script type="math/tex">X_n \overset{P}{\to} a</script></span></p>
+<h3>Loi faible des grands nombres</h3>
+<p><mark><strong>Theorme</strong></mark></p>
+<p><span class="math inline-math"><script type="math/tex">X_n</script></span> une suite de variables aleatoires independantes admettant une esperance <span class="math inline-math"><script type="math/tex">m</script></span> et une meme variance <span class="math inline-math"><script type="math/tex">\sigma^2</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">\begin{align}\overline{X_n} = \frac{1}{n} \sum_{i=1}^{n} X_i\end{align}</script></span> alors <span class="math inline-math"><script type="math/tex">\overline{X_n} \underset{n \mapsto +\infty}{\overset{P}{\longrightarrow}} m = E(X)</script></span></p>
+<blockquote>
+<p><span class="math inline-math"><script type="math/tex">\overline{X_n}</script></span> : moyenne empirique</p>
+</blockquote>
 
   </body>
 </html>
