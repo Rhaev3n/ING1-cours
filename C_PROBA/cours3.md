@@ -148,7 +148,7 @@ On dit que la loi exponentielle n'a pas de memoire
 
 ==**Definition**==
 
-On dit qu;une variable aleatoire $X$ positive suit une loi Gamma notee $\gamma_r$ de parametre $r$ si sa densite est $\begin{align}f(x) = \frac{1}{\Gamma(r)}e^{-x} x^{r - 1}\end{align}$
+On dit qu'une variable aleatoire $X$ positive suit une loi Gamma notee $\gamma_r$ de parametre $r$ si sa densite est $\begin{align}f(x) = \frac{1}{\Gamma(r)}e^{-x} x^{r - 1}\end{align}$
 
 Ou $\begin{align}\Gamma(r) = \int_0^{+\infty} e^{-t} t^{x-1}dt\end{align}$ Fonction Gamma
 
@@ -159,3 +159,32 @@ Ou $\begin{align}\Gamma(r) = \int_0^{+\infty} e^{-t} t^{x-1}dt\end{align}$ Fonct
 3. $\Gamma(n + 1) = n!$
 4. $\Gamma(k + (1/2)) = \frac{1.3.5...(2k - 1)}{2^k} \Gamma(1/2)$
 5. $\Gamma(1/2) = \sqrt{\pi}$
+
+#### Esperance
+
+$\begin{align}E(X) = \int_{\mathbb{R}} xf(x)dx = \frac{1}{\Gamma(r)} \int_0^{+\infty} e^{-x} x^r dx\end{align}$
+
+$\begin{align}\Gamma(x) = \int_0^{+\infty} e^{-t} t^{x-1} dt\end{align}$
+
+$\begin{align}E(X) = \frac{\Gamma(r+1)}{\Gamma(r)} = \frac{r \Gamma(r)}{\Gamma(r)} = r\end{align}$
+
+:::danger
+**Esperance de la Loi Gamma**  
+$E(X) = r$
+:::
+
+#### Variance
+
+$V(X) = E(X^2) - E(X)^2$
+
+$\begin{align}E(X^2) = \int_{\mathbb{R}} x^2f(x)dx = \frac{1}{\Gamma(r)} \int_0^{+\infty} e^{-x} x^{r+1} dx\end{align}$
+
+$\begin{align}E(X^2) = \frac{\Gamma(r+1)}{\Gamma(r)} = \frac{(r+1)\Gamma(r+1)}{\Gamma(r)} = (r+1)r\end{align}$
+
+$V(X) = E(X^2) - E(X)^2 = r^2 + r - r^2$  
+$V(X) = r$
+
+:::danger
+**Variance de la Loi Gamma**  
+$V(X) = r$
+:::
