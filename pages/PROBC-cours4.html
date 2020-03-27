@@ -1037,7 +1037,7 @@ X et Y independantes</p>
 <p><span class="math inline-math"><script type="math/tex">\begin{align}  h(z) = \frac{e^{-z} z^{r+s-1}}{\Gamma(r+s)} \end{align}</script></span> densite de la loi <span class="math inline-math"><script type="math/tex">\gamma_{r+s}</script></span></p>
 <p>Donc <span class="math inline-math"><script type="math/tex">Z \to \gamma_{r+s}</script></span></p>
 <blockquote>
-<p>Les parametres d’aditionnent pour la loi Gamma</p>
+<p>Les parametres s’aditionnent pour la loi Gamma</p>
 </blockquote>
 <hr>
 <h3>Convergence en probabilite et convergence en loi</h3>
@@ -1067,14 +1067,22 @@ X et Y independantes</p>
 Si <span class="math inline-math"><script type="math/tex">E(X_n) \underset{n \mapsto +\infty}{\to} a</script></span> et <span class="math inline-math"><script type="math/tex">V(X_n) \underset{n \mapsto +\infty}{\to} a</script></span> alors <span class="math inline-math"><script type="math/tex">X_n \underset{n \mapsto +\infty}{\overset{P}{\longrightarrow}} a</script></span>
 </div></p>
 <p><span class="math inline-math"><script type="math/tex">\forall \varepsilon > 0\ P(|X_n - E(X_n)| \geq \varepsilon) \leq \frac{V(X_n)}{\varepsilon^2} \to 0</script></span><br>
-Si <span class="math inline-math"><script type="math/tex">n \to +\infty\ \ \ \ \ P(|X_n - a| \geq \varepsilon) \underset{n \to +\infty}{\to 0}</script></span> Donc <span class="math inline-math"><script type="math/tex">X_n \overset{P}{\to} a</script></span></p>
+Si <span class="math inline-math"><script type="math/tex">n \to +\infty\ \ \ \ \ P(|X_n - a| \geq \varepsilon) \underset{n \to +\infty}{\to 0}</script></span> Donc <span class="math inline-math"><script type="math/tex">X_n \underset{n \mapsto +\infty}{\overset{P}{\longrightarrow}} a</script></span></p>
+<hr>
 <h3>Loi faible des grands nombres</h3>
-<p><mark><strong>Theorme</strong></mark></p>
-<p><span class="math inline-math"><script type="math/tex">X_n</script></span> une suite de variables aleatoires independantes admettant une esperance <span class="math inline-math"><script type="math/tex">m</script></span> et une meme variance <span class="math inline-math"><script type="math/tex">\sigma^2</script></span></p>
+<p><mark><strong>Theoreme</strong></mark></p>
+<p><span class="math inline-math"><script type="math/tex">X_n</script></span> une suite de variables aleatoires independantes admettant une esperance <span class="math inline-math"><script type="math/tex">m</script></span> et une variance <span class="math inline-math"><script type="math/tex">\sigma^2</script></span></p>
 <p><span class="math inline-math"><script type="math/tex">\begin{align}\overline{X_n} = \frac{1}{n} \sum_{i=1}^{n} X_i\end{align}</script></span> alors <span class="math inline-math"><script type="math/tex">\overline{X_n} \underset{n \mapsto +\infty}{\overset{P}{\longrightarrow}} m = E(X)</script></span></p>
 <blockquote>
 <p><span class="math inline-math"><script type="math/tex">\overline{X_n}</script></span> : moyenne empirique</p>
 </blockquote>
+<p><ins>Demonstration</ins></p>
+<p><span class="math inline-math"><script type="math/tex">E(\overline{X_n}) = \frac{1}{n} \sum^n_{i=1}E(X_i) = \frac{nm}{n} = m</script></span><br>
+<span class="math inline-math"><script type="math/tex">V(\overline{X_n}) = \frac{1}{n^2} \sum^n_{i=1} V(X_i)</script></span> car les <span class="math inline-math"><script type="math/tex">X_i</script></span> sont independants</p>
+<p><span class="math inline-math"><script type="math/tex">V(\overline{X_n}) = \frac{1}{n^2} \sum^{n}_{i=1} V(X_i) = \frac{n\sigma^2}{n^2} = \frac{\sigma^2}{n} \to 0</script></span></p>
+<p>En util utilisant l’inegalite de Tchebyschev</p>
+<p><span class="math inline-math"><script type="math/tex">\begin{align}\forall \varepsilon > 0\ \ P(|\overline{X_n} - m| \geq \varepsilon) \leq \frac{V(\overline{X_n})}{\varepsilon^2} \implies P(|\overline{X_n} - m| \geq \varepsilon)P(|\overline{X_n} - m| \geq \varepsilon) \leq \frac{\sigma^2}{n\varepsilon^2} \to 0\end{align}</script></span></p>
+<p>Donc <span class="math inline-math"><script type="math/tex">\begin{align}\overline{X_n} \underset{n \mapsto +\infty}{\overset{P}{\longrightarrow}} m = E(X_n)\end{align}</script></span></p>
 
   </body>
 </html>
