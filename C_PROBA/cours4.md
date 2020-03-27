@@ -157,13 +157,26 @@ Si $E(X_n) \underset{n \mapsto +\infty}{\to} a$ et $V(X_n) \underset{n \mapsto +
 :::
 
 $\forall \varepsilon > 0\ P(|X_n - E(X_n)| \geq \varepsilon) \leq \frac{V(X_n)}{\varepsilon^2} \to 0$  
-Si $n \to +\infty\ \ \ \ \ P(|X_n - a| \geq \varepsilon) \underset{n \to +\infty}{\to 0}$ Donc $X_n \overset{P}{\to} a$
+Si $n \to +\infty\ \ \ \ \ P(|X_n - a| \geq \varepsilon) \underset{n \to +\infty}{\to 0}$ Donc $X_n \underset{n \mapsto +\infty}{\overset{P}{\longrightarrow}} a$
 
 ### Loi faible des grands nombres
 
-==**Theorme**==
+==**Theoreme**==
 
-$X_n$ une suite de variables aleatoires independantes admettant une esperance $m$ et une meme variance $\sigma^2$
+$X_n$ une suite de variables aleatoires independantes admettant une esperance $m$ et une variance $\sigma^2$
 
 $\begin{align}\overline{X_n} = \frac{1}{n} \sum_{i=1}^{n} X_i\end{align}$ alors $\overline{X_n} \underset{n \mapsto +\infty}{\overset{P}{\longrightarrow}} m = E(X)$
 > $\overline{X_n}$ : moyenne empirique
+
+++Demonstration++  
+
+$E(\overline{X_n}) = \frac{1}{n} \sum^n_{i=1}E(X_i) = \frac{nm}{n} = m$  
+$V(\overline{X_n}) = \frac{1}{n^2} \sum^n_{i=1} V(X_i)$ car les $X_i$ sont independants  
+
+$V(\overline{X_n}) = \frac{1}{n^2} \sum^{n}_{i=1} V(X_i) = \frac{n\sigma^2}{n^2} = \frac{\sigma^2}{n} \to 0$  
+
+En util utilisant l'inegalite de Tchebyschev 
+
+$\begin{align}\forall \varepsilon > 0\ \ P(|\overline{X_n} - m| \geq \varepsilon) \leq \frac{V(\overline{X_n})}{\varepsilon^2} \implies P(|\overline{X_n} - m| \geq \varepsilon)P(|\overline{X_n} - m| \geq \varepsilon) \leq \frac{\sigma^2}{n\varepsilon^2} \to 0\end{align}$
+
+Donc $\begin{align}\overline{X_n} \underset{n \mapsto +\infty}{\overset{P}{\longrightarrow}} m = E(X_n)\end{align}$
