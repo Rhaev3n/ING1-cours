@@ -963,7 +963,7 @@ pre.editor-colors .bracket-matcher .region {
 <h2>Convergence en loi</h2>
 <p><mark><strong>Definition</strong></mark></p>
 <p><span class="math inline-math"><script type="math/tex">X_n</script></span> une suite de variables aleatoires de fonction de repartition <span class="math inline-math"><script type="math/tex">F_{X_n}(x)</script></span> et <span class="math inline-math"><script type="math/tex">X</script></span> une variable aleatoire de fonction de repartition <span class="math inline-math"><script type="math/tex">F_X(x)</script></span></p>
-<p>On dut que <span class="math inline-math"><script type="math/tex">X_n</script></span> converge en loi vers <span class="math inline-math"><script type="math/tex">X</script></span> ssi <span class="math inline-math"><script type="math/tex">\forall x \in \mathbb{R}</script></span> (<span class="math inline-math"><script type="math/tex">x</script></span> point de continuite dans <span class="math inline-math"><script type="math/tex">F_X(x)</script></span>)</p>
+<p>On dit que <span class="math inline-math"><script type="math/tex">X_n</script></span> converge en loi vers <span class="math inline-math"><script type="math/tex">X</script></span> ssi <span class="math inline-math"><script type="math/tex">\forall x \in \mathbb{R}</script></span> (<span class="math inline-math"><script type="math/tex">x</script></span> point de continuite dans <span class="math inline-math"><script type="math/tex">F_X(x)</script></span>)</p>
 <p><span class="math inline-math"><script type="math/tex">\underset{n \to +\infty}{lim}\ F_{X_n}(x) = F_X(x)</script></span></p>
 <p><ins>Notation</ins></p>
 <p><span class="math inline-math"><script type="math/tex">\overline{X_n} \underset{n \mapsto +\infty}{\overset{\mathscr{L}}{\longrightarrow}} X</script></span></p>
@@ -972,19 +972,19 @@ pre.editor-colors .bracket-matcher .region {
 <p>Soit <span class="math inline-math"><script type="math/tex">S_n = \sum^n_{k=1} X_k</script></span> alors on a</p>
 <p><span class="math inline-math"><script type="math/tex">\begin{align}\frac{S_n - nm}{\sigma \sqrt{n}} \underset{n \mapsto +\infty}{\overset{\mathscr{L}}{\longrightarrow}} N(0,1)\end{align}</script></span></p>
 <p><div class="alert alert-info">
-<strong>Remarque</strong><br>
-<span class="math inline-math"><script type="math/tex">E(S_n) = \sum^n_{k=1} E(X_k) = \sum^n_{k=1}m = nm</script></span><br>
-<span class="math inline-math"><script type="math/tex">V(S_n) = \sum^n_{k=1} V(X_k) = \sum^n_{k=1} \sigma^2 = n\sigma^2</script></span><br>
+<strong>Remarque</strong>
+<span class="math inline-math"><script type="math/tex">E(S_n) = \sum^n_{k=1} E(X_k) = \sum^n_{k=1}m = nm</script></span>
+<span class="math inline-math"><script type="math/tex">V(S_n) = \sum^n_{k=1} V(X_k) = \sum^n_{k=1} \sigma^2 = n\sigma^2</script></span>
 <span class="math inline-math"><script type="math/tex">\sigma(S_n) = \sigma \sqrt(n)</script></span></p>
 <p>Ce theoreme traduit <span class="math inline-math"><script type="math/tex">S_n = \sum^n_{k=1} X_k</script></span> alors on a</p>
 <p><span class="math inline-math"><script type="math/tex">\begin{align}\frac{S_n - E(S_n)}{\sigma(S_n))} \underset{n \mapsto +\infty}{\overset{\mathscr{L}}{\longrightarrow}} N(0,1)\end{align}</script></span>
 </div></p>
 <p><div class="alert alert-info">
-<strong>Remarque</strong><br>
+<strong>Remarque</strong>
 La congergence en probabilite <span class="math inline-math"><script type="math/tex">\implies</script></span> la convergence en loi
 </div></p>
 <p><div class="alert alert-info">
-<strong>Remarque</strong><br>
+<strong>Remarque</strong>
 Si la suite <span class="math inline-math"><script type="math/tex">X_n</script></span> converge en loi vers une constante <span class="math inline-math"><script type="math/tex">a</script></span>, alors on a la convergence en probabilite</p>
 <p>Convergence en probabilite : Quand on regarde l’evenement <span class="math inline-math"><script type="math/tex">X_n - a \geq \varepsilon =</script></span> points de divergence de la suite, donc on prouve que la probabilite de divergence de la suite = 0
 </div></p>
@@ -994,11 +994,11 @@ Si la suite <span class="math inline-math"><script type="math/tex">X_n</script><
 <ul>
 <li>Montrer que <span class="math inline-math"><script type="math/tex">X_n \underset{n \mapsto +\infty}{\overset{P}{\longrightarrow}} 0</script></span></li>
 </ul>
-<p>Il faut qu’on prouve que la proba <span class="math inline-math"><script type="math/tex">P(|\overline{X_n} - m| \geq \varepsilon) \underset{n \mapsto +\infty}{\overset{P}{\longrightarrow}} 0</script></span></p>
+<p>Il faut qu’on prouve que la proba <span class="math inline-math"><script type="math/tex">P(|\overline{X_n}| \geq \varepsilon) \underset{n \mapsto +\infty}{\overset{P}{\longrightarrow}} 0</script></span></p>
 <blockquote>
 <p>On passe par l’evenement contraire</p>
 </blockquote>
-<p>On cherche <span class="math inline-math"><script type="math/tex">\forall \varepsilon > 0\ \ P(|X_n| \geq \varepsilon) = 1 - P(|X_n| < \varepsilon)</script></span><br>
+<p>On cherche <span class="math inline-math"><script type="math/tex">\forall \varepsilon > 0\ \ P(|X_n| \geq \varepsilon) = 1 - P(|X_n| < \varepsilon)</script></span>
 <span class="math inline-math"><script type="math/tex">P(|X_n| \geq \varepsilon) = 1 - P(-\varepsilon < X_n < \varepsilon) = 1 - \int_{-\varepsilon}^{\varepsilon} f_n(x)dx</script></span></p>
 <p><span class="math inline-math"><script type="math/tex">\begin{align}P(|X_n| \geq \varepsilon) = 1 - \int^{\varepsilon}_{-\varepsilon} \frac{ne^{-nX}dx}{(1+e^{-nX})^2}\end{align}</script></span></p>
 <p><span class="math inline-math"><script type="math/tex">\begin{align}P(|X_n| \geq \varepsilon) = 1 - [\frac{1}{1 + e^{-nx}}]^{\varepsilon}_{-\varepsilon} = 1 - \frac{1}{1 + e^{-n\varepsilon}} + \frac{1}{1 + e^{n\varepsilon}}\end{align}</script></span></p>
@@ -1006,13 +1006,13 @@ Si la suite <span class="math inline-math"><script type="math/tex">X_n</script><
 <p>Donc <span class="math inline-math"><script type="math/tex">X_n \underset{n \mapsto +\infty}{\overset{P}{\longrightarrow}} 0</script></span></p>
 <hr>
 <p><ins>Exercice 2</ins></p>
-<p>Soit <span class="math inline-math"><script type="math/tex">X_n</script></span> uine variable aleatoire suivant la loi exponentielle de densite :<br>
-<span class="math inline-math"><script type="math/tex">f(x) = 0</script></span> ssi <span class="math inline-math"><script type="math/tex">x \leq 0</script></span><br>
+<p>Soit <span class="math inline-math"><script type="math/tex">X_n</script></span> une variable aleatoire suivant la loi exponentielle de densite :
+<span class="math inline-math"><script type="math/tex">f(x) = 0</script></span> ssi <span class="math inline-math"><script type="math/tex">x \leq 0</script></span>
 <span class="math inline-math"><script type="math/tex">f(x) = e^{-x}</script></span> si <span class="math inline-math"><script type="math/tex">x > 0</script></span></p>
 <p><span class="math inline-math"><script type="math/tex">S_1, X_2, ... X_n</script></span> une suite de variables aleatoires independantes de meme loi que <span class="math inline-math"><script type="math/tex">X</script></span></p>
 <p>Soit <span class="math inline-math"><script type="math/tex">U_n = Inf_{1 \leq i \leq n} X_i</script></span></p>
 <ul>
-<li>Montrer que <span class="math inline-math"><script type="math/tex">U_n \underset{n \mapsto +\infty}{\overset{P}{\longrightarrow}} 0</script></span></li>
+<li>Montrer que <span class="math inline-math"><script type="math/tex">U_n \underset{n \mapsto +\infty}{\overset{\mathscr{L}}{\longrightarrow}} 0</script></span></li>
 </ul>
 <p><ins>Etapes</ins></p>
 <ul>
@@ -1020,22 +1020,21 @@ Si la suite <span class="math inline-math"><script type="math/tex">X_n</script><
 <li>Fonction de repartition de la suite <span class="math inline-math"><script type="math/tex">U_n</script></span></li>
 <li>Puis sa limite en tout point de continuite (0 est le point de discontinuite de la fonction)</li>
 </ul>
-<p><span class="math inline-math"><script type="math/tex">X_1,... X_n \to Expo(\lambda = 1)</script></span><br>
+<p><span class="math inline-math"><script type="math/tex">X_1,... X_n \to Expo(\lambda = 1)</script></span>
 <span class="math inline-math"><script type="math/tex">U_n = Inf_{i \leq i \leq n} X_i</script></span></p>
-<p>Montrons que <span class="math inline-math"><script type="math/tex">U_n = Inf_{1 \leq i \leq n} X_i</script></span></p>
 <p>Foit <span class="math inline-math"><script type="math/tex">F(x)</script></span> la fonction de repartitio de <span class="math inline-math"><script type="math/tex">X: \begin{cases}F(x) = 0\ \ x < 0 \\ F(x) = 1 - e^{-x}\ \ x \geq 0\end{cases}</script></span></p>
 <p>Soit <span class="math inline-math"><script type="math/tex">G_n(x)</script></span> la fonction de repartition de <span class="math inline-math"><script type="math/tex">U_n</script></span>
-<span class="math inline-math"><script type="math/tex">x < 0\ \ G_n(x) = 0</script></span><br>
+<span class="math inline-math"><script type="math/tex">x < 0\ \ G_n(x) = 0</script></span>
 <span class="math inline-math"><script type="math/tex">x \geq 0\ \ G_n(x) = P(U_n \leq x)</script></span></p>
-<p><span class="math inline-math"><script type="math/tex">G_n(x) = 1 - P(U_n > x)</script></span><br>
-<span class="math inline-math"><script type="math/tex">G_n(x) = 1 - P(X_i > x,\ i \in \{1,...n\})</script></span><br>
-<span class="math inline-math"><script type="math/tex">G_n(x) = 1 - P(\bigcap^n_{i=1} X_i > x)</script></span> et <span class="math inline-math"><script type="math/tex">X</script></span> independante<br>
-<span class="math inline-math"><script type="math/tex">G_n(x) = 1 - \prod^n_{i=1} P(X_i > x)</script></span><br>
-<span class="math inline-math"><script type="math/tex">G_n(x) = \prod^n_{i=1}(1 - P(X_i \leq x))</script></span><br>
+<p><span class="math inline-math"><script type="math/tex">G_n(x) = 1 - P(U_n > x)</script></span>
+<span class="math inline-math"><script type="math/tex">G_n(x) = 1 - P(X_i > x,\ i \in \{1,...n\})</script></span>
+<span class="math inline-math"><script type="math/tex">G_n(x) = 1 - P(\bigcap^n_{i=1} X_i > x)</script></span> et <span class="math inline-math"><script type="math/tex">X</script></span> independante
+<span class="math inline-math"><script type="math/tex">G_n(x) = 1 - \prod^n_{i=1} P(X_i > x)</script></span>
+<span class="math inline-math"><script type="math/tex">G_n(x) = \prod^n_{i=1}(1 - P(X_i \leq x))</script></span>
 <span class="math inline-math"><script type="math/tex">G_n(x) = 1 - \prod^n_{i=1} (1 - F(x)) = 1 e^{-x}</script></span></p>
-<p>Donc <span class="math inline-math"><script type="math/tex">G_n(x) = 1 - e^{-x}</script></span> si <span class="math inline-math"><script type="math/tex">x \geq 0</script></span><br>
+<p>Donc <span class="math inline-math"><script type="math/tex">G_n(x) = 1 - e^{-x}</script></span> si <span class="math inline-math"><script type="math/tex">x \geq 0</script></span>
 <span class="math inline-math"><script type="math/tex">G_n(x) = 0</script></span> si <span class="math inline-math"><script type="math/tex">x < 0</script></span></p>
-<p>Si <span class="math inline-math"><script type="math/tex">x < 0\ \ \underset{n \to \infty}{lim}G_n(x) = 0</script></span><br>
+<p>Si <span class="math inline-math"><script type="math/tex">x < 0\ \ \underset{n \to \infty}{lim}G_n(x) = 0</script></span>
 Si <span class="math inline-math"><script type="math/tex">x > 0\ \ \underset{n \to \infty}{lim} G_n(x) = 1</script></span></p>
 <p>Or <span class="math inline-math"><script type="math/tex">G_n(x) = \begin{cases}0\ \ x < 0\\ 1\ \ x > 0\end{cases}</script></span> est la fonction de repartition de <span class="math inline-math"><script type="math/tex">X = 0</script></span></p>
 <p>Donc <span class="math inline-math"><script type="math/tex">U_n \underset{n \mapsto +\infty}{\overset{\mathscr{L}}{\longrightarrow}} 0</script></span></p>
@@ -1053,16 +1052,24 @@ Si <span class="math inline-math"><script type="math/tex">x > 0\ \ \underset{n \
 <ol start="2">
 <li>Soit <span class="math inline-math"><script type="math/tex">X_n</script></span> une suite de variables aleatoires admettant <span class="math inline-math"><script type="math/tex">f_n</script></span> pour densite. On pose <span class="math inline-math"><script type="math/tex">Y_n = nX_n</script></span>. Montrer que <span class="math inline-math"><script type="math/tex">Y_n \underset{n \mapsto +\infty}{\overset{\mathscr{L}}{\longrightarrow}} Y</script></span></li>
 </ol>
-<p><span class="math inline-math"><script type="math/tex">\forall x \in \mathbb{R}\ \ \ (Y_n \leq x) = P(nX_n \leq x)</script></span><br>
+<p><span class="math inline-math"><script type="math/tex">\forall x \in \mathbb{R}\ \ \ (Y_n \leq x) = P(nX_n \leq x)</script></span>
 <span class="math inline-math"><script type="math/tex">P(Y_n \leq x) = P(X_n \leq \frac{x}{n})</script></span></p>
-<p>Si <span class="math inline-math"><script type="math/tex">x < 0,\ P(Y_n \leq x) = 0</script></span><br>
-Si <span class="math inline-math"><script type="math/tex">X \in [0,n] \implies 0 \leq \frac{x}{n} \leq 1</script></span></p>
+<ul>
+<li>
+<p>Si <span class="math inline-math"><script type="math/tex">x < 0,\ P(Y_n \leq x) = 0</script></span></p>
+</li>
+<li>
+<p>Si <span class="math inline-math"><script type="math/tex">x \in [0,n] \implies 0 \leq \frac{x}{n} \leq 1</script></span></p>
+</li>
+</ul>
 <p>Donc <span class="math inline-math"><script type="math/tex">P(Y_x \leq x) = \int^{x/n}_{0} (n+1)(1-t)^n dt</script></span></p>
 <p><span class="math inline-math"><script type="math/tex">P(Y_n \leq x) = [-(1-t)^{n+1}]^{x/n}_0 = 1 - (1 - \frac{x}{n})^{n+1}</script></span></p>
-<p>Si <span class="math inline-math"><script type="math/tex">x > n,\ P(Y_n \leq x) = \int^{x/n}_{0}f_n(t)dt</script></span></p>
-<p>Or <span class="math inline-math"><script type="math/tex">\frac{x}{n} > 1 \implies \int^1_0 f_n(t) dt = 1</script></span></p>
+<ul>
+<li>Si <span class="math inline-math"><script type="math/tex">x > n,\ P(Y_n \leq x) = \int^{x/n}_{0}f_n(t)dt</script></span></li>
+</ul>
+<p>Or <span class="math inline-math"><script type="math/tex">\begin{align}\frac{x}{n} > 1 &\implies f_n(t) = 0\ si\ t > 1  \\&\implies P(Y_n \leq x) = \int^1_0 f_n(t) dt = 1\end{align}</script></span></p>
 <p>Donc la fonction de repartition de <span class="math inline-math"><script type="math/tex">Y_n</script></span> est</p>
-<p><span class="math inline-math"><script type="math/tex">F_n(x) = \begin{cases}0\ si\  x< 0 \\ 1 - (1 - \frac{x}{n+1})^{n+1}\ si\ 0 \leq x \leq n \\ 1\ si\ x > n \end{cases}</script></span></p>
+<p><span class="math inline-math"><script type="math/tex">F_n(x) = \begin{cases}0\ si\  x< 0 \\ 1 - (1 - \frac{x}{n})^{n+1}\ si\ 0 \leq x \leq n \\ 1\ si\ x > n \end{cases}</script></span></p>
 <p><span class="math inline-math"><script type="math/tex">\begin{align}(1 - \frac{x}{n})^{n+1} = e^{(n+1)ln(1-\frac{x}{n})}\end{align}</script></span></p>
 <p>On sait que <span class="math inline-math"><script type="math/tex">ln(1 - \frac{x}{n}) \sim -\frac{x}{n}</script></span> au voisinage de 0 <span class="math inline-math"><script type="math/tex">\ \ \ \ (\frac{x}{n} \underset{n \to +\infty}{\to} 0</script></span>)</p>
 <p>Donc <span class="math inline-math"><script type="math/tex">(1 - \frac{x}{n})^{n+1} \sim e^{-\frac{(n+1)}{n}x} \underset{}{\to} e^{-x}</script></span></p>
